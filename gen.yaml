@@ -9,4 +9,4 @@ generation:
 php:
     version: 1.2.0
     namespace: Openai\SDK
-    packageName: openapi/openapi
+    packageName: speakeasy/openai
