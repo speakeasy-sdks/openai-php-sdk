@@ -7,6 +7,6 @@ generation:
     telemetryEnabled: false
     sdkClassName: openai
 php:
-    version: 1.2.0
+    version: 1.2.1
     namespace: Openai\SDK
     packageName: speakeasy/openai

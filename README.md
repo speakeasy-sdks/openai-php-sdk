@@ -15,7 +15,7 @@
 ### Composer
 
 ```bash
-composer require "openapi/openapi"
+composer require "speakeasy/openai"
 ```
 <!-- End SDK Installation -->
 

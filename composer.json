@@ -1,5 +1,5 @@
 {
-  "name": "openapi/openapi",
+  "name": "speakeasy/openai",
   "type": "library",
   "autoload": {
     "psr-4": {
