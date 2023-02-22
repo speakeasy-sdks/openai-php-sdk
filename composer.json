@@ -1,5 +1,5 @@
 {
-  "name": "speakeasy/openai",
+  "name": "speakeasy-sdks/openai-php-sdk",
   "type": "library",
   "autoload": {
     "psr-4": {
