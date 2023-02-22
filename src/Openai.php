@@ -18,8 +18,8 @@ class Openai
 	
 	private string $_serverUrl;
 	private string $_language = "php";
-	private string $_sdkVersion = "1.2.2";
-	private string $_genVersion = "1.4.7";
+	private string $_sdkVersion = "1.2.3";
+	private string $_genVersion = "1.4.8";
 
 	public static function builder(): OpenaiBuilder
 	{
