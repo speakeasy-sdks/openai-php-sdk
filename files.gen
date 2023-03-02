@@ -24,6 +24,8 @@ src/Models/Operations/CancelFineTuneRequest.php
 src/Models/Operations/CancelFineTuneResponse.php
 src/Models/Operations/CreateAnswerRequest.php
 src/Models/Operations/CreateAnswerResponse.php
+src/Models/Operations/CreateChatCompletionRequest.php
+src/Models/Operations/CreateChatCompletionResponse.php
 src/Models/Operations/CreateClassificationRequest.php
 src/Models/Operations/CreateClassificationResponse.php
 src/Models/Operations/CreateCompletionRequest.php
@@ -47,6 +49,10 @@ src/Models/Operations/CreateModerationResponse.php
 src/Models/Operations/CreateSearchPathParams.php
 src/Models/Operations/CreateSearchRequest.php
 src/Models/Operations/CreateSearchResponse.php
+src/Models/Operations/CreateTranscriptionRequest.php
+src/Models/Operations/CreateTranscriptionResponse.php
+src/Models/Operations/CreateTranslationRequest.php
+src/Models/Operations/CreateTranslationResponse.php
 src/Models/Operations/DeleteFilePathParams.php
 src/Models/Operations/DeleteFileRequest.php
 src/Models/Operations/DeleteFileResponse.php
@@ -79,6 +85,14 @@ src/Models/Operations/RetrieveModelResponse.php
 src/Models/Shared/CreateAnswerResponseSelectedDocuments.php
 src/Models/Shared/CreateAnswerResponse.php
 src/Models/Shared/CreateAnswerRequest.php
+src/Models/Shared/CreateChatCompletionResponseChoices.php
+src/Models/Shared/CreateChatCompletionResponseUsage.php
+src/Models/Shared/CreateChatCompletionResponse.php
+src/Models/Shared/ChatCompletionResponseMessageRoleEnum.php
+src/Models/Shared/ChatCompletionResponseMessage.php
+src/Models/Shared/CreateChatCompletionRequest.php
+src/Models/Shared/ChatCompletionRequestMessageRoleEnum.php
+src/Models/Shared/ChatCompletionRequestMessage.php
 src/Models/Shared/CreateClassificationResponseSelectedExamples.php
 src/Models/Shared/CreateClassificationResponse.php
 src/Models/Shared/CreateClassificationRequest.php
@@ -115,6 +129,12 @@ src/Models/Shared/CreateModerationRequest.php
 src/Models/Shared/CreateSearchResponseData.php
 src/Models/Shared/CreateSearchResponse.php
 src/Models/Shared/CreateSearchRequest.php
+src/Models/Shared/CreateTranscriptionResponse.php
+src/Models/Shared/CreateTranscriptionRequestFile.php
+src/Models/Shared/CreateTranscriptionRequest.php
+src/Models/Shared/CreateTranslationResponse.php
+src/Models/Shared/CreateTranslationRequestFile.php
+src/Models/Shared/CreateTranslationRequest.php
 src/Models/Shared/DeleteFileResponse.php
 src/Models/Shared/DeleteModelResponse.php
 src/Models/Shared/ListEnginesResponse.php

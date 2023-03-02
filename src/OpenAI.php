@@ -90,6 +90,39 @@ class OpenAI
     }
     
     /**
+     * createChatCompletion - Creates a completion for the chat message
+    */
+    public function createChatCompletion(\Openai\SDK\Models\Operations\CreateChatCompletionRequest $request): \Openai\SDK\Models\Operations\CreateChatCompletionResponse
+    {
+        $baseUrl = $this->_serverUrl;
+        $url = Utils\Utils::generateURL($baseUrl, '/chat/completions');
+        
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request);
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $options = array_merge_recursive($options, $body);
+        
+        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $response = new \Openai\SDK\Models\Operations\CreateChatCompletionResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->createChatCompletionResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateChatCompletionResponse', 'json');
+            }
+        }
+
+        return $response;
+    }
+    
+    /**
      * createClassification - Classifies the specified `query` using provided examples.
      * 
      * The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
@@ -165,7 +198,7 @@ class OpenAI
     }
     
     /**
-     * createEdit - Creates a new edit for the provided input, instruction, and parameters
+     * createEdit - Creates a new edit for the provided input, instruction, and parameters.
     */
     public function createEdit(\Openai\SDK\Models\Operations\CreateEditRequest $request): \Openai\SDK\Models\Operations\CreateEditResponse
     {
@@ -466,6 +499,72 @@ class OpenAI
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->createSearchResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateSearchResponse', 'json');
+            }
+        }
+
+        return $response;
+    }
+    
+    /**
+     * createTranscription - Transcribes audio into the input language.
+    */
+    public function createTranscription(\Openai\SDK\Models\Operations\CreateTranscriptionRequest $request): \Openai\SDK\Models\Operations\CreateTranscriptionResponse
+    {
+        $baseUrl = $this->_serverUrl;
+        $url = Utils\Utils::generateURL($baseUrl, '/audio/transcriptions');
+        
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request);
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $options = array_merge_recursive($options, $body);
+        
+        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $response = new \Openai\SDK\Models\Operations\CreateTranscriptionResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->createTranscriptionResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateTranscriptionResponse', 'json');
+            }
+        }
+
+        return $response;
+    }
+    
+    /**
+     * createTranslation - Translates audio into into English.
+    */
+    public function createTranslation(\Openai\SDK\Models\Operations\CreateTranslationRequest $request): \Openai\SDK\Models\Operations\CreateTranslationResponse
+    {
+        $baseUrl = $this->_serverUrl;
+        $url = Utils\Utils::generateURL($baseUrl, '/audio/translations');
+        
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request);
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $options = array_merge_recursive($options, $body);
+        
+        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $response = new \Openai\SDK\Models\Operations\CreateTranslationResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->createTranslationResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateTranslationResponse', 'json');
             }
         }
 
