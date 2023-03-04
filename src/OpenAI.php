@@ -6,6 +6,34 @@ namespace Openai\SDK;
 
 class OpenAI 
 {
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
@@ -28,7 +56,9 @@ class OpenAI
      * cancelFineTune - Immediately cancel a fine-tune job.
      * 
     */
-    public function cancelFineTune(\Openai\SDK\Models\Operations\CancelFineTuneRequest $request): \Openai\SDK\Models\Operations\CancelFineTuneResponse
+    public function cancelFineTune(
+        \Openai\SDK\Models\Operations\CancelFineTuneRequest $request,
+    ): \Openai\SDK\Models\Operations\CancelFineTuneResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes/{fine_tune_id}/cancel', $request->pathParams);
@@ -42,6 +72,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CancelFineTuneResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -59,7 +90,9 @@ class OpenAI
      * The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
      * 
     */
-    public function createAnswer(\Openai\SDK\Models\Operations\CreateAnswerRequest $request): \Openai\SDK\Models\Operations\CreateAnswerResponse
+    public function createAnswer(
+        \Openai\SDK\Models\Operations\CreateAnswerRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateAnswerResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/answers');
@@ -78,6 +111,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateAnswerResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -92,7 +126,9 @@ class OpenAI
     /**
      * createChatCompletion - Creates a completion for the chat message
     */
-    public function createChatCompletion(\Openai\SDK\Models\Operations\CreateChatCompletionRequest $request): \Openai\SDK\Models\Operations\CreateChatCompletionResponse
+    public function createChatCompletion(
+        \Openai\SDK\Models\Operations\CreateChatCompletionRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateChatCompletionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/chat/completions');
@@ -111,6 +147,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateChatCompletionResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -134,7 +171,9 @@ class OpenAI
      * request using the `examples` parameter for quick tests and small scale use cases.
      * 
     */
-    public function createClassification(\Openai\SDK\Models\Operations\CreateClassificationRequest $request): \Openai\SDK\Models\Operations\CreateClassificationResponse
+    public function createClassification(
+        \Openai\SDK\Models\Operations\CreateClassificationRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateClassificationResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/classifications');
@@ -153,6 +192,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateClassificationResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -167,7 +207,9 @@ class OpenAI
     /**
      * createCompletion - Creates a completion for the provided prompt and parameters
     */
-    public function createCompletion(\Openai\SDK\Models\Operations\CreateCompletionRequest $request): \Openai\SDK\Models\Operations\CreateCompletionResponse
+    public function createCompletion(
+        \Openai\SDK\Models\Operations\CreateCompletionRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateCompletionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/completions');
@@ -186,6 +228,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateCompletionResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -200,7 +243,9 @@ class OpenAI
     /**
      * createEdit - Creates a new edit for the provided input, instruction, and parameters.
     */
-    public function createEdit(\Openai\SDK\Models\Operations\CreateEditRequest $request): \Openai\SDK\Models\Operations\CreateEditResponse
+    public function createEdit(
+        \Openai\SDK\Models\Operations\CreateEditRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateEditResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/edits');
@@ -219,6 +264,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateEditResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -233,7 +279,9 @@ class OpenAI
     /**
      * createEmbedding - Creates an embedding vector representing the input text.
     */
-    public function createEmbedding(\Openai\SDK\Models\Operations\CreateEmbeddingRequest $request): \Openai\SDK\Models\Operations\CreateEmbeddingResponse
+    public function createEmbedding(
+        \Openai\SDK\Models\Operations\CreateEmbeddingRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateEmbeddingResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/embeddings');
@@ -252,6 +300,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateEmbeddingResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -267,7 +316,9 @@ class OpenAI
      * createFile - Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
      * 
     */
-    public function createFile(\Openai\SDK\Models\Operations\CreateFileRequest $request): \Openai\SDK\Models\Operations\CreateFileResponse
+    public function createFile(
+        \Openai\SDK\Models\Operations\CreateFileRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateFileResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/files');
@@ -286,6 +337,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateFileResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -305,7 +357,9 @@ class OpenAI
      * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
      * 
     */
-    public function createFineTune(\Openai\SDK\Models\Operations\CreateFineTuneRequest $request): \Openai\SDK\Models\Operations\CreateFineTuneResponse
+    public function createFineTune(
+        \Openai\SDK\Models\Operations\CreateFineTuneRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateFineTuneResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes');
@@ -324,6 +378,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateFineTuneResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -338,7 +393,9 @@ class OpenAI
     /**
      * createImage - Creates an image given a prompt.
     */
-    public function createImage(\Openai\SDK\Models\Operations\CreateImageRequest $request): \Openai\SDK\Models\Operations\CreateImageResponse
+    public function createImage(
+        \Openai\SDK\Models\Operations\CreateImageRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateImageResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/images/generations');
@@ -357,6 +414,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateImageResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -371,7 +429,9 @@ class OpenAI
     /**
      * createImageEdit - Creates an edited or extended image given an original image and a prompt.
     */
-    public function createImageEdit(\Openai\SDK\Models\Operations\CreateImageEditRequest $request): \Openai\SDK\Models\Operations\CreateImageEditResponse
+    public function createImageEdit(
+        \Openai\SDK\Models\Operations\CreateImageEditRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateImageEditResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/images/edits');
@@ -390,6 +450,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateImageEditResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -404,7 +465,9 @@ class OpenAI
     /**
      * createImageVariation - Creates a variation of a given image.
     */
-    public function createImageVariation(\Openai\SDK\Models\Operations\CreateImageVariationRequest $request): \Openai\SDK\Models\Operations\CreateImageVariationResponse
+    public function createImageVariation(
+        \Openai\SDK\Models\Operations\CreateImageVariationRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateImageVariationResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/images/variations');
@@ -423,6 +486,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateImageVariationResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -437,7 +501,9 @@ class OpenAI
     /**
      * createModeration - Classifies if text violates OpenAI's Content Policy
     */
-    public function createModeration(\Openai\SDK\Models\Operations\CreateModerationRequest $request): \Openai\SDK\Models\Operations\CreateModerationResponse
+    public function createModeration(
+        \Openai\SDK\Models\Operations\CreateModerationRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateModerationResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/moderations');
@@ -456,6 +522,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateModerationResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -475,7 +542,9 @@ class OpenAI
      * The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
      * 
     */
-    public function createSearch(\Openai\SDK\Models\Operations\CreateSearchRequest $request): \Openai\SDK\Models\Operations\CreateSearchResponse
+    public function createSearch(
+        \Openai\SDK\Models\Operations\CreateSearchRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateSearchResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/engines/{engine_id}/search', $request->pathParams);
@@ -494,6 +563,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateSearchResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -508,7 +578,9 @@ class OpenAI
     /**
      * createTranscription - Transcribes audio into the input language.
     */
-    public function createTranscription(\Openai\SDK\Models\Operations\CreateTranscriptionRequest $request): \Openai\SDK\Models\Operations\CreateTranscriptionResponse
+    public function createTranscription(
+        \Openai\SDK\Models\Operations\CreateTranscriptionRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateTranscriptionResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/audio/transcriptions');
@@ -527,6 +599,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateTranscriptionResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -541,7 +614,9 @@ class OpenAI
     /**
      * createTranslation - Translates audio into into English.
     */
-    public function createTranslation(\Openai\SDK\Models\Operations\CreateTranslationRequest $request): \Openai\SDK\Models\Operations\CreateTranslationResponse
+    public function createTranslation(
+        \Openai\SDK\Models\Operations\CreateTranslationRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateTranslationResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/audio/translations');
@@ -560,6 +635,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\CreateTranslationResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -574,7 +650,9 @@ class OpenAI
     /**
      * deleteFile - Delete a file.
     */
-    public function deleteFile(\Openai\SDK\Models\Operations\DeleteFileRequest $request): \Openai\SDK\Models\Operations\DeleteFileResponse
+    public function deleteFile(
+        \Openai\SDK\Models\Operations\DeleteFileRequest $request,
+    ): \Openai\SDK\Models\Operations\DeleteFileResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/files/{file_id}', $request->pathParams);
@@ -588,6 +666,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\DeleteFileResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -602,7 +681,9 @@ class OpenAI
     /**
      * deleteModel - Delete a fine-tuned model. You must have the Owner role in your organization.
     */
-    public function deleteModel(\Openai\SDK\Models\Operations\DeleteModelRequest $request): \Openai\SDK\Models\Operations\DeleteModelResponse
+    public function deleteModel(
+        \Openai\SDK\Models\Operations\DeleteModelRequest $request,
+    ): \Openai\SDK\Models\Operations\DeleteModelResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/models/{model}', $request->pathParams);
@@ -616,6 +697,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\DeleteModelResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -630,7 +712,9 @@ class OpenAI
     /**
      * downloadFile - Returns the contents of the specified file
     */
-    public function downloadFile(\Openai\SDK\Models\Operations\DownloadFileRequest $request): \Openai\SDK\Models\Operations\DownloadFileResponse
+    public function downloadFile(
+        \Openai\SDK\Models\Operations\DownloadFileRequest $request,
+    ): \Openai\SDK\Models\Operations\DownloadFileResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/files/{file_id}/content', $request->pathParams);
@@ -644,6 +728,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\DownloadFileResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -657,7 +742,8 @@ class OpenAI
     /**
      * listEngines - Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
     */
-    public function listEngines(): \Openai\SDK\Models\Operations\ListEnginesResponse
+    public function listEngines(
+    ): \Openai\SDK\Models\Operations\ListEnginesResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/engines');
@@ -671,6 +757,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\ListEnginesResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -685,7 +772,8 @@ class OpenAI
     /**
      * listFiles - Returns a list of files that belong to the user's organization.
     */
-    public function listFiles(): \Openai\SDK\Models\Operations\ListFilesResponse
+    public function listFiles(
+    ): \Openai\SDK\Models\Operations\ListFilesResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/files');
@@ -699,6 +787,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\ListFilesResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -714,7 +803,9 @@ class OpenAI
      * listFineTuneEvents - Get fine-grained status updates for a fine-tune job.
      * 
     */
-    public function listFineTuneEvents(\Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request): \Openai\SDK\Models\Operations\ListFineTuneEventsResponse
+    public function listFineTuneEvents(
+        \Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request,
+    ): \Openai\SDK\Models\Operations\ListFineTuneEventsResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes/{fine_tune_id}/events', $request->pathParams);
@@ -729,6 +820,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\ListFineTuneEventsResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -744,7 +836,8 @@ class OpenAI
      * listFineTunes - List your organization's fine-tuning jobs
      * 
     */
-    public function listFineTunes(): \Openai\SDK\Models\Operations\ListFineTunesResponse
+    public function listFineTunes(
+    ): \Openai\SDK\Models\Operations\ListFineTunesResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes');
@@ -758,6 +851,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\ListFineTunesResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -772,7 +866,8 @@ class OpenAI
     /**
      * listModels - Lists the currently available models, and provides basic information about each one such as the owner and availability.
     */
-    public function listModels(): \Openai\SDK\Models\Operations\ListModelsResponse
+    public function listModels(
+    ): \Openai\SDK\Models\Operations\ListModelsResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/models');
@@ -786,6 +881,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\ListModelsResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -800,7 +896,9 @@ class OpenAI
     /**
      * retrieveEngine - Retrieves a model instance, providing basic information about it such as the owner and availability.
     */
-    public function retrieveEngine(\Openai\SDK\Models\Operations\RetrieveEngineRequest $request): \Openai\SDK\Models\Operations\RetrieveEngineResponse
+    public function retrieveEngine(
+        \Openai\SDK\Models\Operations\RetrieveEngineRequest $request,
+    ): \Openai\SDK\Models\Operations\RetrieveEngineResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/engines/{engine_id}', $request->pathParams);
@@ -814,6 +912,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\RetrieveEngineResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -828,7 +927,9 @@ class OpenAI
     /**
      * retrieveFile - Returns information about a specific file.
     */
-    public function retrieveFile(\Openai\SDK\Models\Operations\RetrieveFileRequest $request): \Openai\SDK\Models\Operations\RetrieveFileResponse
+    public function retrieveFile(
+        \Openai\SDK\Models\Operations\RetrieveFileRequest $request,
+    ): \Openai\SDK\Models\Operations\RetrieveFileResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/files/{file_id}', $request->pathParams);
@@ -842,6 +943,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\RetrieveFileResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -859,7 +961,9 @@ class OpenAI
      * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
      * 
     */
-    public function retrieveFineTune(\Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request): \Openai\SDK\Models\Operations\RetrieveFineTuneResponse
+    public function retrieveFineTune(
+        \Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request,
+    ): \Openai\SDK\Models\Operations\RetrieveFineTuneResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes/{fine_tune_id}', $request->pathParams);
@@ -873,6 +977,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\RetrieveFineTuneResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -887,7 +992,9 @@ class OpenAI
     /**
      * retrieveModel - Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
     */
-    public function retrieveModel(\Openai\SDK\Models\Operations\RetrieveModelRequest $request): \Openai\SDK\Models\Operations\RetrieveModelResponse
+    public function retrieveModel(
+        \Openai\SDK\Models\Operations\RetrieveModelRequest $request,
+    ): \Openai\SDK\Models\Operations\RetrieveModelResponse
     {
         $baseUrl = $this->_serverUrl;
         $url = Utils\Utils::generateURL($baseUrl, '/models/{model}', $request->pathParams);
@@ -901,6 +1008,7 @@ class OpenAI
         $response = new \Openai\SDK\Models\Operations\RetrieveModelResponse();
         $response->statusCode = $httpResponse->getStatusCode();
         $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {

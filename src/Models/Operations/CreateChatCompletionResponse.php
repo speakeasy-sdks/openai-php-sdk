@@ -14,10 +14,13 @@ class CreateChatCompletionResponse
     
     public int $statusCode;
     
+    public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
+    
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->createChatCompletionResponse = null;
 		$this->statusCode = 0;
+		$this->rawResponse = null;
 	}
 }

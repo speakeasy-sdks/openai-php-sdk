@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Openai\SDK;
 
+/**
+ * SDK Documentation: APIs for sampling from and fine-tuning language models
+ */
 class Openai
 {
 	public const SERVERS = [
@@ -18,8 +21,8 @@ class Openai
 	
 	private string $_serverUrl;
 	private string $_language = "php";
-	private string $_sdkVersion = "1.5.0";
-	private string $_genVersion = "1.7.1";
+	private string $_sdkVersion = "1.6.0";
+	private string $_genVersion = "1.8.2";
 
 	public static function builder(): OpenaiBuilder
 	{
@@ -47,7 +50,7 @@ class Openai
 		}
 
 		if (!empty($serverUrl)) {
-			$this->_serverUrl = Utils\Utils::replaceParameters($serverUrl, $params);
+			$this->_serverUrl = Utils\Utils::templateUrl($serverUrl, $params);
 		}
 		
 		if (empty($this->_serverUrl)) {
