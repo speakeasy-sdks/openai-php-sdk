@@ -14,7 +14,7 @@ jobs:
       publish_php: true
       create_release: true
     secrets:
-      packagist_username: ${{ secrets.PACKAGIST_USERNAME }}
-      packagist_token: ${{ secrets.PACKAGIST_TOKEN }}
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+      packagist_username: ${{ secrets.PACKAGIST_USERNAME }}
+      packagist_token: ${{ secrets.PACKAGIST_TOKEN }}

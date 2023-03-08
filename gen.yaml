@@ -5,7 +5,8 @@ management:
     speakeasyVersion: 1.4.8
 generation:
     telemetryEnabled: false
-    sdkClassName: openai
+    sdkClassName: gpt
+    sdkFlattening: true
 php:
     version: 1.2.4
     namespace: Openai\SDK
