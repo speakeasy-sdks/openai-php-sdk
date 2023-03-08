@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Openai\SDK;
 
-class OpenaiBuilder
+class GptBuilder
 {
     private ?\GuzzleHttp\ClientInterface $client;
     
@@ -19,7 +19,7 @@ class OpenaiBuilder
         $this->params = null;
     }
 
-    public function setClient(\GuzzleHttp\ClientInterface $client): OpenaiBuilder
+    public function setClient(\GuzzleHttp\ClientInterface $client): GptBuilder
     {
         $this->client = $client;
         return $this;
@@ -29,9 +29,9 @@ class OpenaiBuilder
     * Set the server URL and any parameters to interpolate into the URL.
     * @param string $serverUrl
     * @param array<string, string> $params
-    * @return OpenaiBuilder
+    * @return GptBuilder
     */
-    public function setServerURL(string $serverUrl, ?array $params = null): OpenaiBuilder
+    public function setServerURL(string $serverUrl, ?array $params = null): GptBuilder
     {
         $this->serverUrl = $serverUrl;
         if ($params !== null) {
@@ -40,8 +40,8 @@ class OpenaiBuilder
         return $this;
     }
     
-    public function build(): Openai
+    public function build(): Gpt
     {
-        return new Openai($this->client, $this->serverUrl, $this->params);
+        return new Gpt($this->client, $this->serverUrl, $this->params);
     }
 }

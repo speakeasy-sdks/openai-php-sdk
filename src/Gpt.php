@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Openai\SDK;
 
-class Openai
+/**
+ * SDK Documentation: APIs for sampling from and fine-tuning language models
+ */
+class Gpt
 {
 	public const SERVERS = [
 		'https://api.openai.com/v1',
@@ -18,12 +21,12 @@ class Openai
 	
 	private string $_serverUrl;
 	private string $_language = "php";
-	private string $_sdkVersion = "1.2.4";
-	private string $_genVersion = "1.4.8";
+	private string $_sdkVersion = "1.3.0";
+	private string $_genVersion = "1.8.6";
 
-	public static function builder(): OpenaiBuilder
+	public static function builder(): GptBuilder
 	{
-		return new OpenaiBuilder();
+		return new GptBuilder();
 	}
 
 	/**
@@ -47,7 +50,7 @@ class Openai
 		}
 
 		if (!empty($serverUrl)) {
-			$this->_serverUrl = Utils\Utils::replaceParameters($serverUrl, $params);
+			$this->_serverUrl = Utils\Utils::templateUrl($serverUrl, $params);
 		}
 		
 		if (empty($this->_serverUrl)) {

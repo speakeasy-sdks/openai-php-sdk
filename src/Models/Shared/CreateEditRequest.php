@@ -18,8 +18,8 @@ class CreateEditRequest
     public string $instruction;
     
     #[\JMS\Serializer\Annotation\SerializedName('model')]
-    #[\JMS\Serializer\Annotation\Type('mixed')]
-    public mixed $model;
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $model;
     
     #[\JMS\Serializer\Annotation\SerializedName('n')]
     #[\JMS\Serializer\Annotation\Type('int')]
@@ -40,7 +40,7 @@ class CreateEditRequest
 	{
 		$this->input = null;
 		$this->instruction = "";
-		$this->model = null;
+		$this->model = "";
 		$this->n = null;
 		$this->temperature = null;
 		$this->topP = null;

@@ -14,10 +14,13 @@ class ListEnginesResponse
     
     public int $statusCode;
     
+    public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
+    
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->listEnginesResponse = null;
 		$this->statusCode = 0;
+		$this->rawResponse = null;
 	}
 }

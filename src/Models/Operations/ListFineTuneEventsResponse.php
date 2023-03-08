@@ -14,10 +14,13 @@ class ListFineTuneEventsResponse
     
     public int $statusCode;
     
+    public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
+    
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->listFineTuneEventsResponse = null;
 		$this->statusCode = 0;
+		$this->rawResponse = null;
 	}
 }
