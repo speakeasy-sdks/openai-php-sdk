@@ -6,21 +6,21 @@ namespace Openai\SDK\Models\Operations;
 
 
 
-class DownloadFileResponse
+class CreateChatCompletionResponse
 {
     public string $contentType;
+    
+    public ?\Openai\SDK\Models\Shared\CreateChatCompletionResponse $createChatCompletionResponse = null;
     
     public int $statusCode;
     
     public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
     
-    public ?string $downloadFile200ApplicationJSONString = null;
-    
 	public function __construct()
 	{
 		$this->contentType = "";
+		$this->createChatCompletionResponse = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->downloadFile200ApplicationJSONString = null;
 	}
 }
