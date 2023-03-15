@@ -9,23 +9,31 @@ use ReflectionProperty;
 class QueryParameters
 {
     /**
+     * @param string $type
      * @param mixed $queryParams
+     * @param array<string, array<string, array<string, string>>> $globals
      * @return string
      */
-    public function parseQueryParams(mixed $queryParams): string | null
+    public function parseQueryParams(string $type, mixed $queryParams, array $globals): string | null
     {
         $parts = [];
 
-        if ($queryParams === null) {
-            return null;
-        }
+        $fields = array_keys(get_class_vars($type));
 
-        foreach ($queryParams as $field => $value) {
+        foreach ($fields as $field ) {
+            $value = $queryParams !== null ? $queryParams->{$field} : null;
+            $value = populateGlobal($value, 'queryParam', $field, $globals);
+
             if ($value === null) {
                 continue;
             }
 
-            $metadata = $this->parseQueryParamsMetadata(new ReflectionProperty(get_class($queryParams), $field));
+            $requestMetadata = RequestBodies::parseRequestMetadata(new ReflectionProperty($type, $field));
+            if ($requestMetadata !== null) {
+                continue;
+            }
+
+            $metadata = $this->parseQueryParamsMetadata(new ReflectionProperty($type, $field));
             if ($metadata === null) {
                 continue;
             }

@@ -14,7 +14,7 @@ class RequestMetadata
             return null;
         }
 
-        $metadata = remove_prefix($metadata, "request:");
+        $metadata = removePrefix($metadata, "request:");
 
         $mediaType = "";
 

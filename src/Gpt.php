@@ -20,9 +20,9 @@ class Gpt
 	private ?\GuzzleHttp\ClientInterface $_securityClient;
 	
 	private string $_serverUrl;
-	private string $_language = "php";
-	private string $_sdkVersion = "1.4.1";
-	private string $_genVersion = "1.9.2";
+	private string $_language = 'php';
+	private string $_sdkVersion = '1.5.0';
+	private string $_genVersion = '1.11.0';
 
 	public static function builder(): GptBuilder
 	{

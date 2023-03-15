@@ -18,7 +18,7 @@ class MultipartMetadata
             return null;
         }
 
-        $metadata = remove_prefix($metadata, "multipartForm:");
+        $metadata = removePrefix($metadata, "multipartForm:");
 
         $name = "";
         $file = false;

@@ -9,23 +9,31 @@ use ReflectionProperty;
 class PathParameters
 {
     /**
+     * @param string $type
      * @param mixed $pathParams
+     * @param array<string, array<string, array<string, string>>> $globals
      * @return array<string, string>
      */
-    public function parsePathParams(mixed $pathParams): array
+    public function parsePathParams(string $type, mixed $pathParams, array $globals): array
     {
         $parsed = [];
 
-        if ($pathParams === null) {
-            return $parsed;
-        }
+        $fields = array_keys(get_class_vars($type));
 
-        foreach ($pathParams as $field => $value) {
+        foreach ($fields as $field) {
+            $value = $pathParams !== null ? $pathParams->{$field} : null;
+            $value = populateGlobal($value, 'pathParam', $field, $globals);
+
             if ($value === null) {
                 continue;
             }
 
-            $metadata = $this->parsePathParamsMetadata(new ReflectionProperty(get_class($pathParams), $field));
+            $requestMetadata = RequestBodies::parseRequestMetadata(new ReflectionProperty($type, $field));
+            if ($requestMetadata !== null) {
+                continue;
+            }
+
+            $metadata = $this->parsePathParamsMetadata(new ReflectionProperty($type, $field));
             if ($metadata === null) {
                 continue;
             }

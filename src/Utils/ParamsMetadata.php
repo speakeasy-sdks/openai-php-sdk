@@ -22,7 +22,7 @@ class ParamsMetadata
 
         $type = $prefix[0];
 
-        $metadata = remove_prefix($metadata, $type . ":");
+        $metadata = removePrefix($metadata, $type . ":");
 
         $style = "";
         $explode = false;

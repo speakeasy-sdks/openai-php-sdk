@@ -18,7 +18,7 @@ class FormMetadata
             return null;
         }
 
-        $metadata = remove_prefix($metadata, "form:");
+        $metadata = removePrefix($metadata, "form:");
 
         $name = "";
         $json = false;

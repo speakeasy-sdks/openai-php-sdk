@@ -18,7 +18,7 @@ class SecurityMetadata
             return null;
         }
 
-        $metadata = remove_prefix($metadata, "security:");
+        $metadata = removePrefix($metadata, "security:");
 
         $option = false;
         $scheme = false;

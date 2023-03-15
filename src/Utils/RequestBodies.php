@@ -8,44 +8,41 @@ use ReflectionProperty;
 
 class RequestBodies
 {
+    const SERIALIZATION_METHOD_TO_CONTENT_TYPE = [
+        'json' => 'application/json',
+        'form' => 'application/x-www-form-urlencoded',
+        'multipart' => 'multipart/form-data',
+        'raw' => 'application/octet-stream',
+        'string' => 'text/plain',
+    ];
+
     /**
      * @param mixed $request
+     * @param string $requestFieldName
+     * @param string $serializationMethod
      * @return array<string, mixed>|null
      */
-    public function serializeRequestBody(mixed $request): array | null
+    public function serializeRequestBody(mixed $request, string $requestFieldName, string $serializationMethod): array | null
     {
         if ($request === null) {
             return null;
         }
 
-        if (!property_exists($request, 'request')) {
-            throw new \Exception('Request body not found');
+        if (gettype($request) !== 'object' || !property_exists($request, $requestFieldName)) {
+            return $this->serializeContentType($requestFieldName, RequestBodies::SERIALIZATION_METHOD_TO_CONTENT_TYPE[$serializationMethod], $request);
         }
 
-        $requestVal = $request->request;
+        $requestVal = $request->{$requestFieldName};
         if ($requestVal === null) {
             return null;
         }
 
-        $metadata = $this->parseRequestMetadata(new ReflectionProperty(get_class($request), 'request'));
-        if ($metadata !== null) {
-            return $this->serializeContentType('request', $metadata->mediaType, $requestVal);
+        $metadata = RequestBodies::parseRequestMetadata(new ReflectionProperty(get_class($request), $requestFieldName));
+        if ($metadata === null) {
+            throw new \Exception("Missing request metadata for field $requestFieldName");
         }
 
-        foreach ($requestVal as $field => $value) {
-            if ($value === null) {
-                continue;
-            }
-
-            $metadata = $this->parseRequestMetadata(new ReflectionProperty(get_class($requestVal), $field));
-            if ($metadata === null) {
-                throw new \Exception("Missing request metadata for field $field");
-            }
-
-            return $this->serializeContentType($field, $metadata->mediaType, $value);
-        }
-
-        return null;
+        return $this->serializeContentType($requestFieldName, $metadata->mediaType, $requestVal);
     }
 
     /**
@@ -311,7 +308,7 @@ class RequestBodies
         return $values;
     }
 
-    private function parseRequestMetadata(ReflectionProperty $property): RequestMetadata | null
+    public static function parseRequestMetadata(ReflectionProperty $property): RequestMetadata | null
     {
         $attributes = $property->getAttributes(SpeakeasyMetadata::class);
         if (count($attributes) !== 1) {

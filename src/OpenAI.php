@@ -6,42 +6,23 @@ namespace Openai\SDK;
 
 class OpenAI 
 {
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	// SDK private variables namespaced with _ to avoid conflicts with API models
 	private \GuzzleHttp\ClientInterface $_defaultClient;
 	private \GuzzleHttp\ClientInterface $_securityClient;
 	private string $_serverUrl;
 	private string $_language;
 	private string $_sdkVersion;
-	private string $_genVersion;
+	private string $_genVersion;	
 
+	/**
+	 * @param \GuzzleHttp\ClientInterface $defaultClient
+	 * @param \GuzzleHttp\ClientInterface $securityClient
+	 * @param string $serverUrl
+	 * @param string $language
+	 * @param string $sdkVersion
+	 * @param string $genVersion
+	 */
 	public function __construct(\GuzzleHttp\ClientInterface $defaultClient, \GuzzleHttp\ClientInterface $securityClient, string $serverUrl, string $language, string $sdkVersion, string $genVersion)
 	{
 		$this->_defaultClient = $defaultClient;
@@ -51,17 +32,18 @@ class OpenAI
 		$this->_sdkVersion = $sdkVersion;
 		$this->_genVersion = $genVersion;
 	}
-    
+	
     /**
      * cancelFineTune - Immediately cancel a fine-tune job.
      * 
+     * @param \Openai\SDK\Models\Operations\CancelFineTuneRequest $request
     */
     public function cancelFineTune(
         \Openai\SDK\Models\Operations\CancelFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\CancelFineTuneResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes/{fine_tune_id}/cancel', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes/{fine_tune_id}/cancel', \Openai\SDK\Models\Operations\CancelFineTuneRequest::class, $request);
         
         $options = ['http_errors' => false];
         
@@ -83,22 +65,23 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createAnswer - Answers the specified question using the provided documents and examples.
      * 
      * The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
      * 
+     * @param \Openai\SDK\Models\Shared\CreateAnswerRequest $request
     */
     public function createAnswer(
-        \Openai\SDK\Models\Operations\CreateAnswerRequest $request,
+        \Openai\SDK\Models\Shared\CreateAnswerRequest $request,
     ): \Openai\SDK\Models\Operations\CreateAnswerResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/answers');
+        $url = Utils\Utils::generateUrl($baseUrl, '/answers');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -122,19 +105,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createChatCompletion - Creates a completion for the chat message
+     * @param \Openai\SDK\Models\Shared\CreateChatCompletionRequest $request
     */
     public function createChatCompletion(
-        \Openai\SDK\Models\Operations\CreateChatCompletionRequest $request,
+        \Openai\SDK\Models\Shared\CreateChatCompletionRequest $request,
     ): \Openai\SDK\Models\Operations\CreateChatCompletionResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/chat/completions');
+        $url = Utils\Utils::generateUrl($baseUrl, '/chat/completions');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -158,7 +142,7 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createClassification - Classifies the specified `query` using provided examples.
      * 
@@ -170,16 +154,17 @@ class OpenAI
      * Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
      * request using the `examples` parameter for quick tests and small scale use cases.
      * 
+     * @param \Openai\SDK\Models\Shared\CreateClassificationRequest $request
     */
     public function createClassification(
-        \Openai\SDK\Models\Operations\CreateClassificationRequest $request,
+        \Openai\SDK\Models\Shared\CreateClassificationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateClassificationResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/classifications');
+        $url = Utils\Utils::generateUrl($baseUrl, '/classifications');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -203,19 +188,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createCompletion - Creates a completion for the provided prompt and parameters
+     * @param \Openai\SDK\Models\Shared\CreateCompletionRequest $request
     */
     public function createCompletion(
-        \Openai\SDK\Models\Operations\CreateCompletionRequest $request,
+        \Openai\SDK\Models\Shared\CreateCompletionRequest $request,
     ): \Openai\SDK\Models\Operations\CreateCompletionResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/completions');
+        $url = Utils\Utils::generateUrl($baseUrl, '/completions');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -239,19 +225,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createEdit - Creates a new edit for the provided input, instruction, and parameters.
+     * @param \Openai\SDK\Models\Shared\CreateEditRequest $request
     */
     public function createEdit(
-        \Openai\SDK\Models\Operations\CreateEditRequest $request,
+        \Openai\SDK\Models\Shared\CreateEditRequest $request,
     ): \Openai\SDK\Models\Operations\CreateEditResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/edits');
+        $url = Utils\Utils::generateUrl($baseUrl, '/edits');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -275,19 +262,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createEmbedding - Creates an embedding vector representing the input text.
+     * @param \Openai\SDK\Models\Shared\CreateEmbeddingRequest $request
     */
     public function createEmbedding(
-        \Openai\SDK\Models\Operations\CreateEmbeddingRequest $request,
+        \Openai\SDK\Models\Shared\CreateEmbeddingRequest $request,
     ): \Openai\SDK\Models\Operations\CreateEmbeddingResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/embeddings');
+        $url = Utils\Utils::generateUrl($baseUrl, '/embeddings');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -311,20 +299,21 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createFile - Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
      * 
+     * @param \Openai\SDK\Models\Shared\CreateFileRequest $request
     */
     public function createFile(
-        \Openai\SDK\Models\Operations\CreateFileRequest $request,
+        \Openai\SDK\Models\Shared\CreateFileRequest $request,
     ): \Openai\SDK\Models\Operations\CreateFileResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/files');
+        $url = Utils\Utils::generateUrl($baseUrl, '/files');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "multipart");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -348,7 +337,7 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createFineTune - Creates a job that fine-tunes a specified model from a given dataset.
      * 
@@ -356,16 +345,17 @@ class OpenAI
      * 
      * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
      * 
+     * @param \Openai\SDK\Models\Shared\CreateFineTuneRequest $request
     */
     public function createFineTune(
-        \Openai\SDK\Models\Operations\CreateFineTuneRequest $request,
+        \Openai\SDK\Models\Shared\CreateFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\CreateFineTuneResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes');
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -389,19 +379,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createImage - Creates an image given a prompt.
+     * @param \Openai\SDK\Models\Shared\CreateImageRequest $request
     */
     public function createImage(
-        \Openai\SDK\Models\Operations\CreateImageRequest $request,
+        \Openai\SDK\Models\Shared\CreateImageRequest $request,
     ): \Openai\SDK\Models\Operations\CreateImageResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/images/generations');
+        $url = Utils\Utils::generateUrl($baseUrl, '/images/generations');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -425,19 +416,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createImageEdit - Creates an edited or extended image given an original image and a prompt.
+     * @param \Openai\SDK\Models\Shared\CreateImageEditRequest $request
     */
     public function createImageEdit(
-        \Openai\SDK\Models\Operations\CreateImageEditRequest $request,
+        \Openai\SDK\Models\Shared\CreateImageEditRequest $request,
     ): \Openai\SDK\Models\Operations\CreateImageEditResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/images/edits');
+        $url = Utils\Utils::generateUrl($baseUrl, '/images/edits');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "multipart");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -461,19 +453,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createImageVariation - Creates a variation of a given image.
+     * @param \Openai\SDK\Models\Shared\CreateImageVariationRequest $request
     */
     public function createImageVariation(
-        \Openai\SDK\Models\Operations\CreateImageVariationRequest $request,
+        \Openai\SDK\Models\Shared\CreateImageVariationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateImageVariationResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/images/variations');
+        $url = Utils\Utils::generateUrl($baseUrl, '/images/variations');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "multipart");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -497,19 +490,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createModeration - Classifies if text violates OpenAI's Content Policy
+     * @param \Openai\SDK\Models\Shared\CreateModerationRequest $request
     */
     public function createModeration(
-        \Openai\SDK\Models\Operations\CreateModerationRequest $request,
+        \Openai\SDK\Models\Shared\CreateModerationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateModerationResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/moderations');
+        $url = Utils\Utils::generateUrl($baseUrl, '/moderations');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -533,7 +527,7 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createSearch - The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
      * 
@@ -541,16 +535,17 @@ class OpenAI
      * 
      * The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
      * 
+     * @param \Openai\SDK\Models\Operations\CreateSearchRequest $request
     */
     public function createSearch(
         \Openai\SDK\Models\Operations\CreateSearchRequest $request,
     ): \Openai\SDK\Models\Operations\CreateSearchResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/engines/{engine_id}/search', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/engines/{engine_id}/search', \Openai\SDK\Models\Operations\CreateSearchRequest::class, $request);
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "createSearchRequest", "json");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -574,19 +569,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createTranscription - Transcribes audio into the input language.
+     * @param \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request
     */
     public function createTranscription(
-        \Openai\SDK\Models\Operations\CreateTranscriptionRequest $request,
+        \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request,
     ): \Openai\SDK\Models\Operations\CreateTranscriptionResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/audio/transcriptions');
+        $url = Utils\Utils::generateUrl($baseUrl, '/audio/transcriptions');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "multipart");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -610,19 +606,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * createTranslation - Translates audio into into English.
+     * @param \Openai\SDK\Models\Shared\CreateTranslationRequest $request
     */
     public function createTranslation(
-        \Openai\SDK\Models\Operations\CreateTranslationRequest $request,
+        \Openai\SDK\Models\Shared\CreateTranslationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateTranslationResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/audio/translations');
+        $url = Utils\Utils::generateUrl($baseUrl, '/audio/translations');
         
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request);
+        $body = Utils\Utils::serializeRequestBody($request, "request", "multipart");
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -646,16 +643,17 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * deleteFile - Delete a file.
+     * @param \Openai\SDK\Models\Operations\DeleteFileRequest $request
     */
     public function deleteFile(
         \Openai\SDK\Models\Operations\DeleteFileRequest $request,
     ): \Openai\SDK\Models\Operations\DeleteFileResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/files/{file_id}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/files/{file_id}', \Openai\SDK\Models\Operations\DeleteFileRequest::class, $request);
         
         $options = ['http_errors' => false];
         
@@ -677,16 +675,17 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * deleteModel - Delete a fine-tuned model. You must have the Owner role in your organization.
+     * @param \Openai\SDK\Models\Operations\DeleteModelRequest $request
     */
     public function deleteModel(
         \Openai\SDK\Models\Operations\DeleteModelRequest $request,
     ): \Openai\SDK\Models\Operations\DeleteModelResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/models/{model}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/models/{model}', \Openai\SDK\Models\Operations\DeleteModelRequest::class, $request);
         
         $options = ['http_errors' => false];
         
@@ -708,16 +707,17 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * downloadFile - Returns the contents of the specified file
+     * @param \Openai\SDK\Models\Operations\DownloadFileRequest $request
     */
     public function downloadFile(
         \Openai\SDK\Models\Operations\DownloadFileRequest $request,
     ): \Openai\SDK\Models\Operations\DownloadFileResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/files/{file_id}/content', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/files/{file_id}/content', \Openai\SDK\Models\Operations\DownloadFileRequest::class, $request);
         
         $options = ['http_errors' => false];
         
@@ -738,7 +738,7 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * listEngines - Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
     */
@@ -746,7 +746,7 @@ class OpenAI
     ): \Openai\SDK\Models\Operations\ListEnginesResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/engines');
+        $url = Utils\Utils::generateUrl($baseUrl, '/engines');
         
         $options = ['http_errors' => false];
         
@@ -768,7 +768,7 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * listFiles - Returns a list of files that belong to the user's organization.
     */
@@ -776,7 +776,7 @@ class OpenAI
     ): \Openai\SDK\Models\Operations\ListFilesResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/files');
+        $url = Utils\Utils::generateUrl($baseUrl, '/files');
         
         $options = ['http_errors' => false];
         
@@ -798,20 +798,21 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * listFineTuneEvents - Get fine-grained status updates for a fine-tune job.
      * 
+     * @param \Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request
     */
     public function listFineTuneEvents(
         \Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request,
     ): \Openai\SDK\Models\Operations\ListFineTuneEventsResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes/{fine_tune_id}/events', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes/{fine_tune_id}/events', \Openai\SDK\Models\Operations\ListFineTuneEventsRequest::class, $request);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams($request->queryParams));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Openai\SDK\Models\Operations\ListFineTuneEventsRequest::class, $request, null));
         
         $httpResponse = $this->_defaultClient->request('GET', $url, $options);
         
@@ -831,7 +832,7 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * listFineTunes - List your organization's fine-tuning jobs
      * 
@@ -840,7 +841,7 @@ class OpenAI
     ): \Openai\SDK\Models\Operations\ListFineTunesResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes');
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes');
         
         $options = ['http_errors' => false];
         
@@ -862,7 +863,7 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * listModels - Lists the currently available models, and provides basic information about each one such as the owner and availability.
     */
@@ -870,7 +871,7 @@ class OpenAI
     ): \Openai\SDK\Models\Operations\ListModelsResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/models');
+        $url = Utils\Utils::generateUrl($baseUrl, '/models');
         
         $options = ['http_errors' => false];
         
@@ -892,16 +893,17 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * retrieveEngine - Retrieves a model instance, providing basic information about it such as the owner and availability.
+     * @param \Openai\SDK\Models\Operations\RetrieveEngineRequest $request
     */
     public function retrieveEngine(
         \Openai\SDK\Models\Operations\RetrieveEngineRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveEngineResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/engines/{engine_id}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/engines/{engine_id}', \Openai\SDK\Models\Operations\RetrieveEngineRequest::class, $request);
         
         $options = ['http_errors' => false];
         
@@ -923,16 +925,17 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * retrieveFile - Returns information about a specific file.
+     * @param \Openai\SDK\Models\Operations\RetrieveFileRequest $request
     */
     public function retrieveFile(
         \Openai\SDK\Models\Operations\RetrieveFileRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFileResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/files/{file_id}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/files/{file_id}', \Openai\SDK\Models\Operations\RetrieveFileRequest::class, $request);
         
         $options = ['http_errors' => false];
         
@@ -954,19 +957,20 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * retrieveFineTune - Gets info about the fine-tune job.
      * 
      * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
      * 
+     * @param \Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request
     */
     public function retrieveFineTune(
         \Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFineTuneResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/fine-tunes/{fine_tune_id}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes/{fine_tune_id}', \Openai\SDK\Models\Operations\RetrieveFineTuneRequest::class, $request);
         
         $options = ['http_errors' => false];
         
@@ -988,16 +992,17 @@ class OpenAI
 
         return $response;
     }
-    
+	
     /**
      * retrieveModel - Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
+     * @param \Openai\SDK\Models\Operations\RetrieveModelRequest $request
     */
     public function retrieveModel(
         \Openai\SDK\Models\Operations\RetrieveModelRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveModelResponse
     {
         $baseUrl = $this->_serverUrl;
-        $url = Utils\Utils::generateURL($baseUrl, '/models/{model}', $request->pathParams);
+        $url = Utils\Utils::generateUrl($baseUrl, '/models/{model}', \Openai\SDK\Models\Operations\RetrieveModelRequest::class, $request);
         
         $options = ['http_errors' => false];
         

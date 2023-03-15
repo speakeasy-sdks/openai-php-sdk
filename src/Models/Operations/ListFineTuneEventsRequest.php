@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace Openai\SDK\Models\Operations;
 
-
+use \Openai\SDK\Utils\SpeakeasyMetadata;
 
 class ListFineTuneEventsRequest
 {
-    public ListFineTuneEventsPathParams $pathParams;
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=fine_tune_id')]
+    public string $fineTuneId;
     
-    public ListFineTuneEventsQueryParams $queryParams;
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=stream')]
+    public ?bool $stream = null;
     
 	public function __construct()
 	{
-		$this->pathParams = new \Openai\SDK\Models\Operations\ListFineTuneEventsPathParams();
-		$this->queryParams = new \Openai\SDK\Models\Operations\ListFineTuneEventsQueryParams();
+		$this->fineTuneId = "";
+		$this->stream = null;
 	}
 }

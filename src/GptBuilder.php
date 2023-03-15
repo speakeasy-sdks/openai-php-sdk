@@ -19,6 +19,12 @@ class GptBuilder
         $this->params = null;
     }
 
+    /**
+     * setClient allows setting a custom Guzzle client for the SDK to make requests with.
+     *
+     * @param \GuzzleHttp\ClientInterface $client
+     * @return GptBuilder
+     */
     public function setClient(\GuzzleHttp\ClientInterface $client): GptBuilder
     {
         $this->client = $client;
@@ -26,12 +32,13 @@ class GptBuilder
     }
     
     /**
-    * Set the server URL and any parameters to interpolate into the URL.
-    * @param string $serverUrl
-    * @param array<string, string> $params
-    * @return GptBuilder
-    */
-    public function setServerURL(string $serverUrl, ?array $params = null): GptBuilder
+     * setServerUrl is used to configure the server URL for the SDK, and optionally template any parameters in the URL.
+     *
+     * @param string $serverUrl
+     * @param array<string, string> $params
+     * @return GptBuilder
+     */
+    public function setServerUrl(string $serverUrl, ?array $params = null): GptBuilder
     {
         $this->serverUrl = $serverUrl;
         if ($params !== null) {
@@ -40,6 +47,11 @@ class GptBuilder
         return $this;
     }
     
+    /**
+     * build is used to build the SDK with any of the configured options.
+     *
+     * @return Gpt
+     */
     public function build(): Gpt
     {
         return new Gpt($this->client, $this->serverUrl, $this->params);
