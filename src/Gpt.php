@@ -21,8 +21,8 @@ class Gpt
 	
 	private string $_serverUrl;
 	private string $_language = 'php';
-	private string $_sdkVersion = '1.5.0';
-	private string $_genVersion = '1.11.0';
+	private string $_sdkVersion = '1.6.0';
+	private string $_genVersion = '1.12.0';
 
 	public static function builder(): GptBuilder
 	{
