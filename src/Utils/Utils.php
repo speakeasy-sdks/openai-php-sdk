@@ -113,10 +113,10 @@ class Utils
      *
      * @param string $type
      * @param mixed $queryParams
+     * @param array<string, array<string, array<string, string>>>|null $globals
      * @return array<string, mixed>
-     * @param array<string, array<string, array<string, string>>> $globals
      */
-    public static function getQueryParams(string $type, mixed $queryParams, array $globals): array
+    public static function getQueryParams(string $type, mixed $queryParams, array $globals = null): array
     {
         $qp = new QueryParameters();
 
