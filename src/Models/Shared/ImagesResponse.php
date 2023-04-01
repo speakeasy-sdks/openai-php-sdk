@@ -10,29 +10,29 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * ListEnginesResponse - OK
+ * ImagesResponse - OK
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
  */
-class ListEnginesResponse
+class ImagesResponse
 {
+	#[\JMS\Serializer\Annotation\SerializedName('created')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    public int $created;
+    
     /**
      * $data
      * 
-     * @var array<\Openai\SDK\Models\Shared\Engine> $data
+     * @var array<\Openai\SDK\Models\Shared\ImagesResponseData> $data
      */
 	#[\JMS\Serializer\Annotation\SerializedName('data')]
-    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\Engine>')]
+    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\ImagesResponseData>')]
     public array $data;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
     
 	public function __construct()
 	{
+		$this->created = 0;
 		$this->data = [];
-		$this->object = "";
 	}
 }

@@ -65,7 +65,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fineTune = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->fineTune = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\FineTune', 'json');
             }
         }
 
@@ -351,7 +351,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->openAIFile = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->openAIFile = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\OpenAIFile', 'json');
             }
         }
 
@@ -395,7 +395,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fineTune = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->fineTune = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\FineTune', 'json');
             }
         }
 
@@ -434,7 +434,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->imagesResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->imagesResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\ImagesResponse', 'json');
             }
         }
 
@@ -473,7 +473,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->imagesResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->imagesResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\ImagesResponse', 'json');
             }
         }
 
@@ -512,7 +512,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->imagesResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->imagesResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\ImagesResponse', 'json');
             }
         }
 
@@ -973,7 +973,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->engine = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->engine = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\Engine', 'json');
             }
         }
 
@@ -1007,7 +1007,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->openAIFile = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->openAIFile = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\OpenAIFile', 'json');
             }
         }
 
@@ -1044,7 +1044,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fineTune = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->fineTune = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\FineTune', 'json');
             }
         }
 
@@ -1078,7 +1078,7 @@ class OpenAI
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->model = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
+                $response->model = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\Model', 'json');
             }
         }
 

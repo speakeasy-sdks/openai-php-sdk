@@ -20,10 +20,10 @@ class ListFilesResponse
     /**
      * $data
      * 
-     * @var array<mixed> $data
+     * @var array<\Openai\SDK\Models\Shared\OpenAIFile> $data
      */
 	#[\JMS\Serializer\Annotation\SerializedName('data')]
-    #[\JMS\Serializer\Annotation\Type('array<mixed>')]
+    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\OpenAIFile>')]
     public array $data;
     
 	#[\JMS\Serializer\Annotation\SerializedName('object')]

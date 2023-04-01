@@ -17,10 +17,10 @@ class RetrieveEngineResponse
     /**
      * OK
      * 
-     * @var mixed $engine
+     * @var ?\Openai\SDK\Models\Shared\Engine $engine
      */
 	
-    public mixed $engine = null;
+    public ?\Openai\SDK\Models\Shared\Engine $engine = null;
     
 	
     public int $statusCode;

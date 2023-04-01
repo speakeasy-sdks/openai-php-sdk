@@ -17,10 +17,10 @@ class RetrieveModelResponse
     /**
      * OK
      * 
-     * @var mixed $model
+     * @var ?\Openai\SDK\Models\Shared\Model $model
      */
 	
-    public mixed $model = null;
+    public ?\Openai\SDK\Models\Shared\Model $model = null;
     
 	
     public int $statusCode;

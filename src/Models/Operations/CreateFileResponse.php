@@ -17,10 +17,10 @@ class CreateFileResponse
     /**
      * OK
      * 
-     * @var mixed $openAIFile
+     * @var ?\Openai\SDK\Models\Shared\OpenAIFile $openAIFile
      */
 	
-    public mixed $openAIFile = null;
+    public ?\Openai\SDK\Models\Shared\OpenAIFile $openAIFile = null;
     
 	
     public int $statusCode;

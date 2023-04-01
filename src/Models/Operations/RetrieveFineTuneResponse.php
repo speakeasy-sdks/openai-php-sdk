@@ -17,10 +17,10 @@ class RetrieveFineTuneResponse
     /**
      * OK
      * 
-     * @var mixed $fineTune
+     * @var ?\Openai\SDK\Models\Shared\FineTune $fineTune
      */
 	
-    public mixed $fineTune = null;
+    public ?\Openai\SDK\Models\Shared\FineTune $fineTune = null;
     
 	
     public int $statusCode;

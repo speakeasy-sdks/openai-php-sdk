@@ -17,10 +17,10 @@ class CreateImageVariationResponse
     /**
      * OK
      * 
-     * @var mixed $imagesResponse
+     * @var ?\Openai\SDK\Models\Shared\ImagesResponse $imagesResponse
      */
 	
-    public mixed $imagesResponse = null;
+    public ?\Openai\SDK\Models\Shared\ImagesResponse $imagesResponse = null;
     
 	
     public int $statusCode;
