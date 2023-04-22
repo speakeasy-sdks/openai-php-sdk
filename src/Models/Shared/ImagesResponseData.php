@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-class CreateAnswerResponseSelectedDocuments
+class ImagesResponseData
 {
-	#[\JMS\Serializer\Annotation\SerializedName('document')]
-    #[\JMS\Serializer\Annotation\Type('int')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?int $document = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('text')]
+	#[\JMS\Serializer\Annotation\SerializedName('b64_json')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $text = null;
+    public ?string $b64Json = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('url')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $url = null;
     
 	public function __construct()
 	{
-		$this->document = null;
-		$this->text = null;
+		$this->b64Json = null;
+		$this->url = null;
 	}
 }

@@ -10,16 +10,16 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * DeleteFileResponse - OK
+ * Model - OK
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
  */
-class DeleteFileResponse
+class Model
 {
-	#[\JMS\Serializer\Annotation\SerializedName('deleted')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
-    public bool $deleted;
+	#[\JMS\Serializer\Annotation\SerializedName('created')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    public int $created;
     
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -29,10 +29,15 @@ class DeleteFileResponse
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $object;
     
+	#[\JMS\Serializer\Annotation\SerializedName('owned_by')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $ownedBy;
+    
 	public function __construct()
 	{
-		$this->deleted = false;
+		$this->created = 0;
 		$this->id = "";
 		$this->object = "";
+		$this->ownedBy = "";
 	}
 }
