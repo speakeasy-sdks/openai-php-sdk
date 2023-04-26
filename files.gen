@@ -124,4 +124,6 @@ src/Models/Shared/ListFineTuneEventsResponse.php
 src/Models/Shared/ListFineTunesResponse.php
 src/Models/Shared/ListModelsResponse.php
 src/Models/Shared/Model.php
+docs/gpt/README.md
+docs/openai/README.md
 USAGE.md
