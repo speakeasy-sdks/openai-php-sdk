@@ -44,7 +44,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\CancelFineTuneRequest $request
      * @return \Openai\SDK\Models\Operations\CancelFineTuneResponse
      */
-	public function cancelFineTune(
+	
+    public function cancelFineTune(
         \Openai\SDK\Models\Operations\CancelFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\CancelFineTuneResponse
     {
@@ -81,7 +82,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateAnswerRequest $request
      * @return \Openai\SDK\Models\Operations\CreateAnswerResponse
      */
-	public function createAnswer(
+	
+    public function createAnswer(
         \Openai\SDK\Models\Shared\CreateAnswerRequest $request,
     ): \Openai\SDK\Models\Operations\CreateAnswerResponse
     {
@@ -120,7 +122,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateChatCompletionRequest $request
      * @return \Openai\SDK\Models\Operations\CreateChatCompletionResponse
      */
-	public function createChatCompletion(
+	
+    public function createChatCompletion(
         \Openai\SDK\Models\Shared\CreateChatCompletionRequest $request,
     ): \Openai\SDK\Models\Operations\CreateChatCompletionResponse
     {
@@ -168,7 +171,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateClassificationRequest $request
      * @return \Openai\SDK\Models\Operations\CreateClassificationResponse
      */
-	public function createClassification(
+	
+    public function createClassification(
         \Openai\SDK\Models\Shared\CreateClassificationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateClassificationResponse
     {
@@ -207,7 +211,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateCompletionRequest $request
      * @return \Openai\SDK\Models\Operations\CreateCompletionResponse
      */
-	public function createCompletion(
+	
+    public function createCompletion(
         \Openai\SDK\Models\Shared\CreateCompletionRequest $request,
     ): \Openai\SDK\Models\Operations\CreateCompletionResponse
     {
@@ -246,7 +251,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateEditRequest $request
      * @return \Openai\SDK\Models\Operations\CreateEditResponse
      */
-	public function createEdit(
+	
+    public function createEdit(
         \Openai\SDK\Models\Shared\CreateEditRequest $request,
     ): \Openai\SDK\Models\Operations\CreateEditResponse
     {
@@ -285,7 +291,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateEmbeddingRequest $request
      * @return \Openai\SDK\Models\Operations\CreateEmbeddingResponse
      */
-	public function createEmbedding(
+	
+    public function createEmbedding(
         \Openai\SDK\Models\Shared\CreateEmbeddingRequest $request,
     ): \Openai\SDK\Models\Operations\CreateEmbeddingResponse
     {
@@ -325,7 +332,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateFileRequest $request
      * @return \Openai\SDK\Models\Operations\CreateFileResponse
      */
-	public function createFile(
+	
+    public function createFile(
         \Openai\SDK\Models\Shared\CreateFileRequest $request,
     ): \Openai\SDK\Models\Operations\CreateFileResponse
     {
@@ -369,7 +377,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateFineTuneRequest $request
      * @return \Openai\SDK\Models\Operations\CreateFineTuneResponse
      */
-	public function createFineTune(
+	
+    public function createFineTune(
         \Openai\SDK\Models\Shared\CreateFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\CreateFineTuneResponse
     {
@@ -408,7 +417,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateImageRequest $request
      * @return \Openai\SDK\Models\Operations\CreateImageResponse
      */
-	public function createImage(
+	
+    public function createImage(
         \Openai\SDK\Models\Shared\CreateImageRequest $request,
     ): \Openai\SDK\Models\Operations\CreateImageResponse
     {
@@ -447,7 +457,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateImageEditRequest $request
      * @return \Openai\SDK\Models\Operations\CreateImageEditResponse
      */
-	public function createImageEdit(
+	
+    public function createImageEdit(
         \Openai\SDK\Models\Shared\CreateImageEditRequest $request,
     ): \Openai\SDK\Models\Operations\CreateImageEditResponse
     {
@@ -486,7 +497,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateImageVariationRequest $request
      * @return \Openai\SDK\Models\Operations\CreateImageVariationResponse
      */
-	public function createImageVariation(
+	
+    public function createImageVariation(
         \Openai\SDK\Models\Shared\CreateImageVariationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateImageVariationResponse
     {
@@ -525,7 +537,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateModerationRequest $request
      * @return \Openai\SDK\Models\Operations\CreateModerationResponse
      */
-	public function createModeration(
+	
+    public function createModeration(
         \Openai\SDK\Models\Shared\CreateModerationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateModerationResponse
     {
@@ -569,7 +582,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\CreateSearchRequest $request
      * @return \Openai\SDK\Models\Operations\CreateSearchResponse
      */
-	public function createSearch(
+	
+    public function createSearch(
         \Openai\SDK\Models\Operations\CreateSearchRequest $request,
     ): \Openai\SDK\Models\Operations\CreateSearchResponse
     {
@@ -608,7 +622,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request
      * @return \Openai\SDK\Models\Operations\CreateTranscriptionResponse
      */
-	public function createTranscription(
+	
+    public function createTranscription(
         \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request,
     ): \Openai\SDK\Models\Operations\CreateTranscriptionResponse
     {
@@ -647,7 +662,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Shared\CreateTranslationRequest $request
      * @return \Openai\SDK\Models\Operations\CreateTranslationResponse
      */
-	public function createTranslation(
+	
+    public function createTranslation(
         \Openai\SDK\Models\Shared\CreateTranslationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateTranslationResponse
     {
@@ -686,7 +702,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\DeleteFileRequest $request
      * @return \Openai\SDK\Models\Operations\DeleteFileResponse
      */
-	public function deleteFile(
+	
+    public function deleteFile(
         \Openai\SDK\Models\Operations\DeleteFileRequest $request,
     ): \Openai\SDK\Models\Operations\DeleteFileResponse
     {
@@ -720,7 +737,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\DeleteModelRequest $request
      * @return \Openai\SDK\Models\Operations\DeleteModelResponse
      */
-	public function deleteModel(
+	
+    public function deleteModel(
         \Openai\SDK\Models\Operations\DeleteModelRequest $request,
     ): \Openai\SDK\Models\Operations\DeleteModelResponse
     {
@@ -754,7 +772,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\DownloadFileRequest $request
      * @return \Openai\SDK\Models\Operations\DownloadFileResponse
      */
-	public function downloadFile(
+	
+    public function downloadFile(
         \Openai\SDK\Models\Operations\DownloadFileRequest $request,
     ): \Openai\SDK\Models\Operations\DownloadFileResponse
     {
@@ -786,7 +805,8 @@ class OpenAI
      * 
      * @return \Openai\SDK\Models\Operations\ListEnginesResponse
      */
-	public function listEngines(
+	
+    public function listEngines(
     ): \Openai\SDK\Models\Operations\ListEnginesResponse
     {
         $baseUrl = $this->_serverUrl;
@@ -818,7 +838,8 @@ class OpenAI
      * 
      * @return \Openai\SDK\Models\Operations\ListFilesResponse
      */
-	public function listFiles(
+	
+    public function listFiles(
     ): \Openai\SDK\Models\Operations\ListFilesResponse
     {
         $baseUrl = $this->_serverUrl;
@@ -852,7 +873,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request
      * @return \Openai\SDK\Models\Operations\ListFineTuneEventsResponse
      */
-	public function listFineTuneEvents(
+	
+    public function listFineTuneEvents(
         \Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request,
     ): \Openai\SDK\Models\Operations\ListFineTuneEventsResponse
     {
@@ -887,7 +909,8 @@ class OpenAI
      * 
      * @return \Openai\SDK\Models\Operations\ListFineTunesResponse
      */
-	public function listFineTunes(
+	
+    public function listFineTunes(
     ): \Openai\SDK\Models\Operations\ListFineTunesResponse
     {
         $baseUrl = $this->_serverUrl;
@@ -919,7 +942,8 @@ class OpenAI
      * 
      * @return \Openai\SDK\Models\Operations\ListModelsResponse
      */
-	public function listModels(
+	
+    public function listModels(
     ): \Openai\SDK\Models\Operations\ListModelsResponse
     {
         $baseUrl = $this->_serverUrl;
@@ -952,7 +976,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\RetrieveEngineRequest $request
      * @return \Openai\SDK\Models\Operations\RetrieveEngineResponse
      */
-	public function retrieveEngine(
+	
+    public function retrieveEngine(
         \Openai\SDK\Models\Operations\RetrieveEngineRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveEngineResponse
     {
@@ -986,7 +1011,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\RetrieveFileRequest $request
      * @return \Openai\SDK\Models\Operations\RetrieveFileResponse
      */
-	public function retrieveFile(
+	
+    public function retrieveFile(
         \Openai\SDK\Models\Operations\RetrieveFileRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFileResponse
     {
@@ -1023,7 +1049,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request
      * @return \Openai\SDK\Models\Operations\RetrieveFineTuneResponse
      */
-	public function retrieveFineTune(
+	
+    public function retrieveFineTune(
         \Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFineTuneResponse
     {
@@ -1057,7 +1084,8 @@ class OpenAI
      * @param \Openai\SDK\Models\Operations\RetrieveModelRequest $request
      * @return \Openai\SDK\Models\Operations\RetrieveModelResponse
      */
-	public function retrieveModel(
+	
+    public function retrieveModel(
         \Openai\SDK\Models\Operations\RetrieveModelRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveModelResponse
     {
