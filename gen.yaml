@@ -2,14 +2,14 @@ configVersion: 1.0.0
 management:
   docChecksum: 5399f7767be93d4a4b8cecb9bbc687b3
   docVersion: 1.2.0
-  speakeasyVersion: 1.29.0
-  generationVersion: 2.26.0
+  speakeasyVersion: 1.29.1
+  generationVersion: 2.26.1
 generation:
   telemetryEnabled: false
   sdkClassName: gpt
   singleTagPerOp: false
 php:
-  version: 1.9.0
+  version: 1.9.1
   maxMethodParams: 0
   namespace: Openai\SDK
   packageName: speakeasy-sdks/openai-php-sdk
