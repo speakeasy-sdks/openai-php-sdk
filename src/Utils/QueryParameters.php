@@ -156,10 +156,10 @@ class QueryParameters
     /**
      * @param ParamsMetadata $metadata
      * @param mixed $value
-     * @param string $arrayDelimiter
+     * @param string $delimiter
      * @return string
      */
-    private function parseDelimitedParams(ParamsMetadata $metadata, mixed $value, string $arrayDelimiter): string
+    private function parseDelimitedParams(ParamsMetadata $metadata, mixed $value, string $delimiter): string
     {
         $queryParams = [];
 
@@ -184,12 +184,12 @@ class QueryParameters
                     if ($metadata->explode) {
                         $queryParams[$fieldMetaData->name] = valToString($val, $dateTimeFormat);
                     } else {
-                        $items[] = $fieldMetaData->name . "," . valToString($val, $dateTimeFormat);
+                        $items[] = $fieldMetaData->name . $delimiter . valToString($val, $dateTimeFormat);
                     }
                 }
 
                 if (count($items) > 0) {
-                    $queryParams[$metadata->name] = implode(",", $items);
+                    $queryParams[$metadata->name] = implode($delimiter, $items);
                 }
                 break;
             case "array":
@@ -206,7 +206,7 @@ class QueryParameters
                     }
 
                     if (count($items) > 0) {
-                        $values[] = implode($arrayDelimiter, $items);
+                        $values[] = implode($delimiter, $items);
                     }
 
                     $queryParams[$metadata->name] = $values;
@@ -221,12 +221,12 @@ class QueryParameters
                         if ($metadata->explode) {
                             $queryParams[$key] = valToString($val, $dateTimeFormat);
                         } else {
-                            $items[] = $key . "," . valToString($val, $dateTimeFormat);
+                            $items[] = $key . $delimiter . valToString($val, $dateTimeFormat);
                         }
                     }
 
                     if (count($items) > 0) {
-                        $queryParams[$metadata->name] = implode(",", $items);
+                        $queryParams[$metadata->name] = implode($delimiter, $items);
                     }
                 }
                 break;
