@@ -33,22 +33,22 @@ class CreateImageRequest
     /**
      * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
      * 
-     * @var ?\Openai\SDK\Models\Shared\CreateImageRequestResponseFormatEnum $responseFormat
+     * @var ?\Openai\SDK\Models\Shared\CreateImageRequestResponseFormat $responseFormat
      */
 	#[\JMS\Serializer\Annotation\SerializedName('response_format')]
-    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateImageRequestResponseFormatEnum>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateImageRequestResponseFormat>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateImageRequestResponseFormatEnum $responseFormat = null;
+    public ?CreateImageRequestResponseFormat $responseFormat = null;
     
     /**
      * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
      * 
-     * @var ?\Openai\SDK\Models\Shared\CreateImageRequestSizeEnum $size
+     * @var ?\Openai\SDK\Models\Shared\CreateImageRequestSize $size
      */
 	#[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateImageRequestSizeEnum>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateImageRequestSize>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateImageRequestSizeEnum $size = null;
+    public ?CreateImageRequestSize $size = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('user')]
     #[\JMS\Serializer\Annotation\Type('mixed')]

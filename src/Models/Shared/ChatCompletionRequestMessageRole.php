@@ -10,7 +10,7 @@ namespace Openai\SDK\Models\Shared;
 
 
 /** The role of the author of this message. */
-enum ChatCompletionResponseMessageRoleEnum: string
+enum ChatCompletionRequestMessageRole: string
 {
     case SYSTEM = 'system';
     case USER = 'user';

@@ -66,10 +66,10 @@ src/Models/Shared/CreateAnswerRequest.php
 src/Models/Shared/CreateChatCompletionResponseChoices.php
 src/Models/Shared/CreateChatCompletionResponseUsage.php
 src/Models/Shared/CreateChatCompletionResponse.php
-src/Models/Shared/ChatCompletionResponseMessageRoleEnum.php
+src/Models/Shared/ChatCompletionResponseMessageRole.php
 src/Models/Shared/ChatCompletionResponseMessage.php
 src/Models/Shared/CreateChatCompletionRequest.php
-src/Models/Shared/ChatCompletionRequestMessageRoleEnum.php
+src/Models/Shared/ChatCompletionRequestMessageRole.php
 src/Models/Shared/ChatCompletionRequestMessage.php
 src/Models/Shared/CreateClassificationResponseSelectedExamples.php
 src/Models/Shared/CreateClassificationResponse.php
@@ -93,8 +93,8 @@ src/Models/Shared/CreateFileRequest.php
 src/Models/Shared/CreateFineTuneRequest.php
 src/Models/Shared/ImagesResponseData.php
 src/Models/Shared/ImagesResponse.php
-src/Models/Shared/CreateImageRequestResponseFormatEnum.php
-src/Models/Shared/CreateImageRequestSizeEnum.php
+src/Models/Shared/CreateImageRequestResponseFormat.php
+src/Models/Shared/CreateImageRequestSize.php
 src/Models/Shared/CreateImageRequest.php
 src/Models/Shared/CreateImageEditRequestImage.php
 src/Models/Shared/CreateImageEditRequestMask.php

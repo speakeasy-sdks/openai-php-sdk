@@ -33,16 +33,16 @@ class ChatCompletionRequestMessage
     /**
      * The role of the author of this message.
      * 
-     * @var \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRoleEnum $role
+     * @var \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRole $role
      */
 	#[\JMS\Serializer\Annotation\SerializedName('role')]
-    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\ChatCompletionRequestMessageRoleEnum>')]
-    public ChatCompletionRequestMessageRoleEnum $role;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\ChatCompletionRequestMessageRole>')]
+    public ChatCompletionRequestMessageRole $role;
     
 	public function __construct()
 	{
 		$this->content = "";
 		$this->name = null;
-		$this->role = \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRoleEnum::SYSTEM;
+		$this->role = \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRole::SYSTEM;
 	}
 }

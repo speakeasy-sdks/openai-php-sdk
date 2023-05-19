@@ -23,15 +23,15 @@ class ChatCompletionResponseMessage
     /**
      * The role of the author of this message.
      * 
-     * @var \Openai\SDK\Models\Shared\ChatCompletionResponseMessageRoleEnum $role
+     * @var \Openai\SDK\Models\Shared\ChatCompletionResponseMessageRole $role
      */
 	#[\JMS\Serializer\Annotation\SerializedName('role')]
-    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\ChatCompletionResponseMessageRoleEnum>')]
-    public ChatCompletionResponseMessageRoleEnum $role;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\ChatCompletionResponseMessageRole>')]
+    public ChatCompletionResponseMessageRole $role;
     
 	public function __construct()
 	{
 		$this->content = "";
-		$this->role = \Openai\SDK\Models\Shared\ChatCompletionResponseMessageRoleEnum::SYSTEM;
+		$this->role = \Openai\SDK\Models\Shared\ChatCompletionResponseMessageRole::SYSTEM;
 	}
 }

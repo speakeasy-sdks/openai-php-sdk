@@ -193,7 +193,7 @@ require_once 'vendor/autoload.php';
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\CreateChatCompletionRequest;
 use \Openai\SDK\Models\Shared\ChatCompletionRequestMessage;
-use \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRoleEnum;
+use \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRole;
 
 $sdk = Gpt::builder()
     ->build();
@@ -542,8 +542,8 @@ require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\CreateImageRequest;
-use \Openai\SDK\Models\Shared\CreateImageRequestResponseFormatEnum;
-use \Openai\SDK\Models\Shared\CreateImageRequestSizeEnum;
+use \Openai\SDK\Models\Shared\CreateImageRequestResponseFormat;
+use \Openai\SDK\Models\Shared\CreateImageRequestSize;
 
 $sdk = Gpt::builder()
     ->build();
@@ -552,8 +552,8 @@ try {
     $request = new CreateImageRequest();
     $request->n = 1;
     $request->prompt = 'A cute baby sea otter';
-    $request->responseFormat = CreateImageRequestResponseFormatEnum::URL;
-    $request->size = CreateImageRequestSizeEnum::ONE_THOUSAND_AND_TWENTY_FOURX1024;
+    $request->responseFormat = CreateImageRequestResponseFormat::URL;
+    $request->size = CreateImageRequestSize::ONE_THOUSAND_AND_TWENTY_FOURX1024;
     $request->user = 'commodi';
 
     $response = $sdk->openAI->createImage($request);
