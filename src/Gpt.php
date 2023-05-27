@@ -33,8 +33,8 @@ class Gpt
 	
 	private string $_serverUrl;
 	private string $_language = 'php';
-	private string $_sdkVersion = '1.15.0';
-	private string $_genVersion = '2.32.2';
+	private string $_sdkVersion = '1.15.1';
+	private string $_genVersion = '2.32.7';
 
 	/**
 	 * Returns a new instance of the SDK builder used to configure and create the SDK instance.
