@@ -197,3 +197,11 @@ Based on:
 - Speakeasy CLI 1.39.0 (2.32.7) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [Composer v1.15.1] https://packagist.org/packages/speakeasy-sdks/openai-php-sdk#v1.15.1 - .
+
+## 2023-06-01 01:06:22
+### Changes
+Based on:
+- OpenAPI Doc 1.2.0 https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+- Speakeasy CLI 1.40.2 (2.34.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [Composer v1.16.0] https://packagist.org/packages/speakeasy-sdks/openai-php-sdk#v1.16.0 - .

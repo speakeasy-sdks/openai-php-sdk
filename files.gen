@@ -1,6 +1,7 @@
 src/OpenAI.php
 src/Gpt.php
 src/GptBuilder.php
+.gitignore
 composer.json
 phpstan.neon
 src/Utils/EnumHandler.php
