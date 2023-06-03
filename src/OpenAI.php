@@ -11,30 +11,14 @@ namespace Openai\SDK;
 class OpenAI 
 {
 
-	// SDK private variables namespaced with _ to avoid conflicts with API models
-	private \GuzzleHttp\ClientInterface $_defaultClient;
-	private \GuzzleHttp\ClientInterface $_securityClient;
-	private string $_serverUrl;
-	private string $_language;
-	private string $_sdkVersion;
-	private string $_genVersion;	
+	private SDKConfiguration $sdkConfiguration;
 
 	/**
-	 * @param \GuzzleHttp\ClientInterface $defaultClient
-	 * @param \GuzzleHttp\ClientInterface $securityClient
-	 * @param string $serverUrl
-	 * @param string $language
-	 * @param string $sdkVersion
-	 * @param string $genVersion
+	 * @param SDKConfiguration $sdkConfig
 	 */
-	public function __construct(\GuzzleHttp\ClientInterface $defaultClient, \GuzzleHttp\ClientInterface $securityClient, string $serverUrl, string $language, string $sdkVersion, string $genVersion)
+	public function __construct(SDKConfiguration $sdkConfig)
 	{
-		$this->_defaultClient = $defaultClient;
-		$this->_securityClient = $securityClient;
-		$this->_serverUrl = $serverUrl;
-		$this->_language = $language;
-		$this->_sdkVersion = $sdkVersion;
-		$this->_genVersion = $genVersion;
+		$this->sdkConfiguration = $sdkConfig;
 	}
 	
     /**
@@ -48,14 +32,14 @@ class OpenAI
         \Openai\SDK\Models\Operations\CancelFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\CancelFineTuneResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes/{fine_tune_id}/cancel', \Openai\SDK\Models\Operations\CancelFineTuneRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -90,7 +74,7 @@ class OpenAI
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
         
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/answers');
         
         $options = ['http_errors' => false];
@@ -100,9 +84,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -131,7 +115,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateChatCompletionRequest $request,
     ): \Openai\SDK\Models\Operations\CreateChatCompletionResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/chat/completions');
         
         $options = ['http_errors' => false];
@@ -141,9 +125,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -184,7 +168,7 @@ class OpenAI
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
         
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/classifications');
         
         $options = ['http_errors' => false];
@@ -194,9 +178,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -225,7 +209,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateCompletionRequest $request,
     ): \Openai\SDK\Models\Operations\CreateCompletionResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/completions');
         
         $options = ['http_errors' => false];
@@ -235,9 +219,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -266,7 +250,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateEditRequest $request,
     ): \Openai\SDK\Models\Operations\CreateEditResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/edits');
         
         $options = ['http_errors' => false];
@@ -276,9 +260,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -307,7 +291,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateEmbeddingRequest $request,
     ): \Openai\SDK\Models\Operations\CreateEmbeddingResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/embeddings');
         
         $options = ['http_errors' => false];
@@ -317,9 +301,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -349,7 +333,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateFileRequest $request,
     ): \Openai\SDK\Models\Operations\CreateFileResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/files');
         
         $options = ['http_errors' => false];
@@ -359,9 +343,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -395,7 +379,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\CreateFineTuneResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes');
         
         $options = ['http_errors' => false];
@@ -405,9 +389,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -436,7 +420,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateImageRequest $request,
     ): \Openai\SDK\Models\Operations\CreateImageResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/images/generations');
         
         $options = ['http_errors' => false];
@@ -446,9 +430,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -477,7 +461,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateImageEditRequest $request,
     ): \Openai\SDK\Models\Operations\CreateImageEditResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/images/edits');
         
         $options = ['http_errors' => false];
@@ -487,9 +471,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -518,7 +502,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateImageVariationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateImageVariationResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/images/variations');
         
         $options = ['http_errors' => false];
@@ -528,9 +512,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -559,7 +543,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateModerationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateModerationResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/moderations');
         
         $options = ['http_errors' => false];
@@ -569,9 +553,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -608,7 +592,7 @@ class OpenAI
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
         
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/engines/{engine_id}/search', \Openai\SDK\Models\Operations\CreateSearchRequest::class, $request);
         
         $options = ['http_errors' => false];
@@ -618,9 +602,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -649,7 +633,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request,
     ): \Openai\SDK\Models\Operations\CreateTranscriptionResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/audio/transcriptions');
         
         $options = ['http_errors' => false];
@@ -659,9 +643,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -690,7 +674,7 @@ class OpenAI
         \Openai\SDK\Models\Shared\CreateTranslationRequest $request,
     ): \Openai\SDK\Models\Operations\CreateTranslationResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/audio/translations');
         
         $options = ['http_errors' => false];
@@ -700,9 +684,9 @@ class OpenAI
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('POST', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -731,14 +715,14 @@ class OpenAI
         \Openai\SDK\Models\Operations\DeleteFileRequest $request,
     ): \Openai\SDK\Models\Operations\DeleteFileResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/files/{file_id}', \Openai\SDK\Models\Operations\DeleteFileRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('DELETE', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('DELETE', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -767,14 +751,14 @@ class OpenAI
         \Openai\SDK\Models\Operations\DeleteModelRequest $request,
     ): \Openai\SDK\Models\Operations\DeleteModelResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/models/{model}', \Openai\SDK\Models\Operations\DeleteModelRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('DELETE', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('DELETE', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -803,14 +787,14 @@ class OpenAI
         \Openai\SDK\Models\Operations\DownloadFileRequest $request,
     ): \Openai\SDK\Models\Operations\DownloadFileResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/files/{file_id}/content', \Openai\SDK\Models\Operations\DownloadFileRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -839,14 +823,14 @@ class OpenAI
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
         
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/engines');
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -873,14 +857,14 @@ class OpenAI
 	public function listFiles(
     ): \Openai\SDK\Models\Operations\ListFilesResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/files');
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -910,15 +894,15 @@ class OpenAI
         \Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request,
     ): \Openai\SDK\Models\Operations\ListFineTuneEventsResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes/{fine_tune_id}/events', \Openai\SDK\Models\Operations\ListFineTuneEventsRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Openai\SDK\Models\Operations\ListFineTuneEventsRequest::class, $request, null));
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -946,14 +930,14 @@ class OpenAI
 	public function listFineTunes(
     ): \Openai\SDK\Models\Operations\ListFineTunesResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes');
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -980,14 +964,14 @@ class OpenAI
 	public function listModels(
     ): \Openai\SDK\Models\Operations\ListModelsResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/models');
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -1019,14 +1003,14 @@ class OpenAI
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
         
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/engines/{engine_id}', \Openai\SDK\Models\Operations\RetrieveEngineRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -1055,14 +1039,14 @@ class OpenAI
         \Openai\SDK\Models\Operations\RetrieveFileRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFileResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/files/{file_id}', \Openai\SDK\Models\Operations\RetrieveFileRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -1094,14 +1078,14 @@ class OpenAI
         \Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFineTuneResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes/{fine_tune_id}', \Openai\SDK\Models\Operations\RetrieveFineTuneRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
@@ -1130,14 +1114,14 @@ class OpenAI
         \Openai\SDK\Models\Operations\RetrieveModelRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveModelResponse
     {
-        $baseUrl = $this->_serverUrl;
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/models/{model}', \Openai\SDK\Models\Operations\RetrieveModelRequest::class, $request);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->_language, $this->_sdkVersion, $this->_genVersion);
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion);
         
-        $httpResponse = $this->_defaultClient->request('GET', $url, $options);
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
