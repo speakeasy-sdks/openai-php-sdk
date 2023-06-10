@@ -43,6 +43,6 @@ class ChatCompletionRequestMessage
 	{
 		$this->content = "";
 		$this->name = null;
-		$this->role = \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRole::SYSTEM;
+		$this->role = \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRole::System;
 	}
 }

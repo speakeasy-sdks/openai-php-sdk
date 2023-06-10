@@ -12,7 +12,7 @@ namespace Openai\SDK\Models\Shared;
 /** The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`. */
 enum CreateImageRequestSize: string
 {
-    case TWO_HUNDRED_AND_FIFTY_SIXX256 = '256x256';
-    case FIVE_HUNDRED_AND_TWELVEX512 = '512x512';
-    case ONE_THOUSAND_AND_TWENTY_FOURX1024 = '1024x1024';
+    case TwoHundredAndFiftySixx256 = '256x256';
+    case FiveHundredAndTwelvex512 = '512x512';
+    case OneThousandAndTwentyFourx1024 = '1024x1024';
 }

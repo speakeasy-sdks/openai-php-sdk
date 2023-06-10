@@ -32,6 +32,6 @@ class ChatCompletionResponseMessage
 	public function __construct()
 	{
 		$this->content = "";
-		$this->role = \Openai\SDK\Models\Shared\ChatCompletionResponseMessageRole::SYSTEM;
+		$this->role = \Openai\SDK\Models\Shared\ChatCompletionResponseMessageRole::System;
 	}
 }

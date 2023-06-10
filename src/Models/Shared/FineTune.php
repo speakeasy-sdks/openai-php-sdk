@@ -35,14 +35,9 @@ class FineTune
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $fineTunedModel;
     
-    /**
-     * $hyperparams
-     * 
-     * @var array<string, mixed> $hyperparams
-     */
 	#[\JMS\Serializer\Annotation\SerializedName('hyperparams')]
-    #[\JMS\Serializer\Annotation\Type('array<string, mixed>')]
-    public array $hyperparams;
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\FineTuneHyperparams')]
+    public FineTuneHyperparams $hyperparams;
     
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -100,7 +95,7 @@ class FineTune
 		$this->createdAt = 0;
 		$this->events = null;
 		$this->fineTunedModel = "";
-		$this->hyperparams = [];
+		$this->hyperparams = new \Openai\SDK\Models\Shared\FineTuneHyperparams();
 		$this->id = "";
 		$this->model = "";
 		$this->object = "";

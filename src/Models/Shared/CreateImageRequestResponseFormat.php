@@ -12,6 +12,6 @@ namespace Openai\SDK\Models\Shared;
 /** The format in which the generated images are returned. Must be one of `url` or `b64_json`. */
 enum CreateImageRequestResponseFormat: string
 {
-    case URL = 'url';
-    case B64_JSON = 'b64_json';
+    case Url = 'url';
+    case B64Json = 'b64_json';
 }

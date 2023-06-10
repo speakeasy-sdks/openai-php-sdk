@@ -46,15 +46,10 @@ class OpenAIFile
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $status = null;
     
-    /**
-     * $statusDetails
-     * 
-     * @var ?array<string, mixed> $statusDetails
-     */
 	#[\JMS\Serializer\Annotation\SerializedName('status_details')]
-    #[\JMS\Serializer\Annotation\Type('array<string, mixed>')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\OpenAIFileStatusDetails')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $statusDetails = null;
+    public ?OpenAIFileStatusDetails $statusDetails = null;
     
 	public function __construct()
 	{
