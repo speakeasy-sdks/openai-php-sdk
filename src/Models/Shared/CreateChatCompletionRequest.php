@@ -22,6 +22,26 @@ class CreateChatCompletionRequest
     public ?float $frequencyPenalty = null;
     
     /**
+     * Controls how the model responds to function calls. "none" means the model does not call a function, and responds to the end-user. "auto" means the model can pick between an end-user or calling a function.  Specifying a particular function via `{"name":\ "my_function"}` forces the model to call that function. "none" is the default when no functions are present. "auto" is the default if functions are present.
+     * 
+     * @var mixed $functionCall
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('function_call')]
+    #[\JMS\Serializer\Annotation\Type('mixed')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public mixed $functionCall = null;
+    
+    /**
+     * A list of functions the model may generate JSON inputs for.
+     * 
+     * @var ?array<\Openai\SDK\Models\Shared\ChatCompletionFunctions> $functions
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('functions')]
+    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\ChatCompletionFunctions>')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?array $functions = null;
+    
+    /**
      * Modify the likelihood of specified tokens appearing in the completion.
      * 
      * 
@@ -36,8 +56,10 @@ class CreateChatCompletionRequest
     public ?CreateChatCompletionRequestLogitBias $logitBias = null;
     
     /**
-     * The maximum number of tokens allowed for the generated answer. By default, the number of tokens the model can return will be (4096 - prompt tokens).
+     * The maximum number of [tokens](/tokenizer) to generate in the chat completion.
      * 
+     * 
+     * The total length of input tokens and generated tokens is limited by the model's context length. [Example Python code](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb) for counting tokens.
      * 
      * 
      * @var ?int $maxTokens
@@ -48,7 +70,7 @@ class CreateChatCompletionRequest
     public ?int $maxTokens = null;
     
     /**
-     * The messages to generate chat completions for, in the [chat format](/docs/guides/chat/introduction).
+     * A list of messages comprising the conversation so far. [Example Python code](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
      * 
      * @var array<\Openai\SDK\Models\Shared\ChatCompletionRequestMessage> $messages
      */
@@ -57,7 +79,7 @@ class CreateChatCompletionRequest
     public array $messages;
     
     /**
-     * ID of the model to use. Currently, only `gpt-3.5-turbo` and `gpt-3.5-turbo-0301` are supported.
+     * ID of the model to use. See the [model endpoint compatibility](/docs/models/model-endpoint-compatibility) table for details on which models work with the Chat API.
      * 
      * @var string $model
      */
@@ -98,7 +120,7 @@ class CreateChatCompletionRequest
     public mixed $stop = null;
     
     /**
-     * If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message.
+     * If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message. [Example Python code](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_stream_completions.ipynb).
      * 
      * 
      * 
@@ -137,6 +159,8 @@ class CreateChatCompletionRequest
 	public function __construct()
 	{
 		$this->frequencyPenalty = null;
+		$this->functionCall = null;
+		$this->functions = null;
 		$this->logitBias = null;
 		$this->maxTokens = null;
 		$this->messages = [];

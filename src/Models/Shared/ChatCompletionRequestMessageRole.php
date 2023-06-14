@@ -9,10 +9,11 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-/** The role of the author of this message. */
+/** The role of the messages author. One of `system`, `user`, `assistant`, or `function`. */
 enum ChatCompletionRequestMessageRole: string
 {
     case System = 'system';
     case User = 'user';
     case Assistant = 'assistant';
+    case Function = 'function';
 }

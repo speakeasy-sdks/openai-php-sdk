@@ -12,7 +12,7 @@ The OpenAI REST API
 
 The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
  :warning: **Deprecated**
-* [createChatCompletion](#createchatcompletion) - Creates a completion for the chat message
+* [createChatCompletion](#createchatcompletion) - Creates a model response for the given chat conversation.
 * [~~createClassification~~](#createclassification) - Classifies the specified `query` using provided examples.
 
 The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
@@ -23,7 +23,7 @@ are combined with the query to construct a prompt to produce the final label via
 Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
 request using the `examples` parameter for quick tests and small scale use cases.
  :warning: **Deprecated**
-* [createCompletion](#createcompletion) - Creates a completion for the provided prompt and parameters
+* [createCompletion](#createcompletion) - Creates a completion for the provided prompt and parameters.
 * [createEdit](#createedit) - Creates a new edit for the provided input, instruction, and parameters.
 * [createEmbedding](#createembedding) - Creates an embedding vector representing the input text.
 * [createFile](#createfile) - Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
@@ -204,7 +204,7 @@ try {
 
 ## createChatCompletion
 
-Creates a completion for the chat message
+Creates a model response for the given chat conversation.
 
 ### Example Usage
 
@@ -216,8 +216,10 @@ require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\CreateChatCompletionRequest;
+use \Openai\SDK\Models\Shared\ChatCompletionFunctions;
 use \Openai\SDK\Models\Shared\CreateChatCompletionRequestLogitBias;
 use \Openai\SDK\Models\Shared\ChatCompletionRequestMessage;
+use \Openai\SDK\Models\Shared\ChatCompletionRequestMessageFunctionCall;
 use \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRole;
 
 $sdk = Gpt::builder()
@@ -226,22 +228,30 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateChatCompletionRequest();
     $request->frequencyPenalty = 9571.56;
+    $request->functionCall = new CreateChatCompletionRequestFunctionCall2();
+    $request->functionCall->name = 'Teri Strosin';
+    $request->functions = [
+        new ChatCompletionFunctions(),
+        new ChatCompletionFunctions(),
+        new ChatCompletionFunctions(),
+        new ChatCompletionFunctions(),
+    ];
     $request->logitBias = new CreateChatCompletionRequestLogitBias();
-    $request->maxTokens = 778157;
+    $request->maxTokens = 800911;
     $request->messages = [
         new ChatCompletionRequestMessage(),
+        new ChatCompletionRequestMessage(),
     ];
-    $request->model = 'at';
+    $request->model = 'totam';
     $request->n = 1;
-    $request->presencePenalty = 8700.88;
+    $request->presencePenalty = 7805.29;
     $request->stop = [
-        'quod',
-        'quod',
+        'nam',
     ];
     $request->stream = false;
     $request->temperature = 1;
     $request->topP = 1;
-    $request->user = 'esse';
+    $request->user = 'officia';
 
     $response = $sdk->openAI->createChatCompletion($request);
 
@@ -298,28 +308,22 @@ try {
     $request = new CreateClassificationRequest();
     $request->examples = [
         [
-            'dolorum',
-            'dicta',
-            'nam',
-            'officia',
-        ],
-        [
-            'fugit',
             'deleniti',
-            'hic',
         ],
         [
+            'optio',
             'totam',
             'beatae',
             'commodi',
-            'molestiae',
+        ],
+        [
+            'modi',
+            'qui',
         ],
     ];
-    $request->expand = 'modi';
-    $request->file = 'qui';
+    $request->expand = 'impedit';
+    $request->file = 'cum';
     $request->labels = [
-        'cum',
-        'esse',
         'ipsum',
         'excepturi',
     ];
@@ -358,7 +362,7 @@ try {
 
 ## createCompletion
 
-Creates a completion for the provided prompt and parameters
+Creates a completion for the provided prompt and parameters.
 
 ### Example Usage
 

@@ -106,7 +106,7 @@ class OpenAI
     }
 	
     /**
-     * Creates a completion for the chat message
+     * Creates a model response for the given chat conversation.
      * 
      * @param \Openai\SDK\Models\Shared\CreateChatCompletionRequest $request
      * @return \Openai\SDK\Models\Operations\CreateChatCompletionResponse
@@ -200,7 +200,7 @@ class OpenAI
     }
 	
     /**
-     * Creates a completion for the provided prompt and parameters
+     * Creates a completion for the provided prompt and parameters.
      * 
      * @param \Openai\SDK\Models\Shared\CreateCompletionRequest $request
      * @return \Openai\SDK\Models\Operations\CreateCompletionResponse
