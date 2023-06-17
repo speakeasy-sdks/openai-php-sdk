@@ -12,9 +12,9 @@ namespace Openai\SDK\Models\Shared;
 class CreateChatCompletionResponseChoices
 {
 	#[\JMS\Serializer\Annotation\SerializedName('finish_reason')]
-    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateChatCompletionResponseChoicesFinishReason>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $finishReason = null;
+    public ?CreateChatCompletionResponseChoicesFinishReason $finishReason = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('int')]

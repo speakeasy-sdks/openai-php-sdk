@@ -66,6 +66,7 @@ src/Models/Shared/FineTuneEvent.php
 src/Models/Shared/CreateAnswerResponseSelectedDocuments.php
 src/Models/Shared/CreateAnswerResponse.php
 src/Models/Shared/CreateAnswerRequest.php
+src/Models/Shared/CreateChatCompletionResponseChoicesFinishReason.php
 src/Models/Shared/CreateChatCompletionResponseChoices.php
 src/Models/Shared/CreateChatCompletionResponseUsage.php
 src/Models/Shared/CreateChatCompletionResponse.php
@@ -83,6 +84,7 @@ src/Models/Shared/ChatCompletionFunctions.php
 src/Models/Shared/CreateClassificationResponseSelectedExamples.php
 src/Models/Shared/CreateClassificationResponse.php
 src/Models/Shared/CreateClassificationRequest.php
+src/Models/Shared/CreateCompletionResponseChoicesFinishReason.php
 src/Models/Shared/CreateCompletionResponseChoicesLogprobsTopLogprobs.php
 src/Models/Shared/CreateCompletionResponseChoicesLogprobs.php
 src/Models/Shared/CreateCompletionResponseChoices.php
@@ -90,6 +92,7 @@ src/Models/Shared/CreateCompletionResponseUsage.php
 src/Models/Shared/CreateCompletionResponse.php
 src/Models/Shared/CreateCompletionRequestLogitBias.php
 src/Models/Shared/CreateCompletionRequest.php
+src/Models/Shared/CreateEditResponseChoicesFinishReason.php
 src/Models/Shared/CreateEditResponseChoicesLogprobsTopLogprobs.php
 src/Models/Shared/CreateEditResponseChoicesLogprobs.php
 src/Models/Shared/CreateEditResponseChoices.php
@@ -185,6 +188,7 @@ docs/models/shared/FineTuneEvent.md
 docs/models/shared/CreateAnswerResponseSelectedDocuments.md
 docs/models/shared/CreateAnswerResponse.md
 docs/models/shared/CreateAnswerRequest.md
+docs/models/shared/CreateChatCompletionResponseChoicesFinishReason.md
 docs/models/shared/CreateChatCompletionResponseChoices.md
 docs/models/shared/CreateChatCompletionResponseUsage.md
 docs/models/shared/CreateChatCompletionResponse.md
@@ -202,6 +206,7 @@ docs/models/shared/ChatCompletionFunctions.md
 docs/models/shared/CreateClassificationResponseSelectedExamples.md
 docs/models/shared/CreateClassificationResponse.md
 docs/models/shared/CreateClassificationRequest.md
+docs/models/shared/CreateCompletionResponseChoicesFinishReason.md
 docs/models/shared/CreateCompletionResponseChoicesLogprobsTopLogprobs.md
 docs/models/shared/CreateCompletionResponseChoicesLogprobs.md
 docs/models/shared/CreateCompletionResponseChoices.md
@@ -209,6 +214,7 @@ docs/models/shared/CreateCompletionResponseUsage.md
 docs/models/shared/CreateCompletionResponse.md
 docs/models/shared/CreateCompletionRequestLogitBias.md
 docs/models/shared/CreateCompletionRequest.md
+docs/models/shared/CreateEditResponseChoicesFinishReason.md
 docs/models/shared/CreateEditResponseChoicesLogprobsTopLogprobs.md
 docs/models/shared/CreateEditResponseChoicesLogprobs.md
 docs/models/shared/CreateEditResponseChoices.md

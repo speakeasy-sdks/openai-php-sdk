@@ -12,8 +12,8 @@ namespace Openai\SDK\Models\Shared;
 class CreateCompletionResponseChoices
 {
 	#[\JMS\Serializer\Annotation\SerializedName('finish_reason')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $finishReason;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateCompletionResponseChoicesFinishReason>')]
+    public CreateCompletionResponseChoicesFinishReason $finishReason;
     
 	#[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('int')]
@@ -29,7 +29,7 @@ class CreateCompletionResponseChoices
     
 	public function __construct()
 	{
-		$this->finishReason = "";
+		$this->finishReason = \Openai\SDK\Models\Shared\CreateCompletionResponseChoicesFinishReason::Stop;
 		$this->index = 0;
 		$this->logprobs = new \Openai\SDK\Models\Shared\CreateCompletionResponseChoicesLogprobs();
 		$this->text = "";
