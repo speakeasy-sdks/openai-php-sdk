@@ -33,11 +33,11 @@ class CreateEditRequest
     /**
      * ID of the model to use. You can use the `text-davinci-edit-001` or `code-davinci-edit-001` model with this endpoint.
      * 
-     * @var string $model
+     * @var mixed $model
      */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $model;
+    #[\JMS\Serializer\Annotation\Type('mixed')]
+    public mixed $model;
     
     /**
      * How many edits to generate for the input and instruction.
@@ -73,7 +73,7 @@ class CreateEditRequest
 	{
 		$this->input = null;
 		$this->instruction = "";
-		$this->model = "";
+		$this->model = null;
 		$this->n = null;
 		$this->temperature = null;
 		$this->topP = null;

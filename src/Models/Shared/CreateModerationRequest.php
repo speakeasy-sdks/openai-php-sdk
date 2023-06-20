@@ -27,12 +27,12 @@ class CreateModerationRequest
      * The default is `text-moderation-latest` which will be automatically upgraded over time. This ensures you are always using our most accurate model. If you use `text-moderation-stable`, we will provide advanced notice before updating the model. Accuracy of `text-moderation-stable` may be slightly lower than for `text-moderation-latest`.
      * 
      * 
-     * @var ?string $model
+     * @var mixed $model
      */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
-    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\Type('mixed')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $model = null;
+    public mixed $model = null;
     
 	public function __construct()
 	{

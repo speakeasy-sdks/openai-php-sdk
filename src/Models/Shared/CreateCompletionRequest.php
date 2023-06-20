@@ -100,11 +100,13 @@ class CreateCompletionRequest
     /**
      * ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models/overview) for descriptions of them.
      * 
-     * @var string $model
+     * 
+     * 
+     * @var mixed $model
      */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $model;
+    #[\JMS\Serializer\Annotation\Type('mixed')]
+    public mixed $model;
     
     /**
      * How many completions to generate for each prompt.
@@ -229,7 +231,7 @@ class CreateCompletionRequest
 		$this->logitBias = null;
 		$this->logprobs = null;
 		$this->maxTokens = null;
-		$this->model = "";
+		$this->model = null;
 		$this->n = null;
 		$this->presencePenalty = null;
 		$this->prompt = null;

@@ -59,53 +59,6 @@ class OpenAI
     }
 	
     /**
-     * Answers the specified question using the provided documents and examples.
-     * 
-     * The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
-     * 
-     * 
-     * @param \Openai\SDK\Models\Shared\CreateAnswerRequest $request
-     * @return \Openai\SDK\Models\Operations\CreateAnswerResponse
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-	public function createAnswer(
-        \Openai\SDK\Models\Shared\CreateAnswerRequest $request,
-    ): \Openai\SDK\Models\Operations\CreateAnswerResponse
-    {
-        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/answers');
-        
-        $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
-        if ($body === null) {
-            throw new \Exception('Request body is required');
-        }
-        $options = array_merge_recursive($options, $body);
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
-        
-        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
-        
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $response = new \Openai\SDK\Models\Operations\CreateAnswerResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        
-        if ($httpResponse->getStatusCode() === 200) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->createAnswerResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateAnswerResponse', 'json');
-            }
-        }
-
-        return $response;
-    }
-	
-    /**
      * Creates a model response for the given chat conversation.
      * 
      * @param \Openai\SDK\Models\Shared\CreateChatCompletionRequest $request
@@ -140,59 +93,6 @@ class OpenAI
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->createChatCompletionResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateChatCompletionResponse', 'json');
-            }
-        }
-
-        return $response;
-    }
-	
-    /**
-     * Classifies the specified `query` using provided examples.
-     * 
-     * The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
-     * to select the ones most relevant for the particular query. Then, the relevant examples
-     * are combined with the query to construct a prompt to produce the final label via the
-     * [completions](/docs/api-reference/completions) endpoint.
-     * 
-     * Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
-     * request using the `examples` parameter for quick tests and small scale use cases.
-     * 
-     * 
-     * @param \Openai\SDK\Models\Shared\CreateClassificationRequest $request
-     * @return \Openai\SDK\Models\Operations\CreateClassificationResponse
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-	public function createClassification(
-        \Openai\SDK\Models\Shared\CreateClassificationRequest $request,
-    ): \Openai\SDK\Models\Operations\CreateClassificationResponse
-    {
-        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/classifications');
-        
-        $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
-        if ($body === null) {
-            throw new \Exception('Request body is required');
-        }
-        $options = array_merge_recursive($options, $body);
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
-        
-        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
-        
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $response = new \Openai\SDK\Models\Operations\CreateClassificationResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        
-        if ($httpResponse->getStatusCode() === 200) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->createClassificationResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateClassificationResponse', 'json');
             }
         }
 
@@ -575,55 +475,6 @@ class OpenAI
     }
 	
     /**
-     * The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
-     * 
-     * To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.
-     * 
-     * The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
-     * 
-     * 
-     * @param \Openai\SDK\Models\Operations\CreateSearchRequest $request
-     * @return \Openai\SDK\Models\Operations\CreateSearchResponse
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-	public function createSearch(
-        \Openai\SDK\Models\Operations\CreateSearchRequest $request,
-    ): \Openai\SDK\Models\Operations\CreateSearchResponse
-    {
-        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/engines/{engine_id}/search', \Openai\SDK\Models\Operations\CreateSearchRequest::class, $request);
-        
-        $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "createSearchRequest", "json");
-        if ($body === null) {
-            throw new \Exception('Request body is required');
-        }
-        $options = array_merge_recursive($options, $body);
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
-        
-        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
-        
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $response = new \Openai\SDK\Models\Operations\CreateSearchResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        
-        if ($httpResponse->getStatusCode() === 200) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->createSearchResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateSearchResponse', 'json');
-            }
-        }
-
-        return $response;
-    }
-	
-    /**
      * Transcribes audio into the input language.
      * 
      * @param \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request
@@ -665,7 +516,7 @@ class OpenAI
     }
 	
     /**
-     * Translates audio into into English.
+     * Translates audio into English.
      * 
      * @param \Openai\SDK\Models\Shared\CreateTranslationRequest $request
      * @return \Openai\SDK\Models\Operations\CreateTranslationResponse
@@ -813,43 +664,6 @@ class OpenAI
     }
 	
     /**
-     * Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
-     * 
-     * @return \Openai\SDK\Models\Operations\ListEnginesResponse
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-	public function listEngines(
-    ): \Openai\SDK\Models\Operations\ListEnginesResponse
-    {
-        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/engines');
-        
-        $options = ['http_errors' => false];
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
-        
-        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
-        
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $response = new \Openai\SDK\Models\Operations\ListEnginesResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        
-        if ($httpResponse->getStatusCode() === 200) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->listEnginesResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\ListEnginesResponse', 'json');
-            }
-        }
-
-        return $response;
-    }
-	
-    /**
      * Returns a list of files that belong to the user's organization.
      * 
      * @return \Openai\SDK\Models\Operations\ListFilesResponse
@@ -984,45 +798,6 @@ class OpenAI
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->listModelsResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\ListModelsResponse', 'json');
-            }
-        }
-
-        return $response;
-    }
-	
-    /**
-     * Retrieves a model instance, providing basic information about it such as the owner and availability.
-     * 
-     * @param \Openai\SDK\Models\Operations\RetrieveEngineRequest $request
-     * @return \Openai\SDK\Models\Operations\RetrieveEngineResponse
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-	public function retrieveEngine(
-        \Openai\SDK\Models\Operations\RetrieveEngineRequest $request,
-    ): \Openai\SDK\Models\Operations\RetrieveEngineResponse
-    {
-        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        
-        $baseUrl = $this->sdkConfiguration->getServerUrl();
-        $url = Utils\Utils::generateUrl($baseUrl, '/engines/{engine_id}', \Openai\SDK\Models\Operations\RetrieveEngineRequest::class, $request);
-        
-        $options = ['http_errors' => false];
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
-        
-        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
-        
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $response = new \Openai\SDK\Models\Operations\RetrieveEngineResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        
-        if ($httpResponse->getStatusCode() === 200) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->engine = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\Engine', 'json');
             }
         }
 

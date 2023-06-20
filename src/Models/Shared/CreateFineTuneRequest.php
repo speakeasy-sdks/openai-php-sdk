@@ -124,12 +124,12 @@ class CreateFineTuneRequest
      * [Models](https://platform.openai.com/docs/models) documentation.
      * 
      * 
-     * @var ?string $model
+     * @var mixed $model
      */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
-    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\Type('mixed')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $model = null;
+    public mixed $model = null;
     
     /**
      * The number of epochs to train the model for. An epoch refers to one

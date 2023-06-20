@@ -8,21 +8,7 @@ The OpenAI REST API
 
 * [cancelFineTune](#cancelfinetune) - Immediately cancel a fine-tune job.
 
-* [~~createAnswer~~](#createanswer) - Answers the specified question using the provided documents and examples.
-
-The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
- :warning: **Deprecated**
 * [createChatCompletion](#createchatcompletion) - Creates a model response for the given chat conversation.
-* [~~createClassification~~](#createclassification) - Classifies the specified `query` using provided examples.
-
-The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
-to select the ones most relevant for the particular query. Then, the relevant examples
-are combined with the query to construct a prompt to produce the final label via the
-[completions](/docs/api-reference/completions) endpoint.
-
-Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
-request using the `examples` parameter for quick tests and small scale use cases.
- :warning: **Deprecated**
 * [createCompletion](#createcompletion) - Creates a completion for the provided prompt and parameters.
 * [createEdit](#createedit) - Creates a new edit for the provided input, instruction, and parameters.
 * [createEmbedding](#createembedding) - Creates an embedding vector representing the input text.
@@ -38,25 +24,17 @@ Response includes details of the enqueued job including job status and the name 
 * [createImageEdit](#createimageedit) - Creates an edited or extended image given an original image and a prompt.
 * [createImageVariation](#createimagevariation) - Creates a variation of a given image.
 * [createModeration](#createmoderation) - Classifies if text violates OpenAI's Content Policy
-* [~~createSearch~~](#createsearch) - The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
-
-To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.
-
-The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
- :warning: **Deprecated**
 * [createTranscription](#createtranscription) - Transcribes audio into the input language.
-* [createTranslation](#createtranslation) - Translates audio into into English.
+* [createTranslation](#createtranslation) - Translates audio into English.
 * [deleteFile](#deletefile) - Delete a file.
 * [deleteModel](#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization.
 * [downloadFile](#downloadfile) - Returns the contents of the specified file
-* [~~listEngines~~](#listengines) - Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability. :warning: **Deprecated**
 * [listFiles](#listfiles) - Returns a list of files that belong to the user's organization.
 * [listFineTuneEvents](#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
 
 * [listFineTunes](#listfinetunes) - List your organization's fine-tuning jobs
 
 * [listModels](#listmodels) - Lists the currently available models, and provides basic information about each one such as the owner and availability.
-* [~~retrieveEngine~~](#retrieveengine) - Retrieves a model instance, providing basic information about it such as the owner and availability. :warning: **Deprecated**
 * [retrieveFile](#retrievefile) - Returns information about a specific file.
 * [retrieveFineTune](#retrievefinetune) - Gets info about the fine-tune job.
 
@@ -109,99 +87,6 @@ try {
 **[?\Openai\SDK\Models\Operations\CancelFineTuneResponse](../../models/operations/CancelFineTuneResponse.md)**
 
 
-## ~~createAnswer~~
-
-Answers the specified question using the provided documents and examples.
-
-The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
-
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```php
-<?php
-
-declare(strict_types=1);
-require_once 'vendor/autoload.php';
-
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\CreateAnswerRequest;
-
-$sdk = Gpt::builder()
-    ->build();
-
-try {
-    $request = new CreateAnswerRequest();
-    $request->documents = [
-        'provident',
-        'distinctio',
-        'quibusdam',
-    ];
-    $request->examples = [
-        [
-            'corrupti',
-            'illum',
-            'vel',
-            'error',
-        ],
-        [
-            'suscipit',
-            'iure',
-            'magnam',
-        ],
-        [
-            'ipsa',
-            'delectus',
-            'tempora',
-            'suscipit',
-        ],
-    ];
-    $request->examplesContext = 'Ottawa, Canada's capital, is located in the east of southern Ontario, near the city of Montréal and the U.S. border.';
-    $request->expand = [
-        'minus',
-        'placeat',
-    ];
-    $request->file = 'voluptatum';
-    $request->logitBias = 'iusto';
-    $request->logprobs = 568045;
-    $request->maxRerank = 392785;
-    $request->maxTokens = 925597;
-    $request->model = 'temporibus';
-    $request->n = 71036;
-    $request->question = 'What is the capital of Japan?';
-    $request->returnMetadata = 'quis';
-    $request->returnPrompt = false;
-    $request->searchModel = 'veritatis';
-    $request->stop = [
-        '["\n"]',
-    ];
-    $request->temperature = 3682.41;
-    $request->user = 'repellendus';
-
-    $response = $sdk->openAI->createAnswer($request);
-
-    if ($response->createAnswerResponse !== null) {
-        // handle response
-    }
-} catch (Exception $e) {
-    // handle exception
-}
-```
-
-### Parameters
-
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `$request`                                                                                  | [\Openai\SDK\Models\Shared\CreateAnswerRequest](../../models/shared/CreateAnswerRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
-
-
-### Response
-
-**[?\Openai\SDK\Models\Operations\CreateAnswerResponse](../../models/operations/CreateAnswerResponse.md)**
-
-
 ## createChatCompletion
 
 Creates a model response for the given chat conversation.
@@ -227,9 +112,9 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateChatCompletionRequest();
-    $request->frequencyPenalty = 9571.56;
+    $request->frequencyPenalty = 5488.14;
     $request->functionCall = new CreateChatCompletionRequestFunctionCall2();
-    $request->functionCall->name = 'Teri Strosin';
+    $request->functionCall->name = 'Ellis Mitchell';
     $request->functions = [
         new ChatCompletionFunctions(),
         new ChatCompletionFunctions(),
@@ -237,21 +122,20 @@ try {
         new ChatCompletionFunctions(),
     ];
     $request->logitBias = new CreateChatCompletionRequestLogitBias();
-    $request->maxTokens = 800911;
+    $request->maxTokens = 423655;
     $request->messages = [
         new ChatCompletionRequestMessage(),
         new ChatCompletionRequestMessage(),
+        new ChatCompletionRequestMessage(),
     ];
-    $request->model = 'totam';
+    $request->model = CreateChatCompletionRequestModel2::Gpt35Turbo;
     $request->n = 1;
-    $request->presencePenalty = 7805.29;
-    $request->stop = [
-        'nam',
-    ];
+    $request->presencePenalty = 3843.82;
+    $request->stop = 'magnam';
     $request->stream = false;
     $request->temperature = 1;
     $request->topP = 1;
-    $request->user = 'officia';
+    $request->user = 'debitis';
 
     $response = $sdk->openAI->createChatCompletion($request);
 
@@ -275,91 +159,6 @@ try {
 **[?\Openai\SDK\Models\Operations\CreateChatCompletionResponse](../../models/operations/CreateChatCompletionResponse.md)**
 
 
-## ~~createClassification~~
-
-Classifies the specified `query` using provided examples.
-
-The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
-to select the ones most relevant for the particular query. Then, the relevant examples
-are combined with the query to construct a prompt to produce the final label via the
-[completions](/docs/api-reference/completions) endpoint.
-
-Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
-request using the `examples` parameter for quick tests and small scale use cases.
-
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```php
-<?php
-
-declare(strict_types=1);
-require_once 'vendor/autoload.php';
-
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\CreateClassificationRequest;
-
-$sdk = Gpt::builder()
-    ->build();
-
-try {
-    $request = new CreateClassificationRequest();
-    $request->examples = [
-        [
-            'deleniti',
-        ],
-        [
-            'optio',
-            'totam',
-            'beatae',
-            'commodi',
-        ],
-        [
-            'modi',
-            'qui',
-        ],
-    ];
-    $request->expand = 'impedit';
-    $request->file = 'cum';
-    $request->labels = [
-        'ipsum',
-        'excepturi',
-    ];
-    $request->logitBias = 'aspernatur';
-    $request->logprobs = 'perferendis';
-    $request->maxExamples = 324141;
-    $request->model = 'natus';
-    $request->query = 'The plot is not very attractive.';
-    $request->returnMetadata = 'sed';
-    $request->returnPrompt = 'iste';
-    $request->searchModel = 'dolor';
-    $request->temperature = 0;
-    $request->user = 'natus';
-
-    $response = $sdk->openAI->createClassification($request);
-
-    if ($response->createClassificationResponse !== null) {
-        // handle response
-    }
-} catch (Exception $e) {
-    // handle exception
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                  | [\Openai\SDK\Models\Shared\CreateClassificationRequest](../../models/shared/CreateClassificationRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
-
-
-### Response
-
-**[?\Openai\SDK\Models\Operations\CreateClassificationResponse](../../models/operations/CreateClassificationResponse.md)**
-
-
 ## createCompletion
 
 Creates a completion for the provided prompt and parameters.
@@ -381,22 +180,38 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateCompletionRequest();
-    $request->bestOf = 386489;
+    $request->bestOf = 56713;
     $request->echo = false;
-    $request->frequencyPenalty = 9437.49;
+    $request->frequencyPenalty = 9636.63;
     $request->logitBias = new CreateCompletionRequestLogitBias();
-    $request->logprobs = 902599;
+    $request->logprobs = 272656;
     $request->maxTokens = 16;
-    $request->model = 'fuga';
+    $request->model = 'molestiae';
     $request->n = 1;
-    $request->presencePenalty = 4499.5;
+    $request->presencePenalty = 7917.25;
     $request->prompt = [
-        'This is a test.',
-        'This is a test.',
-        'This is a test.',
+        [
+            568045,
+            392785,
+        ],
+        [
+            836079,
+            71036,
+            337396,
+            87129,
+        ],
+        [
+            20218,
+            368241,
+            832620,
+        ],
     ];
-    $request->stop = '
-    ';
+    $request->stop = [
+        '["\n"]',
+        '["\n"]',
+        '["\n"]',
+        '["\n"]',
+    ];
     $request->stream = false;
     $request->suffix = 'test.';
     $request->temperature = 1;
@@ -447,7 +262,7 @@ try {
     $request = new CreateEditRequest();
     $request->input = 'What day of the wek is it?';
     $request->instruction = 'Fix the spelling mistakes.';
-    $request->model = 'saepe';
+    $request->model = 'text-davinci-edit-001';
     $request->n = 1;
     $request->temperature = 1;
     $request->topP = 1;
@@ -495,10 +310,30 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateEmbeddingRequest();
     $request->input = [
-        60225,
+        [
+            473608,
+            799159,
+            800911,
+            461479,
+        ],
+        [
+            780529,
+            678880,
+            118274,
+        ],
+        [
+            639921,
+            582020,
+            143353,
+        ],
+        [
+            944669,
+            758616,
+            521848,
+        ],
     ];
-    $request->model = 'reiciendis';
-    $request->user = 'est';
+    $request->model = 'text-embedding-ada-002';
+    $request->user = 'commodi';
 
     $response = $sdk->openAI->createEmbedding($request);
 
@@ -545,9 +380,9 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateFileRequest();
     $request->file = new CreateFileRequestFile();
-    $request->file->content = 'mollitia';
-    $request->file->file = 'laborum';
-    $request->purpose = 'dolores';
+    $request->file->content = 'molestiae';
+    $request->file->file = 'modi';
+    $request->purpose = 'qui';
 
     $response = $sdk->openAI->createFile($request);
 
@@ -596,19 +431,20 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateFineTuneRequest();
-    $request->batchSize = 210382;
+    $request->batchSize = 774234;
     $request->classificationBetas = [
-        1289.26,
-        7506.86,
+        4561.5,
+        2165.5,
+        5684.34,
     ];
-    $request->classificationNClasses = 315428;
-    $request->classificationPositiveClass = 'omnis';
+    $request->classificationNClasses = 135218;
+    $request->classificationPositiveClass = 'perferendis';
     $request->computeClassificationMetrics = false;
-    $request->learningRateMultiplier = 3637.11;
-    $request->model = 'minima';
-    $request->nEpochs = 570197;
-    $request->promptLossWeight = 384.25;
-    $request->suffix = 'iure';
+    $request->learningRateMultiplier = 3241.41;
+    $request->model = CreateFineTuneRequestModel2::Curie;
+    $request->nEpochs = 149675;
+    $request->promptLossWeight = 6120.96;
+    $request->suffix = 'dolor';
     $request->trainingFile = 'file-ajSREls59WBbvgSzJSVWxMCB';
     $request->validationFile = 'file-XjSREls59WBbvgSzJSVWxMCa';
 
@@ -660,7 +496,7 @@ try {
     $request->prompt = 'A cute baby sea otter';
     $request->responseFormat = CreateImageRequestResponseFormat::Url;
     $request->size = CreateImageRequestSize::OneThousandAndTwentyFourx1024;
-    $request->user = 'culpa';
+    $request->user = 'natus';
 
     $response = $sdk->openAI->createImage($request);
 
@@ -707,16 +543,16 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateImageEditRequest();
     $request->image = new CreateImageEditRequestImage();
-    $request->image->content = 'doloribus';
-    $request->image->image = 'sapiente';
+    $request->image->content = 'laboriosam';
+    $request->image->image = 'hic';
     $request->mask = new CreateImageEditRequestMask();
-    $request->mask->content = 'architecto';
-    $request->mask->mask = 'mollitia';
-    $request->n = 'dolorem';
+    $request->mask->content = 'saepe';
+    $request->mask->mask = 'fuga';
+    $request->n = 'in';
     $request->prompt = 'A cute baby sea otter wearing a beret';
-    $request->responseFormat = 'culpa';
-    $request->size = 'consequuntur';
-    $request->user = 'repellat';
+    $request->responseFormat = 'corporis';
+    $request->size = 'iste';
+    $request->user = 'iure';
 
     $response = $sdk->openAI->createImageEdit($request);
 
@@ -762,12 +598,12 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateImageVariationRequest();
     $request->image = new CreateImageVariationRequestImage();
-    $request->image->content = 'mollitia';
-    $request->image->image = 'occaecati';
-    $request->n = 'numquam';
-    $request->responseFormat = 'commodi';
-    $request->size = 'quam';
-    $request->user = 'molestiae';
+    $request->image->content = 'saepe';
+    $request->image->image = 'quidem';
+    $request->n = 'architecto';
+    $request->responseFormat = 'ipsa';
+    $request->size = 'reiciendis';
+    $request->user = 'est';
 
     $response = $sdk->openAI->createImageVariation($request);
 
@@ -811,7 +647,11 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateModerationRequest();
-    $request->input = 'I want to kill them.';
+    $request->input = [
+        'I want to kill them.',
+        'I want to kill them.',
+        'I want to kill them.',
+    ];
     $request->model = 'text-moderation-stable';
 
     $response = $sdk->openAI->createModeration($request);
@@ -836,69 +676,6 @@ try {
 **[?\Openai\SDK\Models\Operations\CreateModerationResponse](../../models/operations/CreateModerationResponse.md)**
 
 
-## ~~createSearch~~
-
-The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
-
-To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.
-
-The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
-
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```php
-<?php
-
-declare(strict_types=1);
-require_once 'vendor/autoload.php';
-
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Operations\CreateSearchRequest;
-use \Openai\SDK\Models\Shared\CreateSearchRequest;
-
-$sdk = Gpt::builder()
-    ->build();
-
-try {
-    $request = new CreateSearchRequest();
-    $request->createSearchRequest = new CreateSearchRequest();
-    $request->createSearchRequest->documents = [
-        'quia',
-        'quis',
-        'vitae',
-    ];
-    $request->createSearchRequest->file = 'laborum';
-    $request->createSearchRequest->maxRerank = 656330;
-    $request->createSearchRequest->query = 'the president';
-    $request->createSearchRequest->returnMetadata = false;
-    $request->createSearchRequest->user = 'enim';
-    $request->engineId = 'davinci';
-
-    $response = $sdk->openAI->createSearch($request);
-
-    if ($response->createSearchResponse !== null) {
-        // handle response
-    }
-} catch (Exception $e) {
-    // handle exception
-}
-```
-
-### Parameters
-
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                          | [\Openai\SDK\Models\Operations\CreateSearchRequest](../../models/operations/CreateSearchRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
-
-
-### Response
-
-**[?\Openai\SDK\Models\Operations\CreateSearchResponse](../../models/operations/CreateSearchResponse.md)**
-
-
 ## createTranscription
 
 Transcribes audio into the input language.
@@ -921,13 +698,13 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateTranscriptionRequest();
     $request->file = new CreateTranscriptionRequestFile();
-    $request->file->content = 'odit';
-    $request->file->file = 'quo';
-    $request->language = 'sequi';
-    $request->model = 'tenetur';
-    $request->prompt = 'ipsam';
-    $request->responseFormat = 'id';
-    $request->temperature = 8209.94;
+    $request->file->content = 'dolorem';
+    $request->file->file = 'corporis';
+    $request->language = 'explicabo';
+    $request->model = CreateTranscriptionRequestModel2::Whisper1;
+    $request->prompt = 'enim';
+    $request->responseFormat = 'omnis';
+    $request->temperature = 3637.11;
 
     $response = $sdk->openAI->createTranscription($request);
 
@@ -953,7 +730,7 @@ try {
 
 ## createTranslation
 
-Translates audio into into English.
+Translates audio into English.
 
 ### Example Usage
 
@@ -973,12 +750,12 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateTranslationRequest();
     $request->file = new CreateTranslationRequestFile();
-    $request->file->content = 'aut';
-    $request->file->file = 'quasi';
-    $request->model = 'error';
-    $request->prompt = 'temporibus';
-    $request->responseFormat = 'laborum';
-    $request->temperature = 960.98;
+    $request->file->content = 'minima';
+    $request->file->file = 'excepturi';
+    $request->model = 'whisper-1';
+    $request->prompt = 'iure';
+    $request->responseFormat = 'culpa';
+    $request->temperature = 9883.74;
 
     $response = $sdk->openAI->createTranslation($request);
 
@@ -1022,7 +799,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DeleteFileRequest();
-    $request->fileId = 'reiciendis';
+    $request->fileId = 'sapiente';
 
     $response = $sdk->openAI->deleteFile($request);
 
@@ -1110,7 +887,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DownloadFileRequest();
-    $request->fileId = 'voluptatibus';
+    $request->fileId = 'architecto';
 
     $response = $sdk->openAI->downloadFile($request);
 
@@ -1132,42 +909,6 @@ try {
 ### Response
 
 **[?\Openai\SDK\Models\Operations\DownloadFileResponse](../../models/operations/DownloadFileResponse.md)**
-
-
-## ~~listEngines~~
-
-Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```php
-<?php
-
-declare(strict_types=1);
-require_once 'vendor/autoload.php';
-
-use \Openai\SDK\Gpt;
-
-$sdk = Gpt::builder()
-    ->build();
-
-try {
-    $response = $sdk->openAI->listEngines();
-
-    if ($response->listEnginesResponse !== null) {
-        // handle response
-    }
-} catch (Exception $e) {
-    // handle exception
-}
-```
-
-
-### Response
-
-**[?\Openai\SDK\Models\Operations\ListEnginesResponse](../../models/operations/ListEnginesResponse.md)**
 
 
 ## listFiles
@@ -1319,52 +1060,6 @@ try {
 **[?\Openai\SDK\Models\Operations\ListModelsResponse](../../models/operations/ListModelsResponse.md)**
 
 
-## ~~retrieveEngine~~
-
-Retrieves a model instance, providing basic information about it such as the owner and availability.
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```php
-<?php
-
-declare(strict_types=1);
-require_once 'vendor/autoload.php';
-
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Operations\RetrieveEngineRequest;
-
-$sdk = Gpt::builder()
-    ->build();
-
-try {
-    $request = new RetrieveEngineRequest();
-    $request->engineId = 'davinci';
-
-    $response = $sdk->openAI->retrieveEngine($request);
-
-    if ($response->engine !== null) {
-        // handle response
-    }
-} catch (Exception $e) {
-    // handle exception
-}
-```
-
-### Parameters
-
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                              | [\Openai\SDK\Models\Operations\RetrieveEngineRequest](../../models/operations/RetrieveEngineRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
-
-
-### Response
-
-**[?\Openai\SDK\Models\Operations\RetrieveEngineResponse](../../models/operations/RetrieveEngineResponse.md)**
-
-
 ## retrieveFile
 
 Returns information about a specific file.
@@ -1385,7 +1080,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new RetrieveFileRequest();
-    $request->fileId = 'vero';
+    $request->fileId = 'mollitia';
 
     $response = $sdk->openAI->retrieveFile($request);
 

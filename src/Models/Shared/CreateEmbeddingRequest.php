@@ -22,6 +22,11 @@ class CreateEmbeddingRequest
     #[\JMS\Serializer\Annotation\Type('mixed')]
     public mixed $input;
     
+    /**
+     * model_description
+     * 
+     * @var mixed $model
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
     #[\JMS\Serializer\Annotation\Type('mixed')]
     public mixed $model;

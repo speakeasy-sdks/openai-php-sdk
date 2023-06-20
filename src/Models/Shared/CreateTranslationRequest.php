@@ -26,10 +26,10 @@ class CreateTranslationRequest
      * 
      * 
      * 
-     * @var string $model
+     * @var mixed $model
      */
-	#[SpeakeasyMetadata('multipartForm:name=model')]
-    public string $model;
+	#[SpeakeasyMetadata('multipartForm:name=model,json=true')]
+    public mixed $model;
     
     /**
      * An optional text to guide the model's style or continue a previous audio segment. The [prompt](/docs/guides/speech-to-text/prompting) should be in English.
@@ -64,7 +64,7 @@ class CreateTranslationRequest
 	public function __construct()
 	{
 		$this->file = new \Openai\SDK\Models\Shared\CreateTranslationRequestFile();
-		$this->model = "";
+		$this->model = null;
 		$this->prompt = null;
 		$this->responseFormat = null;
 		$this->temperature = null;

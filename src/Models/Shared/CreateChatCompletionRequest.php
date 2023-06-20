@@ -81,11 +81,11 @@ class CreateChatCompletionRequest
     /**
      * ID of the model to use. See the [model endpoint compatibility](/docs/models/model-endpoint-compatibility) table for details on which models work with the Chat API.
      * 
-     * @var string $model
+     * @var mixed $model
      */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $model;
+    #[\JMS\Serializer\Annotation\Type('mixed')]
+    public mixed $model;
     
     /**
      * How many chat completion choices to generate for each input message.
@@ -164,7 +164,7 @@ class CreateChatCompletionRequest
 		$this->logitBias = null;
 		$this->maxTokens = null;
 		$this->messages = [];
-		$this->model = "";
+		$this->model = null;
 		$this->n = null;
 		$this->presencePenalty = null;
 		$this->stop = null;
