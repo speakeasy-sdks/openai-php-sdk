@@ -11,7 +11,45 @@ namespace Openai\SDK\Models\Shared;
 
 class FineTuneHyperparams
 {
+	#[\JMS\Serializer\Annotation\SerializedName('batch_size')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    public int $batchSize;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('classification_n_classes')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $classificationNClasses = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('classification_positive_class')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $classificationPositiveClass = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('compute_classification_metrics')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?bool $computeClassificationMetrics = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('learning_rate_multiplier')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    public float $learningRateMultiplier;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('n_epochs')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    public int $nEpochs;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('prompt_loss_weight')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    public float $promptLossWeight;
+    
 	public function __construct()
 	{
+		$this->batchSize = 0;
+		$this->classificationNClasses = null;
+		$this->classificationPositiveClass = null;
+		$this->computeClassificationMetrics = null;
+		$this->learningRateMultiplier = 0;
+		$this->nEpochs = 0;
+		$this->promptLossWeight = 0;
 	}
 }

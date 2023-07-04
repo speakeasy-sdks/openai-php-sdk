@@ -62,12 +62,12 @@ class CreateCompletionRequest
      * As an example, you can pass `{"50256": -100}` to prevent the <|endoftext|> token from being generated.
      * 
      * 
-     * @var ?\Openai\SDK\Models\Shared\CreateCompletionRequestLogitBias $logitBias
+     * @var ?array<string, int> $logitBias
      */
 	#[\JMS\Serializer\Annotation\SerializedName('logit_bias')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateCompletionRequestLogitBias')]
+    #[\JMS\Serializer\Annotation\Type('array<string, int>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateCompletionRequestLogitBias $logitBias = null;
+    public ?array $logitBias = null;
     
     /**
      * Include the log probabilities on the `logprobs` most likely tokens, as well the chosen tokens. For example, if `logprobs` is 5, the API will return a list of the 5 most likely tokens. The API will always return the `logprob` of the sampled token, so there may be up to `logprobs+1` elements in the response.

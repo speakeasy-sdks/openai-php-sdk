@@ -44,10 +44,10 @@ class CreateEditResponseChoicesLogprobs
     /**
      * $topLogprobs
      * 
-     * @var ?array<\Openai\SDK\Models\Shared\CreateEditResponseChoicesLogprobsTopLogprobs> $topLogprobs
+     * @var ?array<array<string, int>> $topLogprobs
      */
 	#[\JMS\Serializer\Annotation\SerializedName('top_logprobs')]
-    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\CreateEditResponseChoicesLogprobsTopLogprobs>')]
+    #[\JMS\Serializer\Annotation\Type('array<array<string, int>>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $topLogprobs = null;
     

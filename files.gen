@@ -53,7 +53,6 @@ src/Models/Operations/RetrieveModelRequest.php
 src/Models/Operations/RetrieveModelResponse.php
 src/Models/Shared/FineTuneHyperparams.php
 src/Models/Shared/FineTune.php
-src/Models/Shared/OpenAIFileStatusDetails.php
 src/Models/Shared/OpenAIFile.php
 src/Models/Shared/FineTuneEvent.php
 src/Models/Shared/CreateChatCompletionResponseChoicesFinishReason.php
@@ -65,7 +64,6 @@ src/Models/Shared/ChatCompletionResponseMessageRole.php
 src/Models/Shared/ChatCompletionResponseMessage.php
 src/Models/Shared/CreateChatCompletionRequestFunctionCall2.php
 src/Models/Shared/CreateChatCompletionRequestFunctionCall1.php
-src/Models/Shared/CreateChatCompletionRequestLogitBias.php
 src/Models/Shared/CreateChatCompletionRequestModel2.php
 src/Models/Shared/CreateChatCompletionRequest.php
 src/Models/Shared/ChatCompletionRequestMessageFunctionCall.php
@@ -73,16 +71,13 @@ src/Models/Shared/ChatCompletionRequestMessageRole.php
 src/Models/Shared/ChatCompletionRequestMessage.php
 src/Models/Shared/ChatCompletionFunctions.php
 src/Models/Shared/CreateCompletionResponseChoicesFinishReason.php
-src/Models/Shared/CreateCompletionResponseChoicesLogprobsTopLogprobs.php
 src/Models/Shared/CreateCompletionResponseChoicesLogprobs.php
 src/Models/Shared/CreateCompletionResponseChoices.php
 src/Models/Shared/CreateCompletionResponseUsage.php
 src/Models/Shared/CreateCompletionResponse.php
-src/Models/Shared/CreateCompletionRequestLogitBias.php
 src/Models/Shared/CreateCompletionRequestModel2.php
 src/Models/Shared/CreateCompletionRequest.php
 src/Models/Shared/CreateEditResponseChoicesFinishReason.php
-src/Models/Shared/CreateEditResponseChoicesLogprobsTopLogprobs.php
 src/Models/Shared/CreateEditResponseChoicesLogprobs.php
 src/Models/Shared/CreateEditResponseChoices.php
 src/Models/Shared/CreateEditResponseUsage.php
@@ -165,7 +160,6 @@ docs/models/operations/RetrieveModelRequest.md
 docs/models/operations/RetrieveModelResponse.md
 docs/models/shared/FineTuneHyperparams.md
 docs/models/shared/FineTune.md
-docs/models/shared/OpenAIFileStatusDetails.md
 docs/models/shared/OpenAIFile.md
 docs/models/shared/FineTuneEvent.md
 docs/models/shared/CreateChatCompletionResponseChoicesFinishReason.md
@@ -177,7 +171,6 @@ docs/models/shared/ChatCompletionResponseMessageRole.md
 docs/models/shared/ChatCompletionResponseMessage.md
 docs/models/shared/CreateChatCompletionRequestFunctionCall2.md
 docs/models/shared/CreateChatCompletionRequestFunctionCall1.md
-docs/models/shared/CreateChatCompletionRequestLogitBias.md
 docs/models/shared/CreateChatCompletionRequestModel2.md
 docs/models/shared/CreateChatCompletionRequest.md
 docs/models/shared/ChatCompletionRequestMessageFunctionCall.md
@@ -185,16 +178,13 @@ docs/models/shared/ChatCompletionRequestMessageRole.md
 docs/models/shared/ChatCompletionRequestMessage.md
 docs/models/shared/ChatCompletionFunctions.md
 docs/models/shared/CreateCompletionResponseChoicesFinishReason.md
-docs/models/shared/CreateCompletionResponseChoicesLogprobsTopLogprobs.md
 docs/models/shared/CreateCompletionResponseChoicesLogprobs.md
 docs/models/shared/CreateCompletionResponseChoices.md
 docs/models/shared/CreateCompletionResponseUsage.md
 docs/models/shared/CreateCompletionResponse.md
-docs/models/shared/CreateCompletionRequestLogitBias.md
 docs/models/shared/CreateCompletionRequestModel2.md
 docs/models/shared/CreateCompletionRequest.md
 docs/models/shared/CreateEditResponseChoicesFinishReason.md
-docs/models/shared/CreateEditResponseChoicesLogprobsTopLogprobs.md
 docs/models/shared/CreateEditResponseChoicesLogprobs.md
 docs/models/shared/CreateEditResponseChoices.md
 docs/models/shared/CreateEditResponseUsage.md

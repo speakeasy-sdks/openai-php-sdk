@@ -102,7 +102,6 @@ require_once 'vendor/autoload.php';
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\CreateChatCompletionRequest;
 use \Openai\SDK\Models\Shared\ChatCompletionFunctions;
-use \Openai\SDK\Models\Shared\CreateChatCompletionRequestLogitBias;
 use \Openai\SDK\Models\Shared\ChatCompletionRequestMessage;
 use \Openai\SDK\Models\Shared\ChatCompletionRequestMessageFunctionCall;
 use \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRole;
@@ -121,21 +120,25 @@ try {
         new ChatCompletionFunctions(),
         new ChatCompletionFunctions(),
     ];
-    $request->logitBias = new CreateChatCompletionRequestLogitBias();
-    $request->maxTokens = 423655;
+    $request->logitBias = [
+        'error' => 645894,
+        'suscipit' => 437587,
+    ];
+    $request->maxTokens = 297534;
     $request->messages = [
         new ChatCompletionRequestMessage(),
         new ChatCompletionRequestMessage(),
         new ChatCompletionRequestMessage(),
+        new ChatCompletionRequestMessage(),
     ];
-    $request->model = CreateChatCompletionRequestModel2::Gpt35Turbo;
+    $request->model = 'gpt-3.5-turbo';
     $request->n = 1;
-    $request->presencePenalty = 3843.82;
-    $request->stop = 'magnam';
+    $request->presencePenalty = 9636.63;
+    $request->stop = 'suscipit';
     $request->stream = false;
     $request->temperature = 1;
     $request->topP = 1;
-    $request->user = 'debitis';
+    $request->user = 'molestiae';
 
     $response = $sdk->openAI->createChatCompletion($request);
 
@@ -173,38 +176,30 @@ require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\CreateCompletionRequest;
-use \Openai\SDK\Models\Shared\CreateCompletionRequestLogitBias;
 
 $sdk = Gpt::builder()
     ->build();
 
 try {
     $request = new CreateCompletionRequest();
-    $request->bestOf = 56713;
+    $request->bestOf = 791725;
     $request->echo = false;
-    $request->frequencyPenalty = 9636.63;
-    $request->logitBias = new CreateCompletionRequestLogitBias();
-    $request->logprobs = 272656;
+    $request->frequencyPenalty = 8121.69;
+    $request->logitBias = [
+        'iusto' => 568045,
+        'nisi' => 925597,
+        'temporibus' => 71036,
+    ];
+    $request->logprobs = 337396;
     $request->maxTokens = 16;
-    $request->model = 'molestiae';
+    $request->model = 'deserunt';
     $request->n = 1;
-    $request->presencePenalty = 7917.25;
+    $request->presencePenalty = 202.18;
     $request->prompt = [
-        [
-            568045,
-            392785,
-        ],
-        [
-            836079,
-            71036,
-            337396,
-            87129,
-        ],
-        [
-            20218,
-            368241,
-            832620,
-        ],
+        'This is a test.',
+        'This is a test.',
+        'This is a test.',
+        'This is a test.',
     ];
     $request->stop = [
         '["\n"]',
