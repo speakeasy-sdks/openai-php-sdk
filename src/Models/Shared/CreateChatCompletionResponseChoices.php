@@ -13,23 +13,20 @@ class CreateChatCompletionResponseChoices
 {
 	#[\JMS\Serializer\Annotation\SerializedName('finish_reason')]
     #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateChatCompletionResponseChoicesFinishReason>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateChatCompletionResponseChoicesFinishReason $finishReason = null;
+    public CreateChatCompletionResponseChoicesFinishReason $finishReason;
     
 	#[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('int')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?int $index = null;
+    public int $index;
     
 	#[\JMS\Serializer\Annotation\SerializedName('message')]
     #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\ChatCompletionResponseMessage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?ChatCompletionResponseMessage $message = null;
+    public ChatCompletionResponseMessage $message;
     
 	public function __construct()
 	{
-		$this->finishReason = null;
-		$this->index = null;
-		$this->message = null;
+		$this->finishReason = \Openai\SDK\Models\Shared\CreateChatCompletionResponseChoicesFinishReason::Stop;
+		$this->index = 0;
+		$this->message = new \Openai\SDK\Models\Shared\ChatCompletionResponseMessage();
 	}
 }

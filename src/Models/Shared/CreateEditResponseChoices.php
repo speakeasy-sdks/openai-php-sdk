@@ -13,29 +13,20 @@ class CreateEditResponseChoices
 {
 	#[\JMS\Serializer\Annotation\SerializedName('finish_reason')]
     #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateEditResponseChoicesFinishReason>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateEditResponseChoicesFinishReason $finishReason = null;
+    public CreateEditResponseChoicesFinishReason $finishReason;
     
 	#[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('int')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?int $index = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('logprobs')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateEditResponseChoicesLogprobs')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateEditResponseChoicesLogprobs $logprobs = null;
+    public int $index;
     
 	#[\JMS\Serializer\Annotation\SerializedName('text')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $text = null;
+    public string $text;
     
 	public function __construct()
 	{
-		$this->finishReason = null;
-		$this->index = null;
-		$this->logprobs = null;
-		$this->text = null;
+		$this->finishReason = \Openai\SDK\Models\Shared\CreateEditResponseChoicesFinishReason::Stop;
+		$this->index = 0;
+		$this->text = "";
 	}
 }

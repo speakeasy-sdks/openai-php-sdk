@@ -686,21 +686,22 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\CreateTranscriptionRequest;
+use \Openai\SDK\Models\Shared\CreateTranscriptionRequest1;
 use \Openai\SDK\Models\Shared\CreateTranscriptionRequestFile;
+use \Openai\SDK\Models\Shared\CreateTranscriptionRequestResponseFormat;
 
 $sdk = Gpt::builder()
     ->build();
 
 try {
-    $request = new CreateTranscriptionRequest();
+    $request = new CreateTranscriptionRequest1();
     $request->file = new CreateTranscriptionRequestFile();
     $request->file->content = 'dolorem';
     $request->file->file = 'corporis';
     $request->language = 'explicabo';
     $request->model = CreateTranscriptionRequestModel2::Whisper1;
     $request->prompt = 'enim';
-    $request->responseFormat = 'omnis';
+    $request->responseFormat = CreateTranscriptionRequestResponseFormat::VerboseJson;
     $request->temperature = 3637.11;
 
     $response = $sdk->openAI->createTranscription($request);
@@ -715,9 +716,9 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                | [\Openai\SDK\Models\Shared\CreateTranscriptionRequest](../../models/shared/CreateTranscriptionRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                  | [\Openai\SDK\Models\Shared\CreateTranscriptionRequest1](../../models/shared/CreateTranscriptionRequest1.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
 
 ### Response

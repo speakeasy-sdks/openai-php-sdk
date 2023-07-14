@@ -78,7 +78,6 @@ src/Models/Shared/CreateCompletionResponse.php
 src/Models/Shared/CreateCompletionRequestModel2.php
 src/Models/Shared/CreateCompletionRequest.php
 src/Models/Shared/CreateEditResponseChoicesFinishReason.php
-src/Models/Shared/CreateEditResponseChoicesLogprobs.php
 src/Models/Shared/CreateEditResponseChoices.php
 src/Models/Shared/CreateEditResponseUsage.php
 src/Models/Shared/CreateEditResponse.php
@@ -112,7 +111,8 @@ src/Models/Shared/CreateModerationRequest.php
 src/Models/Shared/CreateTranscriptionResponse.php
 src/Models/Shared/CreateTranscriptionRequestFile.php
 src/Models/Shared/CreateTranscriptionRequestModel2.php
-src/Models/Shared/CreateTranscriptionRequest.php
+src/Models/Shared/CreateTranscriptionRequestResponseFormat.php
+src/Models/Shared/CreateTranscriptionRequest1.php
 src/Models/Shared/CreateTranslationResponse.php
 src/Models/Shared/CreateTranslationRequestFile.php
 src/Models/Shared/CreateTranslationRequestModel2.php
@@ -185,7 +185,6 @@ docs/models/shared/CreateCompletionResponse.md
 docs/models/shared/CreateCompletionRequestModel2.md
 docs/models/shared/CreateCompletionRequest.md
 docs/models/shared/CreateEditResponseChoicesFinishReason.md
-docs/models/shared/CreateEditResponseChoicesLogprobs.md
 docs/models/shared/CreateEditResponseChoices.md
 docs/models/shared/CreateEditResponseUsage.md
 docs/models/shared/CreateEditResponse.md
@@ -219,7 +218,8 @@ docs/models/shared/CreateModerationRequest.md
 docs/models/shared/CreateTranscriptionResponse.md
 docs/models/shared/CreateTranscriptionRequestFile.md
 docs/models/shared/CreateTranscriptionRequestModel2.md
-docs/models/shared/CreateTranscriptionRequest.md
+docs/models/shared/CreateTranscriptionRequestResponseFormat.md
+docs/models/shared/CreateTranscriptionRequest1.md
 docs/models/shared/CreateTranslationResponse.md
 docs/models/shared/CreateTranslationRequestFile.md
 docs/models/shared/CreateTranslationRequestModel2.md

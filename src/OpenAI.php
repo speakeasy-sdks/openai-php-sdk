@@ -480,11 +480,11 @@ class OpenAI
     /**
      * Transcribes audio into the input language.
      * 
-     * @param \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request
+     * @param \Openai\SDK\Models\Shared\CreateTranscriptionRequest1 $request
      * @return \Openai\SDK\Models\Operations\CreateTranscriptionResponse
      */
 	public function createTranscription(
-        \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request,
+        \Openai\SDK\Models\Shared\CreateTranscriptionRequest1 $request,
     ): \Openai\SDK\Models\Operations\CreateTranscriptionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
