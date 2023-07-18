@@ -357,11 +357,11 @@ class OpenAI
     /**
      * Creates an edited or extended image given an original image and a prompt.
      * 
-     * @param \Openai\SDK\Models\Shared\CreateImageEditRequest $request
+     * @param \Openai\SDK\Models\Shared\CreateImageEditRequest2 $request
      * @return \Openai\SDK\Models\Operations\CreateImageEditResponse
      */
 	public function createImageEdit(
-        \Openai\SDK\Models\Shared\CreateImageEditRequest $request,
+        \Openai\SDK\Models\Shared\CreateImageEditRequest2 $request,
     ): \Openai\SDK\Models\Operations\CreateImageEditResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -398,11 +398,11 @@ class OpenAI
     /**
      * Creates a variation of a given image.
      * 
-     * @param \Openai\SDK\Models\Shared\CreateImageVariationRequest $request
+     * @param \Openai\SDK\Models\Shared\CreateImageVariationRequest2 $request
      * @return \Openai\SDK\Models\Operations\CreateImageVariationResponse
      */
 	public function createImageVariation(
-        \Openai\SDK\Models\Shared\CreateImageVariationRequest $request,
+        \Openai\SDK\Models\Shared\CreateImageVariationRequest2 $request,
     ): \Openai\SDK\Models\Operations\CreateImageVariationResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();

@@ -138,7 +138,7 @@ try {
     $request->stream = false;
     $request->temperature = 1;
     $request->topP = 1;
-    $request->user = 'molestiae';
+    $request->user = 'user-1234';
 
     $response = $sdk->openAI->createChatCompletion($request);
 
@@ -182,29 +182,42 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateCompletionRequest();
-    $request->bestOf = 791725;
+    $request->bestOf = 477665;
     $request->echo = false;
-    $request->frequencyPenalty = 8121.69;
+    $request->frequencyPenalty = 7917.25;
     $request->logitBias = [
-        'iusto' => 568045,
-        'nisi' => 925597,
-        'temporibus' => 71036,
+        'voluptatum' => 479977,
+        'excepturi' => 392785,
+        'recusandae' => 836079,
+        'ab' => 337396,
     ];
-    $request->logprobs = 337396;
+    $request->logprobs = 87129;
     $request->maxTokens = 16;
-    $request->model = 'deserunt';
+    $request->model = CreateCompletionRequestModel2::TextDavinci003;
     $request->n = 1;
-    $request->presencePenalty = 202.18;
+    $request->presencePenalty = 3682.41;
     $request->prompt = [
-        'This is a test.',
-        'This is a test.',
-        'This is a test.',
-        'This is a test.',
+        [
+            140350,
+            870013,
+            870088,
+            978619,
+        ],
+        [
+            799159,
+            800911,
+        ],
+        [
+            520478,
+            780529,
+        ],
+        [
+            118274,
+            720633,
+            639921,
+        ],
     ];
     $request->stop = [
-        '["\n"]',
-        '["\n"]',
-        '["\n"]',
         '["\n"]',
     ];
     $request->stream = false;
@@ -259,7 +272,7 @@ try {
     $request = new CreateEditRequest();
     $request->input = 'What day of the wek is it?';
     $request->instruction = 'Fix the spelling mistakes.';
-    $request->model = 'text-davinci-edit-001';
+    $request->model = CreateEditRequestModel2::TextDavinciEdit001;
     $request->n = 1;
     $request->temperature = 1;
     $request->topP = 1;
@@ -308,29 +321,25 @@ try {
     $request = new CreateEmbeddingRequest();
     $request->input = [
         [
-            473608,
-            799159,
-            800911,
-            461479,
+            105907,
+            414662,
+            473600,
         ],
         [
-            780529,
-            678880,
-            118274,
+            186332,
+            774234,
         ],
         [
-            639921,
-            582020,
-            143353,
+            456150,
+            216550,
+            568434,
         ],
         [
-            944669,
-            758616,
-            521848,
+            18789,
         ],
     ];
     $request->model = 'text-embedding-ada-002';
-    $request->user = 'commodi';
+    $request->user = 'user-1234';
 
     $response = $sdk->openAI->createEmbedding($request);
 
@@ -377,9 +386,9 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateFileRequest();
     $request->file = new CreateFileRequestFile();
-    $request->file->content = 'molestiae';
-    $request->file->file = 'modi';
-    $request->purpose = 'qui';
+    $request->file->content = 'natus';
+    $request->file->file = 'sed';
+    $request->purpose = 'iste';
 
     $response = $sdk->openAI->createFile($request);
 
@@ -428,20 +437,20 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateFineTuneRequest();
-    $request->batchSize = 774234;
+    $request->batchSize = 222321;
     $request->classificationBetas = [
-        4561.5,
-        2165.5,
-        5684.34,
+        3864.89,
+        9437.49,
+        9025.99,
     ];
-    $request->classificationNClasses = 135218;
-    $request->classificationPositiveClass = 'perferendis';
+    $request->classificationNClasses = 681820;
+    $request->classificationPositiveClass = 'in';
     $request->computeClassificationMetrics = false;
-    $request->learningRateMultiplier = 3241.41;
+    $request->learningRateMultiplier = 3595.08;
     $request->model = CreateFineTuneRequestModel2::Curie;
-    $request->nEpochs = 149675;
-    $request->promptLossWeight = 6120.96;
-    $request->suffix = 'dolor';
+    $request->nEpochs = 437032;
+    $request->promptLossWeight = 9023.49;
+    $request->suffix = 'quidem';
     $request->trainingFile = 'file-ajSREls59WBbvgSzJSVWxMCB';
     $request->validationFile = 'file-XjSREls59WBbvgSzJSVWxMCa';
 
@@ -493,7 +502,7 @@ try {
     $request->prompt = 'A cute baby sea otter';
     $request->responseFormat = CreateImageRequestResponseFormat::Url;
     $request->size = CreateImageRequestSize::OneThousandAndTwentyFourx1024;
-    $request->user = 'natus';
+    $request->user = 'user-1234';
 
     $response = $sdk->openAI->createImage($request);
 
@@ -530,26 +539,28 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\CreateImageEditRequest;
+use \Openai\SDK\Models\Shared\CreateImageEditRequest2;
 use \Openai\SDK\Models\Shared\CreateImageEditRequestImage;
 use \Openai\SDK\Models\Shared\CreateImageEditRequestMask;
+use \Openai\SDK\Models\Shared\CreateImageEditRequestResponseFormat;
+use \Openai\SDK\Models\Shared\CreateImageEditRequestSize;
 
 $sdk = Gpt::builder()
     ->build();
 
 try {
-    $request = new CreateImageEditRequest();
+    $request = new CreateImageEditRequest2();
     $request->image = new CreateImageEditRequestImage();
-    $request->image->content = 'laboriosam';
-    $request->image->image = 'hic';
+    $request->image->content = 'architecto';
+    $request->image->image = 'ipsa';
     $request->mask = new CreateImageEditRequestMask();
-    $request->mask->content = 'saepe';
-    $request->mask->mask = 'fuga';
-    $request->n = 'in';
+    $request->mask->content = 'reiciendis';
+    $request->mask->mask = 'est';
+    $request->n = 1;
     $request->prompt = 'A cute baby sea otter wearing a beret';
-    $request->responseFormat = 'corporis';
-    $request->size = 'iste';
-    $request->user = 'iure';
+    $request->responseFormat = CreateImageEditRequestResponseFormat::Url;
+    $request->size = CreateImageEditRequestSize::OneThousandAndTwentyFourx1024;
+    $request->user = 'user-1234';
 
     $response = $sdk->openAI->createImageEdit($request);
 
@@ -563,9 +574,9 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                        | [\Openai\SDK\Models\Shared\CreateImageEditRequest](../../models/shared/CreateImageEditRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                          | [\Openai\SDK\Models\Shared\CreateImageEditRequest2](../../models/shared/CreateImageEditRequest2.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 
 ### Response
@@ -586,21 +597,23 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\CreateImageVariationRequest;
+use \Openai\SDK\Models\Shared\CreateImageVariationRequest2;
 use \Openai\SDK\Models\Shared\CreateImageVariationRequestImage;
+use \Openai\SDK\Models\Shared\CreateImageVariationRequestResponseFormat;
+use \Openai\SDK\Models\Shared\CreateImageVariationRequestSize;
 
 $sdk = Gpt::builder()
     ->build();
 
 try {
-    $request = new CreateImageVariationRequest();
+    $request = new CreateImageVariationRequest2();
     $request->image = new CreateImageVariationRequestImage();
-    $request->image->content = 'saepe';
-    $request->image->image = 'quidem';
-    $request->n = 'architecto';
-    $request->responseFormat = 'ipsa';
-    $request->size = 'reiciendis';
-    $request->user = 'est';
+    $request->image->content = 'mollitia';
+    $request->image->image = 'laborum';
+    $request->n = 1;
+    $request->responseFormat = CreateImageVariationRequestResponseFormat::Url;
+    $request->size = CreateImageVariationRequestSize::OneThousandAndTwentyFourx1024;
+    $request->user = 'user-1234';
 
     $response = $sdk->openAI->createImageVariation($request);
 
@@ -614,9 +627,9 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                  | [\Openai\SDK\Models\Shared\CreateImageVariationRequest](../../models/shared/CreateImageVariationRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                    | [\Openai\SDK\Models\Shared\CreateImageVariationRequest2](../../models/shared/CreateImageVariationRequest2.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 
 ### Response
@@ -644,11 +657,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateModerationRequest();
-    $request->input = [
-        'I want to kill them.',
-        'I want to kill them.',
-        'I want to kill them.',
-    ];
+    $request->input = 'I want to kill them.';
     $request->model = 'text-moderation-stable';
 
     $response = $sdk->openAI->createModeration($request);
@@ -696,13 +705,13 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateTranscriptionRequest1();
     $request->file = new CreateTranscriptionRequestFile();
-    $request->file->content = 'dolorem';
-    $request->file->file = 'corporis';
-    $request->language = 'explicabo';
-    $request->model = CreateTranscriptionRequestModel2::Whisper1;
-    $request->prompt = 'enim';
-    $request->responseFormat = CreateTranscriptionRequestResponseFormat::VerboseJson;
-    $request->temperature = 3637.11;
+    $request->file->content = 'corporis';
+    $request->file->file = 'explicabo';
+    $request->language = 'nobis';
+    $request->model = 'whisper-1';
+    $request->prompt = 'omnis';
+    $request->responseFormat = CreateTranscriptionRequestResponseFormat::Text;
+    $request->temperature = 3250.47;
 
     $response = $sdk->openAI->createTranscription($request);
 
@@ -748,12 +757,12 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateTranslationRequest();
     $request->file = new CreateTranslationRequestFile();
-    $request->file->content = 'minima';
-    $request->file->file = 'excepturi';
+    $request->file->content = 'excepturi';
+    $request->file->file = 'accusantium';
     $request->model = 'whisper-1';
-    $request->prompt = 'iure';
-    $request->responseFormat = 'culpa';
-    $request->temperature = 9883.74;
+    $request->prompt = 'culpa';
+    $request->responseFormat = 'doloribus';
+    $request->temperature = 9589.5;
 
     $response = $sdk->openAI->createTranslation($request);
 
@@ -797,7 +806,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DeleteFileRequest();
-    $request->fileId = 'sapiente';
+    $request->fileId = 'architecto';
 
     $response = $sdk->openAI->deleteFile($request);
 
@@ -885,7 +894,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DownloadFileRequest();
-    $request->fileId = 'architecto';
+    $request->fileId = 'mollitia';
 
     $response = $sdk->openAI->downloadFile($request);
 
@@ -1078,7 +1087,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new RetrieveFileRequest();
-    $request->fileId = 'mollitia';
+    $request->fileId = 'dolorem';
 
     $response = $sdk->openAI->retrieveFile($request);
 

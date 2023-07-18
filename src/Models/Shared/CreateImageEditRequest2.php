@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 use \Openai\SDK\Utils\SpeakeasyMetadata;
-class CreateImageEditRequest
+class CreateImageEditRequest2
 {
     /**
      * The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
@@ -27,8 +27,13 @@ class CreateImageEditRequest
 	#[SpeakeasyMetadata('multipartForm:file=true')]
     public ?CreateImageEditRequestMask $mask = null;
     
+    /**
+     * The number of images to generate. Must be between 1 and 10.
+     * 
+     * @var ?int $n
+     */
 	#[SpeakeasyMetadata('multipartForm:name=n')]
-    public mixed $n = null;
+    public ?int $n = null;
     
     /**
      * A text description of the desired image(s). The maximum length is 1000 characters.
@@ -38,14 +43,31 @@ class CreateImageEditRequest
 	#[SpeakeasyMetadata('multipartForm:name=prompt')]
     public string $prompt;
     
+    /**
+     * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
+     * 
+     * @var ?\Openai\SDK\Models\Shared\CreateImageEditRequestResponseFormat $responseFormat
+     */
 	#[SpeakeasyMetadata('multipartForm:name=response_format')]
-    public mixed $responseFormat = null;
+    public ?CreateImageEditRequestResponseFormat $responseFormat = null;
     
+    /**
+     * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
+     * 
+     * @var ?\Openai\SDK\Models\Shared\CreateImageEditRequestSize $size
+     */
 	#[SpeakeasyMetadata('multipartForm:name=size')]
-    public mixed $size = null;
+    public ?CreateImageEditRequestSize $size = null;
     
+    /**
+     * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
+     * 
+     * 
+     * 
+     * @var ?string $user
+     */
 	#[SpeakeasyMetadata('multipartForm:name=user')]
-    public mixed $user = null;
+    public ?string $user = null;
     
 	public function __construct()
 	{

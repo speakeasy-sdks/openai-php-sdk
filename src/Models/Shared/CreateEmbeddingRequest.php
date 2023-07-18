@@ -23,7 +23,9 @@ class CreateEmbeddingRequest
     public mixed $input;
     
     /**
-     * model_description
+     * ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models/overview) for descriptions of them.
+     * 
+     * 
      * 
      * @var mixed $model
      */
@@ -31,10 +33,17 @@ class CreateEmbeddingRequest
     #[\JMS\Serializer\Annotation\Type('mixed')]
     public mixed $model;
     
+    /**
+     * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
+     * 
+     * 
+     * 
+     * @var ?string $user
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('user')]
-    #[\JMS\Serializer\Annotation\Type('mixed')]
+    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public mixed $user = null;
+    public ?string $user = null;
     
 	public function __construct()
 	{
