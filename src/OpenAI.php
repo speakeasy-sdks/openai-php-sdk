@@ -145,7 +145,7 @@ class OpenAI
      * 
      * @param \Openai\SDK\Models\Shared\CreateEditRequest $request
      * @return \Openai\SDK\Models\Operations\CreateEditResponse
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	public function createEdit(
         \Openai\SDK\Models\Shared\CreateEditRequest $request,
