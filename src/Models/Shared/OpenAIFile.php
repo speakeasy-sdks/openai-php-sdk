@@ -10,42 +10,86 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * OpenAIFile - OK
+ * OpenAIFile - The `File` object represents a document that has been uploaded to OpenAI.
+ * 
+ * 
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
  */
 class OpenAIFile
 {
+    /**
+     * The size of the file in bytes.
+     * 
+     * @var int $bytes
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('bytes')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $bytes;
     
+    /**
+     * The unix timestamp for when the file was created.
+     * 
+     * @var int $createdAt
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $createdAt;
     
+    /**
+     * The name of the file.
+     * 
+     * @var string $filename
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('filename')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $filename;
     
+    /**
+     * The file identifier, which can be referenced in the API endpoints.
+     * 
+     * @var string $id
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
     
+    /**
+     * The object type, which is always "file".
+     * 
+     * @var string $object
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $object;
     
+    /**
+     * The intended purpose of the file. Currently, only "fine-tune" is supported.
+     * 
+     * @var string $purpose
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('purpose')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $purpose;
     
+    /**
+     * The current status of the file, which can be either `uploaded`, `processed`, `pending`, `error`, `deleting` or `deleted`.
+     * 
+     * @var ?string $status
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $status = null;
     
+    /**
+     * Additional details about the status of the file. If the file is in the `error` state, this will include a message describing the error.
+     * 
+     * 
+     * 
+     * @var ?string $statusDetails
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('status_details')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]

@@ -24,10 +24,10 @@ class ImagesResponse
     /**
      * $data
      * 
-     * @var array<\Openai\SDK\Models\Shared\ImagesResponseData> $data
+     * @var array<\Openai\SDK\Models\Shared\Image> $data
      */
 	#[\JMS\Serializer\Annotation\SerializedName('data')]
-    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\ImagesResponseData>')]
+    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\Image>')]
     public array $data;
     
 	public function __construct()

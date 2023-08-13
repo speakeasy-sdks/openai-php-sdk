@@ -9,16 +9,37 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-class CreateEditResponseUsage
+/**
+ * CompletionUsage - Usage statistics for the completion request.
+ * 
+ * @package Openai\SDK\Models\Shared
+ * @access public
+ */
+class CompletionUsage
 {
+    /**
+     * Number of tokens in the generated completion.
+     * 
+     * @var int $completionTokens
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('completion_tokens')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $completionTokens;
     
+    /**
+     * Number of tokens in the prompt.
+     * 
+     * @var int $promptTokens
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('prompt_tokens')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $promptTokens;
     
+    /**
+     * Total number of tokens used in the request (prompt + completion).
+     * 
+     * @var int $totalTokens
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('total_tokens')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $totalTokens;

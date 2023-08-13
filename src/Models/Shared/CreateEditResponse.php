@@ -18,7 +18,7 @@ namespace Openai\SDK\Models\Shared;
 class CreateEditResponse
 {
     /**
-     * $choices
+     * A list of edit choices. Can be more than one if `n` is greater than 1.
      * 
      * @var array<\Openai\SDK\Models\Shared\CreateEditResponseChoices> $choices
      */
@@ -26,23 +26,38 @@ class CreateEditResponse
     #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\CreateEditResponseChoices>')]
     public array $choices;
     
+    /**
+     * A unix timestamp of when the edit was created.
+     * 
+     * @var int $created
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('created')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $created;
     
+    /**
+     * The object type, which is always `edit`.
+     * 
+     * @var string $object
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $object;
     
+    /**
+     * Usage statistics for the completion request.
+     * 
+     * @var \Openai\SDK\Models\Shared\CompletionUsage $usage
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('usage')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateEditResponseUsage')]
-    public CreateEditResponseUsage $usage;
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CompletionUsage')]
+    public CompletionUsage $usage;
     
 	public function __construct()
 	{
 		$this->choices = [];
 		$this->created = 0;
 		$this->object = "";
-		$this->usage = new \Openai\SDK\Models\Shared\CreateEditResponseUsage();
+		$this->usage = new \Openai\SDK\Models\Shared\CompletionUsage();
 	}
 }

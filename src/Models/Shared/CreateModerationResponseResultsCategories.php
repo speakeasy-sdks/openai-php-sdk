@@ -9,32 +9,73 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
+/**
+ * CreateModerationResponseResultsCategories - A list of the categories, and whether they are flagged or not.
+ * 
+ * @package Openai\SDK\Models\Shared
+ * @access public
+ */
 class CreateModerationResponseResultsCategories
 {
+    /**
+     * Whether the content was flagged as 'hate'.
+     * 
+     * @var bool $hate
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('hate')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $hate;
     
+    /**
+     * Whether the content was flagged as 'hate/threatening'.
+     * 
+     * @var bool $hateThreatening
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('hate/threatening')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $hateThreatening;
     
+    /**
+     * Whether the content was flagged as 'self-harm'.
+     * 
+     * @var bool $selfHarm
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('self-harm')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $selfHarm;
     
+    /**
+     * Whether the content was flagged as 'sexual'.
+     * 
+     * @var bool $sexual
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('sexual')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $sexual;
     
+    /**
+     * Whether the content was flagged as 'sexual/minors'.
+     * 
+     * @var bool $sexualMinors
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('sexual/minors')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $sexualMinors;
     
+    /**
+     * Whether the content was flagged as 'violence'.
+     * 
+     * @var bool $violence
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('violence')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $violence;
     
+    /**
+     * Whether the content was flagged as 'violence/graphic'.
+     * 
+     * @var bool $violenceGraphic
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('violence/graphic')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     public bool $violenceGraphic;

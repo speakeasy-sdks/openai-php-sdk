@@ -9,6 +9,12 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
+/**
+ * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
+ * 
+ * or `length` if the maximum number of tokens specified in the request was reached.
+ * 
+ */
 enum CreateEditResponseChoicesFinishReason: string
 {
     case Stop = 'stop';

@@ -10,23 +10,33 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * CreateModerationResponse - OK
+ * CreateModerationResponse - Represents policy compliance report by OpenAI's content moderation model against a given input.
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
  */
 class CreateModerationResponse
 {
+    /**
+     * The unique identifier for the moderation request.
+     * 
+     * @var string $id
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
     
+    /**
+     * The model used to generate the moderation results.
+     * 
+     * @var string $model
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $model;
     
     /**
-     * $results
+     * A list of moderation objects.
      * 
      * @var array<\Openai\SDK\Models\Shared\CreateModerationResponseResults> $results
      */

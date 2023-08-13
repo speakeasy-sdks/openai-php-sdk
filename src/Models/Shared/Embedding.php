@@ -9,10 +9,20 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-class CreateEmbeddingResponseData
+/**
+ * Embedding - Represents an embedding vector returned by embedding endpoint.
+ * 
+ * 
+ * 
+ * @package Openai\SDK\Models\Shared
+ * @access public
+ */
+class Embedding
 {
     /**
-     * $embedding
+     * The embedding vector, which is a list of floats. The length of vector depends on the model as listed in the [embedding guide](/docs/guides/embeddings).
+     * 
+     * 
      * 
      * @var array<float> $embedding
      */
@@ -20,10 +30,20 @@ class CreateEmbeddingResponseData
     #[\JMS\Serializer\Annotation\Type('array<float>')]
     public array $embedding;
     
+    /**
+     * The index of the embedding in the list of embeddings.
+     * 
+     * @var int $index
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $index;
     
+    /**
+     * The object type, which is always "embedding".
+     * 
+     * @var string $object
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $object;

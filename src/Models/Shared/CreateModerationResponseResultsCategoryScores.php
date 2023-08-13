@@ -9,32 +9,73 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
+/**
+ * CreateModerationResponseResultsCategoryScores - A list of the categories along with their scores as predicted by model.
+ * 
+ * @package Openai\SDK\Models\Shared
+ * @access public
+ */
 class CreateModerationResponseResultsCategoryScores
 {
+    /**
+     * The score for the category 'hate'.
+     * 
+     * @var float $hate
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('hate')]
     #[\JMS\Serializer\Annotation\Type('float')]
     public float $hate;
     
+    /**
+     * The score for the category 'hate/threatening'.
+     * 
+     * @var float $hateThreatening
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('hate/threatening')]
     #[\JMS\Serializer\Annotation\Type('float')]
     public float $hateThreatening;
     
+    /**
+     * The score for the category 'self-harm'.
+     * 
+     * @var float $selfHarm
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('self-harm')]
     #[\JMS\Serializer\Annotation\Type('float')]
     public float $selfHarm;
     
+    /**
+     * The score for the category 'sexual'.
+     * 
+     * @var float $sexual
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('sexual')]
     #[\JMS\Serializer\Annotation\Type('float')]
     public float $sexual;
     
+    /**
+     * The score for the category 'sexual/minors'.
+     * 
+     * @var float $sexualMinors
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('sexual/minors')]
     #[\JMS\Serializer\Annotation\Type('float')]
     public float $sexualMinors;
     
+    /**
+     * The score for the category 'violence'.
+     * 
+     * @var float $violence
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('violence')]
     #[\JMS\Serializer\Annotation\Type('float')]
     public float $violence;
     
+    /**
+     * The score for the category 'violence/graphic'.
+     * 
+     * @var float $violenceGraphic
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('violence/graphic')]
     #[\JMS\Serializer\Annotation\Type('float')]
     public float $violenceGraphic;

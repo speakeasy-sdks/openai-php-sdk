@@ -10,19 +10,26 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * FineTune - OK
+ * FineTune - The `FineTune` object represents a fine-tuning job that has been created through the API.
+ * 
+ * 
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
  */
 class FineTune
 {
+    /**
+     * The unix timestamp for when the fine-tuning job was created.
+     * 
+     * @var int $createdAt
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $createdAt;
     
     /**
-     * $events
+     * The list of events that have been observed in the lifecycle of the FineTune job.
      * 
      * @var ?array<\Openai\SDK\Models\Shared\FineTuneEvent> $events
      */
@@ -31,32 +38,62 @@ class FineTune
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $events = null;
     
+    /**
+     * The name of the fine-tuned model that is being created.
+     * 
+     * @var string $fineTunedModel
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('fine_tuned_model')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $fineTunedModel;
     
+    /**
+     * The hyperparameters used for the fine-tuning job. See the [Fine-tuning Guide](/docs/guides/fine-tuning/hyperparameters) for more details.
+     * 
+     * @var \Openai\SDK\Models\Shared\FineTuneHyperparams $hyperparams
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('hyperparams')]
     #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\FineTuneHyperparams')]
     public FineTuneHyperparams $hyperparams;
     
+    /**
+     * The object identifier, which can be referenced in the API endpoints.
+     * 
+     * @var string $id
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
     
+    /**
+     * The base model that is being fine-tuned.
+     * 
+     * @var string $model
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $model;
     
+    /**
+     * The object type, which is always "fine-tune".
+     * 
+     * @var string $object
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $object;
     
+    /**
+     * The organization that owns the fine-tuning job.
+     * 
+     * @var string $organizationId
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('organization_id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $organizationId;
     
     /**
-     * $resultFiles
+     * The compiled results files for the fine-tuning job.
      * 
      * @var array<\Openai\SDK\Models\Shared\OpenAIFile> $resultFiles
      */
@@ -64,12 +101,17 @@ class FineTune
     #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\OpenAIFile>')]
     public array $resultFiles;
     
+    /**
+     * The current status of the fine-tuning job, which can be either `created`, `pending`, `running`, `succeeded`, `failed`, or `cancelled`.
+     * 
+     * @var string $status
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $status;
     
     /**
-     * $trainingFiles
+     * The list of files used for training.
      * 
      * @var array<\Openai\SDK\Models\Shared\OpenAIFile> $trainingFiles
      */
@@ -77,12 +119,17 @@ class FineTune
     #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\OpenAIFile>')]
     public array $trainingFiles;
     
+    /**
+     * The unix timestamp for when the fine-tuning job was last updated.
+     * 
+     * @var int $updatedAt
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('updated_at')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $updatedAt;
     
     /**
-     * $validationFiles
+     * The list of files used for validation.
      * 
      * @var array<\Openai\SDK\Models\Shared\OpenAIFile> $validationFiles
      */

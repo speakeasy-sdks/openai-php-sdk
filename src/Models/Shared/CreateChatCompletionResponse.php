@@ -10,7 +10,7 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * CreateChatCompletionResponse - OK
+ * CreateChatCompletionResponse - Represents a chat completion response returned by model, based on the provided input.
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
@@ -18,7 +18,7 @@ namespace Openai\SDK\Models\Shared;
 class CreateChatCompletionResponse
 {
     /**
-     * $choices
+     * A list of chat completion choices. Can be more than one if `n` is greater than 1.
      * 
      * @var array<\Openai\SDK\Models\Shared\CreateChatCompletionResponseChoices> $choices
      */
@@ -26,26 +26,51 @@ class CreateChatCompletionResponse
     #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\CreateChatCompletionResponseChoices>')]
     public array $choices;
     
+    /**
+     * A unix timestamp of when the chat completion was created.
+     * 
+     * @var int $created
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('created')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $created;
     
+    /**
+     * A unique identifier for the chat completion.
+     * 
+     * @var string $id
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
     
+    /**
+     * The model used for the chat completion.
+     * 
+     * @var string $model
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $model;
     
+    /**
+     * The object type, which is always `chat.completion`.
+     * 
+     * @var string $object
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $object;
     
+    /**
+     * Usage statistics for the completion request.
+     * 
+     * @var ?\Openai\SDK\Models\Shared\CompletionUsage $usage
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('usage')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateChatCompletionResponseUsage')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CompletionUsage')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateChatCompletionResponseUsage $usage = null;
+    public ?CompletionUsage $usage = null;
     
 	public function __construct()
 	{

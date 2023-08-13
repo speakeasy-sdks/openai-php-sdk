@@ -10,7 +10,9 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * CreateCompletionResponse - OK
+ * CreateCompletionResponse - Represents a completion response from the API. Note: both the streamed and non-streamed response objects share the same shape (unlike the chat endpoint).
+ * 
+ * 
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
@@ -18,7 +20,7 @@ namespace Openai\SDK\Models\Shared;
 class CreateCompletionResponse
 {
     /**
-     * $choices
+     * The list of completion choices the model generated for the input prompt.
      * 
      * @var array<\Openai\SDK\Models\Shared\CreateCompletionResponseChoices> $choices
      */
@@ -26,26 +28,51 @@ class CreateCompletionResponse
     #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\CreateCompletionResponseChoices>')]
     public array $choices;
     
+    /**
+     * The Unix timestamp of when the completion was created.
+     * 
+     * @var int $created
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('created')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $created;
     
+    /**
+     * A unique identifier for the completion.
+     * 
+     * @var string $id
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
     
+    /**
+     * The model used for completion.
+     * 
+     * @var string $model
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('model')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $model;
     
+    /**
+     * The object type, which is always "text_completion"
+     * 
+     * @var string $object
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $object;
     
+    /**
+     * Usage statistics for the completion request.
+     * 
+     * @var ?\Openai\SDK\Models\Shared\CompletionUsage $usage
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('usage')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateCompletionResponseUsage')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CompletionUsage')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateCompletionResponseUsage $usage = null;
+    public ?CompletionUsage $usage = null;
     
 	public function __construct()
 	{

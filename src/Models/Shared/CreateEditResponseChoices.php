@@ -11,14 +11,32 @@ namespace Openai\SDK\Models\Shared;
 
 class CreateEditResponseChoices
 {
+    /**
+     * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
+     * 
+     * or `length` if the maximum number of tokens specified in the request was reached.
+     * 
+     * 
+     * @var \Openai\SDK\Models\Shared\CreateEditResponseChoicesFinishReason $finishReason
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('finish_reason')]
     #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateEditResponseChoicesFinishReason>')]
     public CreateEditResponseChoicesFinishReason $finishReason;
     
+    /**
+     * The index of the choice in the list of choices.
+     * 
+     * @var int $index
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $index;
     
+    /**
+     * The edited result.
+     * 
+     * @var string $text
+     */
 	#[\JMS\Serializer\Annotation\SerializedName('text')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $text;
