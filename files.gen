@@ -62,7 +62,6 @@ src/Models/Shared/CompletionUsage.php
 src/Models/Shared/ChatCompletionResponseMessageFunctionCall.php
 src/Models/Shared/ChatCompletionResponseMessageRole.php
 src/Models/Shared/ChatCompletionResponseMessage.php
-src/Models/Shared/CreateChatCompletionRequestFunctionCall2.php
 src/Models/Shared/CreateChatCompletionRequestFunctionCall1.php
 src/Models/Shared/CreateChatCompletionRequestModel2.php
 src/Models/Shared/CreateChatCompletionRequest.php
@@ -70,6 +69,7 @@ src/Models/Shared/ChatCompletionRequestMessageFunctionCall.php
 src/Models/Shared/ChatCompletionRequestMessageRole.php
 src/Models/Shared/ChatCompletionRequestMessage.php
 src/Models/Shared/ChatCompletionFunctions.php
+src/Models/Shared/ChatCompletionFunctionCallOption.php
 src/Models/Shared/CreateCompletionResponseChoicesFinishReason.php
 src/Models/Shared/CreateCompletionResponseChoicesLogprobs.php
 src/Models/Shared/CreateCompletionResponseChoices.php
@@ -171,7 +171,6 @@ docs/models/shared/CompletionUsage.md
 docs/models/shared/ChatCompletionResponseMessageFunctionCall.md
 docs/models/shared/ChatCompletionResponseMessageRole.md
 docs/models/shared/ChatCompletionResponseMessage.md
-docs/models/shared/CreateChatCompletionRequestFunctionCall2.md
 docs/models/shared/CreateChatCompletionRequestFunctionCall1.md
 docs/models/shared/CreateChatCompletionRequestModel2.md
 docs/models/shared/CreateChatCompletionRequest.md
@@ -179,6 +178,7 @@ docs/models/shared/ChatCompletionRequestMessageFunctionCall.md
 docs/models/shared/ChatCompletionRequestMessageRole.md
 docs/models/shared/ChatCompletionRequestMessage.md
 docs/models/shared/ChatCompletionFunctions.md
+docs/models/shared/ChatCompletionFunctionCallOption.md
 docs/models/shared/CreateCompletionResponseChoicesFinishReason.md
 docs/models/shared/CreateCompletionResponseChoicesLogprobs.md
 docs/models/shared/CreateCompletionResponseChoices.md

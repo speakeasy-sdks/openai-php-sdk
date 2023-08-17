@@ -112,7 +112,7 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateChatCompletionRequest();
     $request->frequencyPenalty = 5488.14;
-    $request->functionCall = new CreateChatCompletionRequestFunctionCall2();
+    $request->functionCall = new ChatCompletionFunctionCallOption();
     $request->functionCall->name = 'Ellis Mitchell';
     $request->functions = [
         new ChatCompletionFunctions(),
