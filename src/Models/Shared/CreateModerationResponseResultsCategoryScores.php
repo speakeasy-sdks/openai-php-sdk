@@ -18,6 +18,24 @@ namespace Openai\SDK\Models\Shared;
 class CreateModerationResponseResultsCategoryScores
 {
     /**
+     * The score for the category 'harassment'.
+     * 
+     * @var float $harassment
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('harassment')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    public float $harassment;
+    
+    /**
+     * The score for the category 'harassment/threatening'.
+     * 
+     * @var float $harassmentThreatening
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('harassment/threatening')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    public float $harassmentThreatening;
+    
+    /**
      * The score for the category 'hate'.
      * 
      * @var float $hate
@@ -43,6 +61,24 @@ class CreateModerationResponseResultsCategoryScores
 	#[\JMS\Serializer\Annotation\SerializedName('self-harm')]
     #[\JMS\Serializer\Annotation\Type('float')]
     public float $selfHarm;
+    
+    /**
+     * The score for the category 'self-harm/instructions'.
+     * 
+     * @var float $selfHarmInstructions
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('self-harm/instructions')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    public float $selfHarmInstructions;
+    
+    /**
+     * The score for the category 'self-harm/intent'.
+     * 
+     * @var float $selfHarmIntent
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('self-harm/intent')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    public float $selfHarmIntent;
     
     /**
      * The score for the category 'sexual'.
@@ -82,9 +118,13 @@ class CreateModerationResponseResultsCategoryScores
     
 	public function __construct()
 	{
+		$this->harassment = 0;
+		$this->harassmentThreatening = 0;
 		$this->hate = 0;
 		$this->hateThreatening = 0;
 		$this->selfHarm = 0;
+		$this->selfHarmInstructions = 0;
+		$this->selfHarmIntent = 0;
 		$this->sexual = 0;
 		$this->sexualMinors = 0;
 		$this->violence = 0;

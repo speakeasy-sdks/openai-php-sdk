@@ -18,7 +18,25 @@ namespace Openai\SDK\Models\Shared;
 class CreateModerationResponseResultsCategories
 {
     /**
-     * Whether the content was flagged as 'hate'.
+     * Content that expresses, incites, or promotes harassing language towards any target.
+     * 
+     * @var bool $harassment
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('harassment')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    public bool $harassment;
+    
+    /**
+     * Harassment content that also includes violence or serious harm towards any target.
+     * 
+     * @var bool $harassmentThreatening
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('harassment/threatening')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    public bool $harassmentThreatening;
+    
+    /**
+     * Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harrassment.
      * 
      * @var bool $hate
      */
@@ -27,7 +45,7 @@ class CreateModerationResponseResultsCategories
     public bool $hate;
     
     /**
-     * Whether the content was flagged as 'hate/threatening'.
+     * Hateful content that also includes violence or serious harm towards the targeted group based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste.
      * 
      * @var bool $hateThreatening
      */
@@ -36,7 +54,7 @@ class CreateModerationResponseResultsCategories
     public bool $hateThreatening;
     
     /**
-     * Whether the content was flagged as 'self-harm'.
+     * Content that promotes, encourages, or depicts acts of self-harm, such as suicide, cutting, and eating disorders.
      * 
      * @var bool $selfHarm
      */
@@ -45,7 +63,25 @@ class CreateModerationResponseResultsCategories
     public bool $selfHarm;
     
     /**
-     * Whether the content was flagged as 'sexual'.
+     * Content that encourages performing acts of self-harm, such as suicide, cutting, and eating disorders, or that gives instructions or advice on how to commit such acts.
+     * 
+     * @var bool $selfHarmInstructions
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('self-harm/instructions')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    public bool $selfHarmInstructions;
+    
+    /**
+     * Content where the speaker expresses that they are engaging or intend to engage in acts of self-harm, such as suicide, cutting, and eating disorders.
+     * 
+     * @var bool $selfHarmIntent
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('self-harm/intent')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    public bool $selfHarmIntent;
+    
+    /**
+     * Content meant to arouse sexual excitement, such as the description of sexual activity, or that promotes sexual services (excluding sex education and wellness).
      * 
      * @var bool $sexual
      */
@@ -54,7 +90,7 @@ class CreateModerationResponseResultsCategories
     public bool $sexual;
     
     /**
-     * Whether the content was flagged as 'sexual/minors'.
+     * Sexual content that includes an individual who is under 18 years old.
      * 
      * @var bool $sexualMinors
      */
@@ -63,7 +99,7 @@ class CreateModerationResponseResultsCategories
     public bool $sexualMinors;
     
     /**
-     * Whether the content was flagged as 'violence'.
+     * Content that depicts death, violence, or physical injury.
      * 
      * @var bool $violence
      */
@@ -72,7 +108,7 @@ class CreateModerationResponseResultsCategories
     public bool $violence;
     
     /**
-     * Whether the content was flagged as 'violence/graphic'.
+     * Content that depicts death, violence, or physical injury in graphic detail.
      * 
      * @var bool $violenceGraphic
      */
@@ -82,9 +118,13 @@ class CreateModerationResponseResultsCategories
     
 	public function __construct()
 	{
+		$this->harassment = false;
+		$this->harassmentThreatening = false;
 		$this->hate = false;
 		$this->hateThreatening = false;
 		$this->selfHarm = false;
+		$this->selfHarmInstructions = false;
+		$this->selfHarmIntent = false;
 		$this->sexual = false;
 		$this->sexualMinors = false;
 		$this->violence = false;
