@@ -235,3 +235,4 @@ docs/models/shared/ListFineTuneEventsResponse.md
 docs/models/shared/ListFineTunesResponse.md
 docs/models/shared/ListModelsResponse.md
 docs/models/shared/Model.md
+.gitattributes
