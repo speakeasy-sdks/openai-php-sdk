@@ -10,17 +10,18 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * FineTune - The `FineTune` object represents a fine-tuning job that has been created through the API.
+ * FineTune - The `FineTune` object represents a legacy fine-tune job that has been created through the API.
  * 
  * 
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
+ * @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 class FineTune
 {
     /**
-     * The unix timestamp for when the fine-tuning job was created.
+     * The Unix timestamp (in seconds) for when the fine-tuning job was created.
      * 
      * @var int $createdAt
      */
@@ -48,7 +49,7 @@ class FineTune
     public string $fineTunedModel;
     
     /**
-     * The hyperparameters used for the fine-tuning job. See the [Fine-tuning Guide](/docs/guides/fine-tuning/hyperparameters) for more details.
+     * The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/hyperparameters) for more details.
      * 
      * @var \Openai\SDK\Models\Shared\FineTuneHyperparams $hyperparams
      */
@@ -102,7 +103,7 @@ class FineTune
     public array $resultFiles;
     
     /**
-     * The current status of the fine-tuning job, which can be either `created`, `pending`, `running`, `succeeded`, `failed`, or `cancelled`.
+     * The current status of the fine-tuning job, which can be either `created`, `running`, `succeeded`, `failed`, or `cancelled`.
      * 
      * @var string $status
      */
@@ -120,7 +121,7 @@ class FineTune
     public array $trainingFiles;
     
     /**
-     * The unix timestamp for when the fine-tuning job was last updated.
+     * The Unix timestamp (in seconds) for when the fine-tuning job was last updated.
      * 
      * @var int $updatedAt
      */

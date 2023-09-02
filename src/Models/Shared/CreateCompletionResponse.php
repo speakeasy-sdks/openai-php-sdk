@@ -29,7 +29,7 @@ class CreateCompletionResponse
     public array $choices;
     
     /**
-     * The Unix timestamp of when the completion was created.
+     * The Unix timestamp (in seconds) of when the completion was created.
      * 
      * @var int $created
      */

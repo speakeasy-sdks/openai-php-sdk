@@ -6,7 +6,9 @@ The OpenAI REST API
 
 ### Available Operations
 
-* [cancelFineTune](#cancelfinetune) - Immediately cancel a fine-tune job.
+* [~~cancelFineTune~~](#cancelfinetune) - Immediately cancel a fine-tune job.
+ :warning: **Deprecated**
+* [cancelFineTuningJob](#cancelfinetuningjob) - Immediately cancel a fine-tune job.
 
 * [createChatCompletion](#createchatcompletion) - Creates a model response for the given chat conversation.
 * [createCompletion](#createcompletion) - Creates a completion for the provided prompt and parameters.
@@ -14,11 +16,17 @@ The OpenAI REST API
 * [createEmbedding](#createembedding) - Creates an embedding vector representing the input text.
 * [createFile](#createfile) - Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
 
-* [createFineTune](#createfinetune) - Creates a job that fine-tunes a specified model from a given dataset.
+* [~~createFineTune~~](#createfinetune) - Creates a job that fine-tunes a specified model from a given dataset.
 
 Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
+ :warning: **Deprecated**
+* [createFineTuningJob](#createfinetuningjob) - Creates a job that fine-tunes a specified model from a given dataset.
+
+Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
 
 * [createImage](#createimage) - Creates an image given a prompt.
 * [createImageEdit](#createimageedit) - Creates an edited or extended image given an original image and a prompt.
@@ -27,25 +35,35 @@ Response includes details of the enqueued job including job status and the name 
 * [createTranscription](#createtranscription) - Transcribes audio into the input language.
 * [createTranslation](#createtranslation) - Translates audio into English.
 * [deleteFile](#deletefile) - Delete a file.
-* [deleteModel](#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization.
+* [deleteModel](#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
 * [downloadFile](#downloadfile) - Returns the contents of the specified file
 * [listFiles](#listfiles) - Returns a list of files that belong to the user's organization.
-* [listFineTuneEvents](#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
-
-* [listFineTunes](#listfinetunes) - List your organization's fine-tuning jobs
+* [~~listFineTuneEvents~~](#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
+ :warning: **Deprecated**
+* [~~listFineTunes~~](#listfinetunes) - List your organization's fine-tuning jobs
+ :warning: **Deprecated**
+* [listFineTuningEvents](#listfinetuningevents) - Get status updates for a fine-tuning job.
 
 * [listModels](#listmodels) - Lists the currently available models, and provides basic information about each one such as the owner and availability.
-* [retrieveFile](#retrievefile) - Returns information about a specific file.
-* [retrieveFineTune](#retrievefinetune) - Gets info about the fine-tune job.
+* [listPaginatedFineTuningJobs](#listpaginatedfinetuningjobs) - List your organization's fine-tuning jobs
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+* [retrieveFile](#retrievefile) - Returns information about a specific file.
+* [~~retrieveFineTune~~](#retrievefinetune) - Gets info about the fine-tune job.
+
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
+ :warning: **Deprecated**
+* [retrieveFineTuningJob](#retrievefinetuningjob) - Get info about a fine-tuning job.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
 
 * [retrieveModel](#retrievemodel) - Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
 
-## cancelFineTune
+## ~~cancelFineTune~~
 
 Immediately cancel a fine-tune job.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -85,6 +103,51 @@ try {
 ### Response
 
 **[?\Openai\SDK\Models\Operations\CancelFineTuneResponse](../../models/operations/CancelFineTuneResponse.md)**
+
+
+## cancelFineTuningJob
+
+Immediately cancel a fine-tune job.
+
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Operations\CancelFineTuningJobRequest;
+
+$sdk = Gpt::builder()
+    ->build();
+
+try {
+    $request = new CancelFineTuningJobRequest();
+    $request->fineTuningJobId = 'ft-AF1WoRqd3aJAHsqc9NY7iL8F';
+
+    $response = $sdk->openAI->cancelFineTuningJob($request);
+
+    if ($response->fineTuningJob !== null) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                        | [\Openai\SDK\Models\Operations\CancelFineTuningJobRequest](../../models/operations/CancelFineTuningJobRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+
+
+### Response
+
+**[?\Openai\SDK\Models\Operations\CancelFineTuningJobResponse](../../models/operations/CancelFineTuningJobResponse.md)**
 
 
 ## createChatCompletion
@@ -193,7 +256,7 @@ try {
     ];
     $request->logprobs = 87129;
     $request->maxTokens = 16;
-    $request->model = CreateCompletionRequestModel2::TextDavinci003;
+    $request->model = CreateCompletionRequestModel2::Babbage002;
     $request->n = 1;
     $request->presencePenalty = 3682.41;
     $request->prompt = [
@@ -412,14 +475,16 @@ try {
 **[?\Openai\SDK\Models\Operations\CreateFileResponse](../../models/operations/CreateFileResponse.md)**
 
 
-## createFineTune
+## ~~createFineTune~~
 
 Creates a job that fine-tunes a specified model from a given dataset.
 
 Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -451,8 +516,8 @@ try {
     $request->nEpochs = 437032;
     $request->promptLossWeight = 9023.49;
     $request->suffix = 'quidem';
-    $request->trainingFile = 'file-ajSREls59WBbvgSzJSVWxMCB';
-    $request->validationFile = 'file-XjSREls59WBbvgSzJSVWxMCa';
+    $request->trainingFile = 'file-abc123';
+    $request->validationFile = 'file-abc123';
 
     $response = $sdk->openAI->createFineTune($request);
 
@@ -474,6 +539,61 @@ try {
 ### Response
 
 **[?\Openai\SDK\Models\Operations\CreateFineTuneResponse](../../models/operations/CreateFineTuneResponse.md)**
+
+
+## createFineTuningJob
+
+Creates a job that fine-tunes a specified model from a given dataset.
+
+Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
+
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\CreateFineTuningJobRequest;
+use \Openai\SDK\Models\Shared\CreateFineTuningJobRequestHyperparameters;
+
+$sdk = Gpt::builder()
+    ->build();
+
+try {
+    $request = new CreateFineTuningJobRequest();
+    $request->hyperparameters = new CreateFineTuningJobRequestHyperparameters();
+    $request->hyperparameters->nEpochs = CreateFineTuningJobRequestHyperparametersNEpochs1::Auto;
+    $request->model = 'gpt-3.5-turbo';
+    $request->suffix = 'reiciendis';
+    $request->trainingFile = 'file-abc123';
+    $request->validationFile = 'file-abc123';
+
+    $response = $sdk->openAI->createFineTuningJob($request);
+
+    if ($response->fineTuningJob !== null) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                | [\Openai\SDK\Models\Shared\CreateFineTuningJobRequest](../../models/shared/CreateFineTuningJobRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+
+### Response
+
+**[?\Openai\SDK\Models\Operations\CreateFineTuningJobResponse](../../models/operations/CreateFineTuningJobResponse.md)**
 
 
 ## createImage
@@ -551,11 +671,11 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateImageEditRequest2();
     $request->image = new CreateImageEditRequestImage();
-    $request->image->content = 'architecto';
-    $request->image->image = 'ipsa';
+    $request->image->content = 'est';
+    $request->image->image = 'mollitia';
     $request->mask = new CreateImageEditRequestMask();
-    $request->mask->content = 'reiciendis';
-    $request->mask->mask = 'est';
+    $request->mask->content = 'laborum';
+    $request->mask->mask = 'dolores';
     $request->n = 1;
     $request->prompt = 'A cute baby sea otter wearing a beret';
     $request->responseFormat = CreateImageEditRequestResponseFormat::Url;
@@ -608,8 +728,8 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateImageVariationRequest2();
     $request->image = new CreateImageVariationRequestImage();
-    $request->image->content = 'mollitia';
-    $request->image->image = 'laborum';
+    $request->image->content = 'dolorem';
+    $request->image->image = 'corporis';
     $request->n = 1;
     $request->responseFormat = CreateImageVariationRequestResponseFormat::Url;
     $request->size = CreateImageVariationRequestSize::OneThousandAndTwentyFourx1024;
@@ -658,7 +778,7 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateModerationRequest();
     $request->input = 'I want to kill them.';
-    $request->model = 'text-moderation-stable';
+    $request->model = CreateModerationRequestModel2::TextModerationStable;
 
     $response = $sdk->openAI->createModeration($request);
 
@@ -705,13 +825,13 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateTranscriptionRequest1();
     $request->file = new CreateTranscriptionRequestFile();
-    $request->file->content = 'corporis';
-    $request->file->file = 'explicabo';
-    $request->language = 'nobis';
+    $request->file->content = 'enim';
+    $request->file->file = 'omnis';
+    $request->language = 'nemo';
     $request->model = 'whisper-1';
-    $request->prompt = 'omnis';
-    $request->responseFormat = CreateTranscriptionRequestResponseFormat::Text;
-    $request->temperature = 3250.47;
+    $request->prompt = 'excepturi';
+    $request->responseFormat = CreateTranscriptionRequestResponseFormat::Json;
+    $request->temperature = 4386.01;
 
     $response = $sdk->openAI->createTranscription($request);
 
@@ -757,12 +877,12 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateTranslationRequest();
     $request->file = new CreateTranslationRequestFile();
-    $request->file->content = 'excepturi';
-    $request->file->file = 'accusantium';
-    $request->model = 'whisper-1';
-    $request->prompt = 'culpa';
-    $request->responseFormat = 'doloribus';
-    $request->temperature = 9589.5;
+    $request->file->content = 'culpa';
+    $request->file->file = 'doloribus';
+    $request->model = CreateTranslationRequestModel2::Whisper1;
+    $request->prompt = 'architecto';
+    $request->responseFormat = 'mollitia';
+    $request->temperature = 2088.76;
 
     $response = $sdk->openAI->createTranslation($request);
 
@@ -806,7 +926,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DeleteFileRequest();
-    $request->fileId = 'architecto';
+    $request->fileId = 'culpa';
 
     $response = $sdk->openAI->deleteFile($request);
 
@@ -832,7 +952,7 @@ try {
 
 ## deleteModel
 
-Delete a fine-tuned model. You must have the Owner role in your organization.
+Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
 
 ### Example Usage
 
@@ -850,7 +970,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DeleteModelRequest();
-    $request->model = 'curie:ft-acmeco-2021-03-03-21-44-20';
+    $request->model = 'ft:gpt-3.5-turbo:acemeco:suffix:abc123';
 
     $response = $sdk->openAI->deleteModel($request);
 
@@ -894,7 +1014,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DownloadFileRequest();
-    $request->fileId = 'mollitia';
+    $request->fileId = 'consequuntur';
 
     $response = $sdk->openAI->downloadFile($request);
 
@@ -952,10 +1072,12 @@ try {
 **[?\Openai\SDK\Models\Operations\ListFilesResponse](../../models/operations/ListFilesResponse.md)**
 
 
-## listFineTuneEvents
+## ~~listFineTuneEvents~~
 
 Get fine-grained status updates for a fine-tune job.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -998,10 +1120,12 @@ try {
 **[?\Openai\SDK\Models\Operations\ListFineTuneEventsResponse](../../models/operations/ListFineTuneEventsResponse.md)**
 
 
-## listFineTunes
+## ~~listFineTunes~~
 
 List your organization's fine-tuning jobs
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -1031,6 +1155,53 @@ try {
 ### Response
 
 **[?\Openai\SDK\Models\Operations\ListFineTunesResponse](../../models/operations/ListFineTunesResponse.md)**
+
+
+## listFineTuningEvents
+
+Get status updates for a fine-tuning job.
+
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Operations\ListFineTuningEventsRequest;
+
+$sdk = Gpt::builder()
+    ->build();
+
+try {
+    $request = new ListFineTuningEventsRequest();
+    $request->after = 'repellat';
+    $request->fineTuningJobId = 'ft-AF1WoRqd3aJAHsqc9NY7iL8F';
+    $request->limit = 653108;
+
+    $response = $sdk->openAI->listFineTuningEvents($request);
+
+    if ($response->listFineTuningJobEventsResponse !== null) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                          | [\Openai\SDK\Models\Operations\ListFineTuningEventsRequest](../../models/operations/ListFineTuningEventsRequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+
+
+### Response
+
+**[?\Openai\SDK\Models\Operations\ListFineTuningEventsResponse](../../models/operations/ListFineTuningEventsResponse.md)**
 
 
 ## listModels
@@ -1067,6 +1238,52 @@ try {
 **[?\Openai\SDK\Models\Operations\ListModelsResponse](../../models/operations/ListModelsResponse.md)**
 
 
+## listPaginatedFineTuningJobs
+
+List your organization's fine-tuning jobs
+
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsRequest;
+
+$sdk = Gpt::builder()
+    ->build();
+
+try {
+    $request = new ListPaginatedFineTuningJobsRequest();
+    $request->after = 'occaecati';
+    $request->limit = 253291;
+
+    $response = $sdk->openAI->listPaginatedFineTuningJobs($request);
+
+    if ($response->listPaginatedFineTuningJobsResponse !== null) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                                        | [\Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsRequest](../../models/operations/ListPaginatedFineTuningJobsRequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
+
+
+### Response
+
+**[?\Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsResponse](../../models/operations/ListPaginatedFineTuningJobsResponse.md)**
+
+
 ## retrieveFile
 
 Returns information about a specific file.
@@ -1087,7 +1304,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new RetrieveFileRequest();
-    $request->fileId = 'dolorem';
+    $request->fileId = 'commodi';
 
     $response = $sdk->openAI->retrieveFile($request);
 
@@ -1111,12 +1328,14 @@ try {
 **[?\Openai\SDK\Models\Operations\RetrieveFileResponse](../../models/operations/RetrieveFileResponse.md)**
 
 
-## retrieveFineTune
+## ~~retrieveFineTune~~
 
 Gets info about the fine-tune job.
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -1158,6 +1377,53 @@ try {
 **[?\Openai\SDK\Models\Operations\RetrieveFineTuneResponse](../../models/operations/RetrieveFineTuneResponse.md)**
 
 
+## retrieveFineTuningJob
+
+Get info about a fine-tuning job.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
+
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Operations\RetrieveFineTuningJobRequest;
+
+$sdk = Gpt::builder()
+    ->build();
+
+try {
+    $request = new RetrieveFineTuningJobRequest();
+    $request->fineTuningJobId = 'ft-AF1WoRqd3aJAHsqc9NY7iL8F';
+
+    $response = $sdk->openAI->retrieveFineTuningJob($request);
+
+    if ($response->fineTuningJob !== null) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                            | [\Openai\SDK\Models\Operations\RetrieveFineTuningJobRequest](../../models/operations/RetrieveFineTuningJobRequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+
+
+### Response
+
+**[?\Openai\SDK\Models\Operations\RetrieveFineTuningJobResponse](../../models/operations/RetrieveFineTuningJobResponse.md)**
+
+
 ## retrieveModel
 
 Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
@@ -1178,7 +1444,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new RetrieveModelRequest();
-    $request->model = 'text-davinci-001';
+    $request->model = 'gpt-3.5-turbo';
 
     $response = $sdk->openAI->retrieveModel($request);
 

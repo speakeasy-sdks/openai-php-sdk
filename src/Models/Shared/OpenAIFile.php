@@ -29,7 +29,7 @@ class OpenAIFile
     public int $bytes;
     
     /**
-     * The unix timestamp for when the file was created.
+     * The Unix timestamp (in seconds) for when the file was created.
      * 
      * @var int $createdAt
      */

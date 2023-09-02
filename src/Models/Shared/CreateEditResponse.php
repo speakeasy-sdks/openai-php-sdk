@@ -14,6 +14,7 @@ namespace Openai\SDK\Models\Shared;
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
+ * @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 class CreateEditResponse
 {
@@ -27,7 +28,7 @@ class CreateEditResponse
     public array $choices;
     
     /**
-     * A unix timestamp of when the edit was created.
+     * The Unix timestamp (in seconds) of when the edit was created.
      * 
      * @var int $created
      */

@@ -27,7 +27,7 @@ class CreateChatCompletionResponse
     public array $choices;
     
     /**
-     * A unix timestamp of when the chat completion was created.
+     * The Unix timestamp (in seconds) of when the chat completion was created.
      * 
      * @var int $created
      */

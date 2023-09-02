@@ -15,7 +15,7 @@ class CreateChatCompletionRequest
      * Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
      * 
      * 
-     * [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
+     * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
      * 
      * 
      * @var ?float $frequencyPenalty
@@ -105,7 +105,7 @@ class CreateChatCompletionRequest
      * Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
      * 
      * 
-     * [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
+     * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
      * 
      * 
      * @var ?float $presencePenalty

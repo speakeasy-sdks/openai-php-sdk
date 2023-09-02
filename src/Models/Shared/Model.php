@@ -18,7 +18,7 @@ namespace Openai\SDK\Models\Shared;
 class Model
 {
     /**
-     * The date and time when the model was created.
+     * The Unix timestamp (in seconds) when the model was created.
      * 
      * @var int $created
      */

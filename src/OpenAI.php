@@ -27,11 +27,14 @@ class OpenAI
      * 
      * @param \Openai\SDK\Models\Operations\CancelFineTuneRequest $request
      * @return \Openai\SDK\Models\Operations\CancelFineTuneResponse
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	public function cancelFineTune(
         \Openai\SDK\Models\Operations\CancelFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\CancelFineTuneResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes/{fine_tune_id}/cancel', \Openai\SDK\Models\Operations\CancelFineTuneRequest::class, $request);
         
@@ -52,6 +55,43 @@ class OpenAI
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->fineTune = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\FineTune', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
+     * Immediately cancel a fine-tune job.
+     * 
+     * 
+     * @param \Openai\SDK\Models\Operations\CancelFineTuningJobRequest $request
+     * @return \Openai\SDK\Models\Operations\CancelFineTuningJobResponse
+     */
+	public function cancelFineTuningJob(
+        \Openai\SDK\Models\Operations\CancelFineTuningJobRequest $request,
+    ): \Openai\SDK\Models\Operations\CancelFineTuningJobResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine_tuning/jobs/{fine_tuning_job_id}/cancel', \Openai\SDK\Models\Operations\CancelFineTuningJobRequest::class, $request);
+        
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
+        
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $response = new \Openai\SDK\Models\Operations\CancelFineTuningJobResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->fineTuningJob = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\FineTuningJob', 'json');
             }
         }
 
@@ -272,16 +312,19 @@ class OpenAI
      * 
      * Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
      * 
-     * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
+     * [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
      * 
      * 
      * @param \Openai\SDK\Models\Shared\CreateFineTuneRequest $request
      * @return \Openai\SDK\Models\Operations\CreateFineTuneResponse
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	public function createFineTune(
         \Openai\SDK\Models\Shared\CreateFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\CreateFineTuneResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes');
         
@@ -307,6 +350,52 @@ class OpenAI
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->fineTune = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\FineTune', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
+     * Creates a job that fine-tunes a specified model from a given dataset.
+     * 
+     * Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
+     * 
+     * [Learn more about fine-tuning](/docs/guides/fine-tuning)
+     * 
+     * 
+     * @param \Openai\SDK\Models\Shared\CreateFineTuningJobRequest $request
+     * @return \Openai\SDK\Models\Operations\CreateFineTuningJobResponse
+     */
+	public function createFineTuningJob(
+        \Openai\SDK\Models\Shared\CreateFineTuningJobRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateFineTuningJobResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine_tuning/jobs');
+        
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $options = array_merge_recursive($options, $body);
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
+        
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $response = new \Openai\SDK\Models\Operations\CreateFineTuningJobResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->fineTuningJob = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\FineTuningJob', 'json');
             }
         }
 
@@ -596,7 +685,7 @@ class OpenAI
     }
 	
     /**
-     * Delete a fine-tuned model. You must have the Owner role in your organization.
+     * Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
      * 
      * @param \Openai\SDK\Models\Operations\DeleteModelRequest $request
      * @return \Openai\SDK\Models\Operations\DeleteModelResponse
@@ -706,11 +795,14 @@ class OpenAI
      * 
      * @param \Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request
      * @return \Openai\SDK\Models\Operations\ListFineTuneEventsResponse
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	public function listFineTuneEvents(
         \Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request,
     ): \Openai\SDK\Models\Operations\ListFineTuneEventsResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes/{fine_tune_id}/events', \Openai\SDK\Models\Operations\ListFineTuneEventsRequest::class, $request);
         
@@ -743,10 +835,13 @@ class OpenAI
      * 
      * 
      * @return \Openai\SDK\Models\Operations\ListFineTunesResponse
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	public function listFineTunes(
     ): \Openai\SDK\Models\Operations\ListFineTunesResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes');
         
@@ -767,6 +862,44 @@ class OpenAI
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->listFineTunesResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\ListFineTunesResponse', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
+     * Get status updates for a fine-tuning job.
+     * 
+     * 
+     * @param \Openai\SDK\Models\Operations\ListFineTuningEventsRequest $request
+     * @return \Openai\SDK\Models\Operations\ListFineTuningEventsResponse
+     */
+	public function listFineTuningEvents(
+        \Openai\SDK\Models\Operations\ListFineTuningEventsRequest $request,
+    ): \Openai\SDK\Models\Operations\ListFineTuningEventsResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine_tuning/jobs/{fine_tuning_job_id}/events', \Openai\SDK\Models\Operations\ListFineTuningEventsRequest::class, $request);
+        
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Openai\SDK\Models\Operations\ListFineTuningEventsRequest::class, $request, null));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
+        
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $response = new \Openai\SDK\Models\Operations\ListFineTuningEventsResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->listFineTuningJobEventsResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\ListFineTuningJobEventsResponse', 'json');
             }
         }
 
@@ -801,6 +934,44 @@ class OpenAI
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->listModelsResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\ListModelsResponse', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
+     * List your organization's fine-tuning jobs
+     * 
+     * 
+     * @param \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsRequest $request
+     * @return \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsResponse
+     */
+	public function listPaginatedFineTuningJobs(
+        \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsRequest $request,
+    ): \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine_tuning/jobs');
+        
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsRequest::class, $request, null));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
+        
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $response = new \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->listPaginatedFineTuningJobsResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\ListPaginatedFineTuningJobsResponse', 'json');
             }
         }
 
@@ -846,16 +1017,19 @@ class OpenAI
     /**
      * Gets info about the fine-tune job.
      * 
-     * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
+     * [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
      * 
      * 
      * @param \Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request
      * @return \Openai\SDK\Models\Operations\RetrieveFineTuneResponse
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	public function retrieveFineTune(
         \Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFineTuneResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/fine-tunes/{fine_tune_id}', \Openai\SDK\Models\Operations\RetrieveFineTuneRequest::class, $request);
         
@@ -876,6 +1050,45 @@ class OpenAI
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->fineTune = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\FineTune', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
+     * Get info about a fine-tuning job.
+     * 
+     * [Learn more about fine-tuning](/docs/guides/fine-tuning)
+     * 
+     * 
+     * @param \Openai\SDK\Models\Operations\RetrieveFineTuningJobRequest $request
+     * @return \Openai\SDK\Models\Operations\RetrieveFineTuningJobResponse
+     */
+	public function retrieveFineTuningJob(
+        \Openai\SDK\Models\Operations\RetrieveFineTuningJobRequest $request,
+    ): \Openai\SDK\Models\Operations\RetrieveFineTuningJobResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/fine_tuning/jobs/{fine_tuning_job_id}', \Openai\SDK\Models\Operations\RetrieveFineTuningJobRequest::class, $request);
+        
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = sprintf('speakeasy-sdk/%s %s %s %s', $this->sdkConfiguration->language, $this->sdkConfiguration->sdkVersion, $this->sdkConfiguration->genVersion, $this->sdkConfiguration->openapiDocVersion);
+        
+        $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $response = new \Openai\SDK\Models\Operations\RetrieveFineTuningJobResponse();
+        $response->statusCode = $httpResponse->getStatusCode();
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->fineTuningJob = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\FineTuningJob', 'json');
             }
         }
 

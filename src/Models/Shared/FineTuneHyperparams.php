@@ -10,7 +10,7 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * FineTuneHyperparams - The hyperparameters used for the fine-tuning job. See the [Fine-tuning Guide](/docs/guides/fine-tuning/hyperparameters) for more details.
+ * FineTuneHyperparams - The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/hyperparameters) for more details.
  * 
  * @package Openai\SDK\Models\Shared
  * @access public
