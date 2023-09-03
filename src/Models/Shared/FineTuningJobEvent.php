@@ -15,6 +15,10 @@ class FineTuningJobEvent
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $createdAt;
     
+	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    public string $id;
+    
 	#[\JMS\Serializer\Annotation\SerializedName('level')]
     #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\FineTuningJobEventLevel>')]
     public FineTuningJobEventLevel $level;
@@ -30,6 +34,7 @@ class FineTuningJobEvent
 	public function __construct()
 	{
 		$this->createdAt = 0;
+		$this->id = "";
 		$this->level = \Openai\SDK\Models\Shared\FineTuningJobEventLevel::Info;
 		$this->message = "";
 		$this->object = "";
