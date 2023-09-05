@@ -30,7 +30,7 @@ class OpenAI
      * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	public function cancelFineTune(
-        \Openai\SDK\Models\Operations\CancelFineTuneRequest $request,
+        ?\Openai\SDK\Models\Operations\CancelFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\CancelFineTuneResponse
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
@@ -69,7 +69,7 @@ class OpenAI
      * @return \Openai\SDK\Models\Operations\CancelFineTuningJobResponse
      */
 	public function cancelFineTuningJob(
-        \Openai\SDK\Models\Operations\CancelFineTuningJobRequest $request,
+        ?\Openai\SDK\Models\Operations\CancelFineTuningJobRequest $request,
     ): \Openai\SDK\Models\Operations\CancelFineTuningJobResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -655,7 +655,7 @@ class OpenAI
      * @return \Openai\SDK\Models\Operations\DeleteFileResponse
      */
 	public function deleteFile(
-        \Openai\SDK\Models\Operations\DeleteFileRequest $request,
+        ?\Openai\SDK\Models\Operations\DeleteFileRequest $request,
     ): \Openai\SDK\Models\Operations\DeleteFileResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -691,7 +691,7 @@ class OpenAI
      * @return \Openai\SDK\Models\Operations\DeleteModelResponse
      */
 	public function deleteModel(
-        \Openai\SDK\Models\Operations\DeleteModelRequest $request,
+        ?\Openai\SDK\Models\Operations\DeleteModelRequest $request,
     ): \Openai\SDK\Models\Operations\DeleteModelResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -727,7 +727,7 @@ class OpenAI
      * @return \Openai\SDK\Models\Operations\DownloadFileResponse
      */
 	public function downloadFile(
-        \Openai\SDK\Models\Operations\DownloadFileRequest $request,
+        ?\Openai\SDK\Models\Operations\DownloadFileRequest $request,
     ): \Openai\SDK\Models\Operations\DownloadFileResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -798,7 +798,7 @@ class OpenAI
      * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	public function listFineTuneEvents(
-        \Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request,
+        ?\Openai\SDK\Models\Operations\ListFineTuneEventsRequest $request,
     ): \Openai\SDK\Models\Operations\ListFineTuneEventsResponse
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
@@ -876,7 +876,7 @@ class OpenAI
      * @return \Openai\SDK\Models\Operations\ListFineTuningEventsResponse
      */
 	public function listFineTuningEvents(
-        \Openai\SDK\Models\Operations\ListFineTuningEventsRequest $request,
+        ?\Openai\SDK\Models\Operations\ListFineTuningEventsRequest $request,
     ): \Openai\SDK\Models\Operations\ListFineTuningEventsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -948,7 +948,7 @@ class OpenAI
      * @return \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsResponse
      */
 	public function listPaginatedFineTuningJobs(
-        \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsRequest $request,
+        ?\Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsRequest $request,
     ): \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -985,7 +985,7 @@ class OpenAI
      * @return \Openai\SDK\Models\Operations\RetrieveFileResponse
      */
 	public function retrieveFile(
-        \Openai\SDK\Models\Operations\RetrieveFileRequest $request,
+        ?\Openai\SDK\Models\Operations\RetrieveFileRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFileResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -1025,7 +1025,7 @@ class OpenAI
      * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	public function retrieveFineTune(
-        \Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request,
+        ?\Openai\SDK\Models\Operations\RetrieveFineTuneRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFineTuneResponse
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
@@ -1066,7 +1066,7 @@ class OpenAI
      * @return \Openai\SDK\Models\Operations\RetrieveFineTuningJobResponse
      */
 	public function retrieveFineTuningJob(
-        \Openai\SDK\Models\Operations\RetrieveFineTuningJobRequest $request,
+        ?\Openai\SDK\Models\Operations\RetrieveFineTuningJobRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveFineTuningJobResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -1102,7 +1102,7 @@ class OpenAI
      * @return \Openai\SDK\Models\Operations\RetrieveModelResponse
      */
 	public function retrieveModel(
-        \Openai\SDK\Models\Operations\RetrieveModelRequest $request,
+        ?\Openai\SDK\Models\Operations\RetrieveModelRequest $request,
     ): \Openai\SDK\Models\Operations\RetrieveModelResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
