@@ -12,7 +12,7 @@ use \Openai\SDK\Utils\SpeakeasyMetadata;
 class RetrieveFineTuningJobRequest
 {
     /**
-     * The ID of the fine-tuning job
+     * The ID of the fine-tuning job.
      * 
      * 
      * 

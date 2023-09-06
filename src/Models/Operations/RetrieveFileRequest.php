@@ -12,7 +12,7 @@ use \Openai\SDK\Utils\SpeakeasyMetadata;
 class RetrieveFileRequest
 {
     /**
-     * The ID of the file to use for this request
+     * The ID of the file to use for this request.
      * 
      * @var string $fileId
      */

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Openai\SDK;
 
 /**
- * Gpt - OpenAI API: APIs for sampling from and fine-tuning language models
+ * Gpt - OpenAI API: The OpenAI REST API. Please see https://platform.openai.com/docs/api-reference for more details.
  * 
  * @package Openai\SDK
  * @access public

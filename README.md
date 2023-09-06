@@ -1014,6 +1014,33 @@ try {
 } catch (Exception $e) {
     // handle exception
 }
+```
+
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
+use \Openai\SDK\Models\Operations\CancelFineTuneRequest;
+
+$sdk = Gpt::builder()
+    ->build();
+
+try {
+    $request = new CancelFineTuneRequest();
+    $request->fineTuneId = 'ft-AF1WoRqd3aJAHsqc9NY7iL8F';
+
+    $response = $sdk->openAI->cancelFineTune($request);
+
+    if ($response->fineTune !== null) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
 ```<!-- Start SDK Example Usage -->
 
 <!-- End SDK Example Usage -->
@@ -1054,7 +1081,7 @@ Response includes details of the enqueued job including job status and the name 
 * [createTranslation](docs/sdks/openai/README.md#createtranslation) - Translates audio into English.
 * [deleteFile](docs/sdks/openai/README.md#deletefile) - Delete a file.
 * [deleteModel](docs/sdks/openai/README.md#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
-* [downloadFile](docs/sdks/openai/README.md#downloadfile) - Returns the contents of the specified file
+* [downloadFile](docs/sdks/openai/README.md#downloadfile) - Returns the contents of the specified file.
 * [listFiles](docs/sdks/openai/README.md#listfiles) - Returns a list of files that belong to the user's organization.
 * [~~listFineTuneEvents~~](docs/sdks/openai/README.md#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
  :warning: **Deprecated**

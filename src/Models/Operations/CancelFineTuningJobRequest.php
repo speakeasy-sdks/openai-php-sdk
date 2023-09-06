@@ -12,7 +12,7 @@ use \Openai\SDK\Utils\SpeakeasyMetadata;
 class CancelFineTuningJobRequest
 {
     /**
-     * The ID of the fine-tuning job to cancel
+     * The ID of the fine-tuning job to cancel.
      * 
      * 
      * 

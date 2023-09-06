@@ -93,7 +93,7 @@ class FineTuningJob
     public string $organizationId;
     
     /**
-     * The compiled results files for the fine-tuning job.
+     * The compiled results file ID(s) for the fine-tuning job. You can retrieve the results with the [Files API](/docs/api-reference/files/retrieve-contents).
      * 
      * @var array<\Openai\SDK\Models\Shared\OpenAIFile> $resultFiles
      */
@@ -111,7 +111,7 @@ class FineTuningJob
     public string $status;
     
     /**
-     * The total number of billable tokens processed by this fine tuning job.
+     * The total number of billable tokens processed by this fine-tuning job.
      * 
      * @var int $trainedTokens
      */
@@ -120,7 +120,7 @@ class FineTuningJob
     public int $trainedTokens;
     
     /**
-     * The file ID used for training.
+     * The file ID used for training. You can retrieve the training data with the [Files API](/docs/api-reference/files/retrieve-contents).
      * 
      * @var string $trainingFile
      */
@@ -129,7 +129,7 @@ class FineTuningJob
     public string $trainingFile;
     
     /**
-     * The file ID used for validation.
+     * The file ID used for validation. You can retrieve the validation results with the [Files API](/docs/api-reference/files/retrieve-contents).
      * 
      * @var string $validationFile
      */

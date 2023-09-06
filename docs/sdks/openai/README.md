@@ -36,7 +36,7 @@ Response includes details of the enqueued job including job status and the name 
 * [createTranslation](#createtranslation) - Translates audio into English.
 * [deleteFile](#deletefile) - Delete a file.
 * [deleteModel](#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
-* [downloadFile](#downloadfile) - Returns the contents of the specified file
+* [downloadFile](#downloadfile) - Returns the contents of the specified file.
 * [listFiles](#listfiles) - Returns a list of files that belong to the user's organization.
 * [~~listFineTuneEvents~~](#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
  :warning: **Deprecated**
@@ -74,6 +74,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\CancelFineTuneRequest;
 
 $sdk = Gpt::builder()
@@ -119,6 +120,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\CancelFineTuningJobRequest;
 
 $sdk = Gpt::builder()
@@ -163,6 +165,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateChatCompletionRequest;
 use \Openai\SDK\Models\Shared\ChatCompletionFunctions;
 use \Openai\SDK\Models\Shared\ChatCompletionRequestMessage;
@@ -238,6 +241,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateCompletionRequest;
 
 $sdk = Gpt::builder()
@@ -326,6 +330,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateEditRequest;
 
 $sdk = Gpt::builder()
@@ -375,6 +380,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateEmbeddingRequest;
 
 $sdk = Gpt::builder()
@@ -440,6 +446,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateFileRequest;
 use \Openai\SDK\Models\Shared\CreateFileRequestFile;
 
@@ -495,6 +502,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateFineTuneRequest;
 
 $sdk = Gpt::builder()
@@ -559,6 +567,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateFineTuningJobRequest;
 use \Openai\SDK\Models\Shared\CreateFineTuningJobRequestHyperparameters;
 
@@ -609,6 +618,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateImageRequest;
 use \Openai\SDK\Models\Shared\CreateImageRequestResponseFormat;
 use \Openai\SDK\Models\Shared\CreateImageRequestSize;
@@ -659,6 +669,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateImageEditRequest2;
 use \Openai\SDK\Models\Shared\CreateImageEditRequestImage;
 use \Openai\SDK\Models\Shared\CreateImageEditRequestMask;
@@ -717,6 +728,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateImageVariationRequest2;
 use \Openai\SDK\Models\Shared\CreateImageVariationRequestImage;
 use \Openai\SDK\Models\Shared\CreateImageVariationRequestResponseFormat;
@@ -770,6 +782,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateModerationRequest;
 
 $sdk = Gpt::builder()
@@ -815,6 +828,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateTranscriptionRequest1;
 use \Openai\SDK\Models\Shared\CreateTranscriptionRequestFile;
 use \Openai\SDK\Models\Shared\CreateTranscriptionRequestResponseFormat;
@@ -868,6 +882,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateTranslationRequest;
 use \Openai\SDK\Models\Shared\CreateTranslationRequestFile;
 
@@ -919,6 +934,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\DeleteFileRequest;
 
 $sdk = Gpt::builder()
@@ -963,6 +979,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\DeleteModelRequest;
 
 $sdk = Gpt::builder()
@@ -996,7 +1013,7 @@ try {
 
 ## downloadFile
 
-Returns the contents of the specified file
+Returns the contents of the specified file.
 
 ### Example Usage
 
@@ -1007,6 +1024,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\DownloadFileRequest;
 
 $sdk = Gpt::builder()
@@ -1051,6 +1069,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 
 $sdk = Gpt::builder()
     ->build();
@@ -1088,6 +1107,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\ListFineTuneEventsRequest;
 
 $sdk = Gpt::builder()
@@ -1136,6 +1156,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 
 $sdk = Gpt::builder()
     ->build();
@@ -1171,6 +1192,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\ListFineTuningEventsRequest;
 
 $sdk = Gpt::builder()
@@ -1217,6 +1239,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 
 $sdk = Gpt::builder()
     ->build();
@@ -1252,6 +1275,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsRequest;
 
 $sdk = Gpt::builder()
@@ -1297,6 +1321,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\RetrieveFileRequest;
 
 $sdk = Gpt::builder()
@@ -1346,6 +1371,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\RetrieveFineTuneRequest;
 
 $sdk = Gpt::builder()
@@ -1393,6 +1419,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\RetrieveFineTuningJobRequest;
 
 $sdk = Gpt::builder()
@@ -1437,6 +1464,7 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
+use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Operations\RetrieveModelRequest;
 
 $sdk = Gpt::builder()
