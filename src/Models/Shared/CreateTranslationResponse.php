@@ -9,12 +9,6 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-/**
- * CreateTranslationResponse - OK
- * 
- * @package Openai\SDK\Models\Shared
- * @access public
- */
 class CreateTranslationResponse
 {
 	#[\JMS\Serializer\Annotation\SerializedName('text')]

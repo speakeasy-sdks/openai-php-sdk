@@ -29,7 +29,7 @@ class FineTuningJob
     public int $createdAt;
     
     /**
-     * The name of the fine-tuned model that is being created.
+     * The name of the fine-tuned model that is being created. The value will be null if the fine-tuning job is still running.
      * 
      * @var string $fineTunedModel
      */
@@ -38,7 +38,7 @@ class FineTuningJob
     public string $fineTunedModel;
     
     /**
-     * The Unix timestamp (in seconds) for when the fine-tuning job was finished.
+     * The Unix timestamp (in seconds) for when the fine-tuning job was finished. The value will be null if the fine-tuning job is still running.
      * 
      * @var ?int $finishedAt
      */
@@ -95,10 +95,10 @@ class FineTuningJob
     /**
      * The compiled results file ID(s) for the fine-tuning job. You can retrieve the results with the [Files API](/docs/api-reference/files/retrieve-contents).
      * 
-     * @var array<\Openai\SDK\Models\Shared\OpenAIFile> $resultFiles
+     * @var array<string> $resultFiles
      */
 	#[\JMS\Serializer\Annotation\SerializedName('result_files')]
-    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\OpenAIFile>')]
+    #[\JMS\Serializer\Annotation\Type('array<string>')]
     public array $resultFiles;
     
     /**
@@ -111,7 +111,7 @@ class FineTuningJob
     public string $status;
     
     /**
-     * The total number of billable tokens processed by this fine-tuning job.
+     * The total number of billable tokens processed by this fine-tuning job. The value will be null if the fine-tuning job is still running.
      * 
      * @var int $trainedTokens
      */

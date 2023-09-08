@@ -10,7 +10,7 @@ namespace Openai\SDK\Models\Shared;
 
 
 /**
- * CreateEditResponse - OK
+ * CreateEditResponse
  * 
  * @package Openai\SDK\Models\Shared
  * @access public

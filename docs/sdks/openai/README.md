@@ -182,25 +182,18 @@ try {
     $request->functionCall->name = 'Ellis Mitchell';
     $request->functions = [
         new ChatCompletionFunctions(),
-        new ChatCompletionFunctions(),
-        new ChatCompletionFunctions(),
-        new ChatCompletionFunctions(),
     ];
     $request->logitBias = [
-        'error' => 645894,
-        'suscipit' => 437587,
+        'illum' => 423655,
     ];
-    $request->maxTokens = 297534;
+    $request->maxTokens = 623564;
     $request->messages = [
         new ChatCompletionRequestMessage(),
-        new ChatCompletionRequestMessage(),
-        new ChatCompletionRequestMessage(),
-        new ChatCompletionRequestMessage(),
     ];
-    $request->model = 'gpt-3.5-turbo';
+    $request->model = CreateChatCompletionRequestModel2::Gpt35Turbo;
     $request->n = 1;
-    $request->presencePenalty = 9636.63;
-    $request->stop = 'suscipit';
+    $request->presencePenalty = 3843.82;
+    $request->stop = 'magnam';
     $request->stream = false;
     $request->temperature = 1;
     $request->topP = 1;
@@ -249,40 +242,19 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateCompletionRequest();
-    $request->bestOf = 477665;
+    $request->bestOf = 891773;
     $request->echo = false;
-    $request->frequencyPenalty = 7917.25;
+    $request->frequencyPenalty = 567.13;
     $request->logitBias = [
-        'voluptatum' => 479977,
-        'excepturi' => 392785,
-        'recusandae' => 836079,
-        'ab' => 337396,
+        'delectus' => 272656,
     ];
-    $request->logprobs = 87129;
+    $request->logprobs = 383441;
     $request->maxTokens = 16;
-    $request->model = CreateCompletionRequestModel2::Babbage002;
+    $request->model = 'minus';
     $request->n = 1;
-    $request->presencePenalty = 3682.41;
+    $request->presencePenalty = 8121.69;
     $request->prompt = [
-        [
-            140350,
-            870013,
-            870088,
-            978619,
-        ],
-        [
-            799159,
-            800911,
-        ],
-        [
-            520478,
-            780529,
-        ],
-        [
-            118274,
-            720633,
-            639921,
-        ],
+        479977,
     ];
     $request->stop = [
         '["\n"]',
@@ -340,7 +312,7 @@ try {
     $request = new CreateEditRequest();
     $request->input = 'What day of the wek is it?';
     $request->instruction = 'Fix the spelling mistakes.';
-    $request->model = CreateEditRequestModel2::TextDavinciEdit001;
+    $request->model = 'text-davinci-edit-001';
     $request->n = 1;
     $request->temperature = 1;
     $request->topP = 1;
@@ -390,21 +362,7 @@ try {
     $request = new CreateEmbeddingRequest();
     $request->input = [
         [
-            105907,
-            414662,
-            473600,
-        ],
-        [
-            186332,
-            774234,
-        ],
-        [
-            456150,
-            216550,
-            568434,
-        ],
-        [
-            18789,
+            836079,
         ],
     ];
     $request->model = 'text-embedding-ada-002';
@@ -456,9 +414,9 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateFileRequest();
     $request->file = new CreateFileRequestFile();
-    $request->file->content = 'natus';
-    $request->file->file = 'sed';
-    $request->purpose = 'iste';
+    $request->file->content = 'quis';
+    $request->file->file = 'veritatis';
+    $request->purpose = 'deserunt';
 
     $response = $sdk->openAI->createFile($request);
 
@@ -510,20 +468,18 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateFineTuneRequest();
-    $request->batchSize = 222321;
+    $request->batchSize = 20218;
     $request->classificationBetas = [
-        3864.89,
-        9437.49,
-        9025.99,
+        3682.41,
     ];
-    $request->classificationNClasses = 681820;
-    $request->classificationPositiveClass = 'in';
+    $request->classificationNClasses = 832620;
+    $request->classificationPositiveClass = 'sapiente';
     $request->computeClassificationMetrics = false;
-    $request->learningRateMultiplier = 3595.08;
-    $request->model = CreateFineTuneRequestModel2::Curie;
-    $request->nEpochs = 437032;
-    $request->promptLossWeight = 9023.49;
-    $request->suffix = 'quidem';
+    $request->learningRateMultiplier = 7781.57;
+    $request->model = 'curie';
+    $request->nEpochs = 870013;
+    $request->promptLossWeight = 8700.88;
+    $request->suffix = 'maiores';
     $request->trainingFile = 'file-abc123';
     $request->validationFile = 'file-abc123';
 
@@ -578,8 +534,8 @@ try {
     $request = new CreateFineTuningJobRequest();
     $request->hyperparameters = new CreateFineTuningJobRequestHyperparameters();
     $request->hyperparameters->nEpochs = CreateFineTuningJobRequestHyperparametersNEpochs1::Auto;
-    $request->model = 'gpt-3.5-turbo';
-    $request->suffix = 'reiciendis';
+    $request->model = CreateFineTuningJobRequestModel2::Gpt35Turbo;
+    $request->suffix = 'quod';
     $request->trainingFile = 'file-abc123';
     $request->validationFile = 'file-abc123';
 
@@ -682,11 +638,11 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateImageEditRequest2();
     $request->image = new CreateImageEditRequestImage();
-    $request->image->content = 'est';
-    $request->image->image = 'mollitia';
+    $request->image->content = 'esse';
+    $request->image->image = 'totam';
     $request->mask = new CreateImageEditRequestMask();
-    $request->mask->content = 'laborum';
-    $request->mask->mask = 'dolores';
+    $request->mask->content = 'porro';
+    $request->mask->mask = 'dolorum';
     $request->n = 1;
     $request->prompt = 'A cute baby sea otter wearing a beret';
     $request->responseFormat = CreateImageEditRequestResponseFormat::Url;
@@ -740,8 +696,8 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateImageVariationRequest2();
     $request->image = new CreateImageVariationRequestImage();
-    $request->image->content = 'dolorem';
-    $request->image->image = 'corporis';
+    $request->image->content = 'dicta';
+    $request->image->image = 'nam';
     $request->n = 1;
     $request->responseFormat = CreateImageVariationRequestResponseFormat::Url;
     $request->size = CreateImageVariationRequestSize::OneThousandAndTwentyFourx1024;
@@ -790,7 +746,9 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateModerationRequest();
-    $request->input = 'I want to kill them.';
+    $request->input = [
+        'I want to kill them.',
+    ];
     $request->model = CreateModerationRequestModel2::TextModerationStable;
 
     $response = $sdk->openAI->createModeration($request);
@@ -839,13 +797,13 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateTranscriptionRequest1();
     $request->file = new CreateTranscriptionRequestFile();
-    $request->file->content = 'enim';
-    $request->file->file = 'omnis';
-    $request->language = 'nemo';
-    $request->model = 'whisper-1';
-    $request->prompt = 'excepturi';
+    $request->file->content = 'fugit';
+    $request->file->file = 'deleniti';
+    $request->language = 'hic';
+    $request->model = CreateTranscriptionRequestModel2::Whisper1;
+    $request->prompt = 'totam';
     $request->responseFormat = CreateTranscriptionRequestResponseFormat::Json;
-    $request->temperature = 4386.01;
+    $request->temperature = 4146.62;
 
     $response = $sdk->openAI->createTranscription($request);
 
@@ -892,12 +850,12 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateTranslationRequest();
     $request->file = new CreateTranslationRequestFile();
-    $request->file->content = 'culpa';
-    $request->file->file = 'doloribus';
-    $request->model = CreateTranslationRequestModel2::Whisper1;
-    $request->prompt = 'architecto';
-    $request->responseFormat = 'mollitia';
-    $request->temperature = 2088.76;
+    $request->file->content = 'molestiae';
+    $request->file->file = 'modi';
+    $request->model = 'whisper-1';
+    $request->prompt = 'impedit';
+    $request->responseFormat = 'cum';
+    $request->temperature = 4561.5;
 
     $response = $sdk->openAI->createTranslation($request);
 
@@ -942,7 +900,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DeleteFileRequest();
-    $request->fileId = 'culpa';
+    $request->fileId = 'ipsum';
 
     $response = $sdk->openAI->deleteFile($request);
 
@@ -1032,7 +990,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DownloadFileRequest();
-    $request->fileId = 'consequuntur';
+    $request->fileId = 'excepturi';
 
     $response = $sdk->openAI->downloadFile($request);
 
@@ -1200,9 +1158,9 @@ $sdk = Gpt::builder()
 
 try {
     $request = new ListFineTuningEventsRequest();
-    $request->after = 'repellat';
+    $request->after = 'aspernatur';
     $request->fineTuningJobId = 'ft-AF1WoRqd3aJAHsqc9NY7iL8F';
-    $request->limit = 653108;
+    $request->limit = 18789;
 
     $response = $sdk->openAI->listFineTuningEvents($request);
 
@@ -1283,8 +1241,8 @@ $sdk = Gpt::builder()
 
 try {
     $request = new ListPaginatedFineTuningJobsRequest();
-    $request->after = 'occaecati';
-    $request->limit = 253291;
+    $request->after = 'ad';
+    $request->limit = 617636;
 
     $response = $sdk->openAI->listPaginatedFineTuningJobs($request);
 
@@ -1329,7 +1287,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new RetrieveFileRequest();
-    $request->fileId = 'commodi';
+    $request->fileId = 'sed';
 
     $response = $sdk->openAI->retrieveFile($request);
 

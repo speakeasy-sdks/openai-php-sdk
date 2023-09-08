@@ -9,12 +9,6 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-/**
- * ListFineTuneEventsResponse - OK
- * 
- * @package Openai\SDK\Models\Shared
- * @access public
- */
 class ListFineTuneEventsResponse
 {
     /**
