@@ -64,6 +64,7 @@ src/Models/Shared/FineTuneHyperparams.php
 src/Models/Shared/FineTune.php
 src/Models/Shared/OpenAIFile.php
 src/Models/Shared/FineTuneEvent.php
+src/Models/Shared/FineTuningJobError.php
 src/Models/Shared/FineTuningJobHyperparametersNEpochs1.php
 src/Models/Shared/FineTuningJobHyperparameters.php
 src/Models/Shared/FineTuningJob.php
@@ -194,6 +195,7 @@ docs/models/shared/FineTuneHyperparams.md
 docs/models/shared/FineTune.md
 docs/models/shared/OpenAIFile.md
 docs/models/shared/FineTuneEvent.md
+docs/models/shared/FineTuningJobError.md
 docs/models/shared/FineTuningJobHyperparametersNEpochs1.md
 docs/models/shared/FineTuningJobHyperparameters.md
 docs/models/shared/FineTuningJob.md

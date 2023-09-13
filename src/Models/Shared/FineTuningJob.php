@@ -29,6 +29,15 @@ class FineTuningJob
     public int $createdAt;
     
     /**
+     * For fine-tuning jobs that have `failed`, this will contain more information on the cause of the failure.
+     * 
+     * @var \Openai\SDK\Models\Shared\FineTuningJobError $error
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('error')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\FineTuningJobError')]
+    public FineTuningJobError $error;
+    
+    /**
      * The name of the fine-tuned model that is being created. The value will be null if the fine-tuning job is still running.
      * 
      * @var string $fineTunedModel
@@ -140,6 +149,7 @@ class FineTuningJob
 	public function __construct()
 	{
 		$this->createdAt = 0;
+		$this->error = new \Openai\SDK\Models\Shared\FineTuningJobError();
 		$this->fineTunedModel = "";
 		$this->finishedAt = null;
 		$this->hyperparameters = new \Openai\SDK\Models\Shared\FineTuningJobHyperparameters();
