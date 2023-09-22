@@ -20,37 +20,34 @@ class FineTuningJobError
     /**
      * A machine-readable error code.
      * 
-     * @var ?string $code
+     * @var string $code
      */
 	#[\JMS\Serializer\Annotation\SerializedName('code')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $code = null;
+    public string $code;
     
     /**
      * A human-readable error message.
      * 
-     * @var ?string $message
+     * @var string $message
      */
 	#[\JMS\Serializer\Annotation\SerializedName('message')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $message = null;
+    public string $message;
     
     /**
      * The parameter that was invalid, usually `training_file` or `validation_file`. This field will be null if the failure was not parameter-specific.
      * 
-     * @var ?string $param
+     * @var string $param
      */
 	#[\JMS\Serializer\Annotation\SerializedName('param')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $param = null;
+    public string $param;
     
 	public function __construct()
 	{
-		$this->code = null;
-		$this->message = null;
-		$this->param = null;
+		$this->code = "";
+		$this->message = "";
+		$this->param = "";
 	}
 }

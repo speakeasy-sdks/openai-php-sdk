@@ -49,12 +49,11 @@ class FineTuningJob
     /**
      * The Unix timestamp (in seconds) for when the fine-tuning job was finished. The value will be null if the fine-tuning job is still running.
      * 
-     * @var ?int $finishedAt
+     * @var int $finishedAt
      */
 	#[\JMS\Serializer\Annotation\SerializedName('finished_at')]
     #[\JMS\Serializer\Annotation\Type('int')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?int $finishedAt = null;
+    public int $finishedAt;
     
     /**
      * The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/fine-tuning) for more details.
@@ -111,7 +110,7 @@ class FineTuningJob
     public array $resultFiles;
     
     /**
-     * The current status of the fine-tuning job, which can be either `created`, `pending`, `running`, `succeeded`, `failed`, or `cancelled`.
+     * The current status of the fine-tuning job, which can be either `validating_files`, `queued`, `running`, `succeeded`, `failed`, or `cancelled`.
      * 
      * @var string $status
      */
@@ -151,7 +150,7 @@ class FineTuningJob
 		$this->createdAt = 0;
 		$this->error = new \Openai\SDK\Models\Shared\FineTuningJobError();
 		$this->fineTunedModel = "";
-		$this->finishedAt = null;
+		$this->finishedAt = 0;
 		$this->hyperparameters = new \Openai\SDK\Models\Shared\FineTuningJobHyperparameters();
 		$this->id = "";
 		$this->model = "";

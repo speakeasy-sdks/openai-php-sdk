@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 6b6973cd0a05cc2c2d531357a1c0c034
+  docChecksum: ad804f44b6fe212c8ed113a0291ffdaf
   docVersion: 2.0.0
-  speakeasyVersion: 1.88.0
-  generationVersion: 2.118.1
+  speakeasyVersion: 1.89.0
+  generationVersion: 2.125.1
 generation:
   sdkClassName: gpt
   sdkFlattening: true
@@ -16,7 +16,7 @@ features:
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
 php:
-  version: 2.20.8
+  version: 2.20.9
   maxMethodParams: 0
   namespace: Openai\SDK
   packageName: speakeasy-sdks/openai-php-sdk

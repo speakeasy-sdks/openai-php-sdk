@@ -18,6 +18,7 @@ enum CreateCompletionRequestModel2: string
 {
     case Babbage002 = 'babbage-002';
     case Davinci002 = 'davinci-002';
+    case Gpt35TurboInstruct = 'gpt-3.5-turbo-instruct';
     case TextDavinci003 = 'text-davinci-003';
     case TextDavinci002 = 'text-davinci-002';
     case TextDavinci001 = 'text-davinci-001';
