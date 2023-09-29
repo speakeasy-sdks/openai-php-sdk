@@ -116,11 +116,11 @@ src/Models/Shared/CreateImageEditRequestImage.php
 src/Models/Shared/CreateImageEditRequestMask.php
 src/Models/Shared/CreateImageEditRequestResponseFormat.php
 src/Models/Shared/CreateImageEditRequestSize.php
-src/Models/Shared/CreateImageEditRequest2.php
+src/Models/Shared/CreateImageEditRequest.php
 src/Models/Shared/CreateImageVariationRequestImage.php
 src/Models/Shared/CreateImageVariationRequestResponseFormat.php
 src/Models/Shared/CreateImageVariationRequestSize.php
-src/Models/Shared/CreateImageVariationRequest2.php
+src/Models/Shared/CreateImageVariationRequest.php
 src/Models/Shared/CreateModerationResponseResultsCategories.php
 src/Models/Shared/CreateModerationResponseResultsCategoryScores.php
 src/Models/Shared/CreateModerationResponseResults.php
@@ -131,7 +131,7 @@ src/Models/Shared/CreateTranscriptionResponse.php
 src/Models/Shared/CreateTranscriptionRequestFile.php
 src/Models/Shared/CreateTranscriptionRequestModel2.php
 src/Models/Shared/CreateTranscriptionRequestResponseFormat.php
-src/Models/Shared/CreateTranscriptionRequest1.php
+src/Models/Shared/CreateTranscriptionRequest.php
 src/Models/Shared/CreateTranslationResponse.php
 src/Models/Shared/CreateTranslationRequestFile.php
 src/Models/Shared/CreateTranslationRequestModel2.php
@@ -245,11 +245,11 @@ docs/models/shared/CreateImageEditRequestImage.md
 docs/models/shared/CreateImageEditRequestMask.md
 docs/models/shared/CreateImageEditRequestResponseFormat.md
 docs/models/shared/CreateImageEditRequestSize.md
-docs/models/shared/CreateImageEditRequest2.md
+docs/models/shared/CreateImageEditRequest.md
 docs/models/shared/CreateImageVariationRequestImage.md
 docs/models/shared/CreateImageVariationRequestResponseFormat.md
 docs/models/shared/CreateImageVariationRequestSize.md
-docs/models/shared/CreateImageVariationRequest2.md
+docs/models/shared/CreateImageVariationRequest.md
 docs/models/shared/CreateModerationResponseResultsCategories.md
 docs/models/shared/CreateModerationResponseResultsCategoryScores.md
 docs/models/shared/CreateModerationResponseResults.md
@@ -260,7 +260,7 @@ docs/models/shared/CreateTranscriptionResponse.md
 docs/models/shared/CreateTranscriptionRequestFile.md
 docs/models/shared/CreateTranscriptionRequestModel2.md
 docs/models/shared/CreateTranscriptionRequestResponseFormat.md
-docs/models/shared/CreateTranscriptionRequest1.md
+docs/models/shared/CreateTranscriptionRequest.md
 docs/models/shared/CreateTranslationResponse.md
 docs/models/shared/CreateTranslationRequestFile.md
 docs/models/shared/CreateTranslationRequestModel2.md

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 use \Openai\SDK\Utils\SpeakeasyMetadata;
-class CreateImageEditRequest2
+class CreateImageEditRequest
 {
     /**
      * The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.

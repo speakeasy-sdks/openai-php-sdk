@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 use \Openai\SDK\Utils\SpeakeasyMetadata;
-class CreateTranscriptionRequest1
+class CreateTranscriptionRequest
 {
     /**
      * The audio file object (not file name) to transcribe, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.

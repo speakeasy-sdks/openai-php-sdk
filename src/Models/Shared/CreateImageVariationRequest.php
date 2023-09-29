@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 use \Openai\SDK\Utils\SpeakeasyMetadata;
-class CreateImageVariationRequest2
+class CreateImageVariationRequest
 {
     /**
      * The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
