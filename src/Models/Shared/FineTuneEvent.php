@@ -9,6 +9,13 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
+/**
+ * FineTuneEvent - Fine-tune event object
+ * 
+ * @package Openai\SDK\Models\Shared
+ * @access public
+ * @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 class FineTuneEvent
 {
 	#[\JMS\Serializer\Annotation\SerializedName('created_at')]

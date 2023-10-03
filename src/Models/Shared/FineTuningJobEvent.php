@@ -9,6 +9,12 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
+/**
+ * FineTuningJobEvent - Fine-tuning job event object
+ * 
+ * @package Openai\SDK\Models\Shared
+ * @access public
+ */
 class FineTuningJobEvent
 {
 	#[\JMS\Serializer\Annotation\SerializedName('created_at')]
