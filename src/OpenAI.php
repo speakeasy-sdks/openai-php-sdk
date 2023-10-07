@@ -227,11 +227,11 @@ class OpenAI
     /**
      * Creates an embedding vector representing the input text.
      * 
-     * @param \Openai\SDK\Models\Shared\CreateEmbeddingRequest $request
+     * @param array<string, mixed> $request
      * @return \Openai\SDK\Models\Operations\CreateEmbeddingResponse
      */
 	public function createEmbedding(
-        \Openai\SDK\Models\Shared\CreateEmbeddingRequest $request,
+        array $request,
     ): \Openai\SDK\Models\Operations\CreateEmbeddingResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -269,11 +269,11 @@ class OpenAI
      * Upload a file that can be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please [contact us](https://help.openai.com/) if you need to increase the storage limit.
      * 
      * 
-     * @param \Openai\SDK\Models\Shared\CreateFileRequest $request
+     * @param array<string, mixed> $request
      * @return \Openai\SDK\Models\Operations\CreateFileResponse
      */
 	public function createFile(
-        \Openai\SDK\Models\Shared\CreateFileRequest $request,
+        array $request,
     ): \Openai\SDK\Models\Operations\CreateFileResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -569,11 +569,11 @@ class OpenAI
     /**
      * Transcribes audio into the input language.
      * 
-     * @param \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request
+     * @param array<string, mixed> $request
      * @return \Openai\SDK\Models\Operations\CreateTranscriptionResponse
      */
 	public function createTranscription(
-        \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request,
+        array $request,
     ): \Openai\SDK\Models\Operations\CreateTranscriptionResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -610,11 +610,11 @@ class OpenAI
     /**
      * Translates audio into English.
      * 
-     * @param \Openai\SDK\Models\Shared\CreateTranslationRequest $request
+     * @param array<string, mixed> $request
      * @return \Openai\SDK\Models\Operations\CreateTranslationResponse
      */
 	public function createTranslation(
-        \Openai\SDK\Models\Shared\CreateTranslationRequest $request,
+        array $request,
     ): \Openai\SDK\Models\Operations\CreateTranslationResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();

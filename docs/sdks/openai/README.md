@@ -179,22 +179,21 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateChatCompletionRequest();
     $request->frequencyPenalty = 7707.26;
-    $request->functionCall = new ChatCompletionFunctionCallOption();
-    $request->functionCall->name = 'Diesel Money';
+    $request->functionCall = 'navigate';
     $request->functions = [
         new ChatCompletionFunctions(),
     ];
     $request->logitBias = [
-        'dolorum' => 753407,
+        'Diesel' => 401248,
     ];
-    $request->maxTokens = 641020;
+    $request->maxTokens = 313767;
     $request->messages = [
         new ChatCompletionRequestMessage(),
     ];
-    $request->model = CreateChatCompletionRequestModel2::Gpt35Turbo;
+    $request->model = 'gpt-3.5-turbo';
     $request->n = 1;
-    $request->presencePenalty = 4016;
-    $request->stop = 'International incidunt Franc';
+    $request->presencePenalty = 1973.05;
+    $request->stop = 'Web';
     $request->stream = false;
     $request->temperature = 1;
     $request->topP = 1;
@@ -247,17 +246,15 @@ try {
     $request->echo = false;
     $request->frequencyPenalty = 141.61;
     $request->logitBias = [
-        'velit' => 254881,
+        'Concrete' => 877910,
     ];
-    $request->logprobs = 877910;
+    $request->logprobs = 591562;
     $request->maxTokens = 16;
-    $request->model = CreateCompletionRequestModel2::TextCurie001;
+    $request->model = 'Radon';
     $request->n = 1;
-    $request->presencePenalty = 7232.16;
-    $request->prompt = 'This is a test.';
-    $request->stop = [
-        '["\n"]',
-    ];
+    $request->presencePenalty = 689.63;
+    $request->prompt = 'failing';
+    $request->stop = 'B2B';
     $request->stream = false;
     $request->suffix = 'test.';
     $request->temperature = 1;
@@ -352,20 +349,14 @@ require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateEmbeddingRequest;
 
 $sdk = Gpt::builder()
     ->build();
 
 try {
-    $request = new CreateEmbeddingRequest();
-    $request->input = [
-        [
-            115613,
-        ],
-    ];
-    $request->model = CreateEmbeddingRequestModel2::TextEmbeddingAda002;
-    $request->user = 'user-1234';
+    $request = [
+        'chief' => 'compressing',
+    ]
 
     $response = $sdk->openAI->createEmbedding($request);
 
@@ -379,9 +370,9 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                        | [\Openai\SDK\Models\Shared\CreateEmbeddingRequest](../../models/shared/CreateEmbeddingRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| Parameter                                  | Type                                       | Required                                   | Description                                |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| `$request`                                 | [array](../../models//.md)                 | :heavy_check_mark:                         | The request object to use for the request. |
 
 
 ### Response
@@ -404,18 +395,14 @@ require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateFileRequest;
-use \Openai\SDK\Models\Shared\CreateFileRequestFile;
 
 $sdk = Gpt::builder()
     ->build();
 
 try {
-    $request = new CreateFileRequest();
-    $request->file = new CreateFileRequestFile();
-    $request->file->content = '`\'$Z`(L/RH';
-    $request->file->file = 'Rap National';
-    $request->purpose = 'Female synergistic Maine';
+    $request = [
+        'Associate' => 'Miami',
+    ]
 
     $response = $sdk->openAI->createFile($request);
 
@@ -429,9 +416,9 @@ try {
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `$request`                                                                              | [\Openai\SDK\Models\Shared\CreateFileRequest](../../models/shared/CreateFileRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| Parameter                                  | Type                                       | Required                                   | Description                                |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| `$request`                                 | [array](../../models//.md)                 | :heavy_check_mark:                         | The request object to use for the request. |
 
 
 ### Response
@@ -475,10 +462,10 @@ try {
     $request->classificationPositiveClass = 'male Buckinghamshire';
     $request->computeClassificationMetrics = false;
     $request->learningRateMultiplier = 4447.26;
-    $request->model = CreateFineTuneRequestModel2::Curie;
-    $request->nEpochs = 441380;
-    $request->promptLossWeight = 37.22;
-    $request->suffix = 'Reggae Gorgeous synthesizing';
+    $request->model = 'curie';
+    $request->nEpochs = 592749;
+    $request->promptLossWeight = 4413.8;
+    $request->suffix = 'next';
     $request->trainingFile = 'file-abc123';
     $request->validationFile = 'file-abc123';
 
@@ -532,7 +519,7 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateFineTuningJobRequest();
     $request->hyperparameters = new CreateFineTuningJobRequestHyperparameters();
-    $request->hyperparameters->nEpochs = CreateFineTuningJobRequestHyperparametersNEpochs1::Auto;
+    $request->hyperparameters->nEpochs = 'empower';
     $request->model = 'gpt-3.5-turbo';
     $request->suffix = 'Thallium';
     $request->trainingFile = 'file-abc123';
@@ -745,10 +732,8 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateModerationRequest();
-    $request->input = [
-        'I want to kill them.',
-    ];
-    $request->model = CreateModerationRequestModel2::TextModerationStable;
+    $request->input = 'stable';
+    $request->model = 'text-moderation-stable';
 
     $response = $sdk->openAI->createModeration($request);
 
@@ -786,23 +771,14 @@ require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateTranscriptionRequest;
-use \Openai\SDK\Models\Shared\CreateTranscriptionRequestFile;
-use \Openai\SDK\Models\Shared\CreateTranscriptionRequestResponseFormat;
 
 $sdk = Gpt::builder()
     ->build();
 
 try {
-    $request = new CreateTranscriptionRequest();
-    $request->file = new CreateTranscriptionRequestFile();
-    $request->file->content = '\#BbTW\'zX9';
-    $request->file->file = 'Buckinghamshire';
-    $request->language = 'teal Titanium';
-    $request->model = 'whisper-1';
-    $request->prompt = 'Mendelevium Kansas behind';
-    $request->responseFormat = CreateTranscriptionRequestResponseFormat::Json;
-    $request->temperature = 3694.44;
+    $request = [
+        'Lead' => 'neutral',
+    ]
 
     $response = $sdk->openAI->createTranscription($request);
 
@@ -816,9 +792,9 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                | [\Openai\SDK\Models\Shared\CreateTranscriptionRequest](../../models/shared/CreateTranscriptionRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                  | Type                                       | Required                                   | Description                                |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| `$request`                                 | [array](../../models//.md)                 | :heavy_check_mark:                         | The request object to use for the request. |
 
 
 ### Response
@@ -840,21 +816,14 @@ require_once 'vendor/autoload.php';
 
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateTranslationRequest;
-use \Openai\SDK\Models\Shared\CreateTranslationRequestFile;
 
 $sdk = Gpt::builder()
     ->build();
 
 try {
-    $request = new CreateTranslationRequest();
-    $request->file = new CreateTranslationRequestFile();
-    $request->file->content = 'M57UL;W3rx';
-    $request->file->file = 'Reggae Toys silver';
-    $request->model = CreateTranslationRequestModel2::Whisper1;
-    $request->prompt = 'Soft East Frozen';
-    $request->responseFormat = 'Analyst aboard relocate';
-    $request->temperature = 6003.73;
+    $request = [
+        'DRAM' => 'Granite',
+    ]
 
     $response = $sdk->openAI->createTranslation($request);
 
@@ -868,9 +837,9 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                            | [\Openai\SDK\Models\Shared\CreateTranslationRequest](../../models/shared/CreateTranslationRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                  | Type                                       | Required                                   | Description                                |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| `$request`                                 | [array](../../models//.md)                 | :heavy_check_mark:                         | The request object to use for the request. |
 
 
 ### Response
