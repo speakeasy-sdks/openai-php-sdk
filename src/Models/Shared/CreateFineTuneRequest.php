@@ -97,6 +97,16 @@ class CreateFineTuneRequest
     public ?bool $computeClassificationMetrics = null;
     
     /**
+     * The hyperparameters used for the fine-tuning job.
+     * 
+     * @var ?\Openai\SDK\Models\Shared\CreateFineTuneRequestHyperparameters $hyperparameters
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('hyperparameters')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateFineTuneRequestHyperparameters')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?CreateFineTuneRequestHyperparameters $hyperparameters = null;
+    
+    /**
      * The learning rate multiplier to use for training.
      * 
      * The fine-tuning learning rate is the original learning rate used for
@@ -130,19 +140,6 @@ class CreateFineTuneRequest
     #[\JMS\Serializer\Annotation\Type('mixed')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public mixed $model = null;
-    
-    /**
-     * The number of epochs to train the model for. An epoch refers to one
-     * 
-     * full cycle through the training dataset.
-     * 
-     * 
-     * @var ?int $nEpochs
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('n_epochs')]
-    #[\JMS\Serializer\Annotation\Type('int')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?int $nEpochs = null;
     
     /**
      * The weight to use for loss on the prompt tokens. This controls how
@@ -226,9 +223,9 @@ class CreateFineTuneRequest
 		$this->classificationNClasses = null;
 		$this->classificationPositiveClass = null;
 		$this->computeClassificationMetrics = null;
+		$this->hyperparameters = null;
 		$this->learningRateMultiplier = null;
 		$this->model = null;
-		$this->nEpochs = null;
 		$this->promptLossWeight = null;
 		$this->suffix = null;
 		$this->trainingFile = "";

@@ -21,11 +21,81 @@ class Gpt
 	];
   	
     /**
-     * The OpenAI REST API
+     * Learn how to turn audio into text.
      * 
-     * @var OpenAI $$openAI
+     * @var Audio $$audio
      */
-	public OpenAI $openAI;
+	public Audio $audio;
+	
+    /**
+     * Given a list of messages comprising a conversation, the model will return a response.
+     * 
+     * @var Chat $$chat
+     */
+	public Chat $chat;
+	
+    /**
+     * Given a prompt, the model will return one or more predicted completions, and can also return the probabilities of alternative tokens at each position.
+     * 
+     * @var Completions $$completions
+     */
+	public Completions $completions;
+	
+    /**
+     * Given a prompt and an instruction, the model will return an edited version of the prompt.
+     * 
+     * @var Edits $$edits
+     */
+	public Edits $edits;
+	
+    /**
+     * Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms.
+     * 
+     * @var Embeddings $$embeddings
+     */
+	public Embeddings $embeddings;
+	
+    /**
+     * Files are used to upload documents that can be used with features like fine-tuning.
+     * 
+     * @var Files $$files
+     */
+	public Files $files;
+	
+    /**
+     * Manage legacy fine-tuning jobs to tailor a model to your specific training data.
+     * 
+     * @var FineTunes $$fineTunes
+     */
+	public FineTunes $fineTunes;
+	
+    /**
+     * Manage fine-tuning jobs to tailor a model to your specific training data.
+     * 
+     * @var FineTuning $$fineTuning
+     */
+	public FineTuning $fineTuning;
+	
+    /**
+     * Given a prompt and/or an input image, the model will generate a new image.
+     * 
+     * @var Images $$images
+     */
+	public Images $images;
+	
+    /**
+     * List and describe the various models available in the API.
+     * 
+     * @var Models $$models
+     */
+	public Models $models;
+	
+    /**
+     * Given a input text, outputs if the model classifies it as violating OpenAI's content policy.
+     * 
+     * @var Moderations $$moderations
+     */
+	public Moderations $moderations;
 		
 	private SDKConfiguration $sdkConfiguration;
 
@@ -46,6 +116,26 @@ class Gpt
 	{
 		$this->sdkConfiguration = $sdkConfiguration;
 		
-		$this->openAI = new OpenAI($this->sdkConfiguration);
+		$this->audio = new Audio($this->sdkConfiguration);
+		
+		$this->chat = new Chat($this->sdkConfiguration);
+		
+		$this->completions = new Completions($this->sdkConfiguration);
+		
+		$this->edits = new Edits($this->sdkConfiguration);
+		
+		$this->embeddings = new Embeddings($this->sdkConfiguration);
+		
+		$this->files = new Files($this->sdkConfiguration);
+		
+		$this->fineTunes = new FineTunes($this->sdkConfiguration);
+		
+		$this->fineTuning = new FineTuning($this->sdkConfiguration);
+		
+		$this->images = new Images($this->sdkConfiguration);
+		
+		$this->models = new Models($this->sdkConfiguration);
+		
+		$this->moderations = new Moderations($this->sdkConfiguration);
 	}
 }
