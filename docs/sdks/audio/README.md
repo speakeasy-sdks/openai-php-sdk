@@ -39,12 +39,12 @@ try {
     $request = new CreateTranscriptionRequest();
     $request->file = new CreateTranscriptionRequestFile();
     $request->file->content = '\#BbTW\'zX9';
-    $request->file->file = 'Buckinghamshire';
-    $request->language = 'teal Titanium';
+    $request->file->file = 'green';
+    $request->language = 'Officer';
     $request->model = 'whisper-1';
-    $request->prompt = 'Configuration invoice';
-    $request->responseFormat = CreateTranscriptionRequestResponseFormat::Text;
-    $request->temperature = 1473.99;
+    $request->prompt = 'Garden';
+    $request->responseFormat = CreateTranscriptionRequestResponseFormat::VerboseJson;
+    $request->temperature = 7276.26;
 
     $response = $sdk->audio->createTranscription($request);
 
@@ -96,11 +96,11 @@ try {
     $request = new CreateTranslationRequest();
     $request->file = new CreateTranslationRequestFile();
     $request->file->content = 'M57UL;W3rx';
-    $request->file->file = 'Reggae Toys silver';
+    $request->file->file = 'Bicycle';
     $request->model = 'whisper-1';
-    $request->prompt = 'foolishly Diesel';
-    $request->responseFormat = 'Frozen Passenger';
-    $request->temperature = 4850.17;
+    $request->prompt = 'Toys';
+    $request->responseFormat = 'silver';
+    $request->temperature = 6194.53;
 
     $response = $sdk->audio->createTranslation($request);
 

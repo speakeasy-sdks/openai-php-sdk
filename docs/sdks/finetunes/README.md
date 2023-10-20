@@ -114,14 +114,14 @@ try {
         3993.02,
     ];
     $request->classificationNClasses = 172686;
-    $request->classificationPositiveClass = 'male Buckinghamshire';
+    $request->classificationPositiveClass = 'Latin';
     $request->computeClassificationMetrics = false;
     $request->hyperparameters = new CreateFineTuneRequestHyperparameters();
-    $request->hyperparameters->nEpochs = 'payment';
-    $request->learningRateMultiplier = 4413.8;
+    $request->hyperparameters->nEpochs = 'Associate';
+    $request->learningRateMultiplier = 7777.22;
     $request->model = 'curie';
-    $request->promptLossWeight = 37.22;
-    $request->suffix = 'Reggae Gorgeous synthesizing';
+    $request->promptLossWeight = 4447.26;
+    $request->suffix = 'Jazz';
     $request->trainingFile = 'file-abc123';
     $request->validationFile = 'file-abc123';
 

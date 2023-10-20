@@ -24,12 +24,12 @@ try {
     $request = new CreateTranscriptionRequest();
     $request->file = new CreateTranscriptionRequestFile();
     $request->file->content = '\#BbTW\'zX9';
-    $request->file->file = 'Buckinghamshire';
-    $request->language = 'teal Titanium';
+    $request->file->file = 'green';
+    $request->language = 'Officer';
     $request->model = 'whisper-1';
-    $request->prompt = 'Configuration invoice';
-    $request->responseFormat = CreateTranscriptionRequestResponseFormat::Text;
-    $request->temperature = 1473.99;
+    $request->prompt = 'Garden';
+    $request->responseFormat = CreateTranscriptionRequestResponseFormat::VerboseJson;
+    $request->temperature = 7276.26;
 
     $response = $sdk->audio->createTranscription($request);
 

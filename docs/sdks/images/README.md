@@ -100,7 +100,7 @@ try {
     $request->image->image = 'https://loremflickr.com/640/480';
     $request->mask = new CreateImageEditRequestMask();
     $request->mask->content = '`^YjrpxopK';
-    $request->mask->mask = 'Rap Dodge Incredible';
+    $request->mask->mask = 'plum';
     $request->n = 1;
     $request->prompt = 'A cute baby sea otter wearing a beret';
     $request->responseFormat = CreateImageEditRequestResponseFormat::Url;

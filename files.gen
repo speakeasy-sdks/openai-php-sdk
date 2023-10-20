@@ -101,6 +101,7 @@ src/Models/Shared/CreateEditRequest.php
 src/Models/Shared/CreateEmbeddingResponseUsage.php
 src/Models/Shared/CreateEmbeddingResponse.php
 src/Models/Shared/Embedding.php
+src/Models/Shared/CreateEmbeddingRequestEncodingFormat.php
 src/Models/Shared/CreateEmbeddingRequest.php
 src/Models/Shared/OpenAIFile.php
 src/Models/Shared/CreateFileRequestFile.php
@@ -218,6 +219,7 @@ docs/models/shared/CreateEditRequest.md
 docs/models/shared/CreateEmbeddingResponseUsage.md
 docs/models/shared/CreateEmbeddingResponse.md
 docs/models/shared/Embedding.md
+docs/models/shared/CreateEmbeddingRequestEncodingFormat.md
 docs/models/shared/CreateEmbeddingRequest.md
 docs/models/shared/OpenAIFile.md
 docs/models/shared/CreateFileRequestFile.md

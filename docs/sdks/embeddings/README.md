@@ -24,6 +24,7 @@ require_once 'vendor/autoload.php';
 use \Openai\SDK\Gpt;
 use \Openai\SDK\Models\Shared\Security;
 use \Openai\SDK\Models\Shared\CreateEmbeddingRequest;
+use \Openai\SDK\Models\Shared\CreateEmbeddingRequestEncodingFormat;
 
 $security = new Security();
 $security->apiKeyAuth = '';
@@ -34,6 +35,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateEmbeddingRequest();
+    $request->encodingFormat = CreateEmbeddingRequestEncodingFormat::Float;
     $request->input = 'The quick brown fox jumped over the lazy dog';
     $request->model = 'text-embedding-ada-002';
     $request->user = 'user-1234';
