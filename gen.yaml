@@ -2,21 +2,25 @@ configVersion: 1.0.0
 management:
   docChecksum: b421f9981e573fbdad69da1d6fbac49f
   docVersion: 2.0.0
-  speakeasyVersion: 1.101.0
-  generationVersion: 2.161.0
+  speakeasyVersion: 1.104.0
+  generationVersion: 2.169.0
 generation:
+  repoURL: https://github.com/speakeasy-sdks/openai-php-sdk.git
   sdkClassName: gpt
   sdkFlattening: true
   singleTagPerOp: false
   telemetryEnabled: false
 features:
   php:
-    core: 2.88.2
+    core: 2.89.0
     deprecations: 2.81.1
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
 php:
-  version: 2.23.3
+  version: 2.24.0
+  installationURL: https://github.com/speakeasy-sdks/openai-php-sdk
   maxMethodParams: 0
   namespace: Openai\SDK
   packageName: speakeasy-sdks/openai-php-sdk
+  published: true
+  repoSubDirectory: .

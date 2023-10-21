@@ -34,7 +34,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new CreateModerationRequest();
-    $request->input = 'stable';
+    $request->input = 'string';
     $request->model = 'text-moderation-stable';
 
     $response = $sdk->moderations->createModeration($request);

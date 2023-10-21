@@ -28,7 +28,7 @@ class CreateTranslationRequest
      * 
      * @var mixed $model
      */
-	#[SpeakeasyMetadata('multipartForm:name=model,json=true')]
+	#[SpeakeasyMetadata('multipartForm:name=model')]
     public mixed $model;
     
     /**

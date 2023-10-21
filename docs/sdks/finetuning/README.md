@@ -106,9 +106,9 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateFineTuningJobRequest();
     $request->hyperparameters = new CreateFineTuningJobRequestHyperparameters();
-    $request->hyperparameters->nEpochs = 'empower';
+    $request->hyperparameters->nEpochs = 'string';
     $request->model = 'gpt-3.5-turbo';
-    $request->suffix = 'lime';
+    $request->suffix = 'string';
     $request->trainingFile = 'file-abc123';
     $request->validationFile = 'file-abc123';
 
@@ -160,9 +160,9 @@ $sdk = Gpt::builder()
 
 try {
     $request = new ListFineTuningEventsRequest();
-    $request->after = 'vivaciously';
+    $request->after = 'string';
     $request->fineTuningJobId = 'ft-AF1WoRqd3aJAHsqc9NY7iL8F';
-    $request->limit = 762396;
+    $request->limit = 896841;
 
     $response = $sdk->fineTuning->listFineTuningEvents($request);
 
@@ -212,8 +212,8 @@ $sdk = Gpt::builder()
 
 try {
     $request = new ListPaginatedFineTuningJobsRequest();
-    $request->after = 'implementation';
-    $request->limit = 293768;
+    $request->after = 'string';
+    $request->limit = 385496;
 
     $response = $sdk->fineTuning->listPaginatedFineTuningJobs($request);
 

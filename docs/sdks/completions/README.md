@@ -42,11 +42,11 @@ try {
     ];
     $request->logprobs = 591562;
     $request->maxTokens = 16;
-    $request->model = 'Radon';
+    $request->model = 'string';
     $request->n = 1;
-    $request->presencePenalty = 689.63;
-    $request->prompt = 'failing';
-    $request->stop = 'B2B';
+    $request->presencePenalty = 7227.62;
+    $request->prompt = 'string';
+    $request->stop = 'string';
     $request->stream = false;
     $request->suffix = 'test.';
     $request->temperature = 1;

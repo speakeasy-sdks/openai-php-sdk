@@ -39,21 +39,21 @@ $sdk = Gpt::builder()
 try {
     $request = new CreateChatCompletionRequest();
     $request->frequencyPenalty = 7707.26;
-    $request->functionCall = 'navigate';
+    $request->functionCall = 'string';
     $request->functions = [
         new ChatCompletionFunctions(),
     ];
     $request->logitBias = [
-        'Diesel' => 401248,
+        'navigate' => 817435,
     ];
-    $request->maxTokens = 313767;
+    $request->maxTokens = 21872;
     $request->messages = [
         new ChatCompletionRequestMessage(),
     ];
     $request->model = 'gpt-3.5-turbo';
     $request->n = 1;
-    $request->presencePenalty = 1973.05;
-    $request->stop = 'Web';
+    $request->presencePenalty = 4012.48;
+    $request->stop = 'string';
     $request->stream = false;
     $request->temperature = 1;
     $request->topP = 1;

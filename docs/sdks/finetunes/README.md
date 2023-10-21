@@ -114,14 +114,14 @@ try {
         3993.02,
     ];
     $request->classificationNClasses = 172686;
-    $request->classificationPositiveClass = 'Latin';
+    $request->classificationPositiveClass = 'string';
     $request->computeClassificationMetrics = false;
     $request->hyperparameters = new CreateFineTuneRequestHyperparameters();
-    $request->hyperparameters->nEpochs = 'Associate';
-    $request->learningRateMultiplier = 7777.22;
+    $request->hyperparameters->nEpochs = 'string';
+    $request->learningRateMultiplier = 5912.51;
     $request->model = 'curie';
-    $request->promptLossWeight = 4447.26;
-    $request->suffix = 'Jazz';
+    $request->promptLossWeight = 7119.5;
+    $request->suffix = 'string';
     $request->trainingFile = 'file-abc123';
     $request->validationFile = 'file-abc123';
 

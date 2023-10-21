@@ -43,8 +43,8 @@ try {
     $request = new CreateFileRequest();
     $request->file = new CreateFileRequestFile();
     $request->file->content = '`\'$Z`(L/RH';
-    $request->file->file = 'Persevering';
-    $request->purpose = 'produce';
+    $request->file->file = 'string';
+    $request->purpose = 'string';
 
     $response = $sdk->files->createFile($request);
 
@@ -93,7 +93,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DeleteFileRequest();
-    $request->fileId = 'Porsche';
+    $request->fileId = 'string';
 
     $response = $sdk->files->deleteFile($request);
 
@@ -142,7 +142,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new DownloadFileRequest();
-    $request->fileId = 'gosh';
+    $request->fileId = 'string';
 
     $response = $sdk->files->downloadFile($request);
 
@@ -230,7 +230,7 @@ $sdk = Gpt::builder()
 
 try {
     $request = new RetrieveFileRequest();
-    $request->fileId = 'Developer';
+    $request->fileId = 'string';
 
     $response = $sdk->files->retrieveFile($request);
 
