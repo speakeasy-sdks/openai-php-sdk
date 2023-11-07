@@ -38,10 +38,10 @@ class CreateModerationResponse
     /**
      * A list of moderation objects.
      * 
-     * @var array<\Openai\SDK\Models\Shared\CreateModerationResponseResults> $results
+     * @var array<\Openai\SDK\Models\Shared\Results> $results
      */
 	#[\JMS\Serializer\Annotation\SerializedName('results')]
-    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\CreateModerationResponseResults>')]
+    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\Results>')]
     public array $results;
     
 	public function __construct()

@@ -52,7 +52,7 @@ class CreateTranscriptionRequest
     public ?string $prompt = null;
     
     /**
-     * The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.
+     * The format of the transcript output, in one of these options: `json`, `text`, `srt`, `verbose_json`, or `vtt`.
      * 
      * 
      * 

@@ -28,6 +28,16 @@ class Image
     public ?string $b64Json = null;
     
     /**
+     * The prompt that was used to generate the image, if there was any revision to the prompt.
+     * 
+     * @var ?string $revisedPrompt
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('revised_prompt')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $revisedPrompt = null;
+    
+    /**
      * The URL of the generated image, if `response_format` is `url` (default).
      * 
      * @var ?string $url
@@ -40,6 +50,7 @@ class Image
 	public function __construct()
 	{
 		$this->b64Json = null;
+		$this->revisedPrompt = null;
 		$this->url = null;
 	}
 }

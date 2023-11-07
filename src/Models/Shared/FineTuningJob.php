@@ -31,11 +31,11 @@ class FineTuningJob
     /**
      * For fine-tuning jobs that have `failed`, this will contain more information on the cause of the failure.
      * 
-     * @var \Openai\SDK\Models\Shared\FineTuningJobError $error
+     * @var \Openai\SDK\Models\Shared\Error $error
      */
 	#[\JMS\Serializer\Annotation\SerializedName('error')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\FineTuningJobError')]
-    public FineTuningJobError $error;
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\Error')]
+    public Error $error;
     
     /**
      * The name of the fine-tuned model that is being created. The value will be null if the fine-tuning job is still running.
@@ -85,11 +85,11 @@ class FineTuningJob
     /**
      * The object type, which is always "fine_tuning.job".
      * 
-     * @var string $object
+     * @var \Openai\SDK\Models\Shared\FineTuningJobObject $object
      */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\FineTuningJobObject>')]
+    public FineTuningJobObject $object;
     
     /**
      * The organization that owns the fine-tuning job.
@@ -112,11 +112,11 @@ class FineTuningJob
     /**
      * The current status of the fine-tuning job, which can be either `validating_files`, `queued`, `running`, `succeeded`, `failed`, or `cancelled`.
      * 
-     * @var string $status
+     * @var \Openai\SDK\Models\Shared\Status $status
      */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $status;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\Status>')]
+    public Status $status;
     
     /**
      * The total number of billable tokens processed by this fine-tuning job. The value will be null if the fine-tuning job is still running.
@@ -148,16 +148,16 @@ class FineTuningJob
 	public function __construct()
 	{
 		$this->createdAt = 0;
-		$this->error = new \Openai\SDK\Models\Shared\FineTuningJobError();
+		$this->error = new \Openai\SDK\Models\Shared\Error();
 		$this->fineTunedModel = "";
 		$this->finishedAt = 0;
 		$this->hyperparameters = new \Openai\SDK\Models\Shared\FineTuningJobHyperparameters();
 		$this->id = "";
 		$this->model = "";
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\FineTuningJobObject::FineTuningJob;
 		$this->organizationId = "";
 		$this->resultFiles = [];
-		$this->status = "";
+		$this->status = \Openai\SDK\Models\Shared\Status::ValidatingFiles;
 		$this->trainedTokens = 0;
 		$this->trainingFile = "";
 		$this->validationFile = "";

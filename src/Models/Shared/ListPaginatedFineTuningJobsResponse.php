@@ -25,13 +25,13 @@ class ListPaginatedFineTuningJobsResponse
     public bool $hasMore;
     
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\ListPaginatedFineTuningJobsResponseObject>')]
+    public ListPaginatedFineTuningJobsResponseObject $object;
     
 	public function __construct()
 	{
 		$this->data = [];
 		$this->hasMore = false;
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\ListPaginatedFineTuningJobsResponseObject::List;
 	}
 }

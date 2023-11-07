@@ -1,5 +1,5 @@
 # Embeddings
-(*embeddings*)
+
 
 ## Overview
 
@@ -21,21 +21,19 @@ Creates an embedding vector representing the input text.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateEmbeddingRequest;
-use \Openai\SDK\Models\Shared\CreateEmbeddingRequestEncodingFormat;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateEmbeddingRequest();
-    $request->encodingFormat = CreateEmbeddingRequestEncodingFormat::Float;
+    $request = new Shared\CreateEmbeddingRequest();
+    $request->encodingFormat = Shared\EncodingFormat::Float;
     $request->input = 'The quick brown fox jumped over the lazy dog';
     $request->model = 'text-embedding-ada-002';
     $request->user = 'user-1234';

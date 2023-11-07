@@ -18,19 +18,19 @@ class CreateCompletionResponseChoices
      * or `content_filter` if content was omitted due to a flag from our content filters.
      * 
      * 
-     * @var \Openai\SDK\Models\Shared\CreateCompletionResponseChoicesFinishReason $finishReason
+     * @var \Openai\SDK\Models\Shared\CreateCompletionResponseFinishReason $finishReason
      */
 	#[\JMS\Serializer\Annotation\SerializedName('finish_reason')]
-    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateCompletionResponseChoicesFinishReason>')]
-    public CreateCompletionResponseChoicesFinishReason $finishReason;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateCompletionResponseFinishReason>')]
+    public CreateCompletionResponseFinishReason $finishReason;
     
 	#[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('int')]
     public int $index;
     
 	#[\JMS\Serializer\Annotation\SerializedName('logprobs')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateCompletionResponseChoicesLogprobs')]
-    public CreateCompletionResponseChoicesLogprobs $logprobs;
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\Logprobs')]
+    public Logprobs $logprobs;
     
 	#[\JMS\Serializer\Annotation\SerializedName('text')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -38,9 +38,9 @@ class CreateCompletionResponseChoices
     
 	public function __construct()
 	{
-		$this->finishReason = \Openai\SDK\Models\Shared\CreateCompletionResponseChoicesFinishReason::Stop;
+		$this->finishReason = \Openai\SDK\Models\Shared\CreateCompletionResponseFinishReason::Stop;
 		$this->index = 0;
-		$this->logprobs = new \Openai\SDK\Models\Shared\CreateCompletionResponseChoicesLogprobs();
+		$this->logprobs = new \Openai\SDK\Models\Shared\Logprobs();
 		$this->text = "";
 	}
 }

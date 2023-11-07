@@ -42,16 +42,16 @@ class Embedding
     /**
      * The object type, which is always "embedding".
      * 
-     * @var string $object
+     * @var \Openai\SDK\Models\Shared\EmbeddingObject $object
      */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\EmbeddingObject>')]
+    public EmbeddingObject $object;
     
 	public function __construct()
 	{
 		$this->embedding = [];
 		$this->index = 0;
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\EmbeddingObject::Embedding;
 	}
 }

@@ -99,12 +99,12 @@ class CreateFineTuneRequest
     /**
      * The hyperparameters used for the fine-tuning job.
      * 
-     * @var ?\Openai\SDK\Models\Shared\CreateFineTuneRequestHyperparameters $hyperparameters
+     * @var ?\Openai\SDK\Models\Shared\Hyperparameters $hyperparameters
      */
 	#[\JMS\Serializer\Annotation\SerializedName('hyperparameters')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateFineTuneRequestHyperparameters')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\Hyperparameters')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateFineTuneRequestHyperparameters $hyperparameters = null;
+    public ?Hyperparameters $hyperparameters = null;
     
     /**
      * The learning rate multiplier to use for training.

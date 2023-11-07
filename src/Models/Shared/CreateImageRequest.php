@@ -12,7 +12,17 @@ namespace Openai\SDK\Models\Shared;
 class CreateImageRequest
 {
     /**
-     * The number of images to generate. Must be between 1 and 10.
+     * The model to use for image generation.
+     * 
+     * @var mixed $model
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('model')]
+    #[\JMS\Serializer\Annotation\Type('mixed')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public mixed $model = null;
+    
+    /**
+     * The number of images to generate. Must be between 1 and 10. For `dall-e-3`, only `n=1` is supported.
      * 
      * @var ?int $n
      */
@@ -22,13 +32,23 @@ class CreateImageRequest
     public ?int $n = null;
     
     /**
-     * A text description of the desired image(s). The maximum length is 1000 characters.
+     * A text description of the desired image(s). The maximum length is 1000 characters for `dall-e-2` and 4000 characters for `dall-e-3`.
      * 
      * @var string $prompt
      */
 	#[\JMS\Serializer\Annotation\SerializedName('prompt')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $prompt;
+    
+    /**
+     * The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. This param is only supported for `dall-e-3`.
+     * 
+     * @var ?\Openai\SDK\Models\Shared\Quality $quality
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('quality')]
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\Quality>')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?Quality $quality = null;
     
     /**
      * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
@@ -41,7 +61,7 @@ class CreateImageRequest
     public ?CreateImageRequestResponseFormat $responseFormat = null;
     
     /**
-     * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
+     * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024` for `dall-e-2`. Must be one of `1024x1024`, `1792x1024`, or `1024x1792` for `dall-e-3` models.
      * 
      * @var ?\Openai\SDK\Models\Shared\CreateImageRequestSize $size
      */
@@ -49,6 +69,16 @@ class CreateImageRequest
     #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateImageRequestSize>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?CreateImageRequestSize $size = null;
+    
+    /**
+     * The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. This param is only supported for `dall-e-3`.
+     * 
+     * @var ?\Openai\SDK\Models\Shared\Style $style
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('style')]
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\Style>')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?Style $style = null;
     
     /**
      * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
@@ -64,10 +94,13 @@ class CreateImageRequest
     
 	public function __construct()
 	{
+		$this->model = null;
 		$this->n = null;
 		$this->prompt = "";
+		$this->quality = null;
 		$this->responseFormat = null;
 		$this->size = null;
+		$this->style = null;
 		$this->user = null;
 	}
 }

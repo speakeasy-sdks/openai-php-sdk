@@ -12,15 +12,13 @@ namespace Openai\SDK\Models\Shared;
 /**
  * OpenAIFile - The `File` object represents a document that has been uploaded to OpenAI.
  * 
- * 
- * 
  * @package Openai\SDK\Models\Shared
  * @access public
  */
 class OpenAIFile
 {
     /**
-     * The size of the file in bytes.
+     * The size of the file, in bytes.
      * 
      * @var int $bytes
      */
@@ -56,39 +54,38 @@ class OpenAIFile
     public string $id;
     
     /**
-     * The object type, which is always "file".
+     * The object type, which is always `file`.
      * 
-     * @var string $object
+     * @var \Openai\SDK\Models\Shared\OpenAIFileObject $object
      */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\OpenAIFileObject>')]
+    public OpenAIFileObject $object;
     
     /**
-     * The intended purpose of the file. Currently, only "fine-tune" is supported.
+     * The intended purpose of the file. Supported values are `fine-tune`, `fine-tune-results`, `assistants`, and `assistants_output`.
      * 
-     * @var string $purpose
+     * @var \Openai\SDK\Models\Shared\OpenAIFilePurpose $purpose
      */
 	#[\JMS\Serializer\Annotation\SerializedName('purpose')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $purpose;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\OpenAIFilePurpose>')]
+    public OpenAIFilePurpose $purpose;
     
     /**
-     * The current status of the file, which can be either `uploaded`, `processed`, `pending`, `error`, `deleting` or `deleted`.
+     * Deprecated. The current status of the file, which can be either `uploaded`, `processed`, or `error`.
      * 
-     * @var ?string $status
+     * @var \Openai\SDK\Models\Shared\OpenAIFileStatus $status
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	#[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $status = null;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\OpenAIFileStatus>')]
+    public OpenAIFileStatus $status;
     
     /**
-     * Additional details about the status of the file. If the file is in the `error` state, this will include a message describing the error.
-     * 
-     * 
+     * Deprecated. For details on why a fine-tuning training file failed validation, see the `error` field on `fine_tuning.job`.
      * 
      * @var ?string $statusDetails
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
 	#[\JMS\Serializer\Annotation\SerializedName('status_details')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -101,9 +98,9 @@ class OpenAIFile
 		$this->createdAt = 0;
 		$this->filename = "";
 		$this->id = "";
-		$this->object = "";
-		$this->purpose = "";
-		$this->status = null;
+		$this->object = \Openai\SDK\Models\Shared\OpenAIFileObject::File;
+		$this->purpose = \Openai\SDK\Models\Shared\OpenAIFilePurpose::FineTune;
+		$this->status = \Openai\SDK\Models\Shared\OpenAIFileStatus::Uploaded;
 		$this->statusDetails = null;
 	}
 }

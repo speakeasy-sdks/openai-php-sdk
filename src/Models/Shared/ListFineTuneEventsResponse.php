@@ -21,12 +21,12 @@ class ListFineTuneEventsResponse
     public array $data;
     
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\ListFineTuneEventsResponseObject>')]
+    public ListFineTuneEventsResponseObject $object;
     
 	public function __construct()
 	{
 		$this->data = [];
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\ListFineTuneEventsResponseObject::List;
 	}
 }

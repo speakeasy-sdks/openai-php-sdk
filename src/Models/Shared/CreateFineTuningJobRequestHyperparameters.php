@@ -18,9 +18,35 @@ namespace Openai\SDK\Models\Shared;
 class CreateFineTuningJobRequestHyperparameters
 {
     /**
-     * The number of epochs to train the model for. An epoch refers to one
+     * Number of examples in each batch. A larger batch size means that model parameters
      * 
-     * full cycle through the training dataset.
+     * are updated less frequently, but with lower variance.
+     * 
+     * 
+     * @var mixed $batchSize
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('batch_size')]
+    #[\JMS\Serializer\Annotation\Type('mixed')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public mixed $batchSize = null;
+    
+    /**
+     * Scaling factor for the learning rate. A smaller learning rate may be useful to avoid
+     * 
+     * overfitting.
+     * 
+     * 
+     * @var mixed $learningRateMultiplier
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('learning_rate_multiplier')]
+    #[\JMS\Serializer\Annotation\Type('mixed')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public mixed $learningRateMultiplier = null;
+    
+    /**
+     * The number of epochs to train the model for. An epoch refers to one full cycle 
+     * 
+     * through the training dataset.
      * 
      * 
      * @var mixed $nEpochs
@@ -32,6 +58,8 @@ class CreateFineTuningJobRequestHyperparameters
     
 	public function __construct()
 	{
+		$this->batchSize = null;
+		$this->learningRateMultiplier = null;
 		$this->nEpochs = null;
 	}
 }

@@ -1,5 +1,5 @@
 # Moderations
-(*moderations*)
+
 
 ## Overview
 
@@ -21,19 +21,18 @@ Classifies if text violates OpenAI's Content Policy
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateModerationRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateModerationRequest();
+    $request = new Shared\CreateModerationRequest();
     $request->input = 'string';
     $request->model = 'text-moderation-stable';
 

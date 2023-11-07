@@ -1,5 +1,5 @@
 # Completions
-(*completions*)
+
 
 ## Overview
 
@@ -21,19 +21,18 @@ Creates a completion for the provided prompt and parameters.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateCompletionRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateCompletionRequest();
+    $request = new Shared\CreateCompletionRequest();
     $request->bestOf = 160667;
     $request->echo = false;
     $request->frequencyPenalty = 141.61;
@@ -46,6 +45,7 @@ try {
     $request->n = 1;
     $request->presencePenalty = 7227.62;
     $request->prompt = 'string';
+    $request->seed = 723216;
     $request->stop = 'string';
     $request->stream = false;
     $request->suffix = 'test.';

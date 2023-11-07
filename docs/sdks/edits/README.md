@@ -1,5 +1,5 @@
 # Edits
-(*edits*)
+
 
 ## Overview
 
@@ -23,19 +23,18 @@ Creates a new edit for the provided input, instruction, and parameters.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateEditRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateEditRequest();
+    $request = new Shared\CreateEditRequest();
     $request->input = 'What day of the wek is it?';
     $request->instruction = 'Fix the spelling mistakes.';
     $request->model = 'text-davinci-edit-001';

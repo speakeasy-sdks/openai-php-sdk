@@ -38,16 +38,16 @@ class DownloadFileResponse
     /**
      * OK
      * 
-     * @var ?string $downloadFile200ApplicationJSONString
+     * @var ?string $res
      */
 	
-    public ?string $downloadFile200ApplicationJSONString = null;
+    public ?string $res = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->downloadFile200ApplicationJSONString = null;
+		$this->res = null;
 	}
 }

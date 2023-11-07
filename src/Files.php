@@ -22,7 +22,11 @@ class Files
 	}
 	
     /**
-     * Upload a file that can be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please [contact us](https://help.openai.com/) if you need to increase the storage limit.
+     * Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.
+     * 
+     * The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.
+     * 
+     * Please [contact us](https://help.openai.com/) if you need to increase these storage limits.
      * 
      * 
      * @param \Openai\SDK\Models\Shared\CreateFileRequest $request
@@ -48,8 +52,10 @@ class Files
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Openai\SDK\Models\Operations\CreateFileResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
@@ -87,8 +93,10 @@ class Files
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Openai\SDK\Models\Operations\DeleteFileResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
@@ -126,14 +134,16 @@ class Files
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Openai\SDK\Models\Operations\DownloadFileResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $response->downloadFile200ApplicationJSONString = $httpResponse->getBody()->getContents();
+                $response->res = $httpResponse->getBody()->getContents();
             }
         }
 
@@ -143,15 +153,21 @@ class Files
     /**
      * Returns a list of files that belong to the user's organization.
      * 
+     * @param ?string $purpose
      * @return \Openai\SDK\Models\Operations\ListFilesResponse
      */
 	public function listFiles(
+        ?string $purpose = null,
     ): \Openai\SDK\Models\Operations\ListFilesResponse
     {
+        $request = new \Openai\SDK\Models\Operations\ListFilesRequest();
+        $request->purpose = $purpose;
+        
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/files');
         
         $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\Openai\SDK\Models\Operations\ListFilesRequest::class, $request, null));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -159,8 +175,10 @@ class Files
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Openai\SDK\Models\Operations\ListFilesResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
@@ -198,8 +216,10 @@ class Files
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Openai\SDK\Models\Operations\RetrieveFileResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         

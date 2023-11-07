@@ -1,5 +1,5 @@
 # Chat
-(*chat*)
+
 
 ## Overview
 
@@ -21,41 +21,43 @@ Creates a model response for the given chat conversation.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateChatCompletionRequest;
-use \Openai\SDK\Models\Shared\ChatCompletionFunctions;
-use \Openai\SDK\Models\Shared\ChatCompletionRequestMessage;
-use \Openai\SDK\Models\Shared\ChatCompletionRequestMessageFunctionCall;
-use \Openai\SDK\Models\Shared\ChatCompletionRequestMessageRole;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateChatCompletionRequest();
+    $request = new Shared\CreateChatCompletionRequest();
     $request->frequencyPenalty = 7707.26;
     $request->functionCall = 'string';
     $request->functions = [
-        new ChatCompletionFunctions(),
+        new Shared\ChatCompletionFunctions(),
     ];
     $request->logitBias = [
         'navigate' => 817435,
     ];
     $request->maxTokens = 21872;
     $request->messages = [
-        new ChatCompletionRequestMessage(),
+        'string',
     ];
     $request->model = 'gpt-3.5-turbo';
     $request->n = 1;
     $request->presencePenalty = 4012.48;
+    $request->responseFormat = new Shared\ResponseFormat();
+    $request->responseFormat->type = Shared\CreateChatCompletionRequestType::JsonObject;
+    $request->seed = 313767;
     $request->stop = 'string';
     $request->stream = false;
     $request->temperature = 1;
+    $request->toolChoice = 'string';
+    $request->tools = [
+        new Shared\ChatCompletionTool(),
+    ];
     $request->topP = 1;
     $request->user = 'user-1234';
 

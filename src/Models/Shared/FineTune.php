@@ -51,11 +51,11 @@ class FineTune
     /**
      * The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/hyperparameters) for more details.
      * 
-     * @var \Openai\SDK\Models\Shared\FineTuneHyperparams $hyperparams
+     * @var \Openai\SDK\Models\Shared\Hyperparams $hyperparams
      */
 	#[\JMS\Serializer\Annotation\SerializedName('hyperparams')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\FineTuneHyperparams')]
-    public FineTuneHyperparams $hyperparams;
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\Hyperparams')]
+    public Hyperparams $hyperparams;
     
     /**
      * The object identifier, which can be referenced in the API endpoints.
@@ -78,11 +78,11 @@ class FineTune
     /**
      * The object type, which is always "fine-tune".
      * 
-     * @var string $object
+     * @var \Openai\SDK\Models\Shared\FineTuneObject $object
      */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\FineTuneObject>')]
+    public FineTuneObject $object;
     
     /**
      * The organization that owns the fine-tuning job.
@@ -143,10 +143,10 @@ class FineTune
 		$this->createdAt = 0;
 		$this->events = null;
 		$this->fineTunedModel = "";
-		$this->hyperparams = new \Openai\SDK\Models\Shared\FineTuneHyperparams();
+		$this->hyperparams = new \Openai\SDK\Models\Shared\Hyperparams();
 		$this->id = "";
 		$this->model = "";
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\FineTuneObject::FineTune;
 		$this->organizationId = "";
 		$this->resultFiles = [];
 		$this->status = "";

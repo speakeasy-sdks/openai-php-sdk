@@ -15,11 +15,11 @@ class CreateImageEditRequestImage
     public string $content;
     
 	#[SpeakeasyMetadata('multipartForm:name=image')]
-    public string $image;
+    public string $fileName;
     
 	public function __construct()
 	{
 		$this->content = "";
-		$this->image = "";
+		$this->fileName = "";
 	}
 }

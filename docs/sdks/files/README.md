@@ -1,13 +1,17 @@
 # Files
-(*files*)
+
 
 ## Overview
 
-Files are used to upload documents that can be used with features like fine-tuning.
+Files are used to upload documents that can be used with features like Assistants and Fine-tuning.
 
 ### Available Operations
 
-* [createFile](#createfile) - Upload a file that can be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please [contact us](https://help.openai.com/) if you need to increase the storage limit.
+* [createFile](#createfile) - Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.
+
+The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.
+
+Please [contact us](https://help.openai.com/) if you need to increase these storage limits.
 
 * [deleteFile](#deletefile) - Delete a file.
 * [downloadFile](#downloadfile) - Returns the contents of the specified file.
@@ -16,7 +20,11 @@ Files are used to upload documents that can be used with features like fine-tuni
 
 ## createFile
 
-Upload a file that can be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please [contact us](https://help.openai.com/) if you need to increase the storage limit.
+Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.
+
+The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.
+
+Please [contact us](https://help.openai.com/) if you need to increase these storage limits.
 
 
 ### Example Usage
@@ -27,24 +35,22 @@ Upload a file that can be used across various endpoints/features. Currently, the
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateFileRequest;
-use \Openai\SDK\Models\Shared\CreateFileRequestFile;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateFileRequest();
-    $request->file = new CreateFileRequestFile();
-    $request->file->content = '`\'$Z`(L/RH';
-    $request->file->file = 'string';
-    $request->purpose = 'string';
+    $request = new Shared\CreateFileRequest();
+    $request->file = new Shared\File();
+    $request->file->content = '0xf10df1a3b9';
+    $request->file->fileName = 'rap_national.mp4v';
+    $request->purpose = Shared\Purpose::FineTune;
 
     $response = $sdk->files->createFile($request);
 
@@ -80,14 +86,14 @@ Delete a file.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Operations\DeleteFileRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
+use \Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
@@ -128,14 +134,14 @@ Returns the contents of the specified file.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Operations\DownloadFileRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
+use \Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
@@ -144,7 +150,7 @@ try {
 
     $response = $sdk->files->downloadFile('string');
 
-    if ($response->downloadFile200ApplicationJSONString !== null) {
+    if ($response->res !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -176,18 +182,21 @@ Returns a list of files that belong to the user's organization.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
+use \Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $response = $sdk->files->listFiles();
+
+
+    $response = $sdk->files->listFiles('string');
 
     if ($response->listFilesResponse !== null) {
         // handle response
@@ -196,6 +205,12 @@ try {
     // handle exception
 }
 ```
+
+### Parameters
+
+| Parameter                                 | Type                                      | Required                                  | Description                               |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| `purpose`                                 | *string*                                  | :heavy_minus_sign:                        | Only return files with the given purpose. |
 
 
 ### Response
@@ -215,14 +230,14 @@ Returns information about a specific file.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Operations\RetrieveFileRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
+use \Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 

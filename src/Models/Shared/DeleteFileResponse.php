@@ -20,13 +20,13 @@ class DeleteFileResponse
     public string $id;
     
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\DeleteFileResponseObject>')]
+    public DeleteFileResponseObject $object;
     
 	public function __construct()
 	{
 		$this->deleted = false;
 		$this->id = "";
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\DeleteFileResponseObject::File;
 	}
 }

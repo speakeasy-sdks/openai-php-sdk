@@ -1,5 +1,5 @@
 # Images
-(*images*)
+
 
 ## Overview
 
@@ -23,25 +23,25 @@ Creates an image given a prompt.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateImageRequest;
-use \Openai\SDK\Models\Shared\CreateImageRequestResponseFormat;
-use \Openai\SDK\Models\Shared\CreateImageRequestSize;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateImageRequest();
+    $request = new Shared\CreateImageRequest();
+    $request->model = 'dall-e-3';
     $request->n = 1;
     $request->prompt = 'A cute baby sea otter';
-    $request->responseFormat = CreateImageRequestResponseFormat::Url;
-    $request->size = CreateImageRequestSize::OneThousandAndTwentyFourx1024;
+    $request->quality = Shared\Quality::Standard;
+    $request->responseFormat = Shared\CreateImageRequestResponseFormat::Url;
+    $request->size = Shared\CreateImageRequestSize::OneThousandAndTwentyFourx1024;
+    $request->style = Shared\Style::Vivid;
     $request->user = 'user-1234';
 
     $response = $sdk->images->createImage($request);
@@ -78,33 +78,29 @@ Creates an edited or extended image given an original image and a prompt.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateImageEditRequest;
-use \Openai\SDK\Models\Shared\CreateImageEditRequestImage;
-use \Openai\SDK\Models\Shared\CreateImageEditRequestMask;
-use \Openai\SDK\Models\Shared\CreateImageEditRequestResponseFormat;
-use \Openai\SDK\Models\Shared\CreateImageEditRequestSize;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateImageEditRequest();
-    $request->image = new CreateImageEditRequestImage();
-    $request->image->content = '0]/(|3W_T9';
-    $request->image->image = 'https://loremflickr.com/640/480';
-    $request->mask = new CreateImageEditRequestMask();
-    $request->mask->content = '`^YjrpxopK';
-    $request->mask->mask = 'string';
+    $request = new Shared\CreateImageEditRequest();
+    $request->image = new Shared\CreateImageEditRequestImage();
+    $request->image->content = '0x3e31F4cec5';
+    $request->image->fileName = 'facilitator_gosh_hatchback.mpe';
+    $request->mask = new Shared\Mask();
+    $request->mask->content = '0xFC5456e4eC';
+    $request->mask->fileName = 'electric_cambridgeshire.jpeg';
+    $request->model = 'dall-e-2';
     $request->n = 1;
     $request->prompt = 'A cute baby sea otter wearing a beret';
-    $request->responseFormat = CreateImageEditRequestResponseFormat::Url;
-    $request->size = CreateImageEditRequestSize::OneThousandAndTwentyFourx1024;
+    $request->responseFormat = Shared\CreateImageEditRequestResponseFormat::Url;
+    $request->size = Shared\Size::OneThousandAndTwentyFourx1024;
     $request->user = 'user-1234';
 
     $response = $sdk->images->createImageEdit($request);
@@ -141,28 +137,25 @@ Creates a variation of a given image.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateImageVariationRequest;
-use \Openai\SDK\Models\Shared\CreateImageVariationRequestImage;
-use \Openai\SDK\Models\Shared\CreateImageVariationRequestResponseFormat;
-use \Openai\SDK\Models\Shared\CreateImageVariationRequestSize;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateImageVariationRequest();
-    $request->image = new CreateImageVariationRequestImage();
-    $request->image->content = '`YY7PCrWuK';
-    $request->image->image = 'https://loremflickr.com/640/480';
+    $request = new Shared\CreateImageVariationRequest();
+    $request->image = new Shared\CreateImageVariationRequestImage();
+    $request->image->content = '0xfdd5b8DcDa';
+    $request->image->fileName = 'fantastic.gif';
+    $request->model = 'dall-e-2';
     $request->n = 1;
-    $request->responseFormat = CreateImageVariationRequestResponseFormat::Url;
-    $request->size = CreateImageVariationRequestSize::OneThousandAndTwentyFourx1024;
+    $request->responseFormat = Shared\CreateImageVariationRequestResponseFormat::Url;
+    $request->size = Shared\CreateImageVariationRequestSize::OneThousandAndTwentyFourx1024;
     $request->user = 'user-1234';
 
     $response = $sdk->images->createImageVariation($request);

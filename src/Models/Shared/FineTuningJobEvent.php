@@ -26,23 +26,23 @@ class FineTuningJobEvent
     public string $id;
     
 	#[\JMS\Serializer\Annotation\SerializedName('level')]
-    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\FineTuningJobEventLevel>')]
-    public FineTuningJobEventLevel $level;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\Level>')]
+    public Level $level;
     
 	#[\JMS\Serializer\Annotation\SerializedName('message')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $message;
     
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\FineTuningJobEventObject>')]
+    public FineTuningJobEventObject $object;
     
 	public function __construct()
 	{
 		$this->createdAt = 0;
 		$this->id = "";
-		$this->level = \Openai\SDK\Models\Shared\FineTuningJobEventLevel::Info;
+		$this->level = \Openai\SDK\Models\Shared\Level::Info;
 		$this->message = "";
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\FineTuningJobEventObject::FineTuningJobEvent;
 	}
 }

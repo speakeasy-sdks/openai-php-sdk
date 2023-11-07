@@ -38,11 +38,11 @@ class Model
     /**
      * The object type, which is always "model".
      * 
-     * @var string $object
+     * @var \Openai\SDK\Models\Shared\ModelObject $object
      */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\ModelObject>')]
+    public ModelObject $object;
     
     /**
      * The organization that owns the model.
@@ -57,7 +57,7 @@ class Model
 	{
 		$this->created = 0;
 		$this->id = "";
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\ModelObject::Model;
 		$this->ownedBy = "";
 	}
 }

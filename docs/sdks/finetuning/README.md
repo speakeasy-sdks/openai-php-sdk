@@ -1,5 +1,5 @@
 # FineTuning
-(*fineTuning*)
+
 
 ## Overview
 
@@ -37,14 +37,14 @@ Immediately cancel a fine-tune job.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Operations\CancelFineTuningJobRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
+use \Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
@@ -90,21 +90,21 @@ Response includes details of the enqueued job including job status and the name 
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Shared\CreateFineTuningJobRequest;
-use \Openai\SDK\Models\Shared\CreateFineTuningJobRequestHyperparameters;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateFineTuningJobRequest();
-    $request->hyperparameters = new CreateFineTuningJobRequestHyperparameters();
+    $request = new Shared\CreateFineTuningJobRequest();
+    $request->hyperparameters = new Shared\CreateFineTuningJobRequestHyperparameters();
+    $request->hyperparameters->batchSize = 'string';
+    $request->hyperparameters->learningRateMultiplier = 'string';
     $request->hyperparameters->nEpochs = 'string';
     $request->model = 'gpt-3.5-turbo';
     $request->suffix = 'string';
@@ -146,14 +146,14 @@ Get status updates for a fine-tuning job.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Operations\ListFineTuningEventsRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
+use \Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
@@ -197,14 +197,14 @@ List your organization's fine-tuning jobs
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
+use \Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
@@ -249,14 +249,14 @@ Get info about a fine-tuning job.
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use \Openai\SDK\Gpt;
-use \Openai\SDK\Models\Shared\Security;
-use \Openai\SDK\Models\Operations\RetrieveFineTuningJobRequest;
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
+use \Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 

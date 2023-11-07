@@ -18,11 +18,11 @@ class CreateEditResponseChoices
      * or `content_filter` if content was omitted due to a flag from our content filters.
      * 
      * 
-     * @var \Openai\SDK\Models\Shared\CreateEditResponseChoicesFinishReason $finishReason
+     * @var \Openai\SDK\Models\Shared\CreateEditResponseFinishReason $finishReason
      */
 	#[\JMS\Serializer\Annotation\SerializedName('finish_reason')]
-    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateEditResponseChoicesFinishReason>')]
-    public CreateEditResponseChoicesFinishReason $finishReason;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateEditResponseFinishReason>')]
+    public CreateEditResponseFinishReason $finishReason;
     
     /**
      * The index of the choice in the list of choices.
@@ -44,7 +44,7 @@ class CreateEditResponseChoices
     
 	public function __construct()
 	{
-		$this->finishReason = \Openai\SDK\Models\Shared\CreateEditResponseChoicesFinishReason::Stop;
+		$this->finishReason = \Openai\SDK\Models\Shared\CreateEditResponseFinishReason::Stop;
 		$this->index = 0;
 		$this->text = "";
 	}

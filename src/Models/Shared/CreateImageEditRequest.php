@@ -22,10 +22,18 @@ class CreateImageEditRequest
     /**
      * An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
      * 
-     * @var ?\Openai\SDK\Models\Shared\CreateImageEditRequestMask $mask
+     * @var ?\Openai\SDK\Models\Shared\Mask $mask
      */
 	#[SpeakeasyMetadata('multipartForm:file=true')]
-    public ?CreateImageEditRequestMask $mask = null;
+    public ?Mask $mask = null;
+    
+    /**
+     * The model to use for image generation. Only `dall-e-2` is supported at this time.
+     * 
+     * @var mixed $model
+     */
+	#[SpeakeasyMetadata('multipartForm:name=model')]
+    public mixed $model = null;
     
     /**
      * The number of images to generate. Must be between 1 and 10.
@@ -54,10 +62,10 @@ class CreateImageEditRequest
     /**
      * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
      * 
-     * @var ?\Openai\SDK\Models\Shared\CreateImageEditRequestSize $size
+     * @var ?\Openai\SDK\Models\Shared\Size $size
      */
 	#[SpeakeasyMetadata('multipartForm:name=size')]
-    public ?CreateImageEditRequestSize $size = null;
+    public ?Size $size = null;
     
     /**
      * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
@@ -73,6 +81,7 @@ class CreateImageEditRequest
 	{
 		$this->image = new \Openai\SDK\Models\Shared\CreateImageEditRequestImage();
 		$this->mask = null;
+		$this->model = null;
 		$this->n = null;
 		$this->prompt = "";
 		$this->responseFormat = null;

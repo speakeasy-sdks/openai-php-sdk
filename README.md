@@ -39,33 +39,21 @@ Authorization: Bearer YOUR_API_KEY
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use Openai\SDK\Gpt;
-use Openai\SDK\Models\Shared\Security;
-use Openai\SDK\Models\Shared\CreateTranscriptionRequest;
-use Openai\SDK\Models\Shared\CreateTranscriptionRequestFile;
-use Openai\SDK\Models\Shared\CreateTranscriptionRequestResponseFormat;
+use Openai\SDK;
+use Openai\SDK\Models\Shared;
+use Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateTranscriptionRequest();
-    $request->file = new CreateTranscriptionRequestFile();
-    $request->file->content = '\#BbTW\'zX9';
-    $request->file->file = 'string';
-    $request->language = 'string';
-    $request->model = 'whisper-1';
-    $request->prompt = 'string';
-    $request->responseFormat = CreateTranscriptionRequestResponseFormat::Json;
-    $request->temperature = 613.49;
+    $response = $sdk->assistants->cancelRun('string', 'string');
 
-    $response = $sdk->audio->createTranscription($request);
-
-    if ($response->createTranscriptionResponse !== null) {
+    if ($response->runObject !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -79,37 +67,77 @@ try {
 ## Available Resources and Operations
 
 
-### [audio](docs/sdks/audio/README.md)
+### [Assistants](docs/sdks/assistants/README.md)
 
+* [cancelRun](docs/sdks/assistants/README.md#cancelrun) - Cancels a run that is `in_progress`.
+* [createAssistant](docs/sdks/assistants/README.md#createassistant) - Create an assistant with a model and instructions.
+* [createAssistantFile](docs/sdks/assistants/README.md#createassistantfile) - Create an assistant file by attaching a [File](/docs/api-reference/files) to an [assistant](/docs/api-reference/assistants).
+* [createMessage](docs/sdks/assistants/README.md#createmessage) - Create a message.
+* [createRun](docs/sdks/assistants/README.md#createrun) - Create a run.
+* [createThread](docs/sdks/assistants/README.md#createthread) - Create a thread.
+* [createThreadAndRun](docs/sdks/assistants/README.md#createthreadandrun) - Create a thread and run it in one request.
+* [deleteAssistant](docs/sdks/assistants/README.md#deleteassistant) - Delete an assistant.
+* [deleteAssistantFile](docs/sdks/assistants/README.md#deleteassistantfile) - Delete an assistant file.
+* [deleteThread](docs/sdks/assistants/README.md#deletethread) - Delete a thread.
+* [getAssistant](docs/sdks/assistants/README.md#getassistant) - Retrieves an assistant.
+* [getAssistantFile](docs/sdks/assistants/README.md#getassistantfile) - Retrieves an AssistantFile.
+* [getMessage](docs/sdks/assistants/README.md#getmessage) - Retrieve a message.
+* [getMessageFile](docs/sdks/assistants/README.md#getmessagefile) - Retrieves a message file.
+* [getRun](docs/sdks/assistants/README.md#getrun) - Retrieves a run.
+* [getRunStep](docs/sdks/assistants/README.md#getrunstep) - Retrieves a run step.
+* [getThread](docs/sdks/assistants/README.md#getthread) - Retrieves a thread.
+* [listAssistantFiles](docs/sdks/assistants/README.md#listassistantfiles) - Returns a list of assistant files.
+* [listAssistants](docs/sdks/assistants/README.md#listassistants) - Returns a list of assistants.
+* [listMessageFiles](docs/sdks/assistants/README.md#listmessagefiles) - Returns a list of message files.
+* [listMessages](docs/sdks/assistants/README.md#listmessages) - Returns a list of messages for a given thread.
+* [listRunSteps](docs/sdks/assistants/README.md#listrunsteps) - Returns a list of run steps belonging to a run.
+* [listRuns](docs/sdks/assistants/README.md#listruns) - Returns a list of runs belonging to a thread.
+* [modifyMessage](docs/sdks/assistants/README.md#modifymessage) - Modifies a message.
+* [modifyRun](docs/sdks/assistants/README.md#modifyrun) - Modifies a run.
+* [modifyThread](docs/sdks/assistants/README.md#modifythread) - Modifies a thread.
+* [submitToolOuputsToRun](docs/sdks/assistants/README.md#submittoolouputstorun) - When a run has the `status: "requires_action"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request.
+
+
+### [Assistant](docs/sdks/assistant/README.md)
+
+* [modifyAssistant](docs/sdks/assistant/README.md#modifyassistant) - Modifies an assistant.
+
+### [Audio](docs/sdks/audio/README.md)
+
+* [createSpeech](docs/sdks/audio/README.md#createspeech) - Generates audio from the input text.
 * [createTranscription](docs/sdks/audio/README.md#createtranscription) - Transcribes audio into the input language.
 * [createTranslation](docs/sdks/audio/README.md#createtranslation) - Translates audio into English.
 
-### [chat](docs/sdks/chat/README.md)
+### [Chat](docs/sdks/chat/README.md)
 
 * [createChatCompletion](docs/sdks/chat/README.md#createchatcompletion) - Creates a model response for the given chat conversation.
 
-### [completions](docs/sdks/completions/README.md)
+### [Completions](docs/sdks/completions/README.md)
 
 * [createCompletion](docs/sdks/completions/README.md#createcompletion) - Creates a completion for the provided prompt and parameters.
 
-### [edits](docs/sdks/edits/README.md)
+### [Edits](docs/sdks/edits/README.md)
 
 * [~~createEdit~~](docs/sdks/edits/README.md#createedit) - Creates a new edit for the provided input, instruction, and parameters. :warning: **Deprecated**
 
-### [embeddings](docs/sdks/embeddings/README.md)
+### [Embeddings](docs/sdks/embeddings/README.md)
 
 * [createEmbedding](docs/sdks/embeddings/README.md#createembedding) - Creates an embedding vector representing the input text.
 
-### [files](docs/sdks/files/README.md)
+### [Files](docs/sdks/files/README.md)
 
-* [createFile](docs/sdks/files/README.md#createfile) - Upload a file that can be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please [contact us](https://help.openai.com/) if you need to increase the storage limit.
+* [createFile](docs/sdks/files/README.md#createfile) - Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.
+
+The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.
+
+Please [contact us](https://help.openai.com/) if you need to increase these storage limits.
 
 * [deleteFile](docs/sdks/files/README.md#deletefile) - Delete a file.
 * [downloadFile](docs/sdks/files/README.md#downloadfile) - Returns the contents of the specified file.
 * [listFiles](docs/sdks/files/README.md#listfiles) - Returns a list of files that belong to the user's organization.
 * [retrieveFile](docs/sdks/files/README.md#retrievefile) - Returns information about a specific file.
 
-### [fineTunes](docs/sdks/finetunes/README.md)
+### [FineTunes](docs/sdks/finetunes/README.md)
 
 * [~~cancelFineTune~~](docs/sdks/finetunes/README.md#cancelfinetune) - Immediately cancel a fine-tune job.
  :warning: **Deprecated**
@@ -128,7 +156,7 @@ Response includes details of the enqueued job including job status and the name 
 [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
  :warning: **Deprecated**
 
-### [fineTuning](docs/sdks/finetuning/README.md)
+### [FineTuning](docs/sdks/finetuning/README.md)
 
 * [cancelFineTuningJob](docs/sdks/finetuning/README.md#cancelfinetuningjob) - Immediately cancel a fine-tune job.
 
@@ -147,19 +175,19 @@ Response includes details of the enqueued job including job status and the name 
 [Learn more about fine-tuning](/docs/guides/fine-tuning)
 
 
-### [images](docs/sdks/images/README.md)
+### [Images](docs/sdks/images/README.md)
 
 * [createImage](docs/sdks/images/README.md#createimage) - Creates an image given a prompt.
 * [createImageEdit](docs/sdks/images/README.md#createimageedit) - Creates an edited or extended image given an original image and a prompt.
 * [createImageVariation](docs/sdks/images/README.md#createimagevariation) - Creates a variation of a given image.
 
-### [models](docs/sdks/models/README.md)
+### [Models](docs/sdks/models/README.md)
 
 * [deleteModel](docs/sdks/models/README.md#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
 * [listModels](docs/sdks/models/README.md#listmodels) - Lists the currently available models, and provides basic information about each one such as the owner and availability.
 * [retrieveModel](docs/sdks/models/README.md#retrievemodel) - Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
 
-### [moderations](docs/sdks/moderations/README.md)
+### [Moderations](docs/sdks/moderations/README.md)
 
 * [createModeration](docs/sdks/moderations/README.md#createmoderation) - Classifies if text violates OpenAI's Content Policy
 <!-- End SDK Available Operations -->
@@ -167,8 +195,6 @@ Response includes details of the enqueued job including job status and the name 
 
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 

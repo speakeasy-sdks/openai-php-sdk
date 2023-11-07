@@ -32,26 +32,26 @@ class CreateEmbeddingResponse
     /**
      * The object type, which is always "embedding".
      * 
-     * @var string $object
+     * @var \Openai\SDK\Models\Shared\CreateEmbeddingResponseObject $object
      */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateEmbeddingResponseObject>')]
+    public CreateEmbeddingResponseObject $object;
     
     /**
      * The usage information for the request.
      * 
-     * @var \Openai\SDK\Models\Shared\CreateEmbeddingResponseUsage $usage
+     * @var \Openai\SDK\Models\Shared\Usage $usage
      */
 	#[\JMS\Serializer\Annotation\SerializedName('usage')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateEmbeddingResponseUsage')]
-    public CreateEmbeddingResponseUsage $usage;
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\Usage')]
+    public Usage $usage;
     
 	public function __construct()
 	{
 		$this->data = [];
 		$this->model = "";
-		$this->object = "";
-		$this->usage = new \Openai\SDK\Models\Shared\CreateEmbeddingResponseUsage();
+		$this->object = \Openai\SDK\Models\Shared\CreateEmbeddingResponseObject::Embedding;
+		$this->usage = new \Openai\SDK\Models\Shared\Usage();
 	}
 }

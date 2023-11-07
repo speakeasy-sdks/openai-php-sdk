@@ -12,32 +12,30 @@ use \Openai\SDK\Utils\SpeakeasyMetadata;
 class CreateFileRequest
 {
     /**
-     * The file object (not file name) to be uploaded.
+     * The File object (not file name) to be uploaded.
      * 
      * 
-     * If the `purpose` is set to "fine-tune", the file will be used for fine-tuning.
      * 
-     * 
-     * @var \Openai\SDK\Models\Shared\CreateFileRequestFile $file
+     * @var \Openai\SDK\Models\Shared\File $file
      */
 	#[SpeakeasyMetadata('multipartForm:file=true')]
-    public CreateFileRequestFile $file;
+    public File $file;
     
     /**
      * The intended purpose of the uploaded file.
      * 
      * 
-     * Use "fine-tune" for [fine-tuning](/docs/api-reference/fine-tuning). This allows us to validate the format of the uploaded file is correct for fine-tuning.
+     * Use "fine-tune" for [Fine-tuning](/docs/api-reference/fine-tuning) and "assistants" for [Assistants](/docs/api-reference/assistants) and [Messages](/docs/api-reference/messages). This allows us to validate the format of the uploaded file is correct for fine-tuning.
      * 
      * 
-     * @var string $purpose
+     * @var \Openai\SDK\Models\Shared\Purpose $purpose
      */
 	#[SpeakeasyMetadata('multipartForm:name=purpose')]
-    public string $purpose;
+    public Purpose $purpose;
     
 	public function __construct()
 	{
-		$this->file = new \Openai\SDK\Models\Shared\CreateFileRequestFile();
-		$this->purpose = "";
+		$this->file = new \Openai\SDK\Models\Shared\File();
+		$this->purpose = \Openai\SDK\Models\Shared\Purpose::FineTune;
 	}
 }

@@ -20,7 +20,15 @@ class CreateImageVariationRequest
     public CreateImageVariationRequestImage $image;
     
     /**
-     * The number of images to generate. Must be between 1 and 10.
+     * The model to use for image generation. Only `dall-e-2` is supported at this time.
+     * 
+     * @var mixed $model
+     */
+	#[SpeakeasyMetadata('multipartForm:name=model')]
+    public mixed $model = null;
+    
+    /**
+     * The number of images to generate. Must be between 1 and 10. For `dall-e-3`, only `n=1` is supported.
      * 
      * @var ?int $n
      */
@@ -56,6 +64,7 @@ class CreateImageVariationRequest
 	public function __construct()
 	{
 		$this->image = new \Openai\SDK\Models\Shared\CreateImageVariationRequestImage();
+		$this->model = null;
 		$this->n = null;
 		$this->responseFormat = null;
 		$this->size = null;

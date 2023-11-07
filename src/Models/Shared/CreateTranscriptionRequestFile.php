@@ -15,11 +15,11 @@ class CreateTranscriptionRequestFile
     public string $content;
     
 	#[SpeakeasyMetadata('multipartForm:name=file')]
-    public string $file;
+    public string $fileName;
     
 	public function __construct()
 	{
 		$this->content = "";
-		$this->file = "";
+		$this->fileName = "";
 	}
 }

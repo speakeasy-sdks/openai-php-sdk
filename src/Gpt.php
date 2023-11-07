@@ -21,7 +21,16 @@ class Gpt
 	];
   	
     /**
-     * Learn how to turn audio into text.
+     * Build Assistants that can call models and use tools.
+     * 
+     * @var Assistants $$assistants
+     */
+	public Assistants $assistants;
+	
+	public Assistant $assistant;
+	
+    /**
+     * Learn how to turn audio into text or text into audio.
      * 
      * @var Audio $$audio
      */
@@ -56,7 +65,7 @@ class Gpt
 	public Embeddings $embeddings;
 	
     /**
-     * Files are used to upload documents that can be used with features like fine-tuning.
+     * Files are used to upload documents that can be used with features like Assistants and Fine-tuning.
      * 
      * @var Files $$files
      */
@@ -115,6 +124,10 @@ class Gpt
 	public function __construct(SDKConfiguration $sdkConfiguration)
 	{
 		$this->sdkConfiguration = $sdkConfiguration;
+		
+		$this->assistants = new Assistants($this->sdkConfiguration);
+		
+		$this->assistant = new Assistant($this->sdkConfiguration);
 		
 		$this->audio = new Audio($this->sdkConfiguration);
 		

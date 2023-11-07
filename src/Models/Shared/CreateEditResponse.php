@@ -39,11 +39,11 @@ class CreateEditResponse
     /**
      * The object type, which is always `edit`.
      * 
-     * @var string $object
+     * @var \Openai\SDK\Models\Shared\CreateEditResponseObject $object
      */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateEditResponseObject>')]
+    public CreateEditResponseObject $object;
     
     /**
      * Usage statistics for the completion request.
@@ -58,7 +58,7 @@ class CreateEditResponse
 	{
 		$this->choices = [];
 		$this->created = 0;
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\CreateEditResponseObject::Edit;
 		$this->usage = new \Openai\SDK\Models\Shared\CompletionUsage();
 	}
 }

@@ -31,14 +31,14 @@ class FineTuneEvent
     public string $message;
     
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\FineTuneEventObject>')]
+    public FineTuneEventObject $object;
     
 	public function __construct()
 	{
 		$this->createdAt = 0;
 		$this->level = "";
 		$this->message = "";
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\FineTuneEventObject::FineTuneEvent;
 	}
 }

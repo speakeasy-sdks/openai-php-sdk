@@ -20,10 +20,10 @@ class CreateChatCompletionResponse
     /**
      * A list of chat completion choices. Can be more than one if `n` is greater than 1.
      * 
-     * @var array<\Openai\SDK\Models\Shared\CreateChatCompletionResponseChoices> $choices
+     * @var array<\Openai\SDK\Models\Shared\Choices> $choices
      */
 	#[\JMS\Serializer\Annotation\SerializedName('choices')]
-    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\CreateChatCompletionResponseChoices>')]
+    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\Choices>')]
     public array $choices;
     
     /**
@@ -56,11 +56,25 @@ class CreateChatCompletionResponse
     /**
      * The object type, which is always `chat.completion`.
      * 
-     * @var string $object
+     * @var \Openai\SDK\Models\Shared\CreateChatCompletionResponseObject $object
      */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateChatCompletionResponseObject>')]
+    public CreateChatCompletionResponseObject $object;
+    
+    /**
+     * This fingerprint represents the backend configuration that the model runs with.
+     * 
+     * 
+     * Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.
+     * 
+     * 
+     * @var ?string $systemFingerprint
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('system_fingerprint')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $systemFingerprint = null;
     
     /**
      * Usage statistics for the completion request.
@@ -78,7 +92,8 @@ class CreateChatCompletionResponse
 		$this->created = 0;
 		$this->id = "";
 		$this->model = "";
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\CreateChatCompletionResponseObject::ChatCompletion;
+		$this->systemFingerprint = null;
 		$this->usage = null;
 	}
 }

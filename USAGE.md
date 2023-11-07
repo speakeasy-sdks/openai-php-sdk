@@ -7,33 +7,21 @@
 declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
-use Openai\SDK\Gpt;
-use Openai\SDK\Models\Shared\Security;
-use Openai\SDK\Models\Shared\CreateTranscriptionRequest;
-use Openai\SDK\Models\Shared\CreateTranscriptionRequestFile;
-use Openai\SDK\Models\Shared\CreateTranscriptionRequestResponseFormat;
+use Openai\SDK;
+use Openai\SDK\Models\Shared;
+use Openai\SDK\Models\Operations;
 
-$security = new Security();
+$security = new Shared\Security();
 $security->apiKeyAuth = '';
 
-$sdk = Gpt::builder()
+$sdk = SDK\Gpt::builder()
     ->setSecurity($security)
     ->build();
 
 try {
-    $request = new CreateTranscriptionRequest();
-    $request->file = new CreateTranscriptionRequestFile();
-    $request->file->content = '\#BbTW\'zX9';
-    $request->file->file = 'string';
-    $request->language = 'string';
-    $request->model = 'whisper-1';
-    $request->prompt = 'string';
-    $request->responseFormat = CreateTranscriptionRequestResponseFormat::Json;
-    $request->temperature = 613.49;
+    $response = $sdk->assistants->cancelRun('string', 'string');
 
-    $response = $sdk->audio->createTranscription($request);
-
-    if ($response->createTranscriptionResponse !== null) {
+    if ($response->runObject !== null) {
         // handle response
     }
 } catch (Exception $e) {

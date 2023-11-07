@@ -21,12 +21,12 @@ class ListFilesResponse
     public array $data;
     
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
-    #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\ListFilesResponseObject>')]
+    public ListFilesResponseObject $object;
     
 	public function __construct()
 	{
 		$this->data = [];
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\ListFilesResponseObject::List;
 	}
 }

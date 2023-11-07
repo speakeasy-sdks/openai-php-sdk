@@ -22,6 +22,50 @@ class Audio
 	}
 	
     /**
+     * Generates audio from the input text.
+     * 
+     * @param \Openai\SDK\Models\Shared\CreateSpeechRequest $request
+     * @return \Openai\SDK\Models\Operations\CreateSpeechResponse
+     */
+	public function createSpeech(
+        \Openai\SDK\Models\Shared\CreateSpeechRequest $request,
+    ): \Openai\SDK\Models\Operations\CreateSpeechResponse
+    {
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/audio/speech');
+        
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, "request", "json");
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $options = array_merge_recursive($options, $body);
+        $options['headers']['Accept'] = 'application/octet-stream';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        
+        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Openai\SDK\Models\Operations\CreateSpeechResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            $response->headers = $httpResponse->getHeaders();
+            
+            if (Utils\Utils::matchContentType($contentType, 'application/octet-stream')) {
+                $response->bytes = $httpResponse->getBody()->getContents();
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
      * Transcribes audio into the input language.
      * 
      * @param \Openai\SDK\Models\Shared\CreateTranscriptionRequest $request
@@ -47,8 +91,10 @@ class Audio
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Openai\SDK\Models\Operations\CreateTranscriptionResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
@@ -88,8 +134,10 @@ class Audio
         
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
+        $statusCode = $httpResponse->getStatusCode();
+
         $response = new \Openai\SDK\Models\Operations\CreateTranslationResponse();
-        $response->statusCode = $httpResponse->getStatusCode();
+        $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         

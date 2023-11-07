@@ -58,11 +58,25 @@ class CreateCompletionResponse
     /**
      * The object type, which is always "text_completion"
      * 
-     * @var string $object
+     * @var \Openai\SDK\Models\Shared\CreateCompletionResponseObject $object
      */
 	#[\JMS\Serializer\Annotation\SerializedName('object')]
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\CreateCompletionResponseObject>')]
+    public CreateCompletionResponseObject $object;
+    
+    /**
+     * This fingerprint represents the backend configuration that the model runs with.
+     * 
+     * 
+     * Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.
+     * 
+     * 
+     * @var ?string $systemFingerprint
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('system_fingerprint')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    public string $object;
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $systemFingerprint = null;
     
     /**
      * Usage statistics for the completion request.
@@ -80,7 +94,8 @@ class CreateCompletionResponse
 		$this->created = 0;
 		$this->id = "";
 		$this->model = "";
-		$this->object = "";
+		$this->object = \Openai\SDK\Models\Shared\CreateCompletionResponseObject::TextCompletion;
+		$this->systemFingerprint = null;
 		$this->usage = null;
 	}
 }
