@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-/** The object type, which is always "embedding". */
+/** The object type, which is always "list". */
 enum CreateEmbeddingResponseObject: string
 {
-    case Embedding = 'embedding';
+    case List = 'list';
 }

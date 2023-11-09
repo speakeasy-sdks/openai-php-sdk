@@ -103,7 +103,7 @@ class RunStepObject
     public RunStepObjectMetadata $metadata;
     
     /**
-     * The object type, which is always `assistant.run.step``.
+     * The object type, which is always `thread.run.step``.
      * 
      * @var \Openai\SDK\Models\Shared\RunStepObjectObject $object
      */
@@ -121,7 +121,7 @@ class RunStepObject
     public string $runId;
     
     /**
-     * The status of the run, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
+     * The status of the run step, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
      * 
      * @var \Openai\SDK\Models\Shared\RunStepObjectStatus $status
      */
@@ -167,7 +167,7 @@ class RunStepObject
 		$this->id = "";
 		$this->lastError = new \Openai\SDK\Models\Shared\RunStepObjectLastError();
 		$this->metadata = new \Openai\SDK\Models\Shared\RunStepObjectMetadata();
-		$this->object = \Openai\SDK\Models\Shared\RunStepObjectObject::AssistantRunStep;
+		$this->object = \Openai\SDK\Models\Shared\RunStepObjectObject::ThreadRunStep;
 		$this->runId = "";
 		$this->status = \Openai\SDK\Models\Shared\RunStepObjectStatus::InProgress;
 		$this->stepDetails = null;

@@ -82,7 +82,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CancelRunResponse](../../models/operations/CancelRunResponse.md)**
+**[?\Openai\SDK\Models\Operations\CancelRunResponse](../../Models/Operations/CancelRunResponse.md)**
 
 
 ## createAssistant
@@ -135,12 +135,12 @@ try {
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                        | [\Openai\SDK\Models\Shared\CreateAssistantRequest](../../models/shared/CreateAssistantRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| `$request`                                                                                        | [\Openai\SDK\Models\Shared\CreateAssistantRequest](../../Models/Shared/CreateAssistantRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateAssistantResponse](../../models/operations/CreateAssistantResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateAssistantResponse](../../Models/Operations/CreateAssistantResponse.md)**
 
 
 ## createAssistantFile
@@ -184,13 +184,13 @@ try {
 
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               | Example                                                                                                   |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `createAssistantFileRequest`                                                                              | [\Openai\SDK\Models\Shared\CreateAssistantFileRequest](../../models/shared/CreateAssistantFileRequest.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |                                                                                                           |
+| `createAssistantFileRequest`                                                                              | [\Openai\SDK\Models\Shared\CreateAssistantFileRequest](../../Models/Shared/CreateAssistantFileRequest.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |                                                                                                           |
 | `assistantId`                                                                                             | *string*                                                                                                  | :heavy_check_mark:                                                                                        | The ID of the assistant for which to create a File.<br/>                                                  | file-AF1WoRqd3aJAHsqc9NY7iL8F                                                                             |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateAssistantFileResponse](../../models/operations/CreateAssistantFileResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateAssistantFileResponse](../../Models/Operations/CreateAssistantFileResponse.md)**
 
 
 ## createMessage
@@ -239,13 +239,13 @@ try {
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `createMessageRequest`                                                                        | [\Openai\SDK\Models\Shared\CreateMessageRequest](../../models/shared/CreateMessageRequest.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `createMessageRequest`                                                                        | [\Openai\SDK\Models\Shared\CreateMessageRequest](../../Models/Shared/CreateMessageRequest.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `threadId`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the [thread](/docs/api-reference/threads) to create a message for.                  |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateMessageResponse](../../models/operations/CreateMessageResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateMessageResponse](../../Models/Operations/CreateMessageResponse.md)**
 
 
 ## createRun
@@ -295,13 +295,13 @@ try {
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `createRunRequest`                                                                    | [\Openai\SDK\Models\Shared\CreateRunRequest](../../models/shared/CreateRunRequest.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `createRunRequest`                                                                    | [\Openai\SDK\Models\Shared\CreateRunRequest](../../Models/Shared/CreateRunRequest.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
 | `threadId`                                                                            | *string*                                                                              | :heavy_check_mark:                                                                    | The ID of the thread to run.                                                          |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateRunResponse](../../models/operations/CreateRunResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateRunResponse](../../Models/Operations/CreateRunResponse.md)**
 
 
 ## createThread
@@ -347,12 +347,12 @@ try {
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `$request`                                                                                  | [\Openai\SDK\Models\Shared\CreateThreadRequest](../../models/shared/CreateThreadRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| `$request`                                                                                  | [\Openai\SDK\Models\Shared\CreateThreadRequest](../../Models/Shared/CreateThreadRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateThreadResponse](../../models/operations/CreateThreadResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateThreadResponse](../../Models/Operations/CreateThreadResponse.md)**
 
 
 ## createThreadAndRun
@@ -406,12 +406,12 @@ try {
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                              | [\Openai\SDK\Models\Shared\CreateThreadAndRunRequest](../../models/shared/CreateThreadAndRunRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| `$request`                                                                                              | [\Openai\SDK\Models\Shared\CreateThreadAndRunRequest](../../Models/Shared/CreateThreadAndRunRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateThreadAndRunResponse](../../models/operations/CreateThreadAndRunResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateThreadAndRunResponse](../../Models/Operations/CreateThreadAndRunResponse.md)**
 
 
 ## deleteAssistant
@@ -459,7 +459,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\DeleteAssistantResponse](../../models/operations/DeleteAssistantResponse.md)**
+**[?\Openai\SDK\Models\Operations\DeleteAssistantResponse](../../Models/Operations/DeleteAssistantResponse.md)**
 
 
 ## deleteAssistantFile
@@ -508,7 +508,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\DeleteAssistantFileResponse](../../models/operations/DeleteAssistantFileResponse.md)**
+**[?\Openai\SDK\Models\Operations\DeleteAssistantFileResponse](../../Models/Operations/DeleteAssistantFileResponse.md)**
 
 
 ## deleteThread
@@ -556,7 +556,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\DeleteThreadResponse](../../models/operations/DeleteThreadResponse.md)**
+**[?\Openai\SDK\Models\Operations\DeleteThreadResponse](../../Models/Operations/DeleteThreadResponse.md)**
 
 
 ## getAssistant
@@ -604,7 +604,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\GetAssistantResponse](../../models/operations/GetAssistantResponse.md)**
+**[?\Openai\SDK\Models\Operations\GetAssistantResponse](../../Models/Operations/GetAssistantResponse.md)**
 
 
 ## getAssistantFile
@@ -653,7 +653,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\GetAssistantFileResponse](../../models/operations/GetAssistantFileResponse.md)**
+**[?\Openai\SDK\Models\Operations\GetAssistantFileResponse](../../Models/Operations/GetAssistantFileResponse.md)**
 
 
 ## getMessage
@@ -702,7 +702,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\GetMessageResponse](../../models/operations/GetMessageResponse.md)**
+**[?\Openai\SDK\Models\Operations\GetMessageResponse](../../Models/Operations/GetMessageResponse.md)**
 
 
 ## getMessageFile
@@ -752,7 +752,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\GetMessageFileResponse](../../models/operations/GetMessageFileResponse.md)**
+**[?\Openai\SDK\Models\Operations\GetMessageFileResponse](../../Models/Operations/GetMessageFileResponse.md)**
 
 
 ## getRun
@@ -801,7 +801,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\GetRunResponse](../../models/operations/GetRunResponse.md)**
+**[?\Openai\SDK\Models\Operations\GetRunResponse](../../Models/Operations/GetRunResponse.md)**
 
 
 ## getRunStep
@@ -851,7 +851,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\GetRunStepResponse](../../models/operations/GetRunStepResponse.md)**
+**[?\Openai\SDK\Models\Operations\GetRunStepResponse](../../Models/Operations/GetRunStepResponse.md)**
 
 
 ## getThread
@@ -899,7 +899,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\GetThreadResponse](../../models/operations/GetThreadResponse.md)**
+**[?\Openai\SDK\Models\Operations\GetThreadResponse](../../Models/Operations/GetThreadResponse.md)**
 
 
 ## listAssistantFiles
@@ -947,12 +947,12 @@ try {
 
 | Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                      | [\Openai\SDK\Models\Operations\ListAssistantFilesRequest](../../models/operations/ListAssistantFilesRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+| `$request`                                                                                                      | [\Openai\SDK\Models\Operations\ListAssistantFilesRequest](../../Models/Operations/ListAssistantFilesRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListAssistantFilesResponse](../../models/operations/ListAssistantFilesResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListAssistantFilesResponse](../../Models/Operations/ListAssistantFilesResponse.md)**
 
 
 ## listAssistants
@@ -998,12 +998,12 @@ try {
 | `after`                                                                                                                                                                                                                                                                                | *string*                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.<br/>   |
 | `before`                                                                                                                                                                                                                                                                               | *string*                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.<br/> |
 | `limit`                                                                                                                                                                                                                                                                                | *int*                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.<br/>                                                                                                                                                                        |
-| `order`                                                                                                                                                                                                                                                                                | [\Openai\SDK\Models\Operations\QueryParamOrder](../../models/operations/QueryParamOrder.md)                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.<br/>                                                                                                                                                               |
+| `order`                                                                                                                                                                                                                                                                                | [\Openai\SDK\Models\Operations\QueryParamOrder](../../Models/Operations/QueryParamOrder.md)                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.<br/>                                                                                                                                                               |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListAssistantsResponse](../../models/operations/ListAssistantsResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListAssistantsResponse](../../Models/Operations/ListAssistantsResponse.md)**
 
 
 ## listMessageFiles
@@ -1052,12 +1052,12 @@ try {
 
 | Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                  | [\Openai\SDK\Models\Operations\ListMessageFilesRequest](../../models/operations/ListMessageFilesRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+| `$request`                                                                                                  | [\Openai\SDK\Models\Operations\ListMessageFilesRequest](../../Models/Operations/ListMessageFilesRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListMessageFilesResponse](../../models/operations/ListMessageFilesResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListMessageFilesResponse](../../Models/Operations/ListMessageFilesResponse.md)**
 
 
 ## listMessages
@@ -1105,12 +1105,12 @@ try {
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                          | [\Openai\SDK\Models\Operations\ListMessagesRequest](../../models/operations/ListMessagesRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| `$request`                                                                                          | [\Openai\SDK\Models\Operations\ListMessagesRequest](../../Models/Operations/ListMessagesRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListMessagesResponse](../../models/operations/ListMessagesResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListMessagesResponse](../../Models/Operations/ListMessagesResponse.md)**
 
 
 ## listRunSteps
@@ -1159,12 +1159,12 @@ try {
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                          | [\Openai\SDK\Models\Operations\ListRunStepsRequest](../../models/operations/ListRunStepsRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| `$request`                                                                                          | [\Openai\SDK\Models\Operations\ListRunStepsRequest](../../Models/Operations/ListRunStepsRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListRunStepsResponse](../../models/operations/ListRunStepsResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListRunStepsResponse](../../Models/Operations/ListRunStepsResponse.md)**
 
 
 ## listRuns
@@ -1212,12 +1212,12 @@ try {
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `$request`                                                                                  | [\Openai\SDK\Models\Operations\ListRunsRequest](../../models/operations/ListRunsRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| `$request`                                                                                  | [\Openai\SDK\Models\Operations\ListRunsRequest](../../Models/Operations/ListRunsRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListRunsResponse](../../models/operations/ListRunsResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListRunsResponse](../../Models/Operations/ListRunsResponse.md)**
 
 
 ## modifyMessage
@@ -1261,14 +1261,14 @@ try {
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `modifyMessageRequest`                                                                        | [\Openai\SDK\Models\Shared\ModifyMessageRequest](../../models/shared/ModifyMessageRequest.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `modifyMessageRequest`                                                                        | [\Openai\SDK\Models\Shared\ModifyMessageRequest](../../Models/Shared/ModifyMessageRequest.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `messageId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the message to modify.                                                              |
 | `threadId`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the thread to which this message belongs.                                           |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ModifyMessageResponse](../../models/operations/ModifyMessageResponse.md)**
+**[?\Openai\SDK\Models\Operations\ModifyMessageResponse](../../Models/Operations/ModifyMessageResponse.md)**
 
 
 ## modifyRun
@@ -1312,14 +1312,14 @@ try {
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `modifyRunRequest`                                                                    | [\Openai\SDK\Models\Shared\ModifyRunRequest](../../models/shared/ModifyRunRequest.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `modifyRunRequest`                                                                    | [\Openai\SDK\Models\Shared\ModifyRunRequest](../../Models/Shared/ModifyRunRequest.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
 | `runId`                                                                               | *string*                                                                              | :heavy_check_mark:                                                                    | The ID of the run to modify.                                                          |
 | `threadId`                                                                            | *string*                                                                              | :heavy_check_mark:                                                                    | The ID of the [thread](/docs/api-reference/threads) that was run.                     |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ModifyRunResponse](../../models/operations/ModifyRunResponse.md)**
+**[?\Openai\SDK\Models\Operations\ModifyRunResponse](../../Models/Operations/ModifyRunResponse.md)**
 
 
 ## modifyThread
@@ -1363,13 +1363,13 @@ try {
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `modifyThreadRequest`                                                                       | [\Openai\SDK\Models\Shared\ModifyThreadRequest](../../models/shared/ModifyThreadRequest.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `modifyThreadRequest`                                                                       | [\Openai\SDK\Models\Shared\ModifyThreadRequest](../../Models/Shared/ModifyThreadRequest.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
 | `threadId`                                                                                  | *string*                                                                                    | :heavy_check_mark:                                                                          | The ID of the thread to modify. Only the `metadata` can be modified.                        |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ModifyThreadResponse](../../models/operations/ModifyThreadResponse.md)**
+**[?\Openai\SDK\Models\Operations\ModifyThreadResponse](../../Models/Operations/ModifyThreadResponse.md)**
 
 
 ## submitToolOuputsToRun
@@ -1416,12 +1416,12 @@ try {
 
 | Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `submitToolOutputsRunRequest`                                                                               | [\Openai\SDK\Models\Shared\SubmitToolOutputsRunRequest](../../models/shared/SubmitToolOutputsRunRequest.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `submitToolOutputsRunRequest`                                                                               | [\Openai\SDK\Models\Shared\SubmitToolOutputsRunRequest](../../Models/Shared/SubmitToolOutputsRunRequest.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
 | `runId`                                                                                                     | *string*                                                                                                    | :heavy_check_mark:                                                                                          | The ID of the run that requires the tool output submission.                                                 |
 | `threadId`                                                                                                  | *string*                                                                                                    | :heavy_check_mark:                                                                                          | The ID of the [thread](/docs/api-reference/threads) to which this run belongs.                              |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\SubmitToolOuputsToRunResponse](../../models/operations/SubmitToolOuputsToRunResponse.md)**
+**[?\Openai\SDK\Models\Operations\SubmitToolOuputsToRunResponse](../../Models/Operations/SubmitToolOuputsToRunResponse.md)**
 

@@ -30,7 +30,7 @@ class CreateEmbeddingResponse
     public string $model;
     
     /**
-     * The object type, which is always "embedding".
+     * The object type, which is always "list".
      * 
      * @var \Openai\SDK\Models\Shared\CreateEmbeddingResponseObject $object
      */
@@ -51,7 +51,7 @@ class CreateEmbeddingResponse
 	{
 		$this->data = [];
 		$this->model = "";
-		$this->object = \Openai\SDK\Models\Shared\CreateEmbeddingResponseObject::Embedding;
+		$this->object = \Openai\SDK\Models\Shared\CreateEmbeddingResponseObject::List;
 		$this->usage = new \Openai\SDK\Models\Shared\Usage();
 	}
 }

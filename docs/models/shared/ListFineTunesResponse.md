@@ -1,9 +1,0 @@
-# ListFineTunesResponse
-
-
-## Fields
-
-| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `data`                                                                                                      | array<[\Openai\SDK\Models\Shared\FineTune](../../models/shared/FineTune.md)>                                | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `object`                                                                                                    | [\Openai\SDK\Models\Shared\ListFineTunesResponseObject](../../models/shared/ListFineTunesResponseObject.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |

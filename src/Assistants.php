@@ -262,7 +262,7 @@ class Assistants
      * @return \Openai\SDK\Models\Operations\CreateThreadResponse
      */
 	public function createThread(
-        \Openai\SDK\Models\Shared\CreateThreadRequest $request,
+        ?\Openai\SDK\Models\Shared\CreateThreadRequest $request,
     ): \Openai\SDK\Models\Operations\CreateThreadResponse
     {
         $baseUrl = $this->sdkConfiguration->getServerUrl();
@@ -270,10 +270,9 @@ class Assistants
         
         $options = ['http_errors' => false];
         $body = Utils\Utils::serializeRequestBody($request, "request", "json");
-        if ($body === null) {
-            throw new \Exception('Request body is required');
+        if ($body !== null) {
+            $options = array_merge_recursive($options, $body);
         }
-        $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         

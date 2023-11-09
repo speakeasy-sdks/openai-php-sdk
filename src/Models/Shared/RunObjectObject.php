@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-/** The object type, which is always `assistant.run`. */
+/** The object type, which is always `thread.run`. */
 enum RunObjectObject: string
 {
-    case AssistantRun = 'assistant.run';
+    case ThreadRun = 'thread.run';
 }

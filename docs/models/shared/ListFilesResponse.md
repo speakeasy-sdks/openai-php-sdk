@@ -1,9 +1,0 @@
-# ListFilesResponse
-
-
-## Fields
-
-| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `data`                                                                                              | array<[\Openai\SDK\Models\Shared\OpenAIFile](../../models/shared/OpenAIFile.md)>                    | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `object`                                                                                            | [\Openai\SDK\Models\Shared\ListFilesResponseObject](../../models/shared/ListFilesResponseObject.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |

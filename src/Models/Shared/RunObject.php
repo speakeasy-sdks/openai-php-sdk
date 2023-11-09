@@ -128,7 +128,7 @@ class RunObject
     public string $model;
     
     /**
-     * The object type, which is always `assistant.run`.
+     * The object type, which is always `thread.run`.
      * 
      * @var \Openai\SDK\Models\Shared\RunObjectObject $object
      */
@@ -195,7 +195,7 @@ class RunObject
 		$this->lastError = new \Openai\SDK\Models\Shared\LastError();
 		$this->metadata = new \Openai\SDK\Models\Shared\RunObjectMetadata();
 		$this->model = "";
-		$this->object = \Openai\SDK\Models\Shared\RunObjectObject::AssistantRun;
+		$this->object = \Openai\SDK\Models\Shared\RunObjectObject::ThreadRun;
 		$this->requiredAction = new \Openai\SDK\Models\Shared\RequiredAction();
 		$this->startedAt = 0;
 		$this->status = \Openai\SDK\Models\Shared\RunObjectStatus::Queued;

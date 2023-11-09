@@ -66,12 +66,12 @@ try {
 
 | Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `$request`                                                                              | [\Openai\SDK\Models\Shared\CreateFileRequest](../../models/shared/CreateFileRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| `$request`                                                                              | [\Openai\SDK\Models\Shared\CreateFileRequest](../../Models/Shared/CreateFileRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateFileResponse](../../models/operations/CreateFileResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateFileResponse](../../Models/Operations/CreateFileResponse.md)**
 
 
 ## deleteFile
@@ -119,7 +119,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\DeleteFileResponse](../../models/operations/DeleteFileResponse.md)**
+**[?\Openai\SDK\Models\Operations\DeleteFileResponse](../../Models/Operations/DeleteFileResponse.md)**
 
 
 ## downloadFile
@@ -167,7 +167,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\DownloadFileResponse](../../models/operations/DownloadFileResponse.md)**
+**[?\Openai\SDK\Models\Operations\DownloadFileResponse](../../Models/Operations/DownloadFileResponse.md)**
 
 
 ## listFiles
@@ -215,7 +215,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListFilesResponse](../../models/operations/ListFilesResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListFilesResponse](../../Models/Operations/ListFilesResponse.md)**
 
 
 ## retrieveFile
@@ -263,5 +263,5 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\RetrieveFileResponse](../../models/operations/RetrieveFileResponse.md)**
+**[?\Openai\SDK\Models\Operations\RetrieveFileResponse](../../Models/Operations/RetrieveFileResponse.md)**
 

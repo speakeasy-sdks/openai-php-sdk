@@ -55,12 +55,12 @@ try {
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `$request`                                                                                  | [\Openai\SDK\Models\Shared\CreateSpeechRequest](../../models/shared/CreateSpeechRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| `$request`                                                                                  | [\Openai\SDK\Models\Shared\CreateSpeechRequest](../../Models/Shared/CreateSpeechRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateSpeechResponse](../../models/operations/CreateSpeechResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateSpeechResponse](../../Models/Operations/CreateSpeechResponse.md)**
 
 
 ## createTranscription
@@ -110,12 +110,12 @@ try {
 
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                | [\Openai\SDK\Models\Shared\CreateTranscriptionRequest](../../models/shared/CreateTranscriptionRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| `$request`                                                                                                | [\Openai\SDK\Models\Shared\CreateTranscriptionRequest](../../Models/Shared/CreateTranscriptionRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateTranscriptionResponse](../../models/operations/CreateTranscriptionResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateTranscriptionResponse](../../Models/Operations/CreateTranscriptionResponse.md)**
 
 
 ## createTranslation
@@ -164,10 +164,10 @@ try {
 
 | Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                            | [\Openai\SDK\Models\Shared\CreateTranslationRequest](../../models/shared/CreateTranslationRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| `$request`                                                                                            | [\Openai\SDK\Models\Shared\CreateTranslationRequest](../../Models/Shared/CreateTranslationRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateTranslationResponse](../../models/operations/CreateTranslationResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateTranslationResponse](../../Models/Operations/CreateTranslationResponse.md)**
 

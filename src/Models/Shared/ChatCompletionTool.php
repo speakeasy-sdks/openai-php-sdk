@@ -12,8 +12,8 @@ namespace Openai\SDK\Models\Shared;
 class ChatCompletionTool
 {
 	#[\JMS\Serializer\Annotation\SerializedName('function')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\ChatCompletionToolFunction')]
-    public ChatCompletionToolFunction $function;
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\FunctionObject')]
+    public FunctionObject $function;
     
     /**
      * The type of the tool. Currently, only `function` is supported.
@@ -26,7 +26,7 @@ class ChatCompletionTool
     
 	public function __construct()
 	{
-		$this->function = new \Openai\SDK\Models\Shared\ChatCompletionToolFunction();
+		$this->function = new \Openai\SDK\Models\Shared\FunctionObject();
 		$this->type = \Openai\SDK\Models\Shared\ChatCompletionToolType::Function;
 	}
 }

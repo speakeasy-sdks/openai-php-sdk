@@ -72,7 +72,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CancelFineTuneResponse](../../models/operations/CancelFineTuneResponse.md)**
+**[?\Openai\SDK\Models\Operations\CancelFineTuneResponse](../../Models/Operations/CancelFineTuneResponse.md)**
 
 
 ## ~~createFineTune~~
@@ -136,12 +136,12 @@ try {
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `$request`                                                                                      | [\Openai\SDK\Models\Shared\CreateFineTuneRequest](../../models/shared/CreateFineTuneRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| `$request`                                                                                      | [\Openai\SDK\Models\Shared\CreateFineTuneRequest](../../Models/Shared/CreateFineTuneRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateFineTuneResponse](../../models/operations/CreateFineTuneResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateFineTuneResponse](../../Models/Operations/CreateFineTuneResponse.md)**
 
 
 ## ~~listFineTuneEvents~~
@@ -193,7 +193,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListFineTuneEventsResponse](../../models/operations/ListFineTuneEventsResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListFineTuneEventsResponse](../../Models/Operations/ListFineTuneEventsResponse.md)**
 
 
 ## ~~listFineTunes~~
@@ -235,7 +235,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListFineTunesResponse](../../models/operations/ListFineTunesResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListFineTunesResponse](../../Models/Operations/ListFineTunesResponse.md)**
 
 
 ## ~~retrieveFineTune~~
@@ -288,5 +288,5 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\RetrieveFineTuneResponse](../../models/operations/RetrieveFineTuneResponse.md)**
+**[?\Openai\SDK\Models\Operations\RetrieveFineTuneResponse](../../Models/Operations/RetrieveFineTuneResponse.md)**
 

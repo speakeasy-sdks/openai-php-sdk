@@ -56,7 +56,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\DeleteModelResponse](../../models/operations/DeleteModelResponse.md)**
+**[?\Openai\SDK\Models\Operations\DeleteModelResponse](../../Models/Operations/DeleteModelResponse.md)**
 
 
 ## listModels
@@ -95,7 +95,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListModelsResponse](../../models/operations/ListModelsResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListModelsResponse](../../Models/Operations/ListModelsResponse.md)**
 
 
 ## retrieveModel
@@ -143,5 +143,5 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\RetrieveModelResponse](../../models/operations/RetrieveModelResponse.md)**
+**[?\Openai\SDK\Models\Operations\RetrieveModelResponse](../../Models/Operations/RetrieveModelResponse.md)**
 

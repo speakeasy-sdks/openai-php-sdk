@@ -1,9 +1,0 @@
-# ListModelsResponse
-
-
-## Fields
-
-| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `data`                                                                                                | array<[\Openai\SDK\Models\Shared\Model](../../models/shared/Model.md)>                                | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `object`                                                                                              | [\Openai\SDK\Models\Shared\ListModelsResponseObject](../../models/shared/ListModelsResponseObject.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |

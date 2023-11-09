@@ -44,10 +44,10 @@ class Logprobs
     /**
      * $topLogprobs
      * 
-     * @var ?array<array<string, int>> $topLogprobs
+     * @var ?array<array<string, float>> $topLogprobs
      */
 	#[\JMS\Serializer\Annotation\SerializedName('top_logprobs')]
-    #[\JMS\Serializer\Annotation\Type('array<array<string, int>>')]
+    #[\JMS\Serializer\Annotation\Type('array<array<string, float>>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $topLogprobs = null;
     

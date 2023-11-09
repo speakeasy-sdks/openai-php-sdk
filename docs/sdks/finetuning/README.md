@@ -70,7 +70,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CancelFineTuningJobResponse](../../models/operations/CancelFineTuningJobResponse.md)**
+**[?\Openai\SDK\Models\Operations\CancelFineTuningJobResponse](../../Models/Operations/CancelFineTuningJobResponse.md)**
 
 
 ## createFineTuningJob
@@ -125,12 +125,12 @@ try {
 
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                | [\Openai\SDK\Models\Shared\CreateFineTuningJobRequest](../../models/shared/CreateFineTuningJobRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| `$request`                                                                                                | [\Openai\SDK\Models\Shared\CreateFineTuningJobRequest](../../Models/Shared/CreateFineTuningJobRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateFineTuningJobResponse](../../models/operations/CreateFineTuningJobResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateFineTuningJobResponse](../../Models/Operations/CreateFineTuningJobResponse.md)**
 
 
 ## listFineTuningEvents
@@ -181,7 +181,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListFineTuningEventsResponse](../../models/operations/ListFineTuningEventsResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListFineTuningEventsResponse](../../Models/Operations/ListFineTuningEventsResponse.md)**
 
 
 ## listPaginatedFineTuningJobs
@@ -231,7 +231,7 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsResponse](../../models/operations/ListPaginatedFineTuningJobsResponse.md)**
+**[?\Openai\SDK\Models\Operations\ListPaginatedFineTuningJobsResponse](../../Models/Operations/ListPaginatedFineTuningJobsResponse.md)**
 
 
 ## retrieveFineTuningJob
@@ -282,5 +282,5 @@ try {
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\RetrieveFineTuningJobResponse](../../models/operations/RetrieveFineTuningJobResponse.md)**
+**[?\Openai\SDK\Models\Operations\RetrieveFineTuningJobResponse](../../Models/Operations/RetrieveFineTuningJobResponse.md)**
 

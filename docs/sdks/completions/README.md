@@ -67,10 +67,10 @@ try {
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                          | [\Openai\SDK\Models\Shared\CreateCompletionRequest](../../models/shared/CreateCompletionRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| `$request`                                                                                          | [\Openai\SDK\Models\Shared\CreateCompletionRequest](../../Models/Shared/CreateCompletionRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateCompletionResponse](../../models/operations/CreateCompletionResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateCompletionResponse](../../Models/Operations/CreateCompletionResponse.md)**
 

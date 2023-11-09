@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-/** The status of the run, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`. */
+/** The status of the run step, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`. */
 enum RunStepObjectStatus: string
 {
     case InProgress = 'in_progress';

@@ -1,0 +1,9 @@
+# ChatCompletionTool
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `function`                                                                                        | [\Openai\SDK\Models\Shared\FunctionObject](../../Models/Shared/FunctionObject.md)                 | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `type`                                                                                            | [\Openai\SDK\Models\Shared\ChatCompletionToolType](../../Models/Shared/ChatCompletionToolType.md) | :heavy_check_mark:                                                                                | The type of the tool. Currently, only `function` is supported.                                    |

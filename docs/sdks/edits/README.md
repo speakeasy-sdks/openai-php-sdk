@@ -56,10 +56,10 @@ try {
 
 | Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `$request`                                                                              | [\Openai\SDK\Models\Shared\CreateEditRequest](../../models/shared/CreateEditRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| `$request`                                                                              | [\Openai\SDK\Models\Shared\CreateEditRequest](../../Models/Shared/CreateEditRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 
 ### Response
 
-**[?\Openai\SDK\Models\Operations\CreateEditResponse](../../models/operations/CreateEditResponse.md)**
+**[?\Openai\SDK\Models\Operations\CreateEditResponse](../../Models/Operations/CreateEditResponse.md)**
 
