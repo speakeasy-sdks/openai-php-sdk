@@ -33,6 +33,8 @@ Authorization: Bearer YOUR_API_KEY
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+### Example
+
 ```php
 <?php
 
