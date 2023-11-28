@@ -1021,6 +1021,55 @@ class Assistants
     }
 	
     /**
+     * Modifies an assistant.
+     * 
+     * @param \Openai\SDK\Models\Shared\ModifyAssistantRequest $modifyAssistantRequest
+     * @param string $assistantId
+     * @return \Openai\SDK\Models\Operations\ModifyAssistantResponse
+     */
+	public function modifyAssistant(
+        \Openai\SDK\Models\Shared\ModifyAssistantRequest $modifyAssistantRequest,
+        string $assistantId,
+    ): \Openai\SDK\Models\Operations\ModifyAssistantResponse
+    {
+        $request = new \Openai\SDK\Models\Operations\ModifyAssistantRequest();
+        $request->modifyAssistantRequest = $modifyAssistantRequest;
+        $request->assistantId = $assistantId;
+        
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/assistants/{assistant_id}', \Openai\SDK\Models\Operations\ModifyAssistantRequest::class, $request);
+        
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, "modifyAssistantRequest", "json");
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $options = array_merge_recursive($options, $body);
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        
+        $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \Openai\SDK\Models\Operations\ModifyAssistantResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->assistantObject = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\AssistantObject', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
      * Modifies a message.
      * 
      * @param \Openai\SDK\Models\Shared\ModifyMessageRequest $modifyMessageRequest

@@ -9,7 +9,7 @@
    <a href="https://platform.openai.com/docs/introduction"><img src="https://img.shields.io/static/v1?label=Docs&message=API Ref&color=2ca47c&style=for-the-badge" /></a>
 </div> 
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### Composer
@@ -17,7 +17,7 @@
 ```bash
 composer require "speakeasy-sdks/openai-php-sdk"
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Authentication
 
@@ -31,8 +31,9 @@ All API requests should include your API key in an Authorization HTTP header as 
 Authorization: Bearer YOUR_API_KEY
 ```
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
+
 ### Example
 
 ```php
@@ -63,11 +64,10 @@ try {
 }
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [Assistants](docs/sdks/assistants/README.md)
 
@@ -94,15 +94,12 @@ try {
 * [listMessages](docs/sdks/assistants/README.md#listmessages) - Returns a list of messages for a given thread.
 * [listRunSteps](docs/sdks/assistants/README.md#listrunsteps) - Returns a list of run steps belonging to a run.
 * [listRuns](docs/sdks/assistants/README.md#listruns) - Returns a list of runs belonging to a thread.
+* [modifyAssistant](docs/sdks/assistants/README.md#modifyassistant) - Modifies an assistant.
 * [modifyMessage](docs/sdks/assistants/README.md#modifymessage) - Modifies a message.
 * [modifyRun](docs/sdks/assistants/README.md#modifyrun) - Modifies a run.
 * [modifyThread](docs/sdks/assistants/README.md#modifythread) - Modifies a thread.
 * [submitToolOuputsToRun](docs/sdks/assistants/README.md#submittoolouputstorun) - When a run has the `status: "requires_action"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request.
 
-
-### [Assistant](docs/sdks/assistant/README.md)
-
-* [modifyAssistant](docs/sdks/assistant/README.md#modifyassistant) - Modifies an assistant.
 
 ### [Audio](docs/sdks/audio/README.md)
 
@@ -128,9 +125,9 @@ try {
 
 ### [Files](docs/sdks/files/README.md)
 
-* [createFile](docs/sdks/files/README.md#createfile) - Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.
+* [createFile](docs/sdks/files/README.md#createfile) - Upload a file that can be used across various endpoints. The size of all the files uploaded by one organization can be up to 100 GB.
 
-The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.
+The size of individual files can be a maximum of 512 MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.
 
 Please [contact us](https://help.openai.com/) if you need to increase these storage limits.
 
@@ -192,13 +189,9 @@ Response includes details of the enqueued job including job status and the name 
 ### [Moderations](docs/sdks/moderations/README.md)
 
 * [createModeration](docs/sdks/moderations/README.md#createmoderation) - Classifies if text violates OpenAI's Content Policy
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
 
-
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

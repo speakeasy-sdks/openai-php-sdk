@@ -30,6 +30,7 @@ Build Assistants that can call models and use tools.
 * [listMessages](#listmessages) - Returns a list of messages for a given thread.
 * [listRunSteps](#listrunsteps) - Returns a list of run steps belonging to a run.
 * [listRuns](#listruns) - Returns a list of runs belonging to a thread.
+* [modifyAssistant](#modifyassistant) - Modifies an assistant.
 * [modifyMessage](#modifymessage) - Modifies a message.
 * [modifyRun](#modifyrun) - Modifies a run.
 * [modifyThread](#modifythread) - Modifies a thread.
@@ -170,7 +171,7 @@ try {
     $createAssistantFileRequest = new Shared\CreateAssistantFileRequest();
     $createAssistantFileRequest->fileId = 'string';
 
-    $response = $sdk->assistants->createAssistantFile($createAssistantFileRequest, 'file-AF1WoRqd3aJAHsqc9NY7iL8F');
+    $response = $sdk->assistants->createAssistantFile($createAssistantFileRequest, 'file-abc123');
 
     if ($response->assistantFileObject !== null) {
         // handle response
@@ -185,7 +186,7 @@ try {
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               | Example                                                                                                   |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | `createAssistantFileRequest`                                                                              | [\Openai\SDK\Models\Shared\CreateAssistantFileRequest](../../Models/Shared/CreateAssistantFileRequest.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |                                                                                                           |
-| `assistantId`                                                                                             | *string*                                                                                                  | :heavy_check_mark:                                                                                        | The ID of the assistant for which to create a File.<br/>                                                  | file-AF1WoRqd3aJAHsqc9NY7iL8F                                                                             |
+| `assistantId`                                                                                             | *string*                                                                                                  | :heavy_check_mark:                                                                                        | The ID of the assistant for which to create a File.<br/>                                                  | file-abc123                                                                                               |
 
 
 ### Response
@@ -731,7 +732,7 @@ $sdk = SDK\Gpt::builder()
 try {
 
 
-    $response = $sdk->assistants->getMessageFile('file-AF1WoRqd3aJAHsqc9NY7iL8F', 'msg_AF1WoRqd3aJAHsqc9NY7iL8F', 'thread_AF1WoRqd3aJAHsqc9NY7iL8F');
+    $response = $sdk->assistants->getMessageFile('file-abc123', 'msg_abc123', 'thread_abc123');
 
     if ($response->messageFileObject !== null) {
         // handle response
@@ -745,9 +746,9 @@ try {
 
 | Parameter                                                  | Type                                                       | Required                                                   | Description                                                | Example                                                    |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `fileId`                                                   | *string*                                                   | :heavy_check_mark:                                         | The ID of the file being retrieved.                        | file-AF1WoRqd3aJAHsqc9NY7iL8F                              |
-| `messageId`                                                | *string*                                                   | :heavy_check_mark:                                         | The ID of the message the file belongs to.                 | msg_AF1WoRqd3aJAHsqc9NY7iL8F                               |
-| `threadId`                                                 | *string*                                                   | :heavy_check_mark:                                         | The ID of the thread to which the message and File belong. | thread_AF1WoRqd3aJAHsqc9NY7iL8F                            |
+| `fileId`                                                   | *string*                                                   | :heavy_check_mark:                                         | The ID of the file being retrieved.                        | file-abc123                                                |
+| `messageId`                                                | *string*                                                   | :heavy_check_mark:                                         | The ID of the message the file belongs to.                 | msg_abc123                                                 |
+| `threadId`                                                 | *string*                                                   | :heavy_check_mark:                                         | The ID of the thread to which the message and File belong. | thread_abc123                                              |
 
 
 ### Response
@@ -1218,6 +1219,66 @@ try {
 ### Response
 
 **[?\Openai\SDK\Models\Operations\ListRunsResponse](../../Models/Operations/ListRunsResponse.md)**
+
+
+## modifyAssistant
+
+Modifies an assistant.
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use \Openai\SDK;
+use \Openai\SDK\Models\Shared;
+use \Openai\SDK\Models\Operations;
+
+$security = new Shared\Security();
+$security->apiKeyAuth = '';
+
+$sdk = SDK\Gpt::builder()
+    ->setSecurity($security)
+    ->build();
+
+try {
+    $modifyAssistantRequest = new Shared\ModifyAssistantRequest();
+    $modifyAssistantRequest->description = 'Assimilated client-driven forecast';
+    $modifyAssistantRequest->fileIds = [
+        'string',
+    ];
+    $modifyAssistantRequest->instructions = 'string';
+    $modifyAssistantRequest->metadata = new Shared\ModifyAssistantRequestMetadata();
+    $modifyAssistantRequest->model = 'Aventador';
+    $modifyAssistantRequest->name = 'string';
+    $modifyAssistantRequest->tools = [
+        'string',
+    ];
+
+    $response = $sdk->assistants->modifyAssistant($modifyAssistantRequest, 'string');
+
+    if ($response->assistantObject !== null) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `modifyAssistantRequest`                                                                          | [\Openai\SDK\Models\Shared\ModifyAssistantRequest](../../Models/Shared/ModifyAssistantRequest.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `assistantId`                                                                                     | *string*                                                                                          | :heavy_check_mark:                                                                                | The ID of the assistant to modify.                                                                |
+
+
+### Response
+
+**[?\Openai\SDK\Models\Operations\ModifyAssistantResponse](../../Models/Operations/ModifyAssistantResponse.md)**
 
 
 ## modifyMessage

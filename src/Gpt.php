@@ -27,8 +27,6 @@ class Gpt
      */
 	public Assistants $assistants;
 	
-	public Assistant $assistant;
-	
     /**
      * Learn how to turn audio into text or text into audio.
      * 
@@ -126,8 +124,6 @@ class Gpt
 		$this->sdkConfiguration = $sdkConfiguration;
 		
 		$this->assistants = new Assistants($this->sdkConfiguration);
-		
-		$this->assistant = new Assistant($this->sdkConfiguration);
 		
 		$this->audio = new Audio($this->sdkConfiguration);
 		

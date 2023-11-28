@@ -1,6 +1,5 @@
 src/SDKConfiguration.php
 src/Assistants.php
-src/Assistant.php
 src/Audio.php
 src/Chat.php
 src/Completions.php
@@ -81,6 +80,8 @@ src/Models/Operations/ListRunStepsResponse.php
 src/Models/Operations/ListRunsQueryParamOrder.php
 src/Models/Operations/ListRunsRequest.php
 src/Models/Operations/ListRunsResponse.php
+src/Models/Operations/ModifyAssistantRequest.php
+src/Models/Operations/ModifyAssistantResponse.php
 src/Models/Operations/ModifyMessageRequest.php
 src/Models/Operations/ModifyMessageResponse.php
 src/Models/Operations/ModifyRunRequest.php
@@ -89,8 +90,6 @@ src/Models/Operations/ModifyThreadRequest.php
 src/Models/Operations/ModifyThreadResponse.php
 src/Models/Operations/SubmitToolOuputsToRunRequest.php
 src/Models/Operations/SubmitToolOuputsToRunResponse.php
-src/Models/Operations/ModifyAssistantRequest.php
-src/Models/Operations/ModifyAssistantResponse.php
 src/Models/Operations/CreateSpeechResponse.php
 src/Models/Operations/CreateTranscriptionResponse.php
 src/Models/Operations/CreateTranslationResponse.php
@@ -190,6 +189,8 @@ src/Models/Shared/ListMessageFilesResponse.php
 src/Models/Shared/ListMessagesResponse.php
 src/Models/Shared/ListRunStepsResponse.php
 src/Models/Shared/ListRunsResponse.php
+src/Models/Shared/ModifyAssistantRequestMetadata.php
+src/Models/Shared/ModifyAssistantRequest.php
 src/Models/Shared/ModifyMessageRequestMetadata.php
 src/Models/Shared/ModifyMessageRequest.php
 src/Models/Shared/ModifyRunRequestMetadata.php
@@ -198,8 +199,6 @@ src/Models/Shared/ModifyThreadRequestMetadata.php
 src/Models/Shared/ModifyThreadRequest.php
 src/Models/Shared/ToolOutputs.php
 src/Models/Shared/SubmitToolOutputsRunRequest.php
-src/Models/Shared/ModifyAssistantRequestMetadata.php
-src/Models/Shared/ModifyAssistantRequest.php
 src/Models/Shared/CreateSpeechRequestResponseFormat.php
 src/Models/Shared/Voice.php
 src/Models/Shared/CreateSpeechRequest.php
@@ -309,7 +308,6 @@ src/Models/Shared/Results.php
 src/Models/Shared/CreateModerationResponse.php
 src/Models/Shared/CreateModerationRequest.php
 src/Models/Shared/Security.php
-USAGE.md
 docs/Models/Operations/CancelRunRequest.md
 docs/Models/Operations/CancelRunResponse.md
 docs/Models/Operations/CreateAssistantResponse.md
@@ -359,6 +357,8 @@ docs/Models/Operations/ListRunStepsResponse.md
 docs/Models/Operations/ListRunsQueryParamOrder.md
 docs/Models/Operations/ListRunsRequest.md
 docs/Models/Operations/ListRunsResponse.md
+docs/Models/Operations/ModifyAssistantRequest.md
+docs/Models/Operations/ModifyAssistantResponse.md
 docs/Models/Operations/ModifyMessageRequest.md
 docs/Models/Operations/ModifyMessageResponse.md
 docs/Models/Operations/ModifyRunRequest.md
@@ -367,8 +367,6 @@ docs/Models/Operations/ModifyThreadRequest.md
 docs/Models/Operations/ModifyThreadResponse.md
 docs/Models/Operations/SubmitToolOuputsToRunRequest.md
 docs/Models/Operations/SubmitToolOuputsToRunResponse.md
-docs/Models/Operations/ModifyAssistantRequest.md
-docs/Models/Operations/ModifyAssistantResponse.md
 docs/Models/Operations/CreateSpeechResponse.md
 docs/Models/Operations/CreateTranscriptionResponse.md
 docs/Models/Operations/CreateTranslationResponse.md
@@ -468,6 +466,8 @@ docs/Models/Shared/ListMessageFilesResponse.md
 docs/Models/Shared/ListMessagesResponse.md
 docs/Models/Shared/ListRunStepsResponse.md
 docs/Models/Shared/ListRunsResponse.md
+docs/Models/Shared/ModifyAssistantRequestMetadata.md
+docs/Models/Shared/ModifyAssistantRequest.md
 docs/Models/Shared/ModifyMessageRequestMetadata.md
 docs/Models/Shared/ModifyMessageRequest.md
 docs/Models/Shared/ModifyRunRequestMetadata.md
@@ -476,8 +476,6 @@ docs/Models/Shared/ModifyThreadRequestMetadata.md
 docs/Models/Shared/ModifyThreadRequest.md
 docs/Models/Shared/ToolOutputs.md
 docs/Models/Shared/SubmitToolOutputsRunRequest.md
-docs/Models/Shared/ModifyAssistantRequestMetadata.md
-docs/Models/Shared/ModifyAssistantRequest.md
 docs/Models/Shared/CreateSpeechRequestResponseFormat.md
 docs/Models/Shared/Voice.md
 docs/Models/Shared/CreateSpeechRequest.md
@@ -589,7 +587,6 @@ docs/Models/Shared/CreateModerationRequest.md
 docs/Models/Shared/Security.md
 docs/sdks/gpt/README.md
 docs/sdks/assistants/README.md
-docs/sdks/assistant/README.md
 docs/sdks/audio/README.md
 docs/sdks/chat/README.md
 docs/sdks/completions/README.md
@@ -601,4 +598,5 @@ docs/sdks/finetuning/README.md
 docs/sdks/images/README.md
 docs/sdks/models/README.md
 docs/sdks/moderations/README.md
+USAGE.md
 .gitattributes
