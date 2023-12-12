@@ -28,14 +28,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->models->deleteModel('ft:gpt-3.5-turbo:acemeco:suffix:abc123');
 
@@ -75,11 +73,9 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
     $response = $sdk->models->listModels();
@@ -115,14 +111,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->models->retrieveModel('gpt-3.5-turbo');
 

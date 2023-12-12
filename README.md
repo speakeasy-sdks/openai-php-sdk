@@ -47,7 +47,7 @@ use Openai\SDK\Models\Shared;
 use Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
 $sdk = SDK\Gpt::builder()
     ->setSecurity($security)
@@ -192,6 +192,27 @@ Response includes details of the enqueued job including job status and the name 
 <!-- End Available Resources and Operations [operations] -->
 
 
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `server_idx: int` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.openai.com/v1` | None |
+
+
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

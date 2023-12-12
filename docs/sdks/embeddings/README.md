@@ -25,18 +25,16 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateEmbeddingRequest();
+        $request = new Shared\CreateEmbeddingRequest();
     $request->encodingFormat = Shared\EncodingFormat::Float;
     $request->input = 'The quick brown fox jumped over the lazy dog';
     $request->model = 'text-embedding-ada-002';
-    $request->user = 'user-1234';
+    $request->user = 'user-1234';;
 
     $response = $sdk->embeddings->createEmbedding($request);
 

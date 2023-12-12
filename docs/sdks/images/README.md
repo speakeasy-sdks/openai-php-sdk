@@ -27,14 +27,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateImageRequest();
+        $request = new Shared\CreateImageRequest();
     $request->model = 'dall-e-3';
     $request->n = 1;
     $request->prompt = 'A cute baby sea otter';
@@ -42,7 +40,7 @@ try {
     $request->responseFormat = Shared\CreateImageRequestResponseFormat::Url;
     $request->size = Shared\CreateImageRequestSize::OneThousandAndTwentyFourx1024;
     $request->style = Shared\Style::Vivid;
-    $request->user = 'user-1234';
+    $request->user = 'user-1234';;
 
     $response = $sdk->images->createImage($request);
 
@@ -82,14 +80,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateImageEditRequest();
+        $request = new Shared\CreateImageEditRequest();
     $request->image = new Shared\CreateImageEditRequestImage();
     $request->image->content = '0x3e31F4cec5';
     $request->image->fileName = 'facilitator_gosh_hatchback.mpe';
@@ -101,7 +97,7 @@ try {
     $request->prompt = 'A cute baby sea otter wearing a beret';
     $request->responseFormat = Shared\CreateImageEditRequestResponseFormat::Url;
     $request->size = Shared\Size::OneThousandAndTwentyFourx1024;
-    $request->user = 'user-1234';
+    $request->user = 'user-1234';;
 
     $response = $sdk->images->createImageEdit($request);
 
@@ -141,14 +137,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateImageVariationRequest();
+        $request = new Shared\CreateImageVariationRequest();
     $request->image = new Shared\CreateImageVariationRequestImage();
     $request->image->content = '0xfdd5b8DcDa';
     $request->image->fileName = 'fantastic.gif';
@@ -156,7 +150,7 @@ try {
     $request->n = 1;
     $request->responseFormat = Shared\CreateImageVariationRequestResponseFormat::Url;
     $request->size = Shared\CreateImageVariationRequestSize::OneThousandAndTwentyFourx1024;
-    $request->user = 'user-1234';
+    $request->user = 'user-1234';;
 
     $response = $sdk->images->createImageVariation($request);
 

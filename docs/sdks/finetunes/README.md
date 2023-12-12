@@ -44,14 +44,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->fineTunes->cancelFineTune('ft-AF1WoRqd3aJAHsqc9NY7iL8F');
 
@@ -98,14 +96,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateFineTuneRequest();
+        $request = new Shared\CreateFineTuneRequest();
     $request->batchSize = 763928;
     $request->classificationBetas = [
         3993.02,
@@ -120,7 +116,7 @@ try {
     $request->promptLossWeight = 7119.5;
     $request->suffix = 'string';
     $request->trainingFile = 'file-abc123';
-    $request->validationFile = 'file-abc123';
+    $request->validationFile = 'file-abc123';;
 
     $response = $sdk->fineTunes->createFineTune($request);
 
@@ -164,14 +160,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->fineTunes->listFineTuneEvents('ft-AF1WoRqd3aJAHsqc9NY7iL8F', false);
 
@@ -215,11 +209,9 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
     $response = $sdk->fineTunes->listFineTunes();
@@ -260,14 +252,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->fineTunes->retrieveFineTune('ft-AF1WoRqd3aJAHsqc9NY7iL8F');
 

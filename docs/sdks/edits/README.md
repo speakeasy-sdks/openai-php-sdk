@@ -27,20 +27,18 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateEditRequest();
+        $request = new Shared\CreateEditRequest();
     $request->input = 'What day of the wek is it?';
     $request->instruction = 'Fix the spelling mistakes.';
     $request->model = 'text-davinci-edit-001';
     $request->n = 1;
     $request->temperature = 1;
-    $request->topP = 1;
+    $request->topP = 1;;
 
     $response = $sdk->edits->createEdit($request);
 

@@ -25,14 +25,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateChatCompletionRequest();
+        $request = new Shared\CreateChatCompletionRequest();
     $request->frequencyPenalty = 7707.26;
     $request->functionCall = 'string';
     $request->functions = [
@@ -59,7 +57,7 @@ try {
         new Shared\ChatCompletionTool(),
     ];
     $request->topP = 1;
-    $request->user = 'user-1234';
+    $request->user = 'user-1234';;
 
     $response = $sdk->chat->createChatCompletion($request);
 

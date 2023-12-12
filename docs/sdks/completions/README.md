@@ -25,14 +25,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateCompletionRequest();
+        $request = new Shared\CreateCompletionRequest();
     $request->bestOf = 160667;
     $request->echo = false;
     $request->frequencyPenalty = 141.61;
@@ -51,7 +49,7 @@ try {
     $request->suffix = 'test.';
     $request->temperature = 1;
     $request->topP = 1;
-    $request->user = 'user-1234';
+    $request->user = 'user-1234';;
 
     $response = $sdk->completions->createCompletion($request);
 

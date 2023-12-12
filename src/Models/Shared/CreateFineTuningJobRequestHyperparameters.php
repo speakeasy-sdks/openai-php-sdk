@@ -44,7 +44,7 @@ class CreateFineTuningJobRequestHyperparameters
     public mixed $learningRateMultiplier = null;
     
     /**
-     * The number of epochs to train the model for. An epoch refers to one full cycle 
+     * The number of epochs to train the model for. An epoch refers to one full cycle
      * 
      * through the training dataset.
      * 

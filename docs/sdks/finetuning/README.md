@@ -42,14 +42,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->fineTuning->cancelFineTuningJob('ft-AF1WoRqd3aJAHsqc9NY7iL8F');
 
@@ -94,14 +92,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateFineTuningJobRequest();
+        $request = new Shared\CreateFineTuningJobRequest();
     $request->hyperparameters = new Shared\CreateFineTuningJobRequestHyperparameters();
     $request->hyperparameters->batchSize = 'string';
     $request->hyperparameters->learningRateMultiplier = 'string';
@@ -109,7 +105,7 @@ try {
     $request->model = 'gpt-3.5-turbo';
     $request->suffix = 'string';
     $request->trainingFile = 'file-abc123';
-    $request->validationFile = 'file-abc123';
+    $request->validationFile = 'file-abc123';;
 
     $response = $sdk->fineTuning->createFineTuningJob($request);
 
@@ -151,14 +147,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->fineTuning->listFineTuningEvents('ft-AF1WoRqd3aJAHsqc9NY7iL8F', 'string', 896841);
 
@@ -202,14 +196,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->fineTuning->listPaginatedFineTuningJobs('string', 385496);
 
@@ -254,14 +246,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->fineTuning->retrieveFineTuningJob('ft-AF1WoRqd3aJAHsqc9NY7iL8F');
 

@@ -10,7 +10,7 @@ use Openai\SDK\Models\Shared;
 use Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
 $sdk = SDK\Gpt::builder()
     ->setSecurity($security)

@@ -27,19 +27,17 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateSpeechRequest();
+        $request = new Shared\CreateSpeechRequest();
     $request->input = 'string';
     $request->model = 'string';
     $request->responseFormat = Shared\CreateSpeechRequestResponseFormat::Flac;
     $request->speed = 4589.78;
-    $request->voice = Shared\Voice::Fable;
+    $request->voice = Shared\Voice::Fable;;
 
     $response = $sdk->audio->createSpeech($request);
 
@@ -79,14 +77,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateTranscriptionRequest();
+        $request = new Shared\CreateTranscriptionRequest();
     $request->file = new Shared\CreateTranscriptionRequestFile();
     $request->file->content = '0xe08fcc1Fd5';
     $request->file->fileName = 'buckinghamshire.gif';
@@ -94,7 +90,7 @@ try {
     $request->model = 'whisper-1';
     $request->prompt = 'string';
     $request->responseFormat = Shared\CreateTranscriptionRequestResponseFormat::VerboseJson;
-    $request->temperature = 1961.3;
+    $request->temperature = 1961.3;;
 
     $response = $sdk->audio->createTranscription($request);
 
@@ -134,21 +130,19 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateTranslationRequest();
+        $request = new Shared\CreateTranslationRequest();
     $request->file = new Shared\CreateTranslationRequestFile();
     $request->file->content = '0xa45ca6c4DE';
     $request->file->fileName = 'reggae_toys_silver.gif';
     $request->model = 'whisper-1';
     $request->prompt = 'string';
     $request->responseFormat = 'string';
-    $request->temperature = 8877.09;
+    $request->temperature = 8877.09;;
 
     $response = $sdk->audio->createTranslation($request);
 

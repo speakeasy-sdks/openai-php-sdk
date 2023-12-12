@@ -54,14 +54,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->cancelRun('string', 'string');
 
@@ -102,14 +100,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateAssistantRequest();
+        $request = new Shared\CreateAssistantRequest();
     $request->description = 'Fundamental homogeneous functionalities';
     $request->fileIds = [
         'string',
@@ -120,7 +116,7 @@ try {
     $request->name = 'string';
     $request->tools = [
         'string',
-    ];
+    ];;
 
     $response = $sdk->assistants->createAssistant($request);
 
@@ -161,14 +157,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $createAssistantFileRequest = new Shared\CreateAssistantFileRequest();
+        $createAssistantFileRequest = new Shared\CreateAssistantFileRequest();
     $createAssistantFileRequest->fileId = 'string';
 
     $response = $sdk->assistants->createAssistantFile($createAssistantFileRequest, 'file-abc123');
@@ -211,14 +205,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $createMessageRequest = new Shared\CreateMessageRequest();
+        $createMessageRequest = new Shared\CreateMessageRequest();
     $createMessageRequest->content = 'string';
     $createMessageRequest->fileIds = [
         'string',
@@ -266,14 +258,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $createRunRequest = new Shared\CreateRunRequest();
+        $createRunRequest = new Shared\CreateRunRequest();
     $createRunRequest->assistantId = 'string';
     $createRunRequest->instructions = 'string';
     $createRunRequest->metadata = new Shared\CreateRunRequestMetadata();
@@ -321,18 +311,16 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateThreadRequest();
+        $request = new Shared\CreateThreadRequest();
     $request->messages = [
         new Shared\CreateMessageRequest(),
     ];
-    $request->metadata = new Shared\CreateThreadRequestMetadata();
+    $request->metadata = new Shared\CreateThreadRequestMetadata();;
 
     $response = $sdk->assistants->createThread($request);
 
@@ -372,14 +360,12 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateThreadAndRunRequest();
+        $request = new Shared\CreateThreadAndRunRequest();
     $request->assistantId = 'string';
     $request->instructions = 'string';
     $request->metadata = new Shared\CreateThreadAndRunRequestMetadata();
@@ -391,7 +377,7 @@ try {
     $request->thread->metadata = new Shared\CreateThreadRequestMetadata();
     $request->tools = [
         'string',
-    ];
+    ];;
 
     $response = $sdk->assistants->createThreadAndRun($request);
 
@@ -432,14 +418,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->deleteAssistant('string');
 
@@ -480,14 +464,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->deleteAssistantFile('string', 'string');
 
@@ -529,14 +511,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->deleteThread('string');
 
@@ -577,14 +557,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->getAssistant('string');
 
@@ -625,14 +603,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->getAssistantFile('string', 'string');
 
@@ -674,14 +650,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->getMessage('string', 'string');
 
@@ -723,14 +697,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->getMessageFile('file-abc123', 'msg_abc123', 'thread_abc123');
 
@@ -773,14 +745,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->getRun('string', 'string');
 
@@ -822,14 +792,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->getRunStep('string', 'string', 'string');
 
@@ -872,14 +840,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->getThread('string');
 
@@ -920,19 +886,17 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\ListAssistantFilesRequest();
+        $request = new Operations\ListAssistantFilesRequest();
     $request->after = 'string';
     $request->assistantId = 'string';
     $request->before = 'string';
     $request->limit = 57116;
-    $request->order = Operations\Order::Asc;
+    $request->order = Operations\Order::Asc;;
 
     $response = $sdk->assistants->listAssistantFiles($request);
 
@@ -973,14 +937,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->assistants->listAssistants('string', 'string', 948776, Operations\QueryParamOrder::Asc);
 
@@ -1024,20 +986,18 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\ListMessageFilesRequest();
+        $request = new Operations\ListMessageFilesRequest();
     $request->after = 'string';
     $request->before = 'string';
     $request->limit = 60284;
     $request->messageId = 'string';
     $request->order = Operations\ListMessageFilesQueryParamOrder::Asc;
-    $request->threadId = 'string';
+    $request->threadId = 'string';;
 
     $response = $sdk->assistants->listMessageFiles($request);
 
@@ -1078,19 +1038,17 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\ListMessagesRequest();
+        $request = new Operations\ListMessagesRequest();
     $request->after = 'string';
     $request->before = 'string';
     $request->limit = 179958;
     $request->order = Operations\ListMessagesQueryParamOrder::Asc;
-    $request->threadId = 'string';
+    $request->threadId = 'string';;
 
     $response = $sdk->assistants->listMessages($request);
 
@@ -1131,20 +1089,18 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\ListRunStepsRequest();
+        $request = new Operations\ListRunStepsRequest();
     $request->after = 'string';
     $request->before = 'string';
     $request->limit = 775652;
     $request->order = Operations\ListRunStepsQueryParamOrder::Asc;
     $request->runId = 'string';
-    $request->threadId = 'string';
+    $request->threadId = 'string';;
 
     $response = $sdk->assistants->listRunSteps($request);
 
@@ -1185,19 +1141,17 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Operations\ListRunsRequest();
+        $request = new Operations\ListRunsRequest();
     $request->after = 'string';
     $request->before = 'string';
     $request->limit = 364964;
     $request->order = Operations\ListRunsQueryParamOrder::Asc;
-    $request->threadId = 'string';
+    $request->threadId = 'string';;
 
     $response = $sdk->assistants->listRuns($request);
 
@@ -1238,14 +1192,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $modifyAssistantRequest = new Shared\ModifyAssistantRequest();
+        $modifyAssistantRequest = new Shared\ModifyAssistantRequest();
     $modifyAssistantRequest->description = 'Assimilated client-driven forecast';
     $modifyAssistantRequest->fileIds = [
         'string',
@@ -1298,14 +1250,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $modifyMessageRequest = new Shared\ModifyMessageRequest();
+        $modifyMessageRequest = new Shared\ModifyMessageRequest();
     $modifyMessageRequest->metadata = new Shared\ModifyMessageRequestMetadata();
 
     $response = $sdk->assistants->modifyMessage($modifyMessageRequest, 'string', 'string');
@@ -1349,14 +1299,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $modifyRunRequest = new Shared\ModifyRunRequest();
+        $modifyRunRequest = new Shared\ModifyRunRequest();
     $modifyRunRequest->metadata = new Shared\ModifyRunRequestMetadata();
 
     $response = $sdk->assistants->modifyRun($modifyRunRequest, 'string', 'string');
@@ -1400,14 +1348,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $modifyThreadRequest = new Shared\ModifyThreadRequest();
+        $modifyThreadRequest = new Shared\ModifyThreadRequest();
     $modifyThreadRequest->metadata = new Shared\ModifyThreadRequestMetadata();
 
     $response = $sdk->assistants->modifyThread($modifyThreadRequest, 'string');
@@ -1451,14 +1397,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $submitToolOutputsRunRequest = new Shared\SubmitToolOutputsRunRequest();
+        $submitToolOutputsRunRequest = new Shared\SubmitToolOutputsRunRequest();
     $submitToolOutputsRunRequest->toolOutputs = [
         new Shared\ToolOutputs(),
     ];

@@ -39,18 +39,16 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateFileRequest();
+        $request = new Shared\CreateFileRequest();
     $request->file = new Shared\File();
     $request->file->content = '0xf10df1a3b9';
     $request->file->fileName = 'rap_national.mp4v';
-    $request->purpose = Shared\Purpose::FineTune;
+    $request->purpose = Shared\Purpose::FineTune;;
 
     $response = $sdk->files->createFile($request);
 
@@ -91,14 +89,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->files->deleteFile('string');
 
@@ -139,14 +135,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->files->downloadFile('string');
 
@@ -187,14 +181,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->files->listFiles('string');
 
@@ -235,14 +227,12 @@ use \Openai\SDK\Models\Shared;
 use \Openai\SDK\Models\Operations;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-
+    
 
     $response = $sdk->files->retrieveFile('string');
 

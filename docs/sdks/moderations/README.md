@@ -25,16 +25,14 @@ use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
 
 $security = new Shared\Security();
-$security->apiKeyAuth = '';
+$security->apiKeyAuth = '<YOUR_BEARER_TOKEN_HERE>';
 
-$sdk = SDK\Gpt::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
-    $request = new Shared\CreateModerationRequest();
+        $request = new Shared\CreateModerationRequest();
     $request->input = 'string';
-    $request->model = 'text-moderation-stable';
+    $request->model = 'text-moderation-stable';;
 
     $response = $sdk->moderations->createModeration($request);
 

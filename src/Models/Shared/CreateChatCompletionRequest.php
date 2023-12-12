@@ -131,7 +131,7 @@ class CreateChatCompletionRequest
     public ?float $presencePenalty = null;
     
     /**
-     * An object specifying the format that the model must output. 
+     * An object specifying the format that the model must output.
      * 
      * 
      * Setting to `{ "type": "json_object" }` enables JSON mode, which guarantees the message the model generates is valid JSON.
@@ -147,7 +147,7 @@ class CreateChatCompletionRequest
     public ?ResponseFormat $responseFormat = null;
     
     /**
-     * This feature is in Beta. 
+     * This feature is in Beta.
      * 
      * If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.
      * Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend.
