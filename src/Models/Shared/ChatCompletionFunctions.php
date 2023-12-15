@@ -41,18 +41,19 @@ class ChatCompletionFunctions
      * The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/text-generation/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format.
      * 
      * 
-     * To describe a function that accepts no parameters, provide the value `{"type": "object", "properties": {}}`.
+     * Omitting `parameters` defines a function with an empty parameter list.
      * 
-     * @var array<string, mixed> $parameters
+     * @var ?array<string, mixed> $parameters
      */
 	#[\JMS\Serializer\Annotation\SerializedName('parameters')]
     #[\JMS\Serializer\Annotation\Type('array<string, mixed>')]
-    public array $parameters;
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?array $parameters = null;
     
 	public function __construct()
 	{
 		$this->description = null;
 		$this->name = "";
-		$this->parameters = [];
+		$this->parameters = null;
 	}
 }
