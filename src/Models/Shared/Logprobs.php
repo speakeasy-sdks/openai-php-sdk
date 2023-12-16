@@ -9,53 +9,25 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
+/**
+ * Logprobs - Log probability information for the choice.
+ * 
+ * @package Openai\SDK\Models\Shared
+ * @access public
+ */
 class Logprobs
 {
     /**
-     * $textOffset
+     * A list of message content tokens with log probability information.
      * 
-     * @var ?array<int> $textOffset
+     * @var array<\Openai\SDK\Models\Shared\Content> $content
      */
-	#[\JMS\Serializer\Annotation\SerializedName('text_offset')]
-    #[\JMS\Serializer\Annotation\Type('array<int>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $textOffset = null;
-    
-    /**
-     * $tokenLogprobs
-     * 
-     * @var ?array<float> $tokenLogprobs
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('token_logprobs')]
-    #[\JMS\Serializer\Annotation\Type('array<float>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $tokenLogprobs = null;
-    
-    /**
-     * $tokens
-     * 
-     * @var ?array<string> $tokens
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('tokens')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $tokens = null;
-    
-    /**
-     * $topLogprobs
-     * 
-     * @var ?array<array<string, float>> $topLogprobs
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('top_logprobs')]
-    #[\JMS\Serializer\Annotation\Type('array<array<string, float>>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $topLogprobs = null;
+	#[\JMS\Serializer\Annotation\SerializedName('content')]
+    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\Content>')]
+    public array $content;
     
 	public function __construct()
 	{
-		$this->textOffset = null;
-		$this->tokenLogprobs = null;
-		$this->tokens = null;
-		$this->topLogprobs = null;
+		$this->content = [];
 	}
 }

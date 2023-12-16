@@ -34,7 +34,7 @@ class CreateChatCompletionRequest
      * `auto` means the model can pick between generating a message or calling a function.
      * Specifying a particular function via `{"name": "my_function"}` forces the model to call that function.
      * 
-     * `none` is the default when no functions are present. `auto`` is the default if functions are present.
+     * `none` is the default when no functions are present. `auto` is the default if functions are present.
      * 
      * 
      * @var mixed $functionCall
@@ -75,7 +75,17 @@ class CreateChatCompletionRequest
     public ?array $logitBias = null;
     
     /**
-     * The maximum number of [tokens](/tokenizer) to generate in the chat completion.
+     * Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. This option is currently not available on the `gpt-4-vision-preview` model.
+     * 
+     * @var ?bool $logprobs
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('logprobs')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?bool $logprobs = null;
+    
+    /**
+     * The maximum number of [tokens](/tokenizer) that can be generated in the chat completion.
      * 
      * 
      * The total length of input tokens and generated tokens is limited by the model's context length. [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken) for counting tokens.
@@ -131,7 +141,7 @@ class CreateChatCompletionRequest
     public ?float $presencePenalty = null;
     
     /**
-     * An object specifying the format that the model must output.
+     * An object specifying the format that the model must output. Compatible with `gpt-4-1106-preview` and `gpt-3.5-turbo-1106`.
      * 
      * 
      * Setting to `{ "type": "json_object" }` enables JSON mode, which guarantees the message the model generates is valid JSON.
@@ -228,6 +238,16 @@ class CreateChatCompletionRequest
     public ?array $tools = null;
     
     /**
+     * An integer between 0 and 5 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used.
+     * 
+     * @var ?int $topLogprobs
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('top_logprobs')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $topLogprobs = null;
+    
+    /**
      * An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
      * 
      * 
@@ -259,6 +279,7 @@ class CreateChatCompletionRequest
 		$this->functionCall = null;
 		$this->functions = null;
 		$this->logitBias = null;
+		$this->logprobs = null;
 		$this->maxTokens = null;
 		$this->messages = [];
 		$this->model = null;
@@ -271,6 +292,7 @@ class CreateChatCompletionRequest
 		$this->temperature = null;
 		$this->toolChoice = null;
 		$this->tools = null;
+		$this->topLogprobs = null;
 		$this->topP = null;
 		$this->user = null;
 	}

@@ -29,8 +29,8 @@ class CreateCompletionResponseChoices
     public int $index;
     
 	#[\JMS\Serializer\Annotation\SerializedName('logprobs')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\Logprobs')]
-    public Logprobs $logprobs;
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateCompletionResponseLogprobs')]
+    public CreateCompletionResponseLogprobs $logprobs;
     
 	#[\JMS\Serializer\Annotation\SerializedName('text')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -40,7 +40,7 @@ class CreateCompletionResponseChoices
 	{
 		$this->finishReason = \Openai\SDK\Models\Shared\CreateCompletionResponseFinishReason::Stop;
 		$this->index = 0;
-		$this->logprobs = new \Openai\SDK\Models\Shared\Logprobs();
+		$this->logprobs = new \Openai\SDK\Models\Shared\CreateCompletionResponseLogprobs();
 		$this->text = "";
 	}
 }

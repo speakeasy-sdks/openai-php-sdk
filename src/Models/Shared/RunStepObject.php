@@ -103,7 +103,7 @@ class RunStepObject
     public RunStepObjectMetadata $metadata;
     
     /**
-     * The object type, which is always `thread.run.step``.
+     * The object type, which is always `thread.run.step`.
      * 
      * @var \Openai\SDK\Models\Shared\RunStepObjectObject $object
      */

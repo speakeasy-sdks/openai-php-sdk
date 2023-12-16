@@ -1,11 +1,10 @@
 # Logprobs
 
+Log probability information for the choice.
+
 
 ## Fields
 
-| Field                         | Type                          | Required                      | Description                   |
-| ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
-| `textOffset`                  | array<*int*>                  | :heavy_minus_sign:            | N/A                           |
-| `tokenLogprobs`               | array<*float*>                | :heavy_minus_sign:            | N/A                           |
-| `tokens`                      | array<*string*>               | :heavy_minus_sign:            | N/A                           |
-| `topLogprobs`                 | array<array<string, *float*>> | :heavy_minus_sign:            | N/A                           |
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `content`                                                                  | array<[\Openai\SDK\Models\Shared\Content](../../Models/Shared/Content.md)> | :heavy_check_mark:                                                         | A list of message content tokens with log probability information.         |

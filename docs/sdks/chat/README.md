@@ -39,6 +39,7 @@ try {
     $request->logitBias = [
         'navigate' => 817435,
     ];
+    $request->logprobs = false;
     $request->maxTokens = 21872;
     $request->messages = [
         'string',
@@ -56,6 +57,7 @@ try {
     $request->tools = [
         new Shared\ChatCompletionTool(),
     ];
+    $request->topLogprobs = 197305;
     $request->topP = 1;
     $request->user = 'user-1234';;
 
