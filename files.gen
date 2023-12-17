@@ -210,8 +210,6 @@ src/Models/Shared/CreateTranslationResponse.php
 src/Models/Shared/CreateTranslationRequestFile.php
 src/Models/Shared/CreateTranslationRequest.php
 src/Models/Shared/FinishReason.php
-src/Models/Shared/TopLogprobs.php
-src/Models/Shared/Content.php
 src/Models/Shared/Logprobs.php
 src/Models/Shared/Choices.php
 src/Models/Shared/CreateChatCompletionResponseObject.php
@@ -223,6 +221,8 @@ src/Models/Shared/ChatCompletionResponseMessage.php
 src/Models/Shared/FunctionT.php
 src/Models/Shared/Type.php
 src/Models/Shared/ChatCompletionMessageToolCall.php
+src/Models/Shared/TopLogprobs.php
+src/Models/Shared/ChatCompletionTokenLogprob.php
 src/Models/Shared/CreateChatCompletionRequestType.php
 src/Models/Shared/ResponseFormat.php
 src/Models/Shared/CreateChatCompletionRequest.php
@@ -490,8 +490,6 @@ docs/Models/Shared/CreateTranslationResponse.md
 docs/Models/Shared/CreateTranslationRequestFile.md
 docs/Models/Shared/CreateTranslationRequest.md
 docs/Models/Shared/FinishReason.md
-docs/Models/Shared/TopLogprobs.md
-docs/Models/Shared/Content.md
 docs/Models/Shared/Logprobs.md
 docs/Models/Shared/Choices.md
 docs/Models/Shared/CreateChatCompletionResponseObject.md
@@ -503,6 +501,8 @@ docs/Models/Shared/ChatCompletionResponseMessage.md
 docs/Models/Shared/FunctionT.md
 docs/Models/Shared/Type.md
 docs/Models/Shared/ChatCompletionMessageToolCall.md
+docs/Models/Shared/TopLogprobs.md
+docs/Models/Shared/ChatCompletionTokenLogprob.md
 docs/Models/Shared/CreateChatCompletionRequestType.md
 docs/Models/Shared/ResponseFormat.md
 docs/Models/Shared/CreateChatCompletionRequest.md

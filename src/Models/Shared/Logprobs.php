@@ -20,10 +20,10 @@ class Logprobs
     /**
      * A list of message content tokens with log probability information.
      * 
-     * @var array<\Openai\SDK\Models\Shared\Content> $content
+     * @var array<\Openai\SDK\Models\Shared\ChatCompletionTokenLogprob> $content
      */
 	#[\JMS\Serializer\Annotation\SerializedName('content')]
-    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\Content>')]
+    #[\JMS\Serializer\Annotation\Type('array<Openai\SDK\Models\Shared\ChatCompletionTokenLogprob>')]
     public array $content;
     
 	public function __construct()
