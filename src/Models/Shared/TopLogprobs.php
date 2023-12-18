@@ -14,37 +14,34 @@ class TopLogprobs
     /**
      * A list of integers representing the UTF-8 bytes representation of the token. Useful in instances where characters are represented by multiple tokens and their byte representations must be combined to generate the correct text representation. Can be `null` if there is no bytes representation for the token.
      * 
-     * @var ?array<int> $bytes
+     * @var array<int> $bytes
      */
 	#[\JMS\Serializer\Annotation\SerializedName('bytes')]
     #[\JMS\Serializer\Annotation\Type('array<int>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $bytes = null;
+    public array $bytes;
     
     /**
      * The log probability of this token.
      * 
-     * @var ?float $logprob
+     * @var float $logprob
      */
 	#[\JMS\Serializer\Annotation\SerializedName('logprob')]
     #[\JMS\Serializer\Annotation\Type('float')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?float $logprob = null;
+    public float $logprob;
     
     /**
      * The token.
      * 
-     * @var ?string $token
+     * @var string $token
      */
 	#[\JMS\Serializer\Annotation\SerializedName('token')]
     #[\JMS\Serializer\Annotation\Type('string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $token = null;
+    public string $token;
     
 	public function __construct()
 	{
-		$this->bytes = null;
-		$this->logprob = null;
-		$this->token = null;
+		$this->bytes = [];
+		$this->logprob = 0;
+		$this->token = "";
 	}
 }
