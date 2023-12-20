@@ -12,6 +12,16 @@ namespace Openai\SDK\Models\Shared;
 class CreateRunRequest
 {
     /**
+     * Appends additional instructions at the end of the instructions for the run. This is useful for modifying the behavior on a per-run basis without overriding other instructions.
+     * 
+     * @var ?string $additionalInstructions
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('additional_instructions')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $additionalInstructions = null;
+    
+    /**
      * The ID of the [assistant](/docs/api-reference/assistants) to use to execute this run.
      * 
      * @var string $assistantId
@@ -21,7 +31,7 @@ class CreateRunRequest
     public string $assistantId;
     
     /**
-     * Override the default system message of the assistant. This is useful for modifying the behavior on a per-run basis.
+     * Overrides the [instructions](/docs/api-reference/assistants/createAssistant) of the assistant. This is useful for modifying the behavior on a per-run basis.
      * 
      * @var ?string $instructions
      */
@@ -64,6 +74,7 @@ class CreateRunRequest
     
 	public function __construct()
 	{
+		$this->additionalInstructions = null;
 		$this->assistantId = "";
 		$this->instructions = null;
 		$this->metadata = null;

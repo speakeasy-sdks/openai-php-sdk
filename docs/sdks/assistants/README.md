@@ -264,6 +264,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $createRunRequest = new Shared\CreateRunRequest();
+    $createRunRequest->additionalInstructions = 'string';
     $createRunRequest->assistantId = 'string';
     $createRunRequest->instructions = 'string';
     $createRunRequest->metadata = new Shared\CreateRunRequestMetadata();
