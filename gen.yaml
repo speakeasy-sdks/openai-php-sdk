@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 86a19e42b82cff28680f5cd561f03e75
+  docChecksum: 20d3cc86978da80cdf4bd1c649b0ebd7
   docVersion: 2.0.0
-  speakeasyVersion: 1.128.0
-  generationVersion: 2.221.0
+  speakeasyVersion: 1.129.1
+  generationVersion: 2.223.3
 generation:
   comments: {}
   sdkClassName: gpt
@@ -20,7 +20,7 @@ features:
     globalSecurity: 2.81.2
     globalServerURLs: 2.82.1
 php:
-  version: 3.1.5
+  version: 3.1.6
   imports:
     option: openapi
     paths:
