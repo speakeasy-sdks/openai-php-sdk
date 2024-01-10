@@ -1,9 +1,0 @@
-# ListFineTuneEventsResponse
-
-
-## Fields
-
-| Field                                                                                                                 | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `data`                                                                                                                | array<[\Openai\SDK\Models\Shared\FineTuneEvent](../../Models/Shared/FineTuneEvent.md)>                                | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
-| `object`                                                                                                              | [\Openai\SDK\Models\Shared\ListFineTuneEventsResponseObject](../../Models/Shared/ListFineTuneEventsResponseObject.md) | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |

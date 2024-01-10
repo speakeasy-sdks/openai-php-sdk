@@ -49,13 +49,6 @@ class Gpt
 	public Completions $completions;
 	
     /**
-     * Given a prompt and an instruction, the model will return an edited version of the prompt.
-     * 
-     * @var Edits $$edits
-     */
-	public Edits $edits;
-	
-    /**
      * Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms.
      * 
      * @var Embeddings $$embeddings
@@ -68,13 +61,6 @@ class Gpt
      * @var Files $$files
      */
 	public Files $files;
-	
-    /**
-     * Manage legacy fine-tuning jobs to tailor a model to your specific training data.
-     * 
-     * @var FineTunes $$fineTunes
-     */
-	public FineTunes $fineTunes;
 	
     /**
      * Manage fine-tuning jobs to tailor a model to your specific training data.
@@ -131,13 +117,9 @@ class Gpt
 		
 		$this->completions = new Completions($this->sdkConfiguration);
 		
-		$this->edits = new Edits($this->sdkConfiguration);
-		
 		$this->embeddings = new Embeddings($this->sdkConfiguration);
 		
 		$this->files = new Files($this->sdkConfiguration);
-		
-		$this->fineTunes = new FineTunes($this->sdkConfiguration);
 		
 		$this->fineTuning = new FineTuning($this->sdkConfiguration);
 		

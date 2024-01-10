@@ -14,12 +14,12 @@ class CreateFineTuningJobRequest
     /**
      * The hyperparameters used for the fine-tuning job.
      * 
-     * @var ?\Openai\SDK\Models\Shared\CreateFineTuningJobRequestHyperparameters $hyperparameters
+     * @var ?\Openai\SDK\Models\Shared\Hyperparameters $hyperparameters
      */
 	#[\JMS\Serializer\Annotation\SerializedName('hyperparameters')]
-    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateFineTuningJobRequestHyperparameters')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\Hyperparameters')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?CreateFineTuningJobRequestHyperparameters $hyperparameters = null;
+    public ?Hyperparameters $hyperparameters = null;
     
     /**
      * The name of the model to fine-tune. You can select one of the

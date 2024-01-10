@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 4219ee55-cf29-46c6-aa2b-77f79e31a017
 management:
-  docChecksum: 20d3cc86978da80cdf4bd1c649b0ebd7
+  docChecksum: 3650aae62d60640ad8bd28dcf1c0bda2
   docVersion: 2.0.0
   speakeasyVersion: internal
-  generationVersion: 2.225.2
-  releaseVersion: 3.1.6
-  configChecksum: 180710b4cd9e154a71d72e8089b18fd1
+  generationVersion: 2.230.3
+  releaseVersion: 3.1.7
+  configChecksum: 9c9c0060057cbf364d446dcc269882f5
   repoURL: https://github.com/speakeasy-sdks/openai-php-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-php-sdk
@@ -24,10 +24,8 @@ generatedFiles:
   - src/Audio.php
   - src/Chat.php
   - src/Completions.php
-  - src/Edits.php
   - src/Embeddings.php
   - src/Files.php
-  - src/FineTunes.php
   - src/FineTuning.php
   - src/Images.php
   - src/Models.php
@@ -116,7 +114,6 @@ generatedFiles:
   - src/Models/Operations/CreateTranslationResponse.php
   - src/Models/Operations/CreateChatCompletionResponse.php
   - src/Models/Operations/CreateCompletionResponse.php
-  - src/Models/Operations/CreateEditResponse.php
   - src/Models/Operations/CreateEmbeddingResponse.php
   - src/Models/Operations/CreateFileResponse.php
   - src/Models/Operations/DeleteFileRequest.php
@@ -127,14 +124,6 @@ generatedFiles:
   - src/Models/Operations/ListFilesResponse.php
   - src/Models/Operations/RetrieveFileRequest.php
   - src/Models/Operations/RetrieveFileResponse.php
-  - src/Models/Operations/CancelFineTuneRequest.php
-  - src/Models/Operations/CancelFineTuneResponse.php
-  - src/Models/Operations/CreateFineTuneResponse.php
-  - src/Models/Operations/ListFineTuneEventsRequest.php
-  - src/Models/Operations/ListFineTuneEventsResponse.php
-  - src/Models/Operations/ListFineTunesResponse.php
-  - src/Models/Operations/RetrieveFineTuneRequest.php
-  - src/Models/Operations/RetrieveFineTuneResponse.php
   - src/Models/Operations/CancelFineTuningJobRequest.php
   - src/Models/Operations/CancelFineTuningJobResponse.php
   - src/Models/Operations/CreateFineTuningJobResponse.php
@@ -257,11 +246,6 @@ generatedFiles:
   - src/Models/Shared/CreateCompletionResponseObject.php
   - src/Models/Shared/CreateCompletionResponse.php
   - src/Models/Shared/CreateCompletionRequest.php
-  - src/Models/Shared/CreateEditResponseFinishReason.php
-  - src/Models/Shared/CreateEditResponseChoices.php
-  - src/Models/Shared/CreateEditResponseObject.php
-  - src/Models/Shared/CreateEditResponse.php
-  - src/Models/Shared/CreateEditRequest.php
   - src/Models/Shared/CreateEmbeddingResponseObject.php
   - src/Models/Shared/Usage.php
   - src/Models/Shared/CreateEmbeddingResponse.php
@@ -280,23 +264,12 @@ generatedFiles:
   - src/Models/Shared/DeleteFileResponse.php
   - src/Models/Shared/ListFilesResponseObject.php
   - src/Models/Shared/ListFilesResponse.php
-  - src/Models/Shared/Hyperparams.php
-  - src/Models/Shared/FineTuneObject.php
-  - src/Models/Shared/FineTune.php
-  - src/Models/Shared/FineTuneEventObject.php
-  - src/Models/Shared/FineTuneEvent.php
-  - src/Models/Shared/Hyperparameters.php
-  - src/Models/Shared/CreateFineTuneRequest.php
-  - src/Models/Shared/ListFineTuneEventsResponseObject.php
-  - src/Models/Shared/ListFineTuneEventsResponse.php
-  - src/Models/Shared/ListFineTunesResponseObject.php
-  - src/Models/Shared/ListFineTunesResponse.php
   - src/Models/Shared/Error.php
   - src/Models/Shared/FineTuningJobHyperparameters.php
   - src/Models/Shared/FineTuningJobObject.php
   - src/Models/Shared/Status.php
   - src/Models/Shared/FineTuningJob.php
-  - src/Models/Shared/CreateFineTuningJobRequestHyperparameters.php
+  - src/Models/Shared/Hyperparameters.php
   - src/Models/Shared/CreateFineTuningJobRequest.php
   - src/Models/Shared/ListFineTuningJobEventsResponseObject.php
   - src/Models/Shared/ListFineTuningJobEventsResponse.php
@@ -396,7 +369,6 @@ generatedFiles:
   - docs/Models/Operations/CreateTranslationResponse.md
   - docs/Models/Operations/CreateChatCompletionResponse.md
   - docs/Models/Operations/CreateCompletionResponse.md
-  - docs/Models/Operations/CreateEditResponse.md
   - docs/Models/Operations/CreateEmbeddingResponse.md
   - docs/Models/Operations/CreateFileResponse.md
   - docs/Models/Operations/DeleteFileRequest.md
@@ -407,14 +379,6 @@ generatedFiles:
   - docs/Models/Operations/ListFilesResponse.md
   - docs/Models/Operations/RetrieveFileRequest.md
   - docs/Models/Operations/RetrieveFileResponse.md
-  - docs/Models/Operations/CancelFineTuneRequest.md
-  - docs/Models/Operations/CancelFineTuneResponse.md
-  - docs/Models/Operations/CreateFineTuneResponse.md
-  - docs/Models/Operations/ListFineTuneEventsRequest.md
-  - docs/Models/Operations/ListFineTuneEventsResponse.md
-  - docs/Models/Operations/ListFineTunesResponse.md
-  - docs/Models/Operations/RetrieveFineTuneRequest.md
-  - docs/Models/Operations/RetrieveFineTuneResponse.md
   - docs/Models/Operations/CancelFineTuningJobRequest.md
   - docs/Models/Operations/CancelFineTuningJobResponse.md
   - docs/Models/Operations/CreateFineTuningJobResponse.md
@@ -537,11 +501,6 @@ generatedFiles:
   - docs/Models/Shared/CreateCompletionResponseObject.md
   - docs/Models/Shared/CreateCompletionResponse.md
   - docs/Models/Shared/CreateCompletionRequest.md
-  - docs/Models/Shared/CreateEditResponseFinishReason.md
-  - docs/Models/Shared/CreateEditResponseChoices.md
-  - docs/Models/Shared/CreateEditResponseObject.md
-  - docs/Models/Shared/CreateEditResponse.md
-  - docs/Models/Shared/CreateEditRequest.md
   - docs/Models/Shared/CreateEmbeddingResponseObject.md
   - docs/Models/Shared/Usage.md
   - docs/Models/Shared/CreateEmbeddingResponse.md
@@ -560,23 +519,12 @@ generatedFiles:
   - docs/Models/Shared/DeleteFileResponse.md
   - docs/Models/Shared/ListFilesResponseObject.md
   - docs/Models/Shared/ListFilesResponse.md
-  - docs/Models/Shared/Hyperparams.md
-  - docs/Models/Shared/FineTuneObject.md
-  - docs/Models/Shared/FineTune.md
-  - docs/Models/Shared/FineTuneEventObject.md
-  - docs/Models/Shared/FineTuneEvent.md
-  - docs/Models/Shared/Hyperparameters.md
-  - docs/Models/Shared/CreateFineTuneRequest.md
-  - docs/Models/Shared/ListFineTuneEventsResponseObject.md
-  - docs/Models/Shared/ListFineTuneEventsResponse.md
-  - docs/Models/Shared/ListFineTunesResponseObject.md
-  - docs/Models/Shared/ListFineTunesResponse.md
   - docs/Models/Shared/Error.md
   - docs/Models/Shared/FineTuningJobHyperparameters.md
   - docs/Models/Shared/FineTuningJobObject.md
   - docs/Models/Shared/Status.md
   - docs/Models/Shared/FineTuningJob.md
-  - docs/Models/Shared/CreateFineTuningJobRequestHyperparameters.md
+  - docs/Models/Shared/Hyperparameters.md
   - docs/Models/Shared/CreateFineTuningJobRequest.md
   - docs/Models/Shared/ListFineTuningJobEventsResponseObject.md
   - docs/Models/Shared/ListFineTuningJobEventsResponse.md
@@ -617,10 +565,8 @@ generatedFiles:
   - docs/sdks/audio/README.md
   - docs/sdks/chat/README.md
   - docs/sdks/completions/README.md
-  - docs/sdks/edits/README.md
   - docs/sdks/embeddings/README.md
   - docs/sdks/files/README.md
-  - docs/sdks/finetunes/README.md
   - docs/sdks/finetuning/README.md
   - docs/sdks/images/README.md
   - docs/sdks/models/README.md
