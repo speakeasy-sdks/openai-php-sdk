@@ -181,6 +181,15 @@ class RunObject
     #[\JMS\Serializer\Annotation\Type('array<mixed>')]
     public array $tools;
     
+    /**
+     * Usage statistics related to the run. This value will be `null` if the run is not in a terminal state (i.e. `in_progress`, `queued`, etc.).
+     * 
+     * @var \Openai\SDK\Models\Shared\RunCompletionUsage $usage
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('usage')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\RunCompletionUsage')]
+    public RunCompletionUsage $usage;
+    
 	public function __construct()
 	{
 		$this->assistantId = "";
@@ -201,5 +210,6 @@ class RunObject
 		$this->status = \Openai\SDK\Models\Shared\RunObjectStatus::Queued;
 		$this->threadId = "";
 		$this->tools = [];
+		$this->usage = new \Openai\SDK\Models\Shared\RunCompletionUsage();
 	}
 }

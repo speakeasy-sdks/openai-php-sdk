@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 4219ee55-cf29-46c6-aa2b-77f79e31a017
 management:
-  docChecksum: 3650aae62d60640ad8bd28dcf1c0bda2
+  docChecksum: 59067621881faf553cf6bb2272133e9e
   docVersion: 2.0.0
   speakeasyVersion: internal
-  generationVersion: 2.237.2
-  releaseVersion: 3.1.8
-  configChecksum: 68cef2eedb897a68517c5b270b5e0ddd
+  generationVersion: 2.237.3
+  releaseVersion: 3.1.9
+  configChecksum: 4981e4b2ef3e8cfc4b5cf536d3939f39
   repoURL: https://github.com/speakeasy-sdks/openai-php-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-php-sdk
@@ -151,6 +151,7 @@ generatedFiles:
   - src/Models/Shared/RequiredAction.php
   - src/Models/Shared/RunObjectStatus.php
   - src/Models/Shared/RunObject.php
+  - src/Models/Shared/RunCompletionUsage.php
   - src/Models/Shared/RunToolCallObjectFunction.php
   - src/Models/Shared/RunToolCallObjectType.php
   - src/Models/Shared/RunToolCallObject.php
@@ -193,6 +194,7 @@ generatedFiles:
   - src/Models/Shared/RunStepObjectStatus.php
   - src/Models/Shared/RunStepObjectType.php
   - src/Models/Shared/RunStepObject.php
+  - src/Models/Shared/RunStepCompletionUsage.php
   - src/Models/Shared/ListAssistantFilesResponse.php
   - src/Models/Shared/ListAssistantsResponse.php
   - src/Models/Shared/ListMessageFilesResponse.php
@@ -406,6 +408,7 @@ generatedFiles:
   - docs/Models/Shared/RequiredAction.md
   - docs/Models/Shared/RunObjectStatus.md
   - docs/Models/Shared/RunObject.md
+  - docs/Models/Shared/RunCompletionUsage.md
   - docs/Models/Shared/RunToolCallObjectFunction.md
   - docs/Models/Shared/RunToolCallObjectType.md
   - docs/Models/Shared/RunToolCallObject.md
@@ -448,6 +451,7 @@ generatedFiles:
   - docs/Models/Shared/RunStepObjectStatus.md
   - docs/Models/Shared/RunStepObjectType.md
   - docs/Models/Shared/RunStepObject.md
+  - docs/Models/Shared/RunStepCompletionUsage.md
   - docs/Models/Shared/ListAssistantFilesResponse.md
   - docs/Models/Shared/ListAssistantsResponse.md
   - docs/Models/Shared/ListMessageFilesResponse.md

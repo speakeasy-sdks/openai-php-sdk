@@ -156,6 +156,15 @@ class RunStepObject
     #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\RunStepObjectType>')]
     public RunStepObjectType $type;
     
+    /**
+     * Usage statistics related to the run step. This value will be `null` while the run step's status is `in_progress`.
+     * 
+     * @var \Openai\SDK\Models\Shared\RunStepCompletionUsage $usage
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('usage')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\RunStepCompletionUsage')]
+    public RunStepCompletionUsage $usage;
+    
 	public function __construct()
 	{
 		$this->assistantId = "";
@@ -173,5 +182,6 @@ class RunStepObject
 		$this->stepDetails = null;
 		$this->threadId = "";
 		$this->type = \Openai\SDK\Models\Shared\RunStepObjectType::MessageCreation;
+		$this->usage = new \Openai\SDK\Models\Shared\RunStepCompletionUsage();
 	}
 }
