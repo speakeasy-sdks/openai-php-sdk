@@ -12,6 +12,18 @@ namespace Openai\SDK\Models\Shared;
 class CreateEmbeddingRequest
 {
     /**
+     * The number of dimensions the resulting output embeddings should have. Only supported in `text-embedding-3` and later models.
+     * 
+     * 
+     * 
+     * @var ?int $dimensions
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('dimensions')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $dimensions = null;
+    
+    /**
      * The format to return the embeddings in. Can be either `float` or [`base64`](https://pypi.org/project/pybase64/).
      * 
      * @var ?\Openai\SDK\Models\Shared\EncodingFormat $encodingFormat
@@ -57,6 +69,7 @@ class CreateEmbeddingRequest
     
 	public function __construct()
 	{
+		$this->dimensions = null;
 		$this->encodingFormat = null;
 		$this->input = null;
 		$this->model = null;

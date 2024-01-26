@@ -31,9 +31,10 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $request = new Shared\CreateEmbeddingRequest();
+    $request->dimensions = 873928;
     $request->encodingFormat = Shared\EncodingFormat::Float;
     $request->input = 'The quick brown fox jumped over the lazy dog';
-    $request->model = 'text-embedding-ada-002';
+    $request->model = 'text-embedding-3-small';
     $request->user = 'user-1234';;
 
     $response = $sdk->embeddings->createEmbedding($request);
