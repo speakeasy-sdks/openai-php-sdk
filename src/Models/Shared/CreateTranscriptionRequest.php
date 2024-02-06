@@ -71,6 +71,16 @@ class CreateTranscriptionRequest
 	#[SpeakeasyMetadata('multipartForm:name=temperature')]
     public ?float $temperature = null;
     
+    /**
+     * The timestamp granularities to populate for this transcription. Any of these options: `word`, or `segment`. Note: There is no additional latency for segment timestamps, but generating word timestamps incurs additional latency.
+     * 
+     * 
+     * 
+     * @var ?array<\Openai\SDK\Models\Shared\TimestampGranularities> $timestampGranularities
+     */
+	#[SpeakeasyMetadata('multipartForm:name=timestamp_granularities[]')]
+    public ?array $timestampGranularities = null;
+    
 	public function __construct()
 	{
 		$this->file = new \Openai\SDK\Models\Shared\CreateTranscriptionRequestFile();
@@ -79,5 +89,6 @@ class CreateTranscriptionRequest
 		$this->prompt = null;
 		$this->responseFormat = null;
 		$this->temperature = null;
+		$this->timestampGranularities = null;
 	}
 }

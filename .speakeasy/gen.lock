@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 4219ee55-cf29-46c6-aa2b-77f79e31a017
 management:
-  docChecksum: fec080cc7b4b85f737f17928f5f6f306
+  docChecksum: 48d5059756953328026cfca7d15f0081
   docVersion: 2.0.0
   speakeasyVersion: internal
-  generationVersion: 2.239.4
-  releaseVersion: 3.1.10
-  configChecksum: ed94d077a139abb06c62643d23ad80ff
+  generationVersion: 2.250.2
+  releaseVersion: 4.0.0
+  configChecksum: a19031fddfd93cffa020919ec5080aa1
   repoURL: https://github.com/speakeasy-sdks/openai-php-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-php-sdk
@@ -217,6 +217,7 @@ generatedFiles:
   - src/Models/Shared/CreateTranscriptionResponse.php
   - src/Models/Shared/CreateTranscriptionRequestFile.php
   - src/Models/Shared/CreateTranscriptionRequestResponseFormat.php
+  - src/Models/Shared/TimestampGranularities.php
   - src/Models/Shared/CreateTranscriptionRequest.php
   - src/Models/Shared/CreateTranslationResponse.php
   - src/Models/Shared/CreateTranslationRequestFile.php
@@ -474,6 +475,7 @@ generatedFiles:
   - docs/Models/Shared/CreateTranscriptionResponse.md
   - docs/Models/Shared/CreateTranscriptionRequestFile.md
   - docs/Models/Shared/CreateTranscriptionRequestResponseFormat.md
+  - docs/Models/Shared/TimestampGranularities.md
   - docs/Models/Shared/CreateTranscriptionRequest.md
   - docs/Models/Shared/CreateTranslationResponse.md
   - docs/Models/Shared/CreateTranslationRequestFile.md

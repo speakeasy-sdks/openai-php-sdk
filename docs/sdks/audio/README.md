@@ -90,7 +90,10 @@ try {
     $request->model = 'whisper-1';
     $request->prompt = 'string';
     $request->responseFormat = Shared\CreateTranscriptionRequestResponseFormat::VerboseJson;
-    $request->temperature = 1961.3;;
+    $request->temperature = 1961.3;
+    $request->timestampGranularities = [
+        Shared\TimestampGranularities::Segment,
+    ];;
 
     $response = $sdk->audio->createTranscription($request);
 
