@@ -61,6 +61,16 @@ class CreateChatCompletionRequest
     public ?array $functions = null;
     
     /**
+     * An unique identifier to a custom instance to execute the request. The requesting organization is required to have access to the instance.
+     * 
+     * @var ?string $instanceId
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('instance_id')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $instanceId = null;
+    
+    /**
      * Modify the likelihood of specified tokens appearing in the completion.
      * 
      * 
@@ -278,6 +288,7 @@ class CreateChatCompletionRequest
 		$this->frequencyPenalty = null;
 		$this->functionCall = null;
 		$this->functions = null;
+		$this->instanceId = null;
 		$this->logitBias = null;
 		$this->logprobs = null;
 		$this->maxTokens = null;
