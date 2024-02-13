@@ -67,7 +67,7 @@ try {
     if ($response->createChatCompletionResponse !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```

@@ -54,7 +54,7 @@ try {
     if ($response->fineTuningJob !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -112,7 +112,7 @@ try {
     if ($response->fineTuningJob !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -159,7 +159,7 @@ try {
     if ($response->listFineTuningJobEventsResponse !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -208,7 +208,7 @@ try {
     if ($response->listPaginatedFineTuningJobsResponse !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -258,7 +258,7 @@ try {
     if ($response->fineTuningJob !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```

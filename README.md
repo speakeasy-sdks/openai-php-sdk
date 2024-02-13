@@ -59,7 +59,7 @@ try {
     if ($response->runObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 
