@@ -17,7 +17,7 @@ $sdk = SDK\Gpt::builder()
     ->build();
 
 try {
-    $response = $sdk->assistants->cancelRun('string', 'string');
+    $response = $sdk->assistants->cancelRun('<value>', '<value>');
 
     if ($response->runObject !== null) {
         // handle response

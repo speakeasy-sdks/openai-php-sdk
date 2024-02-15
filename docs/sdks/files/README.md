@@ -96,7 +96,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->files->deleteFile('string');
+    $response = $sdk->files->deleteFile('<value>');
 
     if ($response->deleteFileResponse !== null) {
         // handle response
@@ -142,7 +142,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->files->downloadFile('string');
+    $response = $sdk->files->downloadFile('<value>');
 
     if ($response->res !== null) {
         // handle response
@@ -188,7 +188,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->files->listFiles('string');
+    $response = $sdk->files->listFiles('<value>');
 
     if ($response->listFilesResponse !== null) {
         // handle response
@@ -234,7 +234,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->files->retrieveFile('string');
+    $response = $sdk->files->retrieveFile('<value>');
 
     if ($response->openAIFile !== null) {
         // handle response

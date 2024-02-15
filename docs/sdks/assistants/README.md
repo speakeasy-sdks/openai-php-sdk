@@ -61,7 +61,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->cancelRun('string', 'string');
+    $response = $sdk->assistants->cancelRun('<value>', '<value>');
 
     if ($response->runObject !== null) {
         // handle response
@@ -108,14 +108,14 @@ try {
         $request = new Shared\CreateAssistantRequest();
     $request->description = 'Fundamental homogeneous functionalities';
     $request->fileIds = [
-        'string',
+        '<value>',
     ];
-    $request->instructions = 'string';
+    $request->instructions = '<value>';
     $request->metadata = new Shared\CreateAssistantRequestMetadata();
     $request->model = 'Civic';
-    $request->name = 'string';
+    $request->name = '<value>';
     $request->tools = [
-        'string',
+        '<value>',
     ];;
 
     $response = $sdk->assistants->createAssistant($request);
@@ -163,7 +163,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $createAssistantFileRequest = new Shared\CreateAssistantFileRequest();
-    $createAssistantFileRequest->fileId = 'string';
+    $createAssistantFileRequest->fileId = '<value>';
 
     $response = $sdk->assistants->createAssistantFile($createAssistantFileRequest, 'file-abc123');
 
@@ -211,14 +211,14 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $createMessageRequest = new Shared\CreateMessageRequest();
-    $createMessageRequest->content = 'string';
+    $createMessageRequest->content = '<value>';
     $createMessageRequest->fileIds = [
-        'string',
+        '<value>',
     ];
     $createMessageRequest->metadata = new Shared\CreateMessageRequestMetadata();
     $createMessageRequest->role = Shared\CreateMessageRequestRole::User;
 
-    $response = $sdk->assistants->createMessage($createMessageRequest, 'string');
+    $response = $sdk->assistants->createMessage($createMessageRequest, '<value>');
 
     if ($response->messageObject !== null) {
         // handle response
@@ -264,16 +264,16 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $createRunRequest = new Shared\CreateRunRequest();
-    $createRunRequest->additionalInstructions = 'string';
-    $createRunRequest->assistantId = 'string';
-    $createRunRequest->instructions = 'string';
+    $createRunRequest->additionalInstructions = '<value>';
+    $createRunRequest->assistantId = '<value>';
+    $createRunRequest->instructions = '<value>';
     $createRunRequest->metadata = new Shared\CreateRunRequestMetadata();
     $createRunRequest->model = 'F-150';
     $createRunRequest->tools = [
-        'string',
+        '<value>',
     ];
 
-    $response = $sdk->assistants->createRun($createRunRequest, 'string');
+    $response = $sdk->assistants->createRun($createRunRequest, '<value>');
 
     if ($response->runObject !== null) {
         // handle response
@@ -367,8 +367,8 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $request = new Shared\CreateThreadAndRunRequest();
-    $request->assistantId = 'string';
-    $request->instructions = 'string';
+    $request->assistantId = '<value>';
+    $request->instructions = '<value>';
     $request->metadata = new Shared\CreateThreadAndRunRequestMetadata();
     $request->model = 'Beetle';
     $request->thread = new Shared\CreateThreadRequest();
@@ -377,7 +377,7 @@ try {
     ];
     $request->thread->metadata = new Shared\CreateThreadRequestMetadata();
     $request->tools = [
-        'string',
+        '<value>',
     ];;
 
     $response = $sdk->assistants->createThreadAndRun($request);
@@ -426,7 +426,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->deleteAssistant('string');
+    $response = $sdk->assistants->deleteAssistant('<value>');
 
     if ($response->deleteAssistantResponse !== null) {
         // handle response
@@ -472,7 +472,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->deleteAssistantFile('string', 'string');
+    $response = $sdk->assistants->deleteAssistantFile('<value>', '<value>');
 
     if ($response->deleteAssistantFileResponse !== null) {
         // handle response
@@ -519,7 +519,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->deleteThread('string');
+    $response = $sdk->assistants->deleteThread('<value>');
 
     if ($response->deleteThreadResponse !== null) {
         // handle response
@@ -565,7 +565,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->getAssistant('string');
+    $response = $sdk->assistants->getAssistant('<value>');
 
     if ($response->assistantObject !== null) {
         // handle response
@@ -611,7 +611,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->getAssistantFile('string', 'string');
+    $response = $sdk->assistants->getAssistantFile('<value>', '<value>');
 
     if ($response->assistantFileObject !== null) {
         // handle response
@@ -658,7 +658,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->getMessage('string', 'string');
+    $response = $sdk->assistants->getMessage('<value>', '<value>');
 
     if ($response->messageObject !== null) {
         // handle response
@@ -753,7 +753,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->getRun('string', 'string');
+    $response = $sdk->assistants->getRun('<value>', '<value>');
 
     if ($response->runObject !== null) {
         // handle response
@@ -800,7 +800,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->getRunStep('string', 'string', 'string');
+    $response = $sdk->assistants->getRunStep('<value>', '<value>', '<value>');
 
     if ($response->runStepObject !== null) {
         // handle response
@@ -848,7 +848,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->getThread('string');
+    $response = $sdk->assistants->getThread('<value>');
 
     if ($response->threadObject !== null) {
         // handle response
@@ -893,9 +893,9 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\ListAssistantFilesRequest();
-    $request->after = 'string';
-    $request->assistantId = 'string';
-    $request->before = 'string';
+    $request->after = '<value>';
+    $request->assistantId = '<value>';
+    $request->before = '<value>';
     $request->limit = 57116;
     $request->order = Operations\Order::Asc;;
 
@@ -945,7 +945,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->assistants->listAssistants('string', 'string', 948776, Operations\QueryParamOrder::Asc);
+    $response = $sdk->assistants->listAssistants('<value>', '<value>', 948776, Operations\QueryParamOrder::Asc);
 
     if ($response->listAssistantsResponse !== null) {
         // handle response
@@ -993,12 +993,12 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\ListMessageFilesRequest();
-    $request->after = 'string';
-    $request->before = 'string';
+    $request->after = '<value>';
+    $request->before = '<value>';
     $request->limit = 60284;
-    $request->messageId = 'string';
+    $request->messageId = '<value>';
     $request->order = Operations\ListMessageFilesQueryParamOrder::Asc;
-    $request->threadId = 'string';;
+    $request->threadId = '<value>';;
 
     $response = $sdk->assistants->listMessageFiles($request);
 
@@ -1045,11 +1045,11 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\ListMessagesRequest();
-    $request->after = 'string';
-    $request->before = 'string';
+    $request->after = '<value>';
+    $request->before = '<value>';
     $request->limit = 179958;
     $request->order = Operations\ListMessagesQueryParamOrder::Asc;
-    $request->threadId = 'string';;
+    $request->threadId = '<value>';;
 
     $response = $sdk->assistants->listMessages($request);
 
@@ -1096,12 +1096,12 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\ListRunStepsRequest();
-    $request->after = 'string';
-    $request->before = 'string';
+    $request->after = '<value>';
+    $request->before = '<value>';
     $request->limit = 775652;
     $request->order = Operations\ListRunStepsQueryParamOrder::Asc;
-    $request->runId = 'string';
-    $request->threadId = 'string';;
+    $request->runId = '<value>';
+    $request->threadId = '<value>';;
 
     $response = $sdk->assistants->listRunSteps($request);
 
@@ -1148,11 +1148,11 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\ListRunsRequest();
-    $request->after = 'string';
-    $request->before = 'string';
+    $request->after = '<value>';
+    $request->before = '<value>';
     $request->limit = 364964;
     $request->order = Operations\ListRunsQueryParamOrder::Asc;
-    $request->threadId = 'string';;
+    $request->threadId = '<value>';;
 
     $response = $sdk->assistants->listRuns($request);
 
@@ -1201,17 +1201,17 @@ try {
         $modifyAssistantRequest = new Shared\ModifyAssistantRequest();
     $modifyAssistantRequest->description = 'Assimilated client-driven forecast';
     $modifyAssistantRequest->fileIds = [
-        'string',
+        '<value>',
     ];
-    $modifyAssistantRequest->instructions = 'string';
+    $modifyAssistantRequest->instructions = '<value>';
     $modifyAssistantRequest->metadata = new Shared\ModifyAssistantRequestMetadata();
     $modifyAssistantRequest->model = 'Aventador';
-    $modifyAssistantRequest->name = 'string';
+    $modifyAssistantRequest->name = '<value>';
     $modifyAssistantRequest->tools = [
-        'string',
+        '<value>',
     ];
 
-    $response = $sdk->assistants->modifyAssistant($modifyAssistantRequest, 'string');
+    $response = $sdk->assistants->modifyAssistant($modifyAssistantRequest, '<value>');
 
     if ($response->assistantObject !== null) {
         // handle response
@@ -1259,7 +1259,7 @@ try {
         $modifyMessageRequest = new Shared\ModifyMessageRequest();
     $modifyMessageRequest->metadata = new Shared\ModifyMessageRequestMetadata();
 
-    $response = $sdk->assistants->modifyMessage($modifyMessageRequest, 'string', 'string');
+    $response = $sdk->assistants->modifyMessage($modifyMessageRequest, '<value>', '<value>');
 
     if ($response->messageObject !== null) {
         // handle response
@@ -1308,7 +1308,7 @@ try {
         $modifyRunRequest = new Shared\ModifyRunRequest();
     $modifyRunRequest->metadata = new Shared\ModifyRunRequestMetadata();
 
-    $response = $sdk->assistants->modifyRun($modifyRunRequest, 'string', 'string');
+    $response = $sdk->assistants->modifyRun($modifyRunRequest, '<value>', '<value>');
 
     if ($response->runObject !== null) {
         // handle response
@@ -1357,7 +1357,7 @@ try {
         $modifyThreadRequest = new Shared\ModifyThreadRequest();
     $modifyThreadRequest->metadata = new Shared\ModifyThreadRequestMetadata();
 
-    $response = $sdk->assistants->modifyThread($modifyThreadRequest, 'string');
+    $response = $sdk->assistants->modifyThread($modifyThreadRequest, '<value>');
 
     if ($response->threadObject !== null) {
         // handle response
@@ -1408,7 +1408,7 @@ try {
         new Shared\ToolOutputs(),
     ];
 
-    $response = $sdk->assistants->submitToolOuputsToRun($submitToolOutputsRunRequest, 'string', 'string');
+    $response = $sdk->assistants->submitToolOuputsToRun($submitToolOutputsRunRequest, '<value>', '<value>');
 
     if ($response->runObject !== null) {
         // handle response

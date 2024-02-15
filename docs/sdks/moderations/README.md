@@ -31,7 +31,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $request = new Shared\CreateModerationRequest();
-    $request->input = 'string';
+    $request->input = '<value>';
     $request->model = 'text-moderation-stable';;
 
     $response = $sdk->moderations->createModeration($request);

@@ -33,8 +33,8 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $request = new Shared\CreateSpeechRequest();
-    $request->input = 'string';
-    $request->model = 'string';
+    $request->input = '<value>';
+    $request->model = '<value>';
     $request->responseFormat = Shared\CreateSpeechRequestResponseFormat::Flac;
     $request->speed = 4589.78;
     $request->voice = Shared\Voice::Fable;;
@@ -86,9 +86,9 @@ try {
     $request->file = new Shared\CreateTranscriptionRequestFile();
     $request->file->content = '0xe08fcc1Fd5';
     $request->file->fileName = 'buckinghamshire.gif';
-    $request->language = 'string';
+    $request->language = '<value>';
     $request->model = 'whisper-1';
-    $request->prompt = 'string';
+    $request->prompt = '<value>';
     $request->responseFormat = Shared\CreateTranscriptionRequestResponseFormat::VerboseJson;
     $request->temperature = 1961.3;
     $request->timestampGranularities = [
@@ -143,8 +143,8 @@ try {
     $request->file->content = '0xa45ca6c4DE';
     $request->file->fileName = 'reggae_toys_silver.gif';
     $request->model = 'whisper-1';
-    $request->prompt = 'string';
-    $request->responseFormat = 'string';
+    $request->prompt = '<value>';
+    $request->responseFormat = '<value>';
     $request->temperature = 8877.09;;
 
     $response = $sdk->audio->createTranslation($request);

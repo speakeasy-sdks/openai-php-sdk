@@ -99,11 +99,11 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
         $request = new Shared\CreateFineTuningJobRequest();
     $request->hyperparameters = new Shared\Hyperparameters();
-    $request->hyperparameters->batchSize = 'string';
-    $request->hyperparameters->learningRateMultiplier = 'string';
-    $request->hyperparameters->nEpochs = 'string';
+    $request->hyperparameters->batchSize = '<value>';
+    $request->hyperparameters->learningRateMultiplier = '<value>';
+    $request->hyperparameters->nEpochs = '<value>';
     $request->model = 'gpt-3.5-turbo';
-    $request->suffix = 'string';
+    $request->suffix = '<value>';
     $request->trainingFile = 'file-abc123';
     $request->validationFile = 'file-abc123';;
 
@@ -154,7 +154,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->fineTuning->listFineTuningEvents('ft-AF1WoRqd3aJAHsqc9NY7iL8F', 'string', 896841);
+    $response = $sdk->fineTuning->listFineTuningEvents('ft-AF1WoRqd3aJAHsqc9NY7iL8F', '<value>', 896841);
 
     if ($response->listFineTuningJobEventsResponse !== null) {
         // handle response
@@ -203,7 +203,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->fineTuning->listPaginatedFineTuningJobs('string', 385496);
+    $response = $sdk->fineTuning->listPaginatedFineTuningJobs('<value>', 385496);
 
     if ($response->listPaginatedFineTuningJobsResponse !== null) {
         // handle response

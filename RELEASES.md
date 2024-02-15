@@ -245,3 +245,13 @@ Based on:
 - [php v4.0.2] .
 ### Releases
 - [Composer v4.0.2] https://packagist.org/packages/speakeasy-sdks/openai-php-sdk#v4.0.2 - .
+
+## 2024-02-15 00:30:03
+### Changes
+Based on:
+- OpenAPI Doc 2.0.0 https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+- Speakeasy CLI 1.180.0 (2.258.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v4.0.3] .
+### Releases
+- [Composer v4.0.3] https://packagist.org/packages/speakeasy-sdks/openai-php-sdk#v4.0.3 - .

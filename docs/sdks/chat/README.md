@@ -32,18 +32,18 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 try {
         $request = new Shared\CreateChatCompletionRequest();
     $request->frequencyPenalty = 7707.26;
-    $request->functionCall = 'string';
+    $request->functionCall = '<value>';
     $request->functions = [
         new Shared\ChatCompletionFunctions(),
     ];
-    $request->instanceId = 'string';
+    $request->instanceId = '<value>';
     $request->logitBias = [
         'navigate' => 817435,
     ];
     $request->logprobs = false;
     $request->maxTokens = 21872;
     $request->messages = [
-        'string',
+        '<value>',
     ];
     $request->model = 'gpt-3.5-turbo';
     $request->n = 1;
@@ -51,10 +51,10 @@ try {
     $request->responseFormat = new Shared\ResponseFormat();
     $request->responseFormat->type = Shared\CreateChatCompletionRequestType::JsonObject;
     $request->seed = 313767;
-    $request->stop = 'string';
+    $request->stop = '<value>';
     $request->stream = false;
     $request->temperature = 1;
-    $request->toolChoice = 'string';
+    $request->toolChoice = '<value>';
     $request->tools = [
         new Shared\ChatCompletionTool(),
     ];

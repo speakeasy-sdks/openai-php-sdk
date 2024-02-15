@@ -39,12 +39,12 @@ try {
     ];
     $request->logprobs = 591562;
     $request->maxTokens = 16;
-    $request->model = 'string';
+    $request->model = '<value>';
     $request->n = 1;
     $request->presencePenalty = 7227.62;
-    $request->prompt = 'string';
+    $request->prompt = '<value>';
     $request->seed = 723216;
-    $request->stop = 'string';
+    $request->stop = '<value>';
     $request->stream = false;
     $request->suffix = 'test.';
     $request->temperature = 1;
