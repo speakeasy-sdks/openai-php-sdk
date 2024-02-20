@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 4219ee55-cf29-46c6-aa2b-77f79e31a017
 management:
-  docChecksum: fc72a6cb6d13a3b462587faec01dd645
+  docChecksum: 48d5059756953328026cfca7d15f0081
   docVersion: 2.0.0
   speakeasyVersion: internal
-  generationVersion: 2.258.0
-  releaseVersion: 4.0.3
-  configChecksum: ef0ed1cc5e9da618dc54dc3de8638665
+  generationVersion: 2.263.3
+  releaseVersion: 4.0.4
+  configChecksum: 3a183be9e667d6be0c704b13544c07ff
   repoURL: https://github.com/speakeasy-sdks/openai-php-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-php-sdk

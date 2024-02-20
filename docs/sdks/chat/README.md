@@ -36,7 +36,6 @@ try {
     $request->functions = [
         new Shared\ChatCompletionFunctions(),
     ];
-    $request->instanceId = '<value>';
     $request->logitBias = [
         'navigate' => 817435,
     ];
