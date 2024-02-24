@@ -35,7 +35,8 @@ Immediately cancel a fine-tune job.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -86,7 +87,8 @@ Response includes details of the enqueued job including job status and the name 
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -140,7 +142,8 @@ Get status updates for a fine-tuning job.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -189,7 +192,8 @@ List your organization's fine-tuning jobs
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -239,7 +243,8 @@ Get info about a fine-tuning job.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;

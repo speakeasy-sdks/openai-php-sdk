@@ -21,7 +21,8 @@ Delete a fine-tuned model. You must have the Owner role in your organization to 
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -67,7 +68,8 @@ Lists the currently available models, and provides basic information about each 
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -104,7 +106,8 @@ Retrieves a model instance, providing basic information about the model such as 
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;

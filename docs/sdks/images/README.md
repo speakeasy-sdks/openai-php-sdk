@@ -21,7 +21,8 @@ Creates an image given a prompt.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -74,7 +75,8 @@ Creates an edited or extended image given an original image and a prompt.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -131,7 +133,8 @@ Creates a variation of a given image.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;

@@ -19,7 +19,8 @@ Classifies if text violates OpenAI's Content Policy
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;

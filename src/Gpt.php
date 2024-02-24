@@ -89,8 +89,7 @@ class Gpt
      * @var Moderations $$moderations
      */
 	public Moderations $moderations;
-		
-	private SDKConfiguration $sdkConfiguration;
+	
 
 	/**
 	 * Returns a new instance of the SDK builder used to configure and create the SDK instance.
@@ -105,9 +104,9 @@ class Gpt
 	/**
 	 * @param SDKConfiguration $sdkConfiguration
 	 */
-	public function __construct(SDKConfiguration $sdkConfiguration)
-	{
-		$this->sdkConfiguration = $sdkConfiguration;
+	public function __construct(
+		private SDKConfiguration $sdkConfiguration,
+	) {
 		
 		$this->assistants = new Assistants($this->sdkConfiguration);
 		

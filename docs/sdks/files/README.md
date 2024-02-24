@@ -33,7 +33,8 @@ Please [contact us](https://help.openai.com/) if you need to increase these stor
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -82,7 +83,8 @@ Delete a file.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -128,7 +130,8 @@ Returns the contents of the specified file.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -174,7 +177,8 @@ Returns a list of files that belong to the user's organization.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -220,7 +224,8 @@ Returns information about a specific file.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;

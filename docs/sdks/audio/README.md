@@ -21,7 +21,8 @@ Generates audio from the input text.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -35,7 +36,7 @@ try {
         $request = new Shared\CreateSpeechRequest();
     $request->input = '<value>';
     $request->model = '<value>';
-    $request->responseFormat = Shared\CreateSpeechRequestResponseFormat::Flac;
+    $request->responseFormat = Shared\CreateSpeechRequestResponseFormat::Wav;
     $request->speed = 4589.78;
     $request->voice = Shared\Voice::Fable;;
 
@@ -71,7 +72,8 @@ Transcribes audio into the input language.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;
@@ -127,7 +129,8 @@ Translates audio into English.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \Openai\SDK;
 use \Openai\SDK\Models\Shared;

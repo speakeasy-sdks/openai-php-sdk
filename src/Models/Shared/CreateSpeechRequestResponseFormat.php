@@ -9,11 +9,19 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-/** The format to audio in. Supported formats are `mp3`, `opus`, `aac`, and `flac`. */
+/**
+ * The format to return audio in. 
+ * 
+ * Supported formats are `mp3`, `opus`, `aac`, `flac`, `pcm`, and `wav`. 
+ * 
+ * The `pcm` audio format, similar to `wav` but without a header, utilizes a 24kHz sample rate, mono channel, and 16-bit depth in signed little-endian format.
+ */
 enum CreateSpeechRequestResponseFormat: string
 {
     case Mp3 = 'mp3';
     case Opus = 'opus';
     case Aac = 'aac';
     case Flac = 'flac';
+    case Pcm = 'pcm';
+    case Wav = 'wav';
 }
