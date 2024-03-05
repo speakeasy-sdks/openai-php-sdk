@@ -30,7 +30,7 @@ class Results
     public CategoryScores $categoryScores;
     
     /**
-     * Whether the content violates [OpenAI's usage policies](/policies/usage-policies).
+     * Whether any of the below categories are flagged.
      * 
      * @var bool $flagged
      */

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 4219ee55-cf29-46c6-aa2b-77f79e31a017
 management:
-  docChecksum: a69f499fa6cae6acc1c4d0e467f207d3
+  docChecksum: 0f1a105489b43417f5ab6cd2c8614d36
   docVersion: 2.0.0
   speakeasyVersion: internal
-  generationVersion: 2.272.4
-  releaseVersion: 4.0.5
-  configChecksum: f985ae01e79125b3ec3d081ed89c0a2d
+  generationVersion: 2.277.0
+  releaseVersion: 4.0.6
+  configChecksum: da4c1252fd40cc50eb10c66d6d1dd04a
   repoURL: https://github.com/speakeasy-sdks/openai-php-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-php-sdk
@@ -16,7 +16,7 @@ features:
     core: 3.3.3
     deprecations: 2.81.1
     flattening: 2.81.1
-    globalSecurity: 2.81.4
+    globalSecurity: 2.81.5
     globalServerURLs: 2.82.1
 generatedFiles:
   - src/SDKConfiguration.php
@@ -215,12 +215,10 @@ generatedFiles:
   - src/Models/Shared/CreateSpeechRequestResponseFormat.php
   - src/Models/Shared/Voice.php
   - src/Models/Shared/CreateSpeechRequest.php
-  - src/Models/Shared/CreateTranscriptionResponse.php
   - src/Models/Shared/CreateTranscriptionRequestFile.php
   - src/Models/Shared/CreateTranscriptionRequestResponseFormat.php
   - src/Models/Shared/TimestampGranularities.php
   - src/Models/Shared/CreateTranscriptionRequest.php
-  - src/Models/Shared/CreateTranslationResponse.php
   - src/Models/Shared/CreateTranslationRequestFile.php
   - src/Models/Shared/CreateTranslationRequest.php
   - src/Models/Shared/FinishReason.php
@@ -473,12 +471,10 @@ generatedFiles:
   - docs/Models/Shared/CreateSpeechRequestResponseFormat.md
   - docs/Models/Shared/Voice.md
   - docs/Models/Shared/CreateSpeechRequest.md
-  - docs/Models/Shared/CreateTranscriptionResponse.md
   - docs/Models/Shared/CreateTranscriptionRequestFile.md
   - docs/Models/Shared/CreateTranscriptionRequestResponseFormat.md
   - docs/Models/Shared/TimestampGranularities.md
   - docs/Models/Shared/CreateTranscriptionRequest.md
-  - docs/Models/Shared/CreateTranslationResponse.md
   - docs/Models/Shared/CreateTranslationRequestFile.md
   - docs/Models/Shared/CreateTranslationRequest.md
   - docs/Models/Shared/FinishReason.md

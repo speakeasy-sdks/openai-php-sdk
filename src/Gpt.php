@@ -84,7 +84,7 @@ class Gpt
 	public Models $models;
 	
     /**
-     * Given a input text, outputs if the model classifies it as violating OpenAI's content policy.
+     * Given a input text, outputs if the model classifies it as potentially harmful.
      * 
      * @var Moderations $$moderations
      */

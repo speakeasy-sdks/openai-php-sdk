@@ -36,7 +36,7 @@ try {
         $request = new Shared\CreateSpeechRequest();
     $request->input = '<value>';
     $request->model = '<value>';
-    $request->responseFormat = Shared\CreateSpeechRequestResponseFormat::Wav;
+    $request->responseFormat = Shared\CreateSpeechRequestResponseFormat::Pcm;
     $request->speed = 4589.78;
     $request->voice = Shared\Voice::Fable;;
 
@@ -99,7 +99,7 @@ try {
 
     $response = $sdk->audio->createTranscription($request);
 
-    if ($response->createTranscriptionResponse !== null) {
+    if ($response->oneOf !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -152,7 +152,7 @@ try {
 
     $response = $sdk->audio->createTranslation($request);
 
-    if ($response->createTranslationResponse !== null) {
+    if ($response->oneOf !== null) {
         // handle response
     }
 } catch (Throwable $e) {

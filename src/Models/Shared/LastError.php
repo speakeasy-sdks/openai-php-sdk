@@ -18,7 +18,7 @@ namespace Openai\SDK\Models\Shared;
 class LastError
 {
     /**
-     * One of `server_error` or `rate_limit_exceeded`.
+     * One of `server_error`, `rate_limit_exceeded`, or `invalid_prompt`.
      * 
      * @var \Openai\SDK\Models\Shared\Code $code
      */

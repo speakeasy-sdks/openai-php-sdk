@@ -101,7 +101,7 @@ class Audio
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->createTranscriptionResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateTranscriptionResponse', 'json');
+                $response->oneOf = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
             }
         }
 
@@ -144,7 +144,7 @@ class Audio
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->createTranslationResponse = $serializer->deserialize((string)$httpResponse->getBody(), 'Openai\SDK\Models\Shared\CreateTranslationResponse', 'json');
+                $response->oneOf = $serializer->deserialize((string)$httpResponse->getBody(), 'mixed', 'json');
             }
         }
 

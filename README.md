@@ -166,7 +166,7 @@ Response includes details of the enqueued job including job status and the name 
 
 ### [Moderations](docs/sdks/moderations/README.md)
 
-* [createModeration](docs/sdks/moderations/README.md#createmoderation) - Classifies if text violates OpenAI's Content Policy
+* [createModeration](docs/sdks/moderations/README.md#createmoderation) - Classifies if text is potentially harmful.
 <!-- End Available Resources and Operations [operations] -->
 
 

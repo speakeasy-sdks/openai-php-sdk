@@ -20,14 +20,6 @@ class CreateTranscriptionResponse
     public string $contentType;
     
     /**
-     * OK
-     * 
-     * @var ?\Openai\SDK\Models\Shared\CreateTranscriptionResponse $createTranscriptionResponse
-     */
-	
-    public ?\Openai\SDK\Models\Shared\CreateTranscriptionResponse $createTranscriptionResponse = null;
-    
-    /**
      * HTTP response status code for this operation
      * 
      * @var int $statusCode
@@ -43,11 +35,19 @@ class CreateTranscriptionResponse
 	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
+    /**
+     * OK
+     * 
+     * @var mixed $oneOf
+     */
+	
+    public mixed $oneOf = null;
+    
 	public function __construct()
 	{
 		$this->contentType = "";
-		$this->createTranscriptionResponse = null;
 		$this->statusCode = 0;
 		$this->rawResponse = null;
+		$this->oneOf = null;
 	}
 }

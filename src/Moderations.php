@@ -22,7 +22,7 @@ class Moderations
 	}
 	
     /**
-     * Classifies if text violates OpenAI's Content Policy
+     * Classifies if text is potentially harmful.
      * 
      * @param \Openai\SDK\Models\Shared\CreateModerationRequest $request
      * @return \Openai\SDK\Models\Operations\CreateModerationResponse

@@ -9,9 +9,10 @@ declare(strict_types=1);
 namespace Openai\SDK\Models\Shared;
 
 
-/** One of `server_error` or `rate_limit_exceeded`. */
+/** One of `server_error`, `rate_limit_exceeded`, or `invalid_prompt`. */
 enum Code: string
 {
     case ServerError = 'server_error';
     case RateLimitExceeded = 'rate_limit_exceeded';
+    case InvalidPrompt = 'invalid_prompt';
 }
