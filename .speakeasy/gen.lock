@@ -3,10 +3,10 @@ id: 4219ee55-cf29-46c6-aa2b-77f79e31a017
 management:
   docChecksum: 0f1a105489b43417f5ab6cd2c8614d36
   docVersion: 2.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.277.0
-  releaseVersion: 4.0.6
-  configChecksum: da4c1252fd40cc50eb10c66d6d1dd04a
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 4.0.7
+  configChecksum: 8a9a2a8ae16c17b1913019c73dea9437
   repoURL: https://github.com/speakeasy-sdks/openai-php-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-php-sdk
@@ -16,7 +16,7 @@ features:
     core: 3.3.3
     deprecations: 2.81.1
     flattening: 2.81.1
-    globalSecurity: 2.81.5
+    globalSecurity: 2.81.6
     globalServerURLs: 2.82.1
 generatedFiles:
   - src/SDKConfiguration.php

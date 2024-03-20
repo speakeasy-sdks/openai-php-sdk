@@ -147,7 +147,7 @@ try {
 
     $response = $sdk->files->downloadFile('<value>');
 
-    if ($response->res !== null) {
+    if ($response->string !== null) {
         // handle response
     }
 } catch (Throwable $e) {

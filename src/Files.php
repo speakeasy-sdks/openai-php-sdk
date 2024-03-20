@@ -143,7 +143,8 @@ class Files
         
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $response->res = $httpResponse->getBody()->getContents();
+                $serializer = Utils\JSON::createSerializer();
+                $response->string = $serializer->deserialize((string)$httpResponse->getBody(), 'string', 'json');
             }
         }
 
