@@ -52,6 +52,18 @@ class CreateThreadAndRunRequest
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $model = null;
     
+    /**
+     * If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
+     * 
+     * 
+     * 
+     * @var ?bool $stream
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('stream')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?bool $stream = null;
+    
 	#[\JMS\Serializer\Annotation\SerializedName('thread')]
     #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateThreadRequest')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
@@ -73,6 +85,7 @@ class CreateThreadAndRunRequest
 		$this->instructions = null;
 		$this->metadata = null;
 		$this->model = null;
+		$this->stream = null;
 		$this->thread = null;
 		$this->tools = null;
 	}

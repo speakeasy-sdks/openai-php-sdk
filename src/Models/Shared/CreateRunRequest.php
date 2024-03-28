@@ -63,6 +63,18 @@ class CreateRunRequest
     public ?string $model = null;
     
     /**
+     * If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
+     * 
+     * 
+     * 
+     * @var ?bool $stream
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('stream')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?bool $stream = null;
+    
+    /**
      * Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.
      * 
      * @var ?array<mixed> $tools
@@ -79,6 +91,7 @@ class CreateRunRequest
 		$this->instructions = null;
 		$this->metadata = null;
 		$this->model = null;
+		$this->stream = null;
 		$this->tools = null;
 	}
 }

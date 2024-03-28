@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 4219ee55-cf29-46c6-aa2b-77f79e31a017
 management:
-  docChecksum: 0f1a105489b43417f5ab6cd2c8614d36
+  docChecksum: 04b9085be828615e92aa35273c14fd35
   docVersion: 2.0.0
-  speakeasyVersion: 1.213.0
-  generationVersion: 2.283.1
-  releaseVersion: 4.0.7
-  configChecksum: 8a9a2a8ae16c17b1913019c73dea9437
+  speakeasyVersion: 1.228.1
+  generationVersion: 2.292.0
+  releaseVersion: 4.0.8
+  configChecksum: 92421dd4c5d67fe381b321ae4063cb40
   repoURL: https://github.com/speakeasy-sdks/openai-php-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-php-sdk
@@ -164,9 +164,12 @@ generatedFiles:
   - src/Models/Shared/Object.php
   - src/Models/Shared/AssistantFileObject.php
   - src/Models/Shared/CreateAssistantFileRequest.php
+  - src/Models/Shared/Reason.php
+  - src/Models/Shared/IncompleteDetails.php
   - src/Models/Shared/MessageObjectMetadata.php
   - src/Models/Shared/MessageObjectObject.php
   - src/Models/Shared/MessageObjectRole.php
+  - src/Models/Shared/MessageObjectStatus.php
   - src/Models/Shared/MessageObject.php
   - src/Models/Shared/CreateMessageRequestMetadata.php
   - src/Models/Shared/CreateMessageRequestRole.php
@@ -420,9 +423,12 @@ generatedFiles:
   - docs/Models/Shared/Object.md
   - docs/Models/Shared/AssistantFileObject.md
   - docs/Models/Shared/CreateAssistantFileRequest.md
+  - docs/Models/Shared/Reason.md
+  - docs/Models/Shared/IncompleteDetails.md
   - docs/Models/Shared/MessageObjectMetadata.md
   - docs/Models/Shared/MessageObjectObject.md
   - docs/Models/Shared/MessageObjectRole.md
+  - docs/Models/Shared/MessageObjectStatus.md
   - docs/Models/Shared/MessageObject.md
   - docs/Models/Shared/CreateMessageRequestMetadata.md
   - docs/Models/Shared/CreateMessageRequestRole.md

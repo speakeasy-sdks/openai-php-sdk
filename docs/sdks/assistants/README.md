@@ -274,6 +274,7 @@ try {
     $createRunRequest->instructions = '<value>';
     $createRunRequest->metadata = new Shared\CreateRunRequestMetadata();
     $createRunRequest->model = 'F-150';
+    $createRunRequest->stream = false;
     $createRunRequest->tools = [
         '<value>',
     ];
@@ -378,6 +379,7 @@ try {
     $request->instructions = '<value>';
     $request->metadata = new Shared\CreateThreadAndRunRequestMetadata();
     $request->model = 'Beetle';
+    $request->stream = false;
     $request->thread = new Shared\CreateThreadRequest();
     $request->thread->messages = [
         new Shared\CreateMessageRequest(),
@@ -1432,6 +1434,7 @@ $sdk = SDK\Gpt::builder()->setSecurity($security)->build();
 
 try {
         $submitToolOutputsRunRequest = new Shared\SubmitToolOutputsRunRequest();
+    $submitToolOutputsRunRequest->stream = false;
     $submitToolOutputsRunRequest->toolOutputs = [
         new Shared\ToolOutputs(),
     ];

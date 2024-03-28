@@ -12,6 +12,18 @@ namespace Openai\SDK\Models\Shared;
 class SubmitToolOutputsRunRequest
 {
     /**
+     * If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
+     * 
+     * 
+     * 
+     * @var ?bool $stream
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('stream')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?bool $stream = null;
+    
+    /**
      * A list of tools for which the outputs are being submitted.
      * 
      * @var array<\Openai\SDK\Models\Shared\ToolOutputs> $toolOutputs
@@ -22,6 +34,7 @@ class SubmitToolOutputsRunRequest
     
 	public function __construct()
 	{
+		$this->stream = null;
 		$this->toolOutputs = [];
 	}
 }

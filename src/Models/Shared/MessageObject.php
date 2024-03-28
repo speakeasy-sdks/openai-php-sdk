@@ -27,6 +27,15 @@ class MessageObject
     public string $assistantId;
     
     /**
+     * The Unix timestamp (in seconds) for when the message was completed.
+     * 
+     * @var int $completedAt
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('completed_at')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    public int $completedAt;
+    
+    /**
      * The content of the message in array of text and/or images.
      * 
      * @var array<mixed> $content
@@ -61,6 +70,24 @@ class MessageObject
 	#[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     public string $id;
+    
+    /**
+     * The Unix timestamp (in seconds) for when the message was marked as incomplete.
+     * 
+     * @var int $incompleteAt
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('incomplete_at')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    public int $incompleteAt;
+    
+    /**
+     * On an incomplete message, details about why the message is incomplete.
+     * 
+     * @var \Openai\SDK\Models\Shared\IncompleteDetails $incompleteDetails
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('incomplete_details')]
+    #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\IncompleteDetails')]
+    public IncompleteDetails $incompleteDetails;
     
     /**
      * Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.
@@ -101,6 +128,15 @@ class MessageObject
     public string $runId;
     
     /**
+     * The status of the message, which can be either `in_progress`, `incomplete`, or `completed`.
+     * 
+     * @var \Openai\SDK\Models\Shared\MessageObjectStatus $status
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('status')]
+    #[\JMS\Serializer\Annotation\Type('enum<Openai\SDK\Models\Shared\MessageObjectStatus>')]
+    public MessageObjectStatus $status;
+    
+    /**
      * The [thread](/docs/api-reference/threads) ID that this message belongs to.
      * 
      * @var string $threadId
@@ -112,14 +148,18 @@ class MessageObject
 	public function __construct()
 	{
 		$this->assistantId = "";
+		$this->completedAt = 0;
 		$this->content = [];
 		$this->createdAt = 0;
 		$this->fileIds = [];
 		$this->id = "";
+		$this->incompleteAt = 0;
+		$this->incompleteDetails = new \Openai\SDK\Models\Shared\IncompleteDetails();
 		$this->metadata = new \Openai\SDK\Models\Shared\MessageObjectMetadata();
 		$this->object = \Openai\SDK\Models\Shared\MessageObjectObject::ThreadMessage;
 		$this->role = \Openai\SDK\Models\Shared\MessageObjectRole::User;
 		$this->runId = "";
+		$this->status = \Openai\SDK\Models\Shared\MessageObjectStatus::InProgress;
 		$this->threadId = "";
 	}
 }
