@@ -75,6 +75,18 @@ class CreateRunRequest
     public ?bool $stream = null;
     
     /**
+     * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
+     * 
+     * 
+     * 
+     * @var ?float $temperature
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('temperature')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?float $temperature = null;
+    
+    /**
      * Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.
      * 
      * @var ?array<mixed> $tools
@@ -92,6 +104,7 @@ class CreateRunRequest
 		$this->metadata = null;
 		$this->model = null;
 		$this->stream = null;
+		$this->temperature = null;
 		$this->tools = null;
 	}
 }

@@ -64,6 +64,18 @@ class CreateThreadAndRunRequest
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $stream = null;
     
+    /**
+     * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
+     * 
+     * 
+     * 
+     * @var ?float $temperature
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('temperature')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?float $temperature = null;
+    
 	#[\JMS\Serializer\Annotation\SerializedName('thread')]
     #[\JMS\Serializer\Annotation\Type('Openai\SDK\Models\Shared\CreateThreadRequest')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
@@ -86,6 +98,7 @@ class CreateThreadAndRunRequest
 		$this->metadata = null;
 		$this->model = null;
 		$this->stream = null;
+		$this->temperature = null;
 		$this->thread = null;
 		$this->tools = null;
 	}

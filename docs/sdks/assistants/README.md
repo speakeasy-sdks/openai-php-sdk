@@ -275,6 +275,7 @@ try {
     $createRunRequest->metadata = new Shared\CreateRunRequestMetadata();
     $createRunRequest->model = 'F-150';
     $createRunRequest->stream = false;
+    $createRunRequest->temperature = 1;
     $createRunRequest->tools = [
         '<value>',
     ];
@@ -380,6 +381,7 @@ try {
     $request->metadata = new Shared\CreateThreadAndRunRequestMetadata();
     $request->model = 'Beetle';
     $request->stream = false;
+    $request->temperature = 1;
     $request->thread = new Shared\CreateThreadRequest();
     $request->thread->messages = [
         new Shared\CreateMessageRequest(),

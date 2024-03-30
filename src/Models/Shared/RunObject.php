@@ -164,6 +164,16 @@ class RunObject
     public RunObjectStatus $status;
     
     /**
+     * The sampling temperature used for this run. If not set, defaults to 1.
+     * 
+     * @var ?float $temperature
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('temperature')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?float $temperature = null;
+    
+    /**
      * The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.
      * 
      * @var string $threadId
@@ -208,6 +218,7 @@ class RunObject
 		$this->requiredAction = new \Openai\SDK\Models\Shared\RequiredAction();
 		$this->startedAt = 0;
 		$this->status = \Openai\SDK\Models\Shared\RunObjectStatus::Queued;
+		$this->temperature = null;
 		$this->threadId = "";
 		$this->tools = [];
 		$this->usage = new \Openai\SDK\Models\Shared\RunCompletionUsage();
