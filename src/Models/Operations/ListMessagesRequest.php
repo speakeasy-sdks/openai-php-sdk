@@ -52,6 +52,16 @@ class ListMessagesRequest
     public ?ListMessagesQueryParamOrder $order = null;
     
     /**
+     * Filter messages by the run ID that generated them.
+     * 
+     * 
+     * 
+     * @var ?string $runId
+     */
+	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=run_id')]
+    public ?string $runId = null;
+    
+    /**
      * The ID of the [thread](/docs/api-reference/threads) the messages belong to.
      * 
      * @var string $threadId
@@ -65,6 +75,7 @@ class ListMessagesRequest
 		$this->before = null;
 		$this->limit = null;
 		$this->order = null;
+		$this->runId = null;
 		$this->threadId = "";
 	}
 }

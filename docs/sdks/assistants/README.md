@@ -1074,6 +1074,7 @@ try {
     $request->before = '<value>';
     $request->limit = 179958;
     $request->order = Operations\ListMessagesQueryParamOrder::Asc;
+    $request->runId = '<value>';
     $request->threadId = '<value>';;
 
     $response = $sdk->assistants->listMessages($request);
